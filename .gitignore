@@ -5,3 +5,4 @@ __pycache__/
 # Live satellite scene evidence and derived rasters remain local.
 runs/aoi-s2-jja-2025-2026/
 runs/aoi-s2-jja-2025-2026-calibrated/
+runs/aoi-s2-s1-jja-2025-2026-sigma/

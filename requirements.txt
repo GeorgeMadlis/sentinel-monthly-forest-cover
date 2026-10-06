@@ -7,3 +7,4 @@ scipy>=1.11,<2
 Pillow>=10,<13
 pystac-client>=0.8,<1
 jsonschema>=4.20,<5
+requests>=2.31,<3

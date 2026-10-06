@@ -62,8 +62,10 @@ def generate_map(path, geometry, bounds, selected, metadata):
         period_text=period.get('start','')+' — '+period.get('end','')
         compact+='<p><b>'+role.title()+':</b> '+html.escape(period_text) + '<br>'+html.escape(record['item']['id'])+'<br>'+html.escape(record['item']['datetime'])+'</p>'
     threshold=metadata.get('threshold','')
-    threshold_text=('target − reference < '+str(threshold.get('value'))) if isinstance(threshold,dict) and threshold.get('mode')=='fixed' else str(threshold)
+    threshold_text=('target − reference < '+str(threshold.get('value'))) if isinstance(threshold,dict) and threshold.get('mode')=='fixed' else ('target − reference mean < −'+str(threshold.get('k'))+' × reference σ' if isinstance(threshold,dict) and threshold.get('mode')=='sigma' else str(threshold))
     compact+='<p><b>Method:</b> '+html.escape(str(metadata.get('method','NDVI target minus reference'))) + '<br><b>Threshold:</b> '+html.escape(threshold_text)+'</p>'
+    if isinstance(threshold,dict) and threshold.get('mode')=='sigma' and metadata.get('optical_reference_dates'):
+        compact+='<p><b>NDVI reference:</b> '+str(len(metadata['optical_reference_dates']))+' cloud-masked observations. The reference RGB layer shows the original selected date.</p>'
     script='''const d=PAYLOAD;const map=L.map('map',{zoomSnap:0.1});
 map.createPane('anomalies');map.getPane('anomalies').style.zIndex=450;
 const reference=L.imageOverlay(d.images.reference,d.bounds,{attribution:'Sentinel-2 / Copernicus; Earth Search / Element 84'}),target=L.imageOverlay(d.images.target,d.bounds,{attribution:'Sentinel-2 / Copernicus; Earth Search / Element 84'}).addTo(map);
@@ -71,10 +73,11 @@ const anomalies=L.imageOverlay(d.images.anomalies,d.bounds,{pane:'anomalies'}).a
 const aoi=L.geoJSON(d.aoi,{style:{color:'#ffff00',weight:2,fill:false}}).addTo(map);
 L.control.layers({}, {[d.labels.reference]:reference,[d.labels.target]:target,'Detected anomalies':anomalies},{collapsed:false}).addTo(map);
 L.control.scale().addTo(map);map.fitBounds(aoi.getBounds());'''.replace('PAYLOAD',json.dumps(payload).replace('<','\\u003c'))
-    path.write_text('''<!doctype html><html><head><meta charset="utf-8"><title>Sentinel-2 anomaly evidence</title>
+    legend=html.escape(metadata.get('legend','Red: NDVI decline exceeding threshold; transparent: absence or unavailable data.'))
+    path.write_text('''<!doctype html><html><head><meta charset="utf-8"><title>Satellite anomaly evidence</title>
 <link rel="stylesheet" href="leaflet.css"><script src="leaflet.js"></script>
 <style>body{margin:0;font:14px sans-serif}#map{height:100vh}.info{position:absolute;bottom:30px;left:12px;z-index:1000;background:white;padding:12px;max-width:420px;max-height:40vh;overflow:auto}pre{white-space:pre-wrap;font-size:11px}</style></head><body>
-<div id="map"></div><div class="info"><b>Detected anomalies</b><p><span style="color:red">■</span> Red: NDVI decline exceeding threshold; transparent: absence or unavailable data.</p><p>Candidate change, not confirmed deforestation. Yellow: AOI.</p>'''+compact+'<details><summary>Full provenance</summary><pre>'+panel+'</pre></details></div><script>'+script+'</script></body></html>')
+<div id="map"></div><div class="info"><b>Detected anomalies</b><p><span style="color:red">■</span> '''+legend+'''</p><p>Candidate change, not confirmed deforestation. Yellow: AOI.</p>'''+compact+'<details><summary>Full provenance</summary><pre>'+panel+'</pre></details></div><script>'+script+'</script></body></html>')
     return path
 
 

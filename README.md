@@ -55,3 +55,11 @@ offline Leaflet evidence map:
 
 It explicitly runs without a forest mask when none is supplied; red pixels are
 ungated NDVI anomalies and cannot be interpreted as confirmed forest loss.
+
+The [local sigma NDVI + Sentinel-1 comparison](docs/sigma_sar_comparison.md)
+uses the same RGB backgrounds and generates optical-only and radar-confirmed
+Leaflet maps without Earth Engine:
+
+```sh
+.venv/bin/python -m forest_change.sigma_sar_map
+```
