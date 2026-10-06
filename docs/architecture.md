@@ -1,75 +1,45 @@
 # Architecture
 
-## High-Level Components
+The six boundaries remain configuration → data access → features/composites →
+disturbance decision → area estimation → reporting/evidence. Forest Cover Lab owns
+scientific definitions. `workflow.yaml` pins its revision and graph, references actual
+method/observation/DS IDs, and declares partial coverage rather than audited equivalence.
 
-1. Configuration Layer
-- Inputs:
-  - configs/run_manifest.json
-  - configs/forest_definition.yaml
-- Responsibilities:
-  - AOI selection
-  - date windows
-  - thresholds and runtime options
+| Boundary | Implementation | Durable evidence |
+|---|---|---|
+| Configuration | `forest_change/config.py`, `temporal.py`, workflow schema | config/forest-definition/AOI snapshot, aligned half-open windows |
+| Discovery | `providers.py`: ObservationProvider, LocalRasterProvider, STACProvider | observation inventory with filters, geometry hash, item/asset IDs, timestamps, available checksums/ETags |
+| Features/composites | `algorithms.py`, `pipeline.py`, `raster.py` | per-feature current, reference mean/std and valid counts; change rasters |
+| Decision | pure threshold/forest gate/fusion/component functions | optical/SAR candidates, agreement, disagreement, fused candidates and cleaned disturbance |
+| Area | equal-area grid determinant in square metres converted to hectares | per-tile/per-window CSV/JSON/GeoJSON and metrics |
+| Reporting | bounded QA thumbnails and HTML evidence viewer | report, manifest, output SHA-256 checksums |
 
-2. Data Access Layer
-- Sources:
-  - Sentinel-2 SR Harmonized
-  - Sentinel-2 Cloud Probability
-  - Hansen GFC (latest)
-  - optional Sentinel-1 GRD
-- Responsibilities:
-  - collection loading
-  - filtering by AOI/time/cloud
+`ObservationProvider.search/open_asset/describe_source` separates discovery and asset
+access from numerical calculations. Future static/GeoParquet catalogues can implement
+this interface without modifying algorithms. The local inventory is user input, not a
+repository scene database. STAC discovery runs live; an inventory is archived per run.
+STAC collection/asset names and calibration are explicitly mapped by the user; no
+provider-specific scene URL or dataset edition is guessed.
 
-3. Feature Layer
-- Responsibilities:
-  - NDVI calculation
-  - reference-period baseline statistics
-  - current-month anomaly image generation
-  - optional SAR change features
+An AOI union in EPSG:4326 is transformed onto a snapped equal-area grid. Rasterio
+WarpedVRT reads/reprojects only requested windows; categorical masks use nearest
+neighbour, continuous bands bilinear. GeoTIFF outputs are compressed and tiled,
+not claimed as COG-validated outputs. Remote COG URLs allow GDAL range reads when
+the server supports them. Source block layout still determines actual read volume.
+Country rasters remain on disk; working memory scales with tile pixels × scene count ×
+features and reference-period count. A configurable observation cap fails explicitly.
+Median requires tile-sized temporal stacks. No Dask or distributed service is needed.
 
-4. Disturbance Decision Layer
-- Responsibilities:
-  - thresholding (z-score or sigma based)
-  - forest mask gating
-  - morphology cleanup and minimum mapping unit
-  - confidence score assignment
+Minimum component filtering uses 8-connected labels on halos of N−1 pixels for a
+minimum of N pixels, then crops to the tile core. Components below N cannot reach
+outside that halo; components reaching outside necessarily meet N. Tile-size equivalence
+is tested. Halos exceeding tile size are rejected to bound memory. This is not general
+morphological smoothing. AOI boundary integration uses pixel centres and may vary with
+resolution; antimeridian-spanning AOIs must be split first.
 
-5. Area Estimation Layer
-- Responsibilities:
-  - pixel area integration in hectares
-  - tile summary + AOI rollup
-  - uncertainty diagnostics
-
-6. Reporting and Evidence Layer
-- Outputs:
-  - per-tile GeoJSON/Parquet summaries
-  - AOI summary table
-  - RGB + mask quicklooks
-  - run metadata and config snapshot
-
-## Processing Graph
-
-1. Load config and AOI
-2. Build reference baseline (N months or same-month climatology)
-3. Build current monthly composite
-4. Compute NDVI anomaly
-5. Apply forest mask + threshold
-6. Estimate area and confidence
-7. Export tabular + geospatial + visual evidence
-
-## Interfaces (Contract Sketch)
-
-- Baseline output:
-  - ndvi_mean_ref, ndvi_std_ref
-- Disturbance output:
-  - disturbance_mask, anomaly_value
-- Area summary output:
-  - tile_id, disturbed_ha, confidence_mean, valid_pixel_ratio
-
-## Non-Functional Requirements
-
-1. Reproducibility: run outputs include manifest and dataset IDs.
-2. Auditability: every run writes threshold values and data availability stats.
-3. Robustness: degraded mode when optical coverage is poor.
-4. Scalability: tile-level parallel execution.
+The local backend supports candidate screening, not all v2 confirmed-forest rules.
+Temporal persistence, terrain flattening, speckle treatment and national validation
+remain external/not implemented. Persistence periods other than one are rejected.
+Missing optical/SAR evidence remains nodata; S1-only use requires explicit configuration.
+No automatic fallback or legality/attribution inference occurs. Weighted fusion is a
+weighted candidate-vote score, not a calibrated confidence probability.

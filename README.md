@@ -1,32 +1,41 @@
-# Sentinel Monthly Forest Cover
+# Sentinel forest disturbance evidence
 
-Operational architecture for monthly forest-loss area estimation using Sentinel-2 NDVI disturbance signals, with optional Sentinel-1 SAR confirmation.
+A GEE-independent, tiled Sentinel-2 + optional Sentinel-1 workflow for small AOIs,
+regions and countries. Scientific governance remains in
+[Forest Cover Lab](https://github.com/GeorgeMadlis/forest-cover-lab). This repository
+executes provisional disturbance screening and preserves reproducible evidence.
 
-## Repository Goal
-Build a reproducible monthly pipeline that:
+**Disturbance candidates are not legal deforestation, confirmed forest state or causal
+loss labels.** Hansen annual loss is not monthly ground truth. Optical signals have
+phenology/cloud/fire/agriculture/moisture confounders; SAR depends on moisture,
+geometry and terrain. Sensor agreement does not establish cause. External QA and
+annual reconciliation remain necessary.
 
-1. Ingests AOI definitions and run manifests.
-2. Computes monthly disturbance candidates from NDVI anomaly.
-3. Produces tile-level and AOI-level area summaries with uncertainty notes.
-4. Exports evidence artifacts for review.
+```sh
+python -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python scripts/create_synthetic_fixture.py --directory /tmp/forest-demo
+.venv/bin/python scripts/run_pipeline.py \
+  --manifest /tmp/forest-demo/workflow.yaml \
+  --forest-def /tmp/forest-demo/forest.yaml \
+  --aoi-geojson /tmp/forest-demo/aoi.geojson
+.venv/bin/python -m unittest discover -v
+```
 
-## Initial Architecture Files
+The demo is synthetic, requires no credentials or network, and writes evidence to
+`/tmp/forest-demo/output`. See `configs/workflow.example.yaml` for real-run configuration.
+Local input paths are relative to their configuration/inventory files; output prefixes
+are relative to the invocation directory. All production commands use the existing
+`--manifest`, `--forest-def`, `--aoi-geojson`, `--output-prefix` flags.
 
-- docs/architecture.md: System architecture and component boundaries.
-- docs/monthly_workflow.md: End-to-end monthly run steps.
-- docs/dataset_contract.md: Input dataset IDs and update policy.
-- specs/monthly_forest_loss_spec.md: Technical specification and formulas.
-- configs/run_manifest.example.json: Example run contract.
-- configs/forest_definition.example.yaml: Example forest definition contract.
-- scripts/README.md: Script inventory and implementation plan.
+- [Architecture](docs/architecture.md): stages, IO and partial scientific coverage.
+- [Workflow](docs/monthly_workflow.md): monthly, moving-window and matched-season modes.
+- [Dataset contract](docs/dataset_contract.md): providers, calibration and preprocessing.
+- [Migration](docs/migration.md): legacy manifests and retained reference commands.
+- [Capability descriptor](workflow.yaml): pinned Lab methods/observations and divergences.
+- [Workflow schema](specs/workflow.schema.json): version 2.0 configuration.
+- [Validation](docs/validation.md): checks, evidence and remaining limitations.
 
-## Suggested First Implementation Order
-
-1. Implement script: scripts/build_monthly_composites.py
-2. Implement script: scripts/compute_ndvi_anomaly.py
-3. Implement script: scripts/estimate_loss_area.py
-4. Implement script: scripts/export_reporting_artifacts.py
-
-## Processing Position
-
-This repository estimates monthly forest disturbance confirmations. Final policy-grade attribution should include external QA and annual reconciliation.
+Historical GEE code and interactive maps remain under `examples/gee/` and `runs/`.
+GEE is optional reference code; it is absent from production dependencies. Only the
+`local-python` execution backend is implemented. STAC and local-raster are data providers.

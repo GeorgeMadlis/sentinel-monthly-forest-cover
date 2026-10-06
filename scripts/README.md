@@ -1,69 +1,19 @@
-# Scripts Plan
+# Production scripts
 
-This folder is for runnable pipeline scripts.
+The six stage/report commands use `--manifest`, `--forest-def`, `--aoi-geojson`, and
+optional `--output-prefix`. Use the root README demo to create local synthetic inputs.
 
-## Planned Scripts
+| Script | Work |
+|---|---|
+| run_pipeline.py | All stages |
+| build_monthly_composites.py | Live discovery, config snapshot, per-feature composites/counts |
+| compute_ndvi_anomaly.py | Change rasters for all configured optical/SAR features |
+| estimate_loss_area.py | Forest gating, sensor candidates, fusion/disagreement, MMU, area |
+| export_reporting_artifacts.py | CSV, GeoJSON, QA PNG, HTML evidence viewer, manifest/report |
+| render_final_map.py | Refresh reporting after area stage |
+| create_synthetic_fixture.py | Tiny deterministic raster/inventory inputs |
+| run_annual_2024_assessment.py | Migration message for preserved optional GEE example |
 
-1. build_monthly_composites.py
-- Build reference and current month composites.
-
-2. compute_ndvi_anomaly.py
-- Compute NDVI and anomaly rasters.
-
-3. estimate_loss_area.py
-- Build disturbance mask and area summaries.
-
-4. export_reporting_artifacts.py
-- Export tables, GeoJSON, and quicklook images.
-
-5. run_pipeline.py
-- Orchestrates all four stages in sequence.
-
-## Interface Convention
-
-Each script should support:
-
-- --manifest configs/run_manifest.json
-- --forest-def configs/forest_definition.yaml
-- --output-prefix runs/<run_id>
-
-## Logging
-
-Write structured logs with:
-
-- run_id
-- tile_id
-- stage
-- duration_seconds
-- warnings
-
-## Run Commands
-
-All scripts require:
-
-- --manifest
-- --forest-def
-- --aoi-geojson
-
-Example sequence:
-
-1. source /Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/activate
-2. python /Users/server/projects/sentinel-monthly-forest-cover/scripts/build_monthly_composites.py --manifest /Users/server/projects/sentinel-monthly-forest-cover/configs/run_manifest.example.json --forest-def /Users/server/projects/sentinel-monthly-forest-cover/configs/forest_definition.example.yaml --aoi-geojson /Users/server/projects/sentinel-monthly-forest-cover/configs/aoi.example.geojson
-3. python /Users/server/projects/sentinel-monthly-forest-cover/scripts/compute_ndvi_anomaly.py --manifest /Users/server/projects/sentinel-monthly-forest-cover/configs/run_manifest.example.json --forest-def /Users/server/projects/sentinel-monthly-forest-cover/configs/forest_definition.example.yaml --aoi-geojson /Users/server/projects/sentinel-monthly-forest-cover/configs/aoi.example.geojson
-4. python /Users/server/projects/sentinel-monthly-forest-cover/scripts/estimate_loss_area.py --manifest /Users/server/projects/sentinel-monthly-forest-cover/configs/run_manifest.example.json --forest-def /Users/server/projects/sentinel-monthly-forest-cover/configs/forest_definition.example.yaml --aoi-geojson /Users/server/projects/sentinel-monthly-forest-cover/configs/aoi.example.geojson
-5. python /Users/server/projects/sentinel-monthly-forest-cover/scripts/export_reporting_artifacts.py --manifest /Users/server/projects/sentinel-monthly-forest-cover/configs/run_manifest.example.json --forest-def /Users/server/projects/sentinel-monthly-forest-cover/configs/forest_definition.example.yaml --aoi-geojson /Users/server/projects/sentinel-monthly-forest-cover/configs/aoi.example.geojson
-
-Single-command orchestrator:
-
-1. python /Users/server/projects/sentinel-monthly-forest-cover/scripts/run_pipeline.py --manifest /Users/server/projects/sentinel-monthly-forest-cover/configs/run_manifest.example.json --forest-def /Users/server/projects/sentinel-monthly-forest-cover/configs/forest_definition.example.yaml --aoi-geojson /Users/server/projects/sentinel-monthly-forest-cover/configs/aoi.example.geojson
-
-## Per-Tile Outputs
-
-- composites_tiles.json
-- ndvi_anomaly_tiles.json
-- loss_area_tiles.json
-- loss_area_tiles.csv
-
-## Sentinel-1 Confirmation
-
-Configure s1_confirmation in run_manifest to enable SAR-based confirmation and optical/SAR confidence fusion.
+Run stages in table order. They use `forest_change/`; production imports do not require EE.
+`common.py` retains only basic IO helpers. GEE credentials are accepted as deprecated
+flags solely to give a clear migration error, not for local execution.

@@ -1,79 +1,32 @@
-# Monthly Forest Loss Estimation Spec
+# Executable disturbance screening specification (2.0)
 
-## Objective
-Estimate monthly disturbed forest area from NDVI anomaly, constrained by forest mask and quality filters.
+Scientific authority: pinned Forest Cover Lab contracts in `workflow.yaml`, especially
+v2, ADR 0002/0003/0004/0005 and reporting/validation requirements. This document describes
+implementation choices, not new canonical forest definitions or scientifically validated
+thresholds. See `docs/monthly_workflow.md` and `docs/dataset_contract.md` for exact temporal
+and acquisition contracts.
 
-## Inputs
+- NDVI = (NIR−RED)/(NIR+RED), NDMI = (NIR−SWIR1)/(NIR+SWIR1), NBR =
+  (NIR−SWIR2)/(NIR+SWIR2); invalid inputs/zero denominator produce nodata.
+- Features are computed per observation before mean/median compositing.
+- Reference statistics use declared period-composite or pooled-observation weighting;
+  standard deviation is population standard deviation (`ddof=0`).
+- Change = current−reference for every feature.
+- Optical candidate requires all configured optical changes < their fixed thresholds,
+  or < −k×reference standard deviation. Valid baseline-mask pixels gate the result.
+- SAR candidate requires all configured SAR changes < separate thresholds, in dB;
+  VV_MINUS_VH_DB is a log power ratio, not raw VV/VH division of dB values.
+- Fusion uses declared single-sensor, AND, OR or weighted binary-vote rules. Combined
+  rules require both sensors. Agreement includes both-negative; disagreement is XOR.
+- Final disturbance applies eight-connected minimum component size and rejects tiles
+  below configured valid coverage. Raw sensor/fused diagnostics remain evidence.
+- Area = candidate pixel count × equal-area affine determinant with metre conversions
+  / 10,000 hectares. Geographic or nonequal-area grids fail before raster allocation.
+- Missingness remains raster nodata (`−9999`); valid noncandidate pixels are zero.
+- No unique-area sum across overlapping windows; no inference of legal deforestation,
+  forest-state persistence or causality. Persistence periods >1 are unsupported and fail.
 
-1. AOI geometry
-2. Reference period image set
-3. Current month image set
-4. Forest mask image
-5. Threshold parameters
-6. Optional AOI tiling parameters
-7. Optional Sentinel-1 confirmation parameters
-
-## Definitions
-
-1. NDVI
-- NDVI = (NIR - RED) / (NIR + RED)
-
-2. Baseline statistics
-- mu_ref: baseline NDVI mean
-- sigma_ref: baseline NDVI standard deviation
-
-3. Anomaly score
-- a = NDVI_current - mu_ref
-
-4. Disturbance mask
-- d = 1 if a < tau, else 0
-- tau is threshold, e.g. tau = -k * sigma_ref or fixed percentile
-
-5. Optional Sentinel-1 confirmation
-- Build month-level VV/VH reference and current composites.
-- Compute delta bands:
-	- delta_vv = VV_current - VV_reference
-	- delta_vh = VH_current - VH_reference
-- Confirm disturbance if both decreases pass configured thresholds.
-
-6. Confidence fusion
-- optical_conf from valid-pixel and cloud diagnostics.
-- s1_conf from Sentinel-1 confirmation ratio.
-- fused_conf = w_optical * optical_conf + w_s1 * s1_conf
-
-## Area Estimation
-
-1. Disturbed area image
-- A_px = d * pixel_area
-
-2. Hectares
-- disturbed_ha = sum(A_px) / 10000
-
-## Quality Rules
-
-1. Minimum valid pixel ratio per tile.
-2. Maximum cloud fraction threshold.
-3. Minimum connected component size.
-
-## Output Schema
-
-- run_id
-- tile_id
-- month
-- disturbed_ha
-- valid_pixel_ratio
-- cloud_fraction
-- confidence_score
-- threshold_value
-- dataset_versions
-
-Per-tile outputs also include:
-
-- tile_id
-- s1_confirmation_enabled
-
-## Caveats
-
-1. Monthly results are disturbance confirmations, not definitive legal deforestation events.
-2. Annual reconciliation against independent references is required.
-3. Sentinel-1 confirmation can reduce false positives but may miss subtle optical-only disturbances.
+Outputs: configuration snapshot, live discovery inventory, composites/counts, reference
+stats, changes, sensor/fusion/disagreement/final layers, tile/period summaries, metrics,
+QA thumbnails, HTML evidence viewer, report and checksummed semantic manifest. Exported
+GeoTIFFs are tiled; RGB composites and independent satellite QA are not yet implemented.

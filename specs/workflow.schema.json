@@ -1,0 +1,499 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Sentinel local workflow 2.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "observations",
+    "providers",
+    "temporal",
+    "execution",
+    "forest_mask",
+    "threshold",
+    "fusion",
+    "output"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "temporal": {
+      "type": "object",
+      "required": [
+        "mode",
+        "target",
+        "reference_periods",
+        "aggregation"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "monthly",
+            "moving-window",
+            "matched-season",
+            "matched-season-moving-window"
+          ]
+        },
+        "target": {
+          "type": "object",
+          "required": [
+            "start",
+            "end"
+          ],
+          "properties": {
+            "start": {
+              "type": "string",
+              "format": "date"
+            },
+            "end": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          "additionalProperties": false
+        },
+        "reference_periods": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "start",
+              "end"
+            ],
+            "properties": {
+              "start": {
+                "type": "string",
+                "format": "date"
+              },
+              "end": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "aggregation": {
+          "enum": [
+            "mean",
+            "median"
+          ]
+        },
+        "alignment": {
+          "enum": [
+            "relative-day",
+            "calendar-date"
+          ]
+        },
+        "window_days": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "step_days": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "reference_statistic": {
+          "enum": [
+            "period-composites",
+            "pooled-observations"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "required": [
+        "backend",
+        "crs",
+        "resolution",
+        "tile_size"
+      ],
+      "properties": {
+        "backend": {
+          "const": "local-python"
+        },
+        "crs": {
+          "type": "string"
+        },
+        "resolution": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "tile_size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_observations_per_window": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "observations": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "optical": {
+          "type": "object",
+          "required": [
+            "dataset",
+            "version",
+            "features"
+          ],
+          "properties": {
+            "dataset": {
+              "const": "DS-0002"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "features": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "NDVI",
+                  "NDMI",
+                  "NBR"
+                ]
+              }
+            }
+          }
+        },
+        "sar": {
+          "type": "object",
+          "required": [
+            "dataset",
+            "version",
+            "features"
+          ],
+          "properties": {
+            "dataset": {
+              "const": "DS-0003"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "features": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "VV",
+                  "VH",
+                  "VV_MINUS_VH_DB"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "providers": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "properties": {
+        "optical": {
+          "type": "object",
+          "required": [
+            "type",
+            "collection"
+          ],
+          "properties": {
+            "type": {
+              "enum": [
+                "local",
+                "stac"
+              ]
+            },
+            "collection": {
+              "type": "string",
+              "minLength": 1
+            },
+            "inventory": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "asset_map": {
+              "type": "object"
+            },
+            "filters": {
+              "type": "object"
+            },
+            "asset_calibration": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "scale": {
+                    "type": "number"
+                  },
+                  "offset": {
+                    "type": "number"
+                  },
+                  "band": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "local"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "inventory"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "stac"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "endpoint",
+                  "asset_map"
+                ]
+              }
+            }
+          ],
+          "additionalProperties": false
+        },
+        "sar": {
+          "type": "object",
+          "required": [
+            "type",
+            "collection"
+          ],
+          "properties": {
+            "type": {
+              "enum": [
+                "local",
+                "stac"
+              ]
+            },
+            "collection": {
+              "type": "string",
+              "minLength": 1
+            },
+            "inventory": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string"
+            },
+            "asset_map": {
+              "type": "object"
+            },
+            "filters": {
+              "type": "object"
+            },
+            "asset_calibration": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "scale": {
+                    "type": "number"
+                  },
+                  "offset": {
+                    "type": "number"
+                  },
+                  "band": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "local"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "inventory"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "stac"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "endpoint",
+                  "asset_map"
+                ]
+              }
+            }
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "forest_mask": {
+      "type": "object",
+      "required": [
+        "path",
+        "dataset",
+        "version",
+        "reference_year",
+        "threshold",
+        "transformation"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dataset": {
+          "type": "string",
+          "pattern": "^DS-[0-9]{4}$"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reference_year": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "threshold": {
+          "type": "number"
+        },
+        "transformation": {
+          "const": "threshold-gte"
+        },
+        "band": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "threshold": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "fixed",
+            "sigma"
+          ]
+        },
+        "k": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "value": {
+          "type": "number"
+        },
+        "min_component_pixels": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "min_valid_pixel_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "fusion": {
+      "type": "object",
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "optical_only",
+            "sar_only",
+            "optical_and_sar",
+            "optical_or_sar",
+            "weighted_confidence"
+          ]
+        },
+        "optical_weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "sar_weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "threshold": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "required": [
+        "prefix"
+      ],
+      "properties": {
+        "prefix": {
+          "type": "string",
+          "minLength": 1
+        },
+        "export_quicklooks": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
