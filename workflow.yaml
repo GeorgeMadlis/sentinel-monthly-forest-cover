@@ -1,25 +1,38 @@
 capability_ids:
 - capability:spatial-search
 - capability:temporal-search
+- capability:metadata-filtering
 - capability:raster-read
+- capability:windowed-io
+- capability:raster-mask
 - capability:reprojection
-- capability:labeled-array-aggregation
+- capability:coordinate-transformation
+- capability:geometry-predicates
 dataset_ids:
 - DS-0002
 - DS-0003
 divergences:
-- 'Partial v2 coverage: emits provisional disturbance candidates; temporal persistence
-  and confirmed forest-state labels are not implemented.'
-- Terrain flattening and speckle filtering are external prerequisites, not implemented
-  here.
-- Default optical median and SAR configurable mean/median; reference uses declared
-  period-composites or legacy pooled-observations.
-- NDVI anomaly and seasonal decision thresholds are experimental user parameters,
-  not canonical validated thresholds.
+- 'Partial v2 coverage: emits provisional disturbance candidates; temporal persistence and
+  confirmed forest-state labels are not implemented.'
+- Terrain flattening and speckle filtering are external prerequisites, not implemented here.
+- Default optical median and SAR configurable mean/median; reference uses declared period-composites
+  or legacy pooled-observations.
+- NDVI anomaly and seasonal decision thresholds are experimental user parameters, not canonical
+  validated thresholds.
 - Weighted confidence is a weighted candidate-vote score, not calibrated probability.
 - No automatic S1-only fallback; select sar_only explicitly. Missing evidence is preserved
   as nodata.
 - Minimum component filtering uses 8-connectivity with bounded halos; no causal attribution.
+- Temporal aggregation (method capability capability:labeled-array-aggregation) uses NumPy
+  arrays, which have no Forest Cover Lab tool record; tool:xarray is not used.
+- method:s1-backscatter-confirmation is implemented only as per-window SAR candidate evidence;
+  observation:disturbance-confirmation is not produced.
+- method:moving-window-comparison lists observation:temporal-persistence; windows are compared
+  independently and no persistence observation is produced.
+- NDMI, NBR and VV_MINUS_VH_DB are implementation features without Forest Cover Lab measurement
+  records; only NDVI maps to measurement:ndvi.
+- Monthly, moving-window and matched-season modes, window sizes, steps and reference statistics
+  are run configuration, not canonical scientific defaults.
 implementation_version: 2.0.0
 implemented_method_ids:
 - method:ndvi-anomaly
@@ -28,8 +41,8 @@ implemented_method_ids:
 - method:moving-window-comparison
 - method:matched-season-interannual-comparison
 knowledge_snapshot:
-  forest_cover_lab_revision: c0f21c7c9f94af669aeb8a8a6656814a998e1bec
-  graph_revision: b313d2659a25f4d6c633f210c4ed7ce9565a5a95c1a021e800169784e382d7aa
+  forest_cover_lab_revision: f3895e46fe3a5109e8bf0e3e01328e942b1e98c5
+  graph_revision: ef90b703ae150c09cc7cac6fd324d7b5ecd8305a5a0d5130ec0deb61ed291e49
 observation_ids:
 - observation:forest-baseline
 - observation:optical-vegetation-state
@@ -42,6 +55,8 @@ status: declared
 tool_ids:
 - tool:stac-client
 - tool:rasterio
+- tool:pyproj
+- tool:shapely
 validation_contracts:
 - validate/validation_plan.md
 validation_ids:

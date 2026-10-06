@@ -36,7 +36,7 @@ def create_fixture(root):
             optical.append({'id':f's2-{tag}', 'datetime':f'{year}-06-{day:02d}T10:00:00Z', 'geometry':geom, 'properties':{}, 'assets':{b:raster(f'{tag}-{b}.tif',v) for b,v in bands.items()}})
             sar.append({'id':f's1-{tag}', 'datetime':f'{year}-06-{day:02d}T10:00:00Z', 'geometry':geom, 'properties':props, 'assets':{'VV':raster(f'{tag}-vv.tif',vv), 'VH':raster(f'{tag}-vh.tif',vh)}})
     write_json(root/'optical.json', {'items':optical}); write_json(root/'sar.json', {'items':sar})
-    config = {'schema_version':'2.0','run_id':'synthetic', 'aoi_id':'synthetic-aoi', 'application':'seasonal-forest-change',
+    config = {'schema_version':'2.0','run_id':'synthetic', 'aoi_id':'synthetic-aoi', 'application':'application:seasonal-forest-change-monitoring',
               'observations':{'optical':{'dataset':'DS-0002', 'version':'synthetic-1', 'features':['NDVI','NDMI','NBR'], 'quality':{'mode':'scl', 'valid_classes':[4,5,6,7]}},
                               'sar':{'dataset':'DS-0003','version':'synthetic-1', 'features':['VV','VH','VV_MINUS_VH_DB'], 'units':'db', 'aggregation':'mean',
                                      'thresholds':{'VV':-1.5,'VH':-1, 'VV_MINUS_VH_DB':1},

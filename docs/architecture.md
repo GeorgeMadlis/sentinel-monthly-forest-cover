@@ -5,6 +5,28 @@ disturbance decision → area estimation → reporting/evidence. Forest Cover La
 scientific definitions. `workflow.yaml` pins its revision and graph, references actual
 method/observation/DS IDs, and declares partial coverage rather than audited equivalence.
 
+## Authority and knowledge boundaries
+
+| Layer | Holds | Never holds |
+|---|---|---|
+| Forest Cover Lab corpus/graph | forest definitions, dataset families, methods, observations, tools, non-claims, validation policy, this workflow's registered relationships | individual scenes, runs or results |
+| Live catalogue (STAC or local inventory) | actual Sentinel observations discovered at run time | scientific meaning |
+| Run evidence (`observation_inventory.json`, `run_manifest.json`) | the query and the observations actually selected, parameters, outputs, Lab snapshot | canonical knowledge |
+
+This repository is one implementation (`workflow:sentinel-monthly-forest-cover`), not a
+method. Its temporal modes, thresholds, features and fusion rules are run configuration;
+any departure from Lab semantics is listed under `divergences` in `workflow.yaml`. Every
+descriptor ID must be registered on the Lab workflow record, so new relationships are proposed
+in Forest Cover Lab first. Run findings never update the Lab: they can become candidate
+knowledge only through Forest Cover Lab's reviewed promotion process (run finding → candidate
+record → evidence/review → validated semantic update; `governance/knowledge_promotion.md`).
+
+Each manifest's `semantic_provenance` is machine-readable and validated by Forest Cover Lab's
+`validate_provenance`: result → workflow ID/version → method IDs/versions → observation and
+application concept IDs → dataset IDs (also in `data_provenance`) → tool IDs/versions →
+Lab commit and graph revision. `scripts/explain_semantic_path.py` prints the full path for a
+configuration; see [semantic_example.md](semantic_example.md).
+
 | Boundary | Implementation | Durable evidence |
 |---|---|---|
 | Configuration | `forest_change/config.py`, `temporal.py`, workflow schema | config/forest-definition/AOI snapshot, aligned half-open windows |
@@ -23,8 +45,8 @@ provider-specific scene URL or dataset edition is guessed.
 
 An AOI union in EPSG:4326 is transformed onto a snapped equal-area grid. Rasterio
 WarpedVRT reads/reprojects only requested windows; categorical masks use nearest
-neighbour, continuous bands bilinear. GeoTIFF outputs are compressed and tiled,
-not claimed as COG-validated outputs. Remote COG URLs allow GDAL range reads when
+neighbour, continuous bands bilinear. GeoTIFF outputs are compressed, tiled and
+BigTIFF when needed, not claimed as COG-validated outputs. Remote COG URLs allow GDAL range reads when
 the server supports them. Source block layout still determines actual read volume.
 Country rasters remain on disk; working memory scales with tile pixels × scene count ×
 features and reference-period count. A configurable observation cap fails explicitly.

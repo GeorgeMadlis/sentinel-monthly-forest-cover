@@ -1,7 +1,8 @@
 # Validation record — 2026-10-06
 
 The baseline repository had no discoverable tests (unittest discovery: zero tests).
-The new suite contains 21 passing tests covering:
+The suite contains 24 passing tests (21 from the initial migration, 3 added by the
+cross-repository audit below) covering:
 
 - NDVI/NDMI/NBR, log SAR ratio, mean/median/population std and missingness;
 - calendar months including leap dates, moving-window generation, matched seasons,
@@ -14,6 +15,8 @@ The new suite contains 21 passing tests covering:
 - input/config mutation rejection and successful explicit legacy monthly migration;
 - production imports with EE, geemap and Google packages actively blocked;
 - workflow configuration schema and the locally available Lab descriptor/provenance validators.
+- Lab application-ID validation, the seasonal S1/S2 semantic example end to end, the semantic
+  trace CLI, the explicit degraded SAR-only flag and no GEE packages in `requirements.txt`.
 
 Validation command: `.venv/bin/python -m unittest discover -v`.
 
@@ -70,3 +73,20 @@ method coverage, not an audited v2-compliance or production-accuracy claim.
 
 IO design references: [Rasterio windowed IO](https://rasterio.readthedocs.io/en/stable/topics/windowed-rw.html)
 and [PySTAC-Client usage](https://pystac-client.readthedocs.io/en/stable/usage.html).
+
+## Cross-repository integration audit — 2026-10-06
+
+Audited against Forest Cover Lab (pre-audit `c0f21c7`, post-audit `f3895e4`, graph revision
+`ef90b703…`). Fixed here: descriptor tools/capabilities now match code (pyproj, shapely,
+windowed IO, raster mask; NumPy aggregation recorded as a divergence instead of an
+unprovided xarray capability); further partial-coverage divergences declared; `application`
+must be a Lab concept ID; manifests record every Lab tool actually used and the application,
+validation and non-claim concepts, with optical/SAR observation concepts limited to configured
+sensors; an explicit evidence-mode/degraded SAR-only flag; BigTIFF for country-scale grids;
+the legacy GEE input manifest renamed to `configs/legacy_gee_manifest.example.json`; the
+forest-definition example no longer restates a canonical canopy-threshold definition.
+
+Commands: `.venv/bin/python -m unittest discover -v` (24 OK);
+`python ../forest-cover-lab/graph/build.py --check --descriptor workflow.yaml` (passes);
+the README synthetic CLI demo (0.16 ha synthetic candidates, unchanged) followed by Lab
+`validate_provenance` on its manifest (passes). Semantic path: `docs/semantic_example.md`.

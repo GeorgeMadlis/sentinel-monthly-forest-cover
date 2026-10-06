@@ -25,7 +25,8 @@ class Grid:
     def profile(self):
         return dict(driver='GTiff', width=self.width, height=self.height, count=1,
                     crs=self.crs, transform=self.transform, dtype='float32', nodata=-9999,
-                    tiled=True, blockxsize=256, blockysize=256, compress='deflate')
+                    tiled=True, blockxsize=256, blockysize=256, compress='deflate',
+                    BIGTIFF='IF_SAFER')  # country grids can exceed 4 GiB per layer
 
     @property
     def pixel_ha(self):

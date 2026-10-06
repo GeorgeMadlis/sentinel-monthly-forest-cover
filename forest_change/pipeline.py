@@ -16,8 +16,9 @@ from rasterio.warp import transform_geom
 from . import __version__
 from .algorithms import OPTICAL, aggregate, clean, feature, fuse
 from .config import read_config
-from .evidence import NON_CLAIMS, checksum, geometry_hash, load, write_json
+from .evidence import EVIDENCE_MODES, NON_CLAIMS, checksum, geometry_hash, load, write_json
 from .providers import provider, utc_now
+from .semantics import concept_ids, selected_methods
 from .raster import (aoi_geometry, expand, grid_for, inside, read_asset,
                      tiles, write_window)
 from .temporal import windows
@@ -275,7 +276,9 @@ class Workflow:
                                  'disagreement_pixels': int(np.count_nonzero(disagree[core] == 1)),
                                  's1_confirmation_enabled': 'sar' in self.config['observations'], 'geometry': geometry})
         write_json(self.out / 'loss_area_tiles.json', {'run_id': self.config['run_id'], 'tiles': rows})
-        summary = {'run_id': self.config['run_id'], 'tile_count': len(rows), 'windows': []}
+        mode = self.config.get('fusion', {}).get('mode', 'optical_only')
+        summary = {'run_id': self.config['run_id'], 'tile_count': len(rows), 'windows': [],
+                   'evidence_mode': {'fusion': mode, 'degraded_sar_only': mode == 'sar_only', 'statement': EVIDENCE_MODES[mode]}}
         for w in self.windows:
             selected = [r for r in rows if r['window_id'] == w['id']]
             summary['windows'].append({'window_id': w['id'], 'target': w['target'],
@@ -335,23 +338,18 @@ if(layer.getLayers().length)map.fitBounds(layer.getBounds())}selector.onchange=d
     def manifest(self, inventory):
         descriptor = load(ROOT / 'workflow.yaml')
         fm = self.config['forest_mask']
-        methods = ['method:ndvi-anomaly'] if 'NDVI' in self.config['observations'].get('optical', {}).get('features', []) else []
-        if 'sar' in self.config['observations']:
-            methods.append('method:s1-backscatter-confirmation')
-        mode = self.config['temporal']['mode']
-        methods.append({'monthly': 'method:monthly-compositing', 'moving-window': 'method:moving-window-comparison',
-                        'matched-season': 'method:matched-season-interannual-comparison',
-                        'matched-season-moving-window': 'method:matched-season-interannual-comparison'}[mode])
-        if mode == 'matched-season-moving-window':
-            methods.append('method:moving-window-comparison')
         import scipy
+        import shapely
         import yaml
         import PIL
         versions = {'python': platform.python_version(), 'numpy': np.__version__, 'rasterio': rasterio.__version__,
-                    'gdal': rasterio.__gdal_version__, 'pyproj': pyproj_version, 'scipy': scipy.__version__, 'PyYAML': yaml.__version__, 'Pillow': PIL.__version__}
-        if any(p['type'] == 'stac' for p in self.config['providers'].values()):
+                    'gdal': rasterio.__gdal_version__, 'pyproj': pyproj_version, 'scipy': scipy.__version__, 'PyYAML': yaml.__version__,
+                    'Pillow': PIL.__version__, 'shapely': shapely.__version__}
+        # Lab tool IDs actually exercised by this run; each must be registered on the Lab workflow record.
+        tools = {'tool:rasterio': rasterio.__version__, 'tool:pyproj': pyproj_version, 'tool:shapely': shapely.__version__}
+        if any(self.config['providers'][s]['type'] == 'stac' for s in self.config['observations']):
             from importlib.metadata import version
-            versions['pystac-client'] = version('pystac-client')
+            versions['pystac-client'] = tools['tool:stac-client'] = version('pystac-client')
         timestamp = inventory['queries'][0]['query_timestamp'] if inventory['queries'] else utc_now()
         data = [{'dataset_name': s, 'source': json.dumps(self.providers[s].describe_source(), sort_keys=True),
                  'inventory_id': o['dataset'], 'dataset_version': o['version'], 'access_time_utc': timestamp,
@@ -361,7 +359,9 @@ if(layer.getLayers().length)map.fitBounds(layer.getBounds())}selector.onchange=d
                      'sha256': checksum(fm['path'])})
         artifacts = [{'path': str(p.relative_to(self.out)), 'artifact_type': 'raster' if p.suffix == '.tif' else 'evidence',
                       'sha256': checksum(p)} for p in sorted(self.out.rglob('*')) if p.is_file() and p.name != 'run_manifest.json']
-        concepts = [i for i in descriptor['observation_ids'] if not (i == 'observation:sar-backscatter-state' and 'sar' not in self.config['observations'])]
+        # Result -> workflow -> methods -> observation requirements -> datasets -> tools -> Lab snapshot.
+        methods, concepts = selected_methods(self.config), concept_ids(self.config, descriptor)
+        mode_statement = EVIDENCE_MODES[self.config.get('fusion', {}).get('mode', 'optical_only')]
         payload = {'schema_version': '2.0', 'run_id': self.config['run_id'], 'aoi_id': self.config.get('aoi_id', self.config['run_id']),
             'geometry_hash': geometry_hash(self.geometry), 'exchange_crs': 'EPSG:4326',
             'area_method': {'type': 'equal-area', 'unit': 'hectares', 'crs': self.grid.crs, 'pixel_ha': self.grid.pixel_ha},
@@ -378,10 +378,10 @@ if(layer.getLayers().length)map.fitBounds(layer.getBounds())}selector.onchange=d
             'processing_grid': {'crs': self.grid.crs, 'resolution': self.config['execution']['resolution'],
                 'transform': list(self.grid.transform)[:6], 'width': self.grid.width, 'height': self.grid.height,
                 'nodata': -9999, 'continuous_resampling': 'bilinear', 'mask_resampling': 'nearest', 'tile_size': self.size},
-            'outputs': artifacts, 'limitations': NON_CLAIMS + descriptor['divergences'] + self.config.get('migration_notes', []),
-            'semantic_provenance': {'schema_version': '1.0', 'methods': [{'id': m, 'version': '1.0'} for m in sorted(set(methods))],
-                'knowledge_snapshot': descriptor['knowledge_snapshot'], 'concept_ids': sorted(concepts),
-                'dataset_ids': sorted({d['inventory_id'] for d in data}), 'tools': [{'id': 'tool:rasterio', 'version': rasterio.__version__}],
+            'outputs': artifacts, 'limitations': NON_CLAIMS + [mode_statement] + descriptor['divergences'] + self.config.get('migration_notes', []),
+            'semantic_provenance': {'schema_version': '1.0', 'methods': [{'id': m, 'version': '1.0'} for m in methods],
+                'knowledge_snapshot': descriptor['knowledge_snapshot'], 'concept_ids': concepts,
+                'dataset_ids': sorted({d['inventory_id'] for d in data}), 'tools': [{'id': k, 'version': v} for k, v in sorted(tools.items())],
                 'workflow': {'id': descriptor['workflow_id'], 'version': __version__},
                 'ai_planner_involved': bool(self.config.get('planning_record_id'))}}
         if self.config.get('planning_record_id'):

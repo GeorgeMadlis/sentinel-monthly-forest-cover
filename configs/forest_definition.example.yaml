@@ -1,15 +1,8 @@
-forest_definition:
-  mask_source: hansen
-  treecover2000_threshold_percent: 30
-  include_loss_up_to_reference_year: true
-  notes: >
-    This forest definition is intended for monthly disturbance confirmation.
-    It should be reviewed for biome-specific adjustments.
-
-mask_rules:
-  require_datamask: true
-  exclude_water_if_available: true
-
+# Run-quality settings passed with --forest-def. The forest definition itself is owned by
+# Forest Cover Lab (ADR 0002, pinned in workflow.yaml) and enters this workflow only as the
+# approved external baseline declared in the workflow `forest_mask` block. Nothing here
+# defines canopy thresholds, forest classes or loss transformations.
+name: approved-external-baseline
 quality:
   require_min_observations_per_pixel: 2
   reject_tile_if_valid_pixel_ratio_below: 0.6

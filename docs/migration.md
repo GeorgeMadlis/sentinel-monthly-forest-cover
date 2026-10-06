@@ -5,8 +5,8 @@ requirements and original flags. Existing `runs/` evidence is unchanged. Product
 script names and IO flags remain. Earth Engine credential/project flags fail with an
 explicit redirect to examples. The annual-2024 command redirects there too.
 
-A legacy manifest containing only GEE collection IDs cannot supply local rasters: it
-fails with a migration message instead of attempting Earth Engine initialization.
+A legacy manifest containing only GEE collection IDs (for example
+`configs/legacy_gee_manifest.example.json`) cannot supply local rasters: it fails with a migration message instead of attempting Earth Engine initialization.
 Use `configs/workflow.example.yaml`, set calibrated provider assets, explicit optical
 quality/SAR preprocessing and an external forest mask. No provider scene URLs or legal
 forest transformations can be inferred from old collection names.

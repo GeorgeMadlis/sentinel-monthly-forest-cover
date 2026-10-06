@@ -12,6 +12,7 @@ optional `--output-prefix`. Use the root README demo to create local synthetic i
 | export_reporting_artifacts.py | CSV, GeoJSON, QA PNG, HTML evidence viewer, manifest/report |
 | render_final_map.py | Refresh reporting after area stage |
 | create_synthetic_fixture.py | Tiny deterministic raster/inventory inputs |
+| explain_semantic_path.py | Resolve a config against the pinned Lab graph (no data access) |
 | run_annual_2024_assessment.py | Migration message for preserved optional GEE example |
 
 Run stages in table order. They use `forest_change/`; production imports do not require EE.

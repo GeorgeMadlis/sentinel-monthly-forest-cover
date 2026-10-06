@@ -12,7 +12,7 @@ import numpy as np
 import rasterio
 import yaml
 from affine import Affine
-from jsonschema import Draft202012Validator
+from jsonschema import Draft202012Validator, ValidationError
 from rasterio.windows import Window
 
 from forest_change.algorithms import aggregate, clean, feature, fuse, normalized_difference
@@ -21,6 +21,7 @@ from forest_change.evidence import load, write_json
 from forest_change.pipeline import Workflow
 from forest_change.providers import LocalRasterProvider, ObservationProvider, STACProvider
 from forest_change.raster import Grid, read_asset, tiles
+from forest_change.semantics import explain
 from forest_change.temporal import windows
 from tests.fixtures import create_fixture
 
@@ -197,7 +198,10 @@ class LocalWorkflowTests(unittest.TestCase):
             self.assertTrue(src.read(1,masked=True).mask.all())
         c=load(self.paths[0]); c['fusion']['mode']='sar_only'
         w=self.workflow(c,str(Path(self.temp.name)/'sar-only')); w.run()
-        self.assertAlmostEqual(load(w.out/'loss_area_summary.json')['disturbed_ha_total'],.64,places=5)
+        summary=load(w.out/'loss_area_summary.json')
+        self.assertAlmostEqual(summary['disturbed_ha_total'],.64,places=5)
+        self.assertTrue(summary['evidence_mode']['degraded_sar_only'])
+        self.assertTrue(any(l.startswith('Degraded SAR-only') for l in load(w.out/'run_manifest.json')['limitations']))
 
     def test_schema_and_lab_contracts(self):
         c=load(self.paths[0]); schema=json.loads((ROOT/'specs/workflow.schema.json').read_text())
@@ -210,12 +214,63 @@ class LocalWorkflowTests(unittest.TestCase):
         w=self.workflow(); w.run()
         mod.validate_provenance(load(w.out/'run_manifest.json'),graph,root=lab)
 
+    def test_application_must_be_lab_concept_id(self):
+        c=load(self.paths[0]); c['application']='seasonal-forest-change'
+        with self.assertRaises(ValidationError): normalize(c)
+
+    def lab(self):
+        lab=ROOT.parent/'forest-cover-lab'
+        if not lab.exists(): self.skipTest('Forest Cover Lab not local')
+        spec=importlib.util.spec_from_file_location('lab_graph', lab/'graph/build.py'); mod=importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+        return mod, json.loads((lab/'graph/generated/knowledge.json').read_text()), lab
+
+    def test_seasonal_s1_s2_semantic_example_end_to_end(self):
+        # docs/semantic_example.md: JJA 2026 vs 2024/2025, 30-day windows, 10-day step, S1+S2, local Python.
+        c=load(self.paths[0])
+        c['temporal'].update(mode='matched-season-moving-window', window_days=30, step_days=10,
+            target={'start':'2026-06-01','end':'2026-08-31'},
+            reference_periods=[{'start':'2024-06-01','end':'2024-08-31'},{'start':'2025-06-01','end':'2025-08-31'}])
+        w=self.workflow(c,str(Path(self.temp.name)/'seasonal')); w.run()
+        summary=load(w.out/'loss_area_summary.json')
+        self.assertEqual([x['target'][0] for x in summary['windows']][::3],['2026-06-01','2026-07-01','2026-07-31'])
+        self.assertNotIn('disturbed_ha_total',summary)
+        self.assertEqual(summary['evidence_mode']['fusion'],'optical_and_sar')
+        # Fixture observations exist only in June; later windows stay nodata rather than becoming absence.
+        late=[q for q in load(w.out/'observation_inventory.json')['queries'] if q['window_id']=='w0006']
+        self.assertTrue(late and all(q['items']==[] for q in late))
+        with rasterio.open(w.path('w0006','fused_candidate')) as src:
+            self.assertTrue(src.read(1,masked=True).mask.all())
+        sp=load(w.out/'run_manifest.json')['semantic_provenance']
+        methods=[m['id'] for m in sp['methods']]
+        self.assertEqual(methods,['method:matched-season-interannual-comparison','method:moving-window-comparison',
+                                  'method:ndvi-anomaly','method:s1-backscatter-confirmation'])
+        self.assertEqual([t['id'] for t in sp['tools']],['tool:pyproj','tool:rasterio','tool:shapely'])
+        self.assertIn('application:seasonal-forest-change-monitoring',sp['concept_ids'])
+        self.assertEqual(sp['workflow']['id'],'workflow:sentinel-monthly-forest-cover')
+        mod,graph,lab=self.lab()
+        mod.validate_provenance(load(w.out/'run_manifest.json'),graph,root=lab)
+        trace=explain(w.config,load(ROOT/'workflow.yaml'),graph)
+        self.assertEqual([m['id'] for m in trace['methods_selected_by_configuration']],methods)
+        self.assertFalse(trace['gee_required'])
+        self.assertEqual(trace['configuration']['window_count'],7)
+
+    def test_semantic_trace_cli_and_unresolved_application(self):
+        mod,graph,lab=self.lab()
+        out=subprocess.run([sys.executable,str(ROOT/'scripts/explain_semantic_path.py'),'--config',str(ROOT/'configs/workflow.example.yaml'),'--lab',str(lab)],
+                           check=True,capture_output=True,text=True).stdout
+        trace=json.loads(out)
+        self.assertEqual(trace['configured_datasets'],{'optical':'DS-0002','sar':'DS-0003'})
+        self.assertEqual(trace['access']['DS-0002']['selected_route']['id'],'access:live-catalogue')
+        c=load(self.paths[0]); c['application']='application:missing'
+        with self.assertRaisesRegex(ValueError,'Unresolved application'):
+            explain(normalize(c),load(ROOT/'workflow.yaml'),graph)
+
     def test_legacy_manifest_explicit_migration_error(self):
         with self.assertRaisesRegex(ValueError,'explicit providers'):
-            normalize(load(ROOT/'configs/run_manifest.example.json'))
+            normalize(load(ROOT/'configs/legacy_gee_manifest.example.json'))
 
     def test_legacy_monthly_migration_with_explicit_local_inputs(self):
-        old=load(ROOT/'configs/run_manifest.example.json'); new=load(self.paths[0])
+        old=load(ROOT/'configs/legacy_gee_manifest.example.json'); new=load(self.paths[0])
         old['current_month']=6
         old['reference_years']=[2024,2025]
         for key in ('observations','providers','execution','forest_mask','output'):
@@ -249,9 +304,12 @@ class LocalWorkflowTests(unittest.TestCase):
     def test_production_no_earth_engine_import(self):
         code="import builtins\noriginal=builtins.__import__\ndef guarded(name,*a,**k):\n if name.split('.')[0] in ('ee','geemap','google'): raise AssertionError(name)\n return original(name,*a,**k)\nbuiltins.__import__=guarded\nfrom forest_change.pipeline import Workflow\n"
         subprocess.run([sys.executable,'-c',code],cwd=ROOT,check=True,capture_output=True)
-        for path in (ROOT/'scripts').glob('*.py'):
+        for path in [*(ROOT/'scripts').glob('*.py'), *(ROOT/'forest_change').glob('*.py')]:
             self.assertNotIn('import ee',path.read_text())
             self.assertNotIn('import geemap',path.read_text())
+        requirements=(ROOT/'requirements.txt').read_text().lower()
+        for package in ('earthengine','geemap','google-cloud'):
+            self.assertNotIn(package,requirements)
 
 
 if __name__=='__main__': unittest.main()

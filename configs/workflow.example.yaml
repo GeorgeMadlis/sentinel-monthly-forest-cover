@@ -1,6 +1,6 @@
 # Template: replace catalogue, assets, preprocessing and baseline with reviewed inputs.
 aoi_id: example-aoi
-application: seasonal-forest-change
+application: application:seasonal-forest-change-monitoring
 execution:
   backend: local-python
   crs: EPSG:6933

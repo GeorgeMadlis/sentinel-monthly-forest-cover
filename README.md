@@ -35,6 +35,11 @@ are relative to the invocation directory. All production commands use the existi
 - [Capability descriptor](workflow.yaml): pinned Lab methods/observations and divergences.
 - [Workflow schema](specs/workflow.schema.json): version 2.0 configuration.
 - [Validation](docs/validation.md): checks, evidence and remaining limitations.
+- [Semantic example](docs/semantic_example.md): application → method → datasets → workflow trace.
+
+This repository implements a workflow; it does not define forest, dataset, method or
+observation semantics. Runs record selected scenes in their own evidence; findings reach
+Forest Cover Lab only through its reviewed knowledge-promotion process.
 
 Historical GEE code and interactive maps remain under `examples/gee/` and `runs/`.
 GEE is optional reference code; it is absent from production dependencies. Only the
