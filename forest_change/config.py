@@ -95,11 +95,12 @@ def normalize(raw):
     if c.get('persistence', {}).get('periods', 1) != 1:
         raise ValueError('Persistence-confirmed labels are not implemented; periods must be 1')
     fm = c['forest_mask']
-    for k in ('path', 'dataset', 'version', 'reference_year', 'threshold', 'transformation'):
-        if k not in fm:
-            raise ValueError(f'Forest mask must declare {k}')
-    if fm['transformation'] != 'threshold-gte':
-        raise ValueError('Only explicit threshold-gte forest mask transformation supported; supply transformed baseline')
+    if fm is not None:
+        for k in ('path', 'dataset', 'version', 'reference_year', 'threshold', 'transformation'):
+            if k not in fm:
+                raise ValueError(f'Forest mask must declare {k}')
+        if fm['transformation'] != 'threshold-gte':
+            raise ValueError('Only explicit threshold-gte forest mask transformation supported; supply transformed baseline')
     windows(c)
     if len(c['temporal']['reference_periods']) > c['execution']['max_observations_per_window']:
         raise ValueError('Reference-period count exceeds configured tile stack budget')
@@ -113,6 +114,6 @@ def read_config(path):
     for p in c.get('providers', {}).values():
         if p.get('type') == 'local':
             p['inventory'] = str((root / p['inventory']).resolve())
-    if 'forest_mask' in c:
+    if c.get('forest_mask'):
         c['forest_mask']['path'] = str((root / c['forest_mask']['path']).resolve())
     return normalize(c)

@@ -17,7 +17,7 @@ from . import __version__
 from .algorithms import OPTICAL, aggregate, clean, feature, fuse
 from .config import read_config
 from .evidence import EVIDENCE_MODES, NON_CLAIMS, checksum, geometry_hash, load, write_json
-from .providers import provider, utc_now
+from .providers import provider, utc_now, validate_calibration_requirements
 from .semantics import concept_ids, selected_methods
 from .raster import (aoi_geometry, expand, grid_for, inside, read_asset,
                      tiles, write_window)
@@ -49,7 +49,7 @@ class Workflow:
         write_json(snapshot_path, {'signature': self.signature, 'configuration': self.config,
                                   'forest_definition': self.forest_def, 'geometry': self.geometry})
         inventory = {'signature': self.signature, 'windows': self.windows, 'queries': [],
-                     'forest_mask_sha256': checksum(self.config['forest_mask']['path'])}
+                     'forest_mask_sha256': (checksum(self.config['forest_mask']['path']) if self.config['forest_mask'] else None)}
         fingerprints = {}
         raster_metadata = {}
         for w in self.windows:
@@ -65,6 +65,8 @@ class Workflow:
                             self.validate_sar(items, obs)
                         # Fingerprint local raster inputs. Remote checksums/ETags are retained if supplied by STAC.
                         for item in items:
+                            if sensor == 'optical':
+                                validate_calibration_requirements(item, self.config)
                             for asset in item['assets'].values():
                                 href = asset['href']
                                 if href not in raster_metadata:
@@ -103,7 +105,7 @@ class Workflow:
         data = load(self.out / 'observation_inventory.json')
         if data['signature'] != self.signature:
             raise ValueError('Stale discovery inventory; rerun build_monthly_composites')
-        if checksum(self.config['forest_mask']['path']) != data['forest_mask_sha256']:
+        if (checksum(self.config['forest_mask']['path']) if self.config['forest_mask'] else None) != data['forest_mask_sha256']:
             raise ValueError('Forest baseline changed after discovery; start a new run')
         return data
 
@@ -209,7 +211,7 @@ class Workflow:
         if halo > self.size:
             raise ValueError('Component halo exceeds tile budget; increase tile_size or reduce min_component_pixels')
         fm = self.config['forest_mask']
-        forest = {'href': fm['path'], 'band': fm.get('band', 1)}
+        forest = {'href': fm['path'], 'band': fm.get('band', 1)} if fm else None
         for w in self.windows:
             with ExitStack() as ctx:
                 inputs = {}
@@ -223,9 +225,9 @@ class Workflow:
                 for tile in tiles(self.grid, self.size):
                     win = expand(tile, halo, self.grid)
                     in_aoi = inside(self.projected, self.grid, win)
-                    mask_values = read_asset(next(iter(self.providers.values())), forest, self.grid, win, categorical=True)
+                    mask_values = read_asset(next(iter(self.providers.values())), forest, self.grid, win, categorical=True) if forest else np.ones(in_aoi.shape)
                     forest_valid = np.isfinite(mask_values)
-                    forest_gate = (mask_values >= fm['threshold']) & forest_valid & in_aoi
+                    forest_gate = (mask_values >= (fm['threshold'] if fm else 1)) & forest_valid & in_aoi
                     candidates = {}
                     for sensor in ('optical', 'sar'):
                         if sensor not in self.config['observations']:
@@ -317,7 +319,8 @@ class Workflow:
                 path = self.out / w['id'] / 'qa.png'
                 Image.fromarray(rgb).save(path)
                 previews.append(f'<figure><figcaption>{w["id"]}: {w["target"]}</figcaption><img src="{w["id"]}/qa.png"></figure>')
-        (self.out / 'report.md').write_text('# Provisional forest disturbance candidates\n\n' + '\n'.join('- '+x for x in NON_CLAIMS) + '\n\n```json\n'+json.dumps(summary, indent=2)+'\n```\n')
+        report_title = 'Provisional forest disturbance candidates' if self.config['forest_mask'] else 'Ungated vegetation anomaly candidates'
+        (self.out / 'report.md').write_text('# ' + report_title + '\n\n' + '\n'.join('- '+x for x in NON_CLAIMS) + '\n\n```json\n'+json.dumps(summary, indent=2)+'\n```\n')
         geojson = load(self.out / 'loss_area_summary.geojson')
         # Embedded data supports local-file map viewing without fetching local GeoJSON.
         map_html = '''<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -354,7 +357,8 @@ if(layer.getLayers().length)map.fitBounds(layer.getBounds())}selector.onchange=d
         data = [{'dataset_name': s, 'source': json.dumps(self.providers[s].describe_source(), sort_keys=True),
                  'inventory_id': o['dataset'], 'dataset_version': o['version'], 'access_time_utc': timestamp,
                  'evidence_role': 'core estimation input'} for s, o in self.config['observations'].items()]
-        data.append({'dataset_name': 'baseline forest mask', 'source': fm['path'], 'inventory_id': fm['dataset'],
+        if fm:
+            data.append({'dataset_name': 'baseline forest mask', 'source': fm['path'], 'inventory_id': fm['dataset'],
                      'dataset_version': fm['version'], 'access_time_utc': timestamp, 'evidence_role': 'exclusion mask',
                      'sha256': checksum(fm['path'])})
         artifacts = [{'path': str(p.relative_to(self.out)), 'artifact_type': 'raster' if p.suffix == '.tif' else 'evidence',
@@ -369,7 +373,11 @@ if(layer.getLayers().length)map.fitBounds(layer.getBounds())}selector.onchange=d
                 'forest_threshold_variable': 'supplied-mask-value', 'forest_threshold_value': fm['threshold'],
                 'minimum_mapping_area_ha': self.config['threshold'].get('min_component_pixels', 1)*self.grid.pixel_ha,
                 'nodata_policy': 'exclude', 'temporal_interpretation': str(fm['reference_year']),
-                'mask_provenance': {**fm, 'sha256': checksum(fm['path'])}},
+                'mask_provenance': {**fm, 'sha256': checksum(fm['path'])}} if fm else {
+                'name': 'ungated anomaly screening; no forest definition applied', 'baseline_dataset': 'none',
+                'forest_threshold_variable': 'not-applied', 'forest_threshold_value': 'not-applied',
+                'minimum_mapping_area_ha': self.config['threshold'].get('min_component_pixels', 1)*self.grid.pixel_ha,
+                'nodata_policy': 'exclude', 'temporal_interpretation': 'not-applied'},
             'data_provenance': data, 'algorithm': {'name': 'sentinel-forest-disturbance-candidates', 'version': __version__},
             'parameters': self.config, 'temporal_windows': self.windows, 'features_used': {s:o['features'] for s,o in self.config['observations'].items()},
             'selected_item_ids': {sensor: sorted({item['id'] for q in inventory['queries'] if q['sensor'] == sensor for item in q['items']})
@@ -378,7 +386,7 @@ if(layer.getLayers().length)map.fitBounds(layer.getBounds())}selector.onchange=d
             'processing_grid': {'crs': self.grid.crs, 'resolution': self.config['execution']['resolution'],
                 'transform': list(self.grid.transform)[:6], 'width': self.grid.width, 'height': self.grid.height,
                 'nodata': -9999, 'continuous_resampling': 'bilinear', 'mask_resampling': 'nearest', 'tile_size': self.size},
-            'outputs': artifacts, 'limitations': NON_CLAIMS + [mode_statement] + descriptor['divergences'] + self.config.get('migration_notes', []),
+            'outputs': artifacts, 'limitations': NON_CLAIMS + [mode_statement] + ([] if fm else ['No forest mask: anomalies cover all AOI land covers; candidate hectares are not forest-loss area.']) + descriptor['divergences'] + self.config.get('migration_notes', []),
             'semantic_provenance': {'schema_version': '1.0', 'methods': [{'id': m, 'version': '1.0'} for m in methods],
                 'knowledge_snapshot': descriptor['knowledge_snapshot'], 'concept_ids': concepts,
                 'dataset_ids': sorted({d['inventory_id'] for d in data}), 'tools': [{'id': k, 'version': v} for k, v in sorted(tools.items())],

@@ -380,45 +380,53 @@
       }
     },
     "forest_mask": {
-      "type": "object",
-      "required": [
-        "path",
-        "dataset",
-        "version",
-        "reference_year",
-        "threshold",
-        "transformation"
-      ],
-      "properties": {
-        "path": {
-          "type": "string",
-          "minLength": 1
+      "anyOf": [
+        {
+          "type": "object",
+          "required": [
+            "path",
+            "dataset",
+            "version",
+            "reference_year",
+            "threshold",
+            "transformation"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dataset": {
+              "type": "string",
+              "pattern": "^DS-[0-9]{4}$"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reference_year": {
+              "type": [
+                "integer",
+                "string"
+              ]
+            },
+            "threshold": {
+              "type": "number"
+            },
+            "transformation": {
+              "const": "threshold-gte"
+            },
+            "band": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
         },
-        "dataset": {
-          "type": "string",
-          "pattern": "^DS-[0-9]{4}$"
-        },
-        "version": {
-          "type": "string",
-          "minLength": 1
-        },
-        "reference_year": {
-          "type": [
-            "integer",
-            "string"
-          ]
-        },
-        "threshold": {
-          "type": "number"
-        },
-        "transformation": {
-          "const": "threshold-gte"
-        },
-        "band": {
-          "type": "integer",
-          "minimum": 1
+        {
+          "type": "null"
         }
-      }
+      ],
+      "description": "Null explicitly requests ungated anomaly screening, with no forest-area interpretation."
     },
     "threshold": {
       "type": "object",
@@ -499,6 +507,17 @@
         }
       },
       "additionalProperties": false
+    },
+    "calibration_requirements": {
+      "type": "object",
+      "description": "Selected observation properties required to justify configured calibration overrides.",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "boolean"
+        ]
+      }
     }
   }
 }

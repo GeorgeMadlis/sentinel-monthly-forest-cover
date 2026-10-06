@@ -18,3 +18,7 @@ optional `--output-prefix`. Use the root README demo to create local synthetic i
 Run stages in table order. They use `forest_change/`; production imports do not require EE.
 `common.py` retains only basic IO helpers. GEE credentials are accepted as deprecated
 flags solely to give a clear migration error, not for local execution.
+
+`run_anomaly_map_test.py --aoi configs/aoi.example.geojson` uses the existing
+STAC/provider/raster/workflow boundaries to select two real observations and build
+an offline Leaflet RGB/anomaly map. See [configuration and access rules](../docs/anomaly_map_test.md).

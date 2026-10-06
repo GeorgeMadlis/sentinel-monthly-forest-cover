@@ -108,3 +108,9 @@ def provider(config):
     if config['type'] == 'stac':
         return STACProvider(config)
     raise ValueError('Provider type must be local or stac')
+
+
+def validate_calibration_requirements(item, config):
+    for key, expected in config.get('calibration_requirements', {}).items():
+        if item.get('properties', {}).get(key) != expected:
+            raise ValueError(f"{item['id']} fails calibration requirements: {key} must equal {expected}")

@@ -62,9 +62,9 @@ byte-for-byte, and existing `runs/` artifacts were left intact. Final diff and d
 boundaries were inspected. The Lab pin is in `workflow.yaml`; neither Lab code nor its
 canonical scientific corpus was modified.
 
-Remaining limits: no live satellite-catalogue or country-scale performance benchmark;
+Limits at the initial migration (live AOI test superseded below): no country-scale performance benchmark;
 no implemented terrain flattening, speckle treatment, incidence correction, temporal
-persistence or independent national validation; no authenticated URL signing; no RGB
+persistence or independent national validation; no authenticated URL signing; no seasonal RGB
 composites. Thresholds remain experimental and weighted fusion is not calibrated
 probability. Quality masks are applied on the target grid; bilinear interpolation can mix cloud-edge
 values and requires satellite QA. Pixel-centre boundaries, resampling, provider calibration and reference
@@ -90,3 +90,50 @@ Commands: `.venv/bin/python -m unittest discover -v` (24 OK);
 `python ../forest-cover-lab/graph/build.py --check --descriptor workflow.yaml` (passes);
 the README synthetic CLI demo (0.16 ha synthetic candidates, unchanged) followed by Lab
 `validate_provenance` on its manifest (passes). Semantic path: `docs/semantic_example.md`.
+
+## Real AOI anomaly map — 2026-10-06
+
+Inspected execution commits `4df8370ccf42f127ca9c9814e40b2d81166d3932` and
+`bdff928650f55dc77ba8bccc23f9a5892d753cb1` before extending their provider,
+windowed raster and Workflow stages. No canonical Lab content was changed.
+
+Executed live Earth Search `sentinel-2-l2a` discovery for
+`configs/aoi.example.geojson`: 216 reference and 235 target observations. Used
+2025-06-01–2025-08-31 and 2026-06-01–2026-08-31 from the existing seasonal example,
+reduced to two periods and one deterministically ranked observation per period.
+Selected acquisition dates were June 15, 2025 and June 20, 2026. Both had full
+valid AOI coverage at the 200 m SCL assessment grid. Source bands were read using
+HTTP-range COG windows; no complete source TIFFs were downloaded.
+
+Visual QA caught conflicting provider calibration metadata: the selected COGs
+mark BOA offset as already applied but retain asset offset -0.1. Metadata-only
+calibration yielded mostly negative RGB reflectance. Preserved that initial run
+as rejected QA evidence. The explicit gain-only override (0.0001, offset 0) is
+supported by the item flag, the provider's known metadata issue and observed
+pixel distributions; it remains a documented inference, not independent
+radiometric validation. A guarded, checksum-verified replay into a new run
+reprocessed the existing derived AOI rasters without repeating remote downloads.
+Both original and corrected calibration are retained in lineage records.
+
+Final method: NDVI target minus reference, strict < -0.2, optical-only, SCL
+4/5/6/7, paired finite pixels, no forest mask, minimum component one pixel, no
+persistence or smoothing, 20 m EPSG:6933. Result: 91,291 anomaly pixels,
+3,651.64 hectares, 3,255,306 paired valid pixels / 3,256,200 AOI grid pixels
+(99.9725%). These are ungated all-land-cover anomalies, including agriculture
+and water; hectares are not forest-loss area or validated disturbance accuracy.
+
+The portable map embeds RGB/anomaly PNGs and vendors Leaflet JS/CSS/icons.
+Offline Chromium verified exactly three analytical layers, default visibility,
+all toggles, image loads, AOI outline and scale bar, with zero JavaScript errors,
+failed requests or external network requests. PNG screenshot inspected. An
+independent recomputation from source windows matched NDVI change and the strict
+threshold mask; all then-recorded output paths/checksums and Lab provenance
+validated. Evidence stays local under `runs/aoi-s2-jja-2025-2026-calibrated/`.
+
+All 32 tests pass (`.venv/bin/python -m unittest discover -v`). The suite now includes offline scene-ranking, cache reuse/fallback/provenance,
+calibration guards, full runner evidence/checksums, replay/tamper detection,
+transparent anomaly rendering and map bounds/layers. Production still requires
+no Earth Engine dependency. Configuration/semantic trace, pinned Lab descriptor,
+compileall, pip check and git diff whitespace checks pass. Coarse SCL ranking,
+cloud-edge interpolation, phenology and unvalidated thresholds/calibration remain
+limitations; no national-scale performance or independent accuracy claim is made.

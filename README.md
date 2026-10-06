@@ -25,7 +25,7 @@ python -m venv .venv
 The demo is synthetic, requires no credentials or network, and writes evidence to
 `/tmp/forest-demo/output`. See `configs/workflow.example.yaml` for real-run configuration.
 Local input paths are relative to their configuration/inventory files; output prefixes
-are relative to the invocation directory. All production commands use the existing
+are relative to the invocation directory. Production stage commands use the existing
 `--manifest`, `--forest-def`, `--aoi-geojson`, `--output-prefix` flags.
 
 - [Architecture](docs/architecture.md): stages, IO and partial scientific coverage.
@@ -44,3 +44,14 @@ Forest Cover Lab only through its reviewed knowledge-promotion process.
 Historical GEE code and interactive maps remain under `examples/gee/` and `runs/`.
 GEE is optional reference code; it is absent from production dependencies. Only the
 `local-python` execution backend is implemented. STAC and local-raster are data providers.
+
+A reusable [real Sentinel-2 anomaly map test](docs/anomaly_map_test.md) selects
+one observation from each of two comparable summer periods and creates a portable,
+offline Leaflet evidence map:
+
+```sh
+.venv/bin/python scripts/run_anomaly_map_test.py --aoi configs/aoi.example.geojson
+```
+
+It explicitly runs without a forest mask when none is supplied; red pixels are
+ungated NDVI anomalies and cannot be interpreted as confirmed forest loss.

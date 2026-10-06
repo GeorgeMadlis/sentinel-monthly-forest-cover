@@ -1,0 +1,75 @@
+# Same JJA periods as workflow.example.yaml; one best observation per period.
+# Gain-only calibration requires already-offset-corrected selected COGs.
+schema_version: '2.0'
+run_id: aoi-s2-jja-2025-2026-calibrated
+application: application:seasonal-forest-change-monitoring
+aoi_id: example-aoi
+execution:
+  backend: local-python
+  crs: EPSG:6933
+  resolution: 20
+  tile_size: 512
+  max_observations_per_window: 1000
+forest_mask: null
+fusion:
+  mode: optical_only
+observations:
+  optical:
+    dataset: DS-0002
+    version: Earth Search sentinel-2-l2a harmonized COG DN; gain 0.0001, no second
+      BOA offset; item processing baseline archived
+    features:
+    - NDVI
+    quality:
+      mode: scl
+      valid_classes:
+      - 4
+      - 5
+      - 6
+      - 7
+providers:
+  optical:
+    type: stac
+    endpoint: https://earth-search.aws.element84.com/v1
+    collection: sentinel-2-l2a
+    asset_map:
+      red: red
+      green: green
+      blue: blue
+      nir: nir
+      scl: scl
+    filters: {}
+    asset_calibration:
+      red:
+        scale: 0.0001
+        offset: 0
+      green:
+        scale: 0.0001
+        offset: 0
+      blue:
+        scale: 0.0001
+        offset: 0
+      nir:
+        scale: 0.0001
+        offset: 0
+temporal:
+  mode: matched-season
+  alignment: calendar-date
+  aggregation: median
+  reference_statistic: period-composites
+  reference_periods:
+  - start: '2025-06-01'
+    end: '2025-08-31'
+  target:
+    start: '2026-06-01'
+    end: '2026-08-31'
+threshold:
+  mode: fixed
+  value: -0.2
+  min_component_pixels: 1
+  min_valid_pixel_ratio: 0
+output:
+  prefix: runs/aoi-s2-jja-2025-2026-calibrated
+  export_quicklooks: true
+calibration_requirements:
+  earthsearch:boa_offset_applied: true
