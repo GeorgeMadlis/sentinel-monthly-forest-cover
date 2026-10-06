@@ -1,0 +1,10 @@
+{
+  "definition": "pixel is 1 if monthly disturbance == 1 in any month of target year",
+  "image_band": "annual_ndvi_disturbance",
+  "reference_years": [
+    2021,
+    2022,
+    2023
+  ],
+  "target_year": 2024
+}

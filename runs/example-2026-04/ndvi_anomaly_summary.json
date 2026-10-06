@@ -1,0 +1,17 @@
+{
+  "anomaly_mean": 0.04301589524611952,
+  "anomaly_stddev": 0.08013439004772248,
+  "current_period": {
+    "month": 4,
+    "year": 2026
+  },
+  "reference_years": [
+    2023,
+    2024,
+    2025
+  ],
+  "run_id": "example-2026-04",
+  "stage": "compute_ndvi_anomaly",
+  "zscore_mean": 0.5592140759092677,
+  "zscore_stddev": 107.51494677397899
+}

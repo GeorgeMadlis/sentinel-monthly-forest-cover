@@ -1,0 +1,42 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              24.4,
+              58.2
+            ],
+            [
+              24.9,
+              58.2
+            ],
+            [
+              24.9,
+              58.6
+            ],
+            [
+              24.4,
+              58.6
+            ],
+            [
+              24.4,
+              58.2
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "confidence_score_mean": 0.7125521259075936,
+        "disturbed_ha_total": 0.0,
+        "month": "2026-04",
+        "run_id": "example-2026-04",
+        "tile_count": 6
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

@@ -1,0 +1,35 @@
+{
+  "run_id": "example-2026-04",
+  "aoi_id": "example_aoi",
+  "current_year": 2026,
+  "current_month": 4,
+  "reference_strategy": "same-month-last-3-years",
+  "reference_years": [2023, 2024, 2025],
+  "dataset_ids": {
+    "s2_sr": "COPERNICUS/S2_SR_HARMONIZED",
+    "s2_cloud_probability": "COPERNICUS/S2_CLOUD_PROBABILITY",
+    "forest_mask": "UMD/hansen/global_forest_change_2024_v1_12",
+    "s1_grd_optional": "COPERNICUS/S1_GRD"
+  },
+  "threshold": {
+    "mode": "sigma",
+    "k": 2.0,
+    "min_valid_pixel_ratio": 0.6,
+    "max_cloud_fraction": 0.4,
+    "min_component_pixels": 9
+  },
+  "tiling": {
+    "tile_size_degrees": 0.2
+  },
+  "s1_confirmation": {
+    "enabled": true,
+    "vv_drop_db": -1.5,
+    "vh_drop_db": -1.0,
+    "optical_weight": 0.7,
+    "s1_weight": 0.3
+  },
+  "output": {
+    "prefix": "runs/example-2026-04",
+    "export_quicklooks": true
+  }
+}

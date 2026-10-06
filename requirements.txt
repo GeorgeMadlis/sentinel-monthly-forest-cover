@@ -1,0 +1,10 @@
+earthengine-api>=0.1.390
+geemap>=0.32
+google-cloud-storage>=2.14
+geopandas>=0.14
+shapely>=2.0
+pyproj>=3.6
+numpy>=1.26
+pandas>=2.1
+PyYAML>=6.0
+rasterio>=1.3

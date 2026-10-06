@@ -1,0 +1,47 @@
+{
+  "run_id": "example-2026-04",
+  "tiles": [
+    {
+      "anomaly_mean": 0.09522611598976405,
+      "anomaly_stddev": 0.08299166961032989,
+      "tile_id": "example_aoi_000_000",
+      "zscore_mean": 1.0966723173706212,
+      "zscore_stddev": 240.4391967464497
+    },
+    {
+      "anomaly_mean": 0.03234206244154543,
+      "anomaly_stddev": 0.06009289862875685,
+      "tile_id": "example_aoi_000_001",
+      "zscore_mean": 0.43836446329764783,
+      "zscore_stddev": 0.9275453162490389
+    },
+    {
+      "anomaly_mean": 0.034611696422227,
+      "anomaly_stddev": 0.04595805080236351,
+      "tile_id": "example_aoi_000_002",
+      "zscore_mean": 0.4757344278558331,
+      "zscore_stddev": 0.6285964828643538
+    },
+    {
+      "anomaly_mean": 0.019864452861092407,
+      "anomaly_stddev": 0.07388762000748808,
+      "tile_id": "example_aoi_001_000",
+      "zscore_mean": 0.28833178168268436,
+      "zscore_stddev": 0.8260938133666778
+    },
+    {
+      "anomaly_mean": 0.031573308075283,
+      "anomaly_stddev": 0.08418869026650512,
+      "tile_id": "example_aoi_001_001",
+      "zscore_mean": 0.47079529035417783,
+      "zscore_stddev": 1.0592187627973333
+    },
+    {
+      "anomaly_mean": 0.03758095705130762,
+      "anomaly_stddev": 0.09423626312585985,
+      "tile_id": "example_aoi_001_002",
+      "zscore_mean": 0.5285115096146035,
+      "zscore_stddev": 1.2748752991068493
+    }
+  ]
+}

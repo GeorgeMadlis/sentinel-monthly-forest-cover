@@ -1,0 +1,114 @@
+{
+  "annual_any_month_disturbed_ha": 379.6050319359514,
+  "comparison_domain": "Hansen forest cover in 2023",
+  "confusion_matrix": {
+    "area_ha": {
+      "fn": 515.2628115093994,
+      "fp": 163.51860875879623,
+      "tn": 48464.41196994693,
+      "total_forest_cover_2023": 49357.806117182925,
+      "tp": 214.61272696779733
+    },
+    "metrics": {
+      "accuracy": 0.9862556907896395,
+      "f1": 0.38746799944709204,
+      "precision": 0.5676143314170845,
+      "recall": 0.2941213682670398
+    },
+    "pixel_counts": {
+      "fn": 10895.729411764705,
+      "fp": 3458.3647058823526,
+      "tn": 1024343.3098039193,
+      "total_forest_cover_2023_pixels": 1043221.6392156899,
+      "tp": 4539.96862745098
+    }
+  },
+  "monthly_results": [
+    {
+      "disturbed_ha": 207.9480981612142,
+      "month": 1,
+      "threshold_mean": -0.03302648900580487,
+      "valid_pixel_ratio": 0.9996266942911942
+    },
+    {
+      "disturbed_ha": 22.8441683870682,
+      "month": 2,
+      "threshold_mean": -0.17595428265739177,
+      "valid_pixel_ratio": 0.4458663202652509
+    },
+    {
+      "disturbed_ha": 1.9897339874267579,
+      "month": 3,
+      "threshold_mean": -0.24888078049993687,
+      "valid_pixel_ratio": 0.9029403177647584
+    },
+    {
+      "disturbed_ha": 1.4222548248291016,
+      "month": 4,
+      "threshold_mean": -0.16043264111584046,
+      "valid_pixel_ratio": 0.886429945011221
+    },
+    {
+      "disturbed_ha": 58.17406973230699,
+      "month": 5,
+      "threshold_mean": -0.2116198506231257,
+      "valid_pixel_ratio": 0.999999636862151
+    },
+    {
+      "disturbed_ha": 79.95809718510645,
+      "month": 6,
+      "threshold_mean": -0.1433485752951179,
+      "valid_pixel_ratio": 0.9999901952780761
+    },
+    {
+      "disturbed_ha": 74.36684999882716,
+      "month": 7,
+      "threshold_mean": -0.14938684433644106,
+      "valid_pixel_ratio": 0.999944803046947
+    },
+    {
+      "disturbed_ha": 17.96141991037406,
+      "month": 8,
+      "threshold_mean": -0.1457084334500131,
+      "valid_pixel_ratio": 0.9999793011426051
+    },
+    {
+      "disturbed_ha": 35.70661616821289,
+      "month": 9,
+      "threshold_mean": -0.1644009780465107,
+      "valid_pixel_ratio": 0.9999553340445689
+    },
+    {
+      "disturbed_ha": 14.845624380493165,
+      "month": 10,
+      "threshold_mean": -0.20066725600308727,
+      "valid_pixel_ratio": 0.9996477562864381
+    },
+    {
+      "disturbed_ha": 0.0,
+      "month": 11,
+      "threshold_mean": -0.06090470322185255,
+      "valid_pixel_ratio": 0.9960474210979563
+    },
+    {
+      "disturbed_ha": 6.379243673706054,
+      "month": 12,
+      "threshold_mean": -0.18997106824670346,
+      "valid_pixel_ratio": 0.9287329040717371
+    }
+  ],
+  "outputs": {
+    "annual_summary_json": "runs/example-2026-04-annual-2024/annual_disturbance_summary_2024.json",
+    "confusion_matrix_json": "runs/example-2026-04-annual-2024/confusion_matrix_2024.json",
+    "final_map_html": "runs/example-2026-04-annual-2024/final_map.html",
+    "monthly_masks_dir": "runs/example-2026-04-annual-2024/monthly_masks"
+  },
+  "reference_years": [
+    2021,
+    2022,
+    2023
+  ],
+  "run_id": "example-2026-04",
+  "target_year": 2024,
+  "task": "annual_12_month_ndvi_disturbance_vs_hansen"
+}

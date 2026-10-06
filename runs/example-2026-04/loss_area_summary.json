@@ -1,0 +1,21 @@
+{
+  "confidence_score_mean": 0.7125521259075936,
+  "dataset_versions": {
+    "forest_mask": "UMD/hansen/global_forest_change_2024_v1_12",
+    "s1_grd_optional": "COPERNICUS/S1_GRD",
+    "s2_cloud_probability": "COPERNICUS/S2_CLOUD_PROBABILITY",
+    "s2_sr": "COPERNICUS/S2_SR_HARMONIZED"
+  },
+  "disturbed_ha_total": 0.0,
+  "month": "2026-04",
+  "run_id": "example-2026-04",
+  "s1_confirmation": {
+    "enabled": true,
+    "optical_weight": 0.7,
+    "s1_weight": 0.3,
+    "vh_drop_db": -1.0,
+    "vv_drop_db": -1.5
+  },
+  "tile_count": 6,
+  "valid_pixel_ratio_mean": 0.9999990916993157
+}

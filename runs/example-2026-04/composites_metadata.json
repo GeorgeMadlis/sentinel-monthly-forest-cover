@@ -1,0 +1,40 @@
+{
+  "current_collection": {
+    "count": 34,
+    "label": "2026-04"
+  },
+  "current_period": {
+    "end": "2026-04-30",
+    "month": 4,
+    "start": "2026-04-01",
+    "year": 2026
+  },
+  "dataset_ids": {
+    "forest_mask": "UMD/hansen/global_forest_change_2024_v1_12",
+    "s1_grd_optional": "COPERNICUS/S1_GRD",
+    "s2_cloud_probability": "COPERNICUS/S2_CLOUD_PROBABILITY",
+    "s2_sr": "COPERNICUS/S2_SR_HARMONIZED"
+  },
+  "reference_collections": [
+    {
+      "count": 30,
+      "label": "2023-04"
+    },
+    {
+      "count": 9,
+      "label": "2024-04"
+    },
+    {
+      "count": 34,
+      "label": "2025-04"
+    }
+  ],
+  "reference_years": [
+    2023,
+    2024,
+    2025
+  ],
+  "run_id": "example-2026-04",
+  "stage": "build_monthly_composites",
+  "tile_count": 6
+}
