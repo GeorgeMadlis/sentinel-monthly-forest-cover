@@ -1,0 +1,4 @@
+interface:
+  display_name: "Report Sentinel change"
+  short_description: "Write source-grounded reports of change evidence"
+  default_prompt: "Use $report-sentinel-change to investigate the candidate road in the Sentinel comparison run."

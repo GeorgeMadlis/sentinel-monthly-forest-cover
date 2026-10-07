@@ -1,0 +1,102 @@
+{
+  "default_robust_shared_support": {
+    "fixed": 77092,
+    "fixed_sar": 7812,
+    "robust": 61610,
+    "robust_sar": 7582,
+    "sigma": 92146,
+    "sigma_sar": 9312,
+    "valid": 2735727
+  },
+  "roi_robust_categories": {
+    "CONTROL-01": {
+      "counts": {
+        "both": 0,
+        "joint_valid": 120,
+        "neither": 119,
+        "optical_only": 0,
+        "optical_valid_radar_unavailable": 0,
+        "radar_only": 1
+      },
+      "sigma_rejected_vh_summary": {
+        "n": 0,
+        "p10_median_p90": null
+      },
+      "sigma_rejected_vv_summary": {
+        "n": 0,
+        "p10_median_p90": null
+      }
+    },
+    "CONTROL-02": {
+      "counts": {
+        "both": 0,
+        "joint_valid": 256,
+        "neither": 255,
+        "optical_only": 0,
+        "optical_valid_radar_unavailable": 0,
+        "radar_only": 1
+      },
+      "sigma_rejected_vh_summary": {
+        "n": 0,
+        "p10_median_p90": null
+      },
+      "sigma_rejected_vv_summary": {
+        "n": 0,
+        "p10_median_p90": null
+      }
+    },
+    "ROI-01": {
+      "counts": {
+        "both": 93,
+        "joint_valid": 3141,
+        "neither": 2694,
+        "optical_only": 267,
+        "optical_valid_radar_unavailable": 0,
+        "radar_only": 87
+      },
+      "sigma_rejected_vh_summary": {
+        "n": 730,
+        "p10_median_p90": [
+          -2.566989517211914,
+          -1.0939092636108398,
+          0.3346676826477054
+        ]
+      },
+      "sigma_rejected_vv_summary": {
+        "n": 730,
+        "p10_median_p90": [
+          -1.2488934993743896,
+          -0.28150177001953125,
+          1.0313786506652833
+        ]
+      }
+    },
+    "ROI-02": {
+      "counts": {
+        "both": 87,
+        "joint_valid": 1287,
+        "neither": 988,
+        "optical_only": 170,
+        "optical_valid_radar_unavailable": 0,
+        "radar_only": 42
+      },
+      "sigma_rejected_vh_summary": {
+        "n": 195,
+        "p10_median_p90": [
+          -5.332882690429687,
+          -2.3574790954589844,
+          0.15169124603271442
+        ]
+      },
+      "sigma_rejected_vv_summary": {
+        "n": 195,
+        "p10_median_p90": [
+          -1.186410903930664,
+          0.13619232177734375,
+          1.848788833618164
+        ]
+      }
+    }
+  },
+  "scope": "provisional manually sampled corridor buffers and visual controls; all areas use .04 ha/pixel"
+}

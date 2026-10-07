@@ -1,0 +1,120 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>maps/maps_original/map_metadata.json</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../../index.html">Review home</a> · <a href="../../index.html">All files</a></nav><h1>map_metadata.json</h1><p class="muted">maps/maps_original/map_metadata.json · <a href="../../../maps/maps_original/map_metadata.json">raw file</a> · <a href="index.html">folder</a></p><pre>{
+  &quot;acquisitions&quot;: {
+    &quot;reference&quot;: &quot;2025-06-15T09:54:39.645000Z&quot;,
+    &quot;target&quot;: &quot;2026-06-20T09:54:20.028000Z&quot;
+  },
+  &quot;calibration&quot;: {
+    &quot;blue&quot;: {
+      &quot;offset&quot;: 0,
+      &quot;scale&quot;: 0.0001
+    },
+    &quot;green&quot;: {
+      &quot;offset&quot;: 0,
+      &quot;scale&quot;: 0.0001
+    },
+    &quot;nir&quot;: {
+      &quot;offset&quot;: 0,
+      &quot;scale&quot;: 0.0001
+    },
+    &quot;red&quot;: {
+      &quot;offset&quot;: 0,
+      &quot;scale&quot;: 0.0001
+    }
+  },
+  &quot;calibration_review&quot;: {
+    &quot;rejected_initial_run&quot;: &quot;../aoi-s2-jja-2025-2026&quot;,
+    &quot;replay&quot;: &quot;Checksum-verified source AOI windows; invert old linear calibration, apply explicit override; no new scene query or source download&quot;,
+    &quot;rule&quot;: &quot;gain 0.0001, offset 0; selected earthsearch:boa_offset_applied must be true&quot;,
+    &quot;source_metadata_issue&quot;: &quot;https://github.com/Element84/earth-search/issues/66&quot;
+  },
+  &quot;forest_mask&quot;: null,
+  &quot;method&quot;: &quot;NDVI target minus reference; one selected observation per period&quot;,
+  &quot;non_claims&quot;: [
+    &quot;Monthly/seasonal disturbance is not automatically legal deforestation.&quot;,
+    &quot;Hansen annual loss is not monthly ground truth; external/annual reconciliation remains necessary.&quot;,
+    &quot;Optical anomalies can reflect phenology, clouds, fire, agriculture, moisture or other causes.&quot;,
+    &quot;SAR changes depend on moisture, geometry, terrain and acquisition conditions.&quot;,
+    &quot;S1/S2 agreement increases screening confidence but does not establish causal attribution.&quot;,
+    &quot;Outputs are provisional candidates, not persistence-confirmed forest state or causal loss labels.&quot;,
+    &quot;Terrain flattening and speckle filtering must be supplied upstream; this workflow does not implement them.&quot;,
+    &quot;Pixel-centre AOI rasterization approximates boundary area at the configured resolution.&quot;,
+    &quot;Optical quality masks are applied on the target grid; bilinear reprojection can mix values near cloud-mask boundaries.&quot;
+  ],
+  &quot;overlay_bounds&quot;: [
+    [
+      58.199999999999996,
+      24.399999999999995
+    ],
+    [
+      58.599999999999994,
+      24.9
+    ]
+  ],
+  &quot;periods&quot;: {
+    &quot;reference&quot;: {
+      &quot;end&quot;: &quot;2025-08-31&quot;,
+      &quot;start&quot;: &quot;2025-06-01&quot;
+    },
+    &quot;target&quot;: {
+      &quot;end&quot;: &quot;2026-08-31&quot;,
+      &quot;start&quot;: &quot;2026-06-01&quot;
+    }
+  },
+  &quot;provider&quot;: {
+    &quot;collection&quot;: &quot;sentinel-2-l2a&quot;,
+    &quot;discovery_mode&quot;: &quot;selected-observation-view-of-archived-catalogue-query&quot;,
+    &quot;endpoint&quot;: &quot;https://earth-search.aws.element84.com/v1&quot;,
+    &quot;provider&quot;: &quot;stac&quot;
+  },
+  &quot;qa_limitations&quot;: [
+    &quot;No forest mask: all land covers, not confirmed deforestation.&quot;,
+    &quot;One selected scene per summer period; 200 m SCL scene ranking; cloud-edge and phenology confounders.&quot;,
+    &quot;Gain-only override inferred from already-applied BOA flag and pixel QA; no independent radiometric validation.&quot;
+  ],
+  &quot;quality&quot;: &quot;SCL classes 4,5,6,7; paired finite NDVI; bilinear continuous / nearest masks&quot;,
+  &quot;rgb&quot;: &quot;B04/B03/B02 reflectance 0–0.3, gamma 2.2 on both dates&quot;,
+  &quot;run_id&quot;: &quot;aoi-s2-jja-2025-2026-calibrated&quot;,
+  &quot;selected_items&quot;: {
+    &quot;reference&quot;: &quot;S2C_35VLE_20250615_0_L2A&quot;,
+    &quot;target&quot;: &quot;S2C_35VLE_20260620_0_L2A&quot;
+  },
+  &quot;selected_scene_quality&quot;: {
+    &quot;reference&quot;: {
+      &quot;aoi_clear_pixel_fraction&quot;: 0.9998469543924089,
+      &quot;aoi_cloud_shadow_fraction&quot;: 0.0,
+      &quot;aoi_valid_pixel_fraction&quot;: 1.0,
+      &quot;assessment_resolution_m&quot;: 200,
+      &quot;central_date_distance_seconds&quot;: 2729120.355,
+      &quot;scene_cloud_percentage&quot;: 4.394039
+    },
+    &quot;target&quot;: {
+      &quot;aoi_clear_pixel_fraction&quot;: 0.9997857361493725,
+      &quot;aoi_cloud_shadow_fraction&quot;: 3.060912151821243e-05,
+      &quot;aoi_valid_pixel_fraction&quot;: 1.0,
+      &quot;assessment_resolution_m&quot;: 200,
+      &quot;central_date_distance_seconds&quot;: 2297139.972,
+      &quot;scene_cloud_percentage&quot;: 0.00072
+    }
+  },
+  &quot;threshold&quot;: {
+    &quot;min_component_pixels&quot;: 1,
+    &quot;min_valid_pixel_ratio&quot;: 0,
+    &quot;mode&quot;: &quot;fixed&quot;,
+    &quot;value&quot;: -0.2
+  }
+}</pre></main></body></html>

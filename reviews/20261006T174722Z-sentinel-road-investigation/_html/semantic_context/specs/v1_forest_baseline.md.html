@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>semantic_context/specs/v1_forest_baseline.md</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../../index.html">Review home</a> · <a href="../../index.html">All files</a></nav><h1>v1_forest_baseline.md</h1><p class="muted">semantic_context/specs/v1_forest_baseline.md · <a href="../../../semantic_context/specs/v1_forest_baseline.md">raw file</a> · <a href="index.html">folder</a></p><div class="md"><h1 id="v1-forest-baseline-specification">v1 Forest Baseline Specification</h1>
+<blockquote>Backend scope: GEE/EE acquisition steps below describe optional reference implementations. Under ADR 0005 production scientific methods must not require GEE. Equivalent open/local implementations must preserve all scientific rules, label semantics and non-claims.</blockquote>
+<h2 id="goal">Goal</h2>
+<p>Produce a transparent, reproducible large-scale forest coverage baseline for a defined AOI using Hansen Global Forest Change v1.12.</p>
+<h2 id="inputs">Inputs</h2>
+<div class="wrap"><table><tr><th>Input</th><th>Format</th><th>Source</th></tr><tr><td>AOI geometry</td><td>GeoJSON or WKT in EPSG:4326</td><td>User-supplied</td></tr><tr><td>Forest definition config</td><td>YAML</td><td><code>configs/v1_defaults.yaml</code></td></tr><tr><td>Hansen GFC v1.12</td><td>EE ImageCollection</td><td><code>UMD/hansen/global_forest_change_2024_v1_12</code></td></tr></table></div>
+<h2 id="outputs">Outputs</h2>
+<div class="wrap"><table><tr><th>Output</th><th>Format</th><th>Path</th></tr><tr><td>Baseline forest mask</td><td>GeoTIFF / COG, <code>uint8</code>, nodata = 255</td><td><code>outputs/&lt;run_id&gt;/forest_mask.tif</code></td></tr><tr><td>Area summary</td><td>CSV</td><td><code>outputs/&lt;run_id&gt;/area_summary.csv</code></td></tr><tr><td>Run manifest</td><td>JSON</td><td><code>outputs/&lt;run_id&gt;/run_manifest.json</code></td></tr><tr><td>HTML summary report</td><td>HTML</td><td><code>outputs/&lt;run_id&gt;/report.html</code></td></tr></table></div>
+<h2 id="algorithm">Algorithm</h2>
+<ol><li>Load AOI and validate it is a single polygon or multipolygon in EPSG:4326.</li><li>Compute SHA-256 hash of canonical GeoJSON; record in manifest.</li><li>Load Hansen GFC v1.12 from Earth Engine.</li><li>Build forest mask:</li><li><code>forest = (treecover2000 &gt;= canopy_threshold_pct) AND (datamask == 1)</code></li><li>Apply minimum mapping unit:</li><li>Remove connected components smaller than <code>min_mapping_area_ha</code> hectares.</li><li>Clip to AOI.</li><li>Export forest mask as COG to local disk.</li><li>Compute area:</li><li>Reproject to area CRS (default EPSG:6933) <strong>or</strong> use geodesic area.</li><li>Sum forest pixels × pixel area; convert to hectares.</li><li>Write <code>area_summary.csv</code> with: <code>aoi_id</code>, <code>forest_area_ha</code>, <code>total_aoi_area_ha</code>, <code>forest_fraction</code>.</li><li>Write <code>run_manifest.json</code> validating against <code>validate/run_manifest.schema.json</code>.</li><li>Render HTML report from <code>report/templates/v1_report.html.j2</code>.</li></ol>
+<h2 id="required-rules">Required rules</h2>
+<ul><li>Exchange CRS: <strong>EPSG:4326</strong></li><li>Area CRS: <strong>EPSG:6933</strong> (default) or explicit geodesic method</li><li>Area unit: <strong>hectares</strong></li><li>Threshold: declared in config (default 30 %)</li><li>MMU: declared in config (default 0.5 ha)</li><li>nodata: 255 in output raster</li><li>Every run produces a valid <code>run_manifest.json</code></li></ul>
+<h2 id="error-modes">Error modes</h2>
+<div class="wrap"><table><tr><th>Error mode</th><th>Mitigation</th></tr><tr><td>AOI not in EPSG:4326</td><td>Reject with clear error message</td></tr><tr><td>AOI crosses antimeridian</td><td>Split or reproject before EE query</td></tr><tr><td>EE quota exceeded</td><td>Fall back to local Hansen tile pipeline (see ADR 0001)</td></tr><tr><td>Threshold not specified</td><td>Reject; threshold must be explicit in config</td></tr><tr><td>Output area unit not hectares</td><td>Reject; unit must be hectares</td></tr></table></div>
+<h2 id="validation-requirements">Validation requirements</h2>
+<ul><li>Pass all unit tests in <code>tests/test_v1_*.py</code> before any baseline run is reported.</li><li>Pass small-AOI integration test (≤ 10 000 ha, &lt; 10 min runtime).</li><li>Run manifest must validate against schema.</li></ul>
+<h2 id="non-claims">Non-claims</h2>
+<p>This v1 spec must not produce or imply:</p>
+<ul><li>monthly forest cover estimates</li><li>disturbance timing claims at sub-annual resolution</li><li>forest-loss attribution beyond the year-2000 baseline mask</li></ul>
+<h2 id="references">References</h2>
+<ul><li>ADR 0001 — Default Platform (superseded by ADR 0005)</li><li>ADR 0002 — Forest Definition</li><li>ADR 0003 — Area Computation Policy</li><li><code>configs/v1_defaults.yaml</code></li><li><code>validate/run_manifest.schema.json</code></li></ul></div></main></body></html>

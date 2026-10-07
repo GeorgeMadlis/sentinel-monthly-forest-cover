@@ -1,0 +1,631 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>threshold_experiments.json</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>threshold_experiments.json</h1><p class="muted">threshold_experiments.json · <a href="../threshold_experiments.json">raw file</a> · <a href="index.html">folder</a></p><pre>{
+  &quot;baseline_reproduction&quot;: &quot;reference mean/std reproduced tile by tile within 2e-6&quot;,
+  &quot;helper_sha256&quot;: &quot;58c6cec898915651169bfb0a85dc43358c4cbab86173e6afd384fc77b9e0839a&quot;,
+  &quot;interpretation&quot;: &quot;heuristic, no independent labels or probability calibration&quot;,
+  &quot;min_count&quot;: 5,
+  &quot;reference_item_ids&quot;: [
+    &quot;S2C_35VLE_20250615_0_L2A&quot;,
+    &quot;S2A_35VLE_20250614_1_L2A&quot;,
+    &quot;S2C_35VLE_20250725_0_L2A&quot;,
+    &quot;S2A_35VLE_20250704_1_L2A&quot;,
+    &quot;S2A_35VLE_20250826_1_L2A&quot;,
+    &quot;S2C_35VLE_20250814_0_L2A&quot;,
+    &quot;S2B_35VLE_20250630_0_L2A&quot;,
+    &quot;S2C_35VLE_20250804_0_L2A&quot;
+  ],
+  &quot;reference_unique_dates&quot;: 8,
+  &quot;self_test&quot;: &quot;5 synthetic checks passed&quot;,
+  &quot;settings&quot;: [
+    {
+      &quot;and&quot;: 10217,
+      &quot;and_ha&quot;: 408.68,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.1_floor0.02/and.tif">&quot;experiments/k2_drop0.1_floor0.02/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;0385ed2c3343f87abdba5ebc3dba6e8f56129e36261bb603566778a0ef163768&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.1_floor0.02/discordance.tif">&quot;experiments/k2_drop0.1_floor0.02/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;e979a8e94278a67e13c1127d5bbaf2521a73fca524d4fa91e4119dcfe5c484e3&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.1_floor0.02/optical.tif">&quot;experiments/k2_drop0.1_floor0.02/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;7c9a8fed0979caa193cd85f61b743c8a799bb849d483698194e701410fe587ee&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.1_floor0.02/or.tif">&quot;experiments/k2_drop0.1_floor0.02/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;98264e691ade62837c1824149c194a73f6b885a26f6a1b1098692c9f5c6b5a54&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 3572.6800000000003,
+      &quot;delta_min&quot;: 0.1,
+      &quot;discordant&quot;: 165112,
+      &quot;epsilon&quot;: 0.02,
+      &quot;k&quot;: 2,
+      &quot;optical&quot;: 89317,
+      &quot;or&quot;: 175329,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 89316,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 10217,
+      &quot;and_ha&quot;: 408.68,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.1_floor0.05/and.tif">&quot;experiments/k2_drop0.1_floor0.05/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;0385ed2c3343f87abdba5ebc3dba6e8f56129e36261bb603566778a0ef163768&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.1_floor0.05/discordance.tif">&quot;experiments/k2_drop0.1_floor0.05/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;e979a8e94278a67e13c1127d5bbaf2521a73fca524d4fa91e4119dcfe5c484e3&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.1_floor0.05/optical.tif">&quot;experiments/k2_drop0.1_floor0.05/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;7c9a8fed0979caa193cd85f61b743c8a799bb849d483698194e701410fe587ee&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.1_floor0.05/or.tif">&quot;experiments/k2_drop0.1_floor0.05/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;98264e691ade62837c1824149c194a73f6b885a26f6a1b1098692c9f5c6b5a54&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 3572.6800000000003,
+      &quot;delta_min&quot;: 0.1,
+      &quot;discordant&quot;: 165112,
+      &quot;epsilon&quot;: 0.05,
+      &quot;k&quot;: 2,
+      &quot;optical&quot;: 89317,
+      &quot;or&quot;: 175329,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 89316,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 7870,
+      &quot;and_ha&quot;: 314.8,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.15_floor0.02/and.tif">&quot;experiments/k2_drop0.15_floor0.02/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;f403b9e450970788968249a82875c1bcbc1a0169bbb7ba4e108d2ded6582e466&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.15_floor0.02/discordance.tif">&quot;experiments/k2_drop0.15_floor0.02/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;2caa154859591d3e213171b9cf26a3769fd2db68bab200c476824d0832d6f803&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.15_floor0.02/optical.tif">&quot;experiments/k2_drop0.15_floor0.02/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;4f6cb8e4b09a36022aa6fffedadbed62d6e24c2f023ccf940073a5a717595648&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.15_floor0.02/or.tif">&quot;experiments/k2_drop0.15_floor0.02/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;e70bd0e9e32fb0f0148ffd6585134c1fee0d5cae513ddb17725699c599b7632e&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 2631.48,
+      &quot;delta_min&quot;: 0.15,
+      &quot;discordant&quot;: 146276,
+      &quot;epsilon&quot;: 0.02,
+      &quot;k&quot;: 2,
+      &quot;optical&quot;: 65787,
+      &quot;or&quot;: 154146,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 65787,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 7870,
+      &quot;and_ha&quot;: 314.8,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.15_floor0.05/and.tif">&quot;experiments/k2_drop0.15_floor0.05/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;f403b9e450970788968249a82875c1bcbc1a0169bbb7ba4e108d2ded6582e466&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.15_floor0.05/discordance.tif">&quot;experiments/k2_drop0.15_floor0.05/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;2caa154859591d3e213171b9cf26a3769fd2db68bab200c476824d0832d6f803&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.15_floor0.05/optical.tif">&quot;experiments/k2_drop0.15_floor0.05/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;4f6cb8e4b09a36022aa6fffedadbed62d6e24c2f023ccf940073a5a717595648&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.15_floor0.05/or.tif">&quot;experiments/k2_drop0.15_floor0.05/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;e70bd0e9e32fb0f0148ffd6585134c1fee0d5cae513ddb17725699c599b7632e&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 2631.48,
+      &quot;delta_min&quot;: 0.15,
+      &quot;discordant&quot;: 146276,
+      &quot;epsilon&quot;: 0.05,
+      &quot;k&quot;: 2,
+      &quot;optical&quot;: 65787,
+      &quot;or&quot;: 154146,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 65787,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 6180,
+      &quot;and_ha&quot;: 247.20000000000002,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.2_floor0.02/and.tif">&quot;experiments/k2_drop0.2_floor0.02/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;ba59e1fbabd5d139c6527fe2ebd538bee12369192a2039d628c5ab67710208f9&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.2_floor0.02/discordance.tif">&quot;experiments/k2_drop0.2_floor0.02/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;dfd131ff694c70ebeab625eda274dd73f1cbc03361c3b450f96ff4981c84266a&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.2_floor0.02/optical.tif">&quot;experiments/k2_drop0.2_floor0.02/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;1cd4a45431a096b1f910a41b7adf984c2cd3b67f77166867aaa50a140b466753&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.2_floor0.02/or.tif">&quot;experiments/k2_drop0.2_floor0.02/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;e8cd092f17217fdd51b0f435e34e8fa61af3ab3d56a95d979fb3e3c1f5157601&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 2029.1200000000001,
+      &quot;delta_min&quot;: 0.2,
+      &quot;discordant&quot;: 134597,
+      &quot;epsilon&quot;: 0.02,
+      &quot;k&quot;: 2,
+      &quot;optical&quot;: 50728,
+      &quot;or&quot;: 140777,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 50728,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 6180,
+      &quot;and_ha&quot;: 247.20000000000002,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.2_floor0.05/and.tif">&quot;experiments/k2_drop0.2_floor0.05/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;ba59e1fbabd5d139c6527fe2ebd538bee12369192a2039d628c5ab67710208f9&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.2_floor0.05/discordance.tif">&quot;experiments/k2_drop0.2_floor0.05/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;dfd131ff694c70ebeab625eda274dd73f1cbc03361c3b450f96ff4981c84266a&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.2_floor0.05/optical.tif">&quot;experiments/k2_drop0.2_floor0.05/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;1cd4a45431a096b1f910a41b7adf984c2cd3b67f77166867aaa50a140b466753&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2_drop0.2_floor0.05/or.tif">&quot;experiments/k2_drop0.2_floor0.05/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;e8cd092f17217fdd51b0f435e34e8fa61af3ab3d56a95d979fb3e3c1f5157601&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 2029.1200000000001,
+      &quot;delta_min&quot;: 0.2,
+      &quot;discordant&quot;: 134597,
+      &quot;epsilon&quot;: 0.05,
+      &quot;k&quot;: 2,
+      &quot;optical&quot;: 50728,
+      &quot;or&quot;: 140777,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 50728,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 9661,
+      &quot;and_ha&quot;: 386.44,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.1_floor0.02/and.tif">&quot;experiments/k2.5_drop0.1_floor0.02/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;45ad0667692edfb29cdfb1479acd54a3c800a9ed7edde6f141aeb02f6a5b001a&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.1_floor0.02/discordance.tif">&quot;experiments/k2.5_drop0.1_floor0.02/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;8e7662fbb6c8ac9345b38d3743804f71b1c3a333f6b0e49472fd629e03c29dc5&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.1_floor0.02/optical.tif">&quot;experiments/k2.5_drop0.1_floor0.02/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;cd70afa63544e21346875b3a79a9e4d248689abfe06f38aa8ddfd7b9183562dd&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.1_floor0.02/or.tif">&quot;experiments/k2.5_drop0.1_floor0.02/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;361096a145506aba297c62a09d1c5d1ea39619b7e40381accb8a06dc0aa27847&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 3243.64,
+      &quot;delta_min&quot;: 0.1,
+      &quot;discordant&quot;: 157998,
+      &quot;epsilon&quot;: 0.02,
+      &quot;k&quot;: 2.5,
+      &quot;optical&quot;: 81091,
+      &quot;or&quot;: 167659,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 81091,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 8521,
+      &quot;and_ha&quot;: 340.84000000000003,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.1_floor0.05/and.tif">&quot;experiments/k2.5_drop0.1_floor0.05/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;ee533c0c3584831580bad60bda1431bf3e93f728188fce80b4bbf426d87b690d&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.1_floor0.05/discordance.tif">&quot;experiments/k2.5_drop0.1_floor0.05/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;11fcb1d5ef83050e18c09df2b4659e4585ba1c7d4d9b1c6068cca3bdda7d404a&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.1_floor0.05/optical.tif">&quot;experiments/k2.5_drop0.1_floor0.05/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;ce443548d9e5575f634a0461bf402a816867b974f1642c92ee4cb64fa6aa4f46&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.1_floor0.05/or.tif">&quot;experiments/k2.5_drop0.1_floor0.05/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;60bfd14d8dc86ea1a7108c58dacc31728812131a584efd8cb0b837fa5f09e226&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 2818.12,
+      &quot;delta_min&quot;: 0.1,
+      &quot;discordant&quot;: 149640,
+      &quot;epsilon&quot;: 0.05,
+      &quot;k&quot;: 2.5,
+      &quot;optical&quot;: 70453,
+      &quot;or&quot;: 158161,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 70453,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 7582,
+      &quot;and_ha&quot;: 303.28000000000003,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.15_floor0.02/and.tif">&quot;experiments/k2.5_drop0.15_floor0.02/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;f956f22fd4b60e0544642c4cbe10da74e31eadb66e353e89a521ed9df323abbd&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.15_floor0.02/discordance.tif">&quot;experiments/k2.5_drop0.15_floor0.02/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;6676f27f1e664a86dfc67b01fe904194972ceb1fa37da048b692fdd26ce9c4df&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.15_floor0.02/optical.tif">&quot;experiments/k2.5_drop0.15_floor0.02/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;e6e7d175430fb8d81abedfe9d679cb0013e21bc7bb8077d79fb83d0f0975b3dd&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.15_floor0.02/or.tif">&quot;experiments/k2.5_drop0.15_floor0.02/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;b9e6262ce9f27d623f8634af954a09521c76ce6ee372338cf6108b88e4be21e4&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 2464.4,
+      &quot;delta_min&quot;: 0.15,
+      &quot;discordant&quot;: 142675,
+      &quot;epsilon&quot;: 0.02,
+      &quot;k&quot;: 2.5,
+      &quot;optical&quot;: 61610,
+      &quot;or&quot;: 150257,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 61610,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 7582,
+      &quot;and_ha&quot;: 303.28000000000003,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.15_floor0.05/and.tif">&quot;experiments/k2.5_drop0.15_floor0.05/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;f956f22fd4b60e0544642c4cbe10da74e31eadb66e353e89a521ed9df323abbd&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.15_floor0.05/discordance.tif">&quot;experiments/k2.5_drop0.15_floor0.05/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;6676f27f1e664a86dfc67b01fe904194972ceb1fa37da048b692fdd26ce9c4df&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.15_floor0.05/optical.tif">&quot;experiments/k2.5_drop0.15_floor0.05/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;e6e7d175430fb8d81abedfe9d679cb0013e21bc7bb8077d79fb83d0f0975b3dd&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.15_floor0.05/or.tif">&quot;experiments/k2.5_drop0.15_floor0.05/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;b9e6262ce9f27d623f8634af954a09521c76ce6ee372338cf6108b88e4be21e4&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 2464.4,
+      &quot;delta_min&quot;: 0.15,
+      &quot;discordant&quot;: 142675,
+      &quot;epsilon&quot;: 0.05,
+      &quot;k&quot;: 2.5,
+      &quot;optical&quot;: 61610,
+      &quot;or&quot;: 150257,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 61610,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 6046,
+      &quot;and_ha&quot;: 241.84,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.2_floor0.02/and.tif">&quot;experiments/k2.5_drop0.2_floor0.02/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;37bb882701410eab2204576dd724ef1b9f4bf8caf844a862c938a7586a332c8d&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.2_floor0.02/discordance.tif">&quot;experiments/k2.5_drop0.2_floor0.02/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;b574cc09d8d7df49fa31f01879cf84615a039c862c807192bab1cd466c4bd5a6&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.2_floor0.02/optical.tif">&quot;experiments/k2.5_drop0.2_floor0.02/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;690fe917e380008d968d2ad23afa1b91cfb5e64273b0f693c794ce9ed20e8f1e&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.2_floor0.02/or.tif">&quot;experiments/k2.5_drop0.2_floor0.02/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;07363e5daddf2bedddc3bd2d7048901163f6264095c56ad312f84dd168daa8d3&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 1923.64,
+      &quot;delta_min&quot;: 0.2,
+      &quot;discordant&quot;: 132228,
+      &quot;epsilon&quot;: 0.02,
+      &quot;k&quot;: 2.5,
+      &quot;optical&quot;: 48091,
+      &quot;or&quot;: 138274,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 48091,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 6046,
+      &quot;and_ha&quot;: 241.84,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.2_floor0.05/and.tif">&quot;experiments/k2.5_drop0.2_floor0.05/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;37bb882701410eab2204576dd724ef1b9f4bf8caf844a862c938a7586a332c8d&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.2_floor0.05/discordance.tif">&quot;experiments/k2.5_drop0.2_floor0.05/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;b574cc09d8d7df49fa31f01879cf84615a039c862c807192bab1cd466c4bd5a6&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.2_floor0.05/optical.tif">&quot;experiments/k2.5_drop0.2_floor0.05/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;690fe917e380008d968d2ad23afa1b91cfb5e64273b0f693c794ce9ed20e8f1e&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k2.5_drop0.2_floor0.05/or.tif">&quot;experiments/k2.5_drop0.2_floor0.05/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;07363e5daddf2bedddc3bd2d7048901163f6264095c56ad312f84dd168daa8d3&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 1923.64,
+      &quot;delta_min&quot;: 0.2,
+      &quot;discordant&quot;: 132228,
+      &quot;epsilon&quot;: 0.05,
+      &quot;k&quot;: 2.5,
+      &quot;optical&quot;: 48091,
+      &quot;or&quot;: 138274,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 48091,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 9116,
+      &quot;and_ha&quot;: 364.64,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.1_floor0.02/and.tif">&quot;experiments/k3_drop0.1_floor0.02/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;4c0ed02ffc8fc00c9582fcd74f32b8fd4f3ef6cf08803779211882b823128728&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.1_floor0.02/discordance.tif">&quot;experiments/k3_drop0.1_floor0.02/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;ead8e9371ce432801c2ffebbee540775815e7ed12f757af384e95ef8190bd3f9&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.1_floor0.02/optical.tif">&quot;experiments/k3_drop0.1_floor0.02/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;4557102cd303120878fe0d58e221919b88b6efa732682d5a71f44e8d1bcb4025&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.1_floor0.02/or.tif">&quot;experiments/k3_drop0.1_floor0.02/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;97a1d1313dbf40461cb965d42e6f8da92e3b9f27da2dfbd4fdcb34f9494dc9ec&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 2985.08,
+      &quot;delta_min&quot;: 0.1,
+      &quot;discordant&quot;: 152624,
+      &quot;epsilon&quot;: 0.02,
+      &quot;k&quot;: 3,
+      &quot;optical&quot;: 74627,
+      &quot;or&quot;: 161740,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 74627,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 7273,
+      &quot;and_ha&quot;: 290.92,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.1_floor0.05/and.tif">&quot;experiments/k3_drop0.1_floor0.05/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;4355defb9d517019dfbf4072ce71716b06e17437167101cdb55d91d13cacd761&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.1_floor0.05/discordance.tif">&quot;experiments/k3_drop0.1_floor0.05/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;c6e5240bdaed25232839b131266b0bf39dc3bc15755307f357545575eb2ad5d4&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.1_floor0.05/optical.tif">&quot;experiments/k3_drop0.1_floor0.05/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;64a25f42c9cc34a4eb94121cacb1e6aa4476514b4f025ae7a65c9acc329d3bb5&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.1_floor0.05/or.tif">&quot;experiments/k3_drop0.1_floor0.05/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;8e060503e9b370e23d0e53849ae6919f7b29d543bf24e5e0305de63936fd3e51&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 2322.68,
+      &quot;delta_min&quot;: 0.1,
+      &quot;discordant&quot;: 139750,
+      &quot;epsilon&quot;: 0.05,
+      &quot;k&quot;: 3,
+      &quot;optical&quot;: 58067,
+      &quot;or&quot;: 147023,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 58067,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 7273,
+      &quot;and_ha&quot;: 290.92,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.15_floor0.02/and.tif">&quot;experiments/k3_drop0.15_floor0.02/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;4355defb9d517019dfbf4072ce71716b06e17437167101cdb55d91d13cacd761&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.15_floor0.02/discordance.tif">&quot;experiments/k3_drop0.15_floor0.02/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;c6e5240bdaed25232839b131266b0bf39dc3bc15755307f357545575eb2ad5d4&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.15_floor0.02/optical.tif">&quot;experiments/k3_drop0.15_floor0.02/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;64a25f42c9cc34a4eb94121cacb1e6aa4476514b4f025ae7a65c9acc329d3bb5&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.15_floor0.02/or.tif">&quot;experiments/k3_drop0.15_floor0.02/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;8e060503e9b370e23d0e53849ae6919f7b29d543bf24e5e0305de63936fd3e51&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 2322.68,
+      &quot;delta_min&quot;: 0.15,
+      &quot;discordant&quot;: 139750,
+      &quot;epsilon&quot;: 0.02,
+      &quot;k&quot;: 3,
+      &quot;optical&quot;: 58067,
+      &quot;or&quot;: 147023,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 58067,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 7273,
+      &quot;and_ha&quot;: 290.92,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.15_floor0.05/and.tif">&quot;experiments/k3_drop0.15_floor0.05/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;4355defb9d517019dfbf4072ce71716b06e17437167101cdb55d91d13cacd761&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.15_floor0.05/discordance.tif">&quot;experiments/k3_drop0.15_floor0.05/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;c6e5240bdaed25232839b131266b0bf39dc3bc15755307f357545575eb2ad5d4&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.15_floor0.05/optical.tif">&quot;experiments/k3_drop0.15_floor0.05/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;64a25f42c9cc34a4eb94121cacb1e6aa4476514b4f025ae7a65c9acc329d3bb5&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.15_floor0.05/or.tif">&quot;experiments/k3_drop0.15_floor0.05/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;8e060503e9b370e23d0e53849ae6919f7b29d543bf24e5e0305de63936fd3e51&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 2322.68,
+      &quot;delta_min&quot;: 0.15,
+      &quot;discordant&quot;: 139750,
+      &quot;epsilon&quot;: 0.05,
+      &quot;k&quot;: 3,
+      &quot;optical&quot;: 58067,
+      &quot;or&quot;: 147023,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 58067,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 5865,
+      &quot;and_ha&quot;: 234.6,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.2_floor0.02/and.tif">&quot;experiments/k3_drop0.2_floor0.02/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;702604f02cc6a91a87e52e866726cfcef3d56e41043af18c51e428d528d6e077&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.2_floor0.02/discordance.tif">&quot;experiments/k3_drop0.2_floor0.02/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;775a66f4d0d96c7180aab979406795ad47ace375d4fc9ca7cd6526bf86323e23&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.2_floor0.02/optical.tif">&quot;experiments/k3_drop0.2_floor0.02/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;cb83683934a0e6885e1b5edd5195c4ba626b97e2e8ebd2624de288ad6850791b&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.2_floor0.02/or.tif">&quot;experiments/k3_drop0.2_floor0.02/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;99fbc4a7ebca83496a131b63216d3a50ef43140388f10eb5a1d212c09296f2bb&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 1834.4,
+      &quot;delta_min&quot;: 0.2,
+      &quot;discordant&quot;: 130359,
+      &quot;epsilon&quot;: 0.02,
+      &quot;k&quot;: 3,
+      &quot;optical&quot;: 45860,
+      &quot;or&quot;: 136224,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 45860,
+      &quot;valid&quot;: 2735752
+    },
+    {
+      &quot;and&quot;: 5865,
+      &quot;and_ha&quot;: 234.6,
+      &quot;artifacts&quot;: {
+        &quot;and.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.2_floor0.05/and.tif">&quot;experiments/k3_drop0.2_floor0.05/and.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;702604f02cc6a91a87e52e866726cfcef3d56e41043af18c51e428d528d6e077&quot;
+        },
+        &quot;discordance.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.2_floor0.05/discordance.tif">&quot;experiments/k3_drop0.2_floor0.05/discordance.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;775a66f4d0d96c7180aab979406795ad47ace375d4fc9ca7cd6526bf86323e23&quot;
+        },
+        &quot;optical.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.2_floor0.05/optical.tif">&quot;experiments/k3_drop0.2_floor0.05/optical.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;cb83683934a0e6885e1b5edd5195c4ba626b97e2e8ebd2624de288ad6850791b&quot;
+        },
+        &quot;or.tif&quot;: {
+          &quot;path&quot;: <a href="../experiments/k3_drop0.2_floor0.05/or.tif">&quot;experiments/k3_drop0.2_floor0.05/or.tif&quot;</a>,
+          &quot;sha256&quot;: &quot;99fbc4a7ebca83496a131b63216d3a50ef43140388f10eb5a1d212c09296f2bb&quot;
+        }
+      },
+      &quot;candidate_ha&quot;: 1834.4,
+      &quot;delta_min&quot;: 0.2,
+      &quot;discordant&quot;: 130359,
+      &quot;epsilon&quot;: 0.05,
+      &quot;k&quot;: 3,
+      &quot;optical&quot;: 45860,
+      &quot;or&quot;: 136224,
+      &quot;paired_valid&quot;: 2735752,
+      &quot;shared_all_baselines_valid&quot;: 2735727,
+      &quot;shared_optical&quot;: 45860,
+      &quot;valid&quot;: 2735752
+    }
+  ],
+  &quot;status&quot;: &quot;executed&quot;,
+  &quot;target&quot;: &quot;S2C_35VLE_20260620_0_L2A&quot;
+}</pre></main></body></html>

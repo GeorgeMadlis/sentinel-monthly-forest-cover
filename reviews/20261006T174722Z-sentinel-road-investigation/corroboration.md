@@ -1,0 +1,11 @@
+# Independent corroboration
+
+Jurisdiction: Estonia (AOI 24.4–24.9° E, 58.2–58.6° N). Public official historical WMS capabilities were fetched and inspected. Two 500 m windows were requested at 0.5 m display sampling, with PNG responses and georeferenced RGBA GeoTIFF derivatives cached under cache/orthophotos/. WMS render sampling is not native source resolution. No full scene was downloaded.
+
+2023 and 2024 imagery layers had no ground-image coverage at these points; small nontransparent attribution text must not count as coverage. The 2025 layer had complete imagery. Generic metainfo returned flight date 9 June 2023 and GSD=25, inconsistent with the chosen year layer. Those responses are preserved, but neither the date nor native resolution is assigned to the returned pixels. Exact source sheet listings could not be accessed through the web tool. No adequately dated independent before/after pair or verified 2026 high-resolution image was obtained; no construction interval can be bounded.
+
+ROI-02’s sampled 2025-layer aerial image shows a paved road with vehicles. The original 15 June 2025 Sentinel RGB also shows a road-like alignment. This supports physical existence and contradicts describing the sampled main carriageway as entirely absent at the optical reference date, while widening and surrounding clearing remain unresolved. ROI-01’s aerial window shows existing forestry clearings/tracks; a highway identity and all-new corridor cannot be inferred. The entire manually sampled corridor is not established by one aerial window.
+
+Rail Baltic Estonia’s 2025 reports describe railway and access-road construction in the region. They introduce a railway/earthworks alternative but do not geospatially identify these ROIs. No permits, official completed-road alignment, forestry authorisation, legal forest baseline or field survey was obtained. Project reports are not treated as independent aerial observations. OSM was not used as evidence of absence or construction timing.
+
+Each proposition/source assessment and date conflict is in independent_map_evidence.json. Remaining evidence: exact surveyed corridor, dated native-resolution source sheets before and after, current rail/road alignment, construction records, and a separately approved prior-forest baseline.

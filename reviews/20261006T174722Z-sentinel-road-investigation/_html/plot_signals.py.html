@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>plot_signals.py</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>plot_signals.py</h1><p class="muted">plot_signals.py · <a href="../plot_signals.py">raw file</a> · <a href="index.html">folder</a></p><pre>from pathlib import Path
+import json
+import matplotlib
+matplotlib.use(&#x27;Agg&#x27;)
+import matplotlib.pyplot as plt
+import numpy as np
+R=Path(__file__).parent;j=json.loads((R/&#x27;roi_metrics.json&#x27;).read_text());fig,axes=plt.subplots(1,3,figsize=(13,4))
+for ax,key,label in zip(axes,[&#x27;ndvi_change&#x27;,&#x27;vv_change&#x27;,&#x27;vh_change&#x27;],[&#x27;NDVI target − reference mean&#x27;,&#x27;VV target − reference median (dB)&#x27;,&#x27;VH target − reference median (dB)&#x27;]):
+ for i,r in enumerate(j):
+  values=[r[key+&#x27;_p10&#x27;],r[key+&#x27;_median&#x27;],r[key+&#x27;_p90&#x27;]];ax.plot([values[0],values[2]],[i,i],color=&#x27;steelblue&#x27;);ax.scatter(values[1],i,color=&#x27;navy&#x27;,s=30)
+ ax.set_yticks(range(len(j)),[r[&#x27;roi_id&#x27;] for r in j]);ax.set_xlabel(label);ax.grid(axis=&#x27;x&#x27;,alpha=.25);ax.axvline(0,color=&#x27;gray&#x27;,lw=.7)
+ if key==&#x27;vv_change&#x27;:ax.axvline(-1.5,color=&#x27;red&#x27;,ls=&#x27;--&#x27;,label=&#x27;VV gate&#x27;);ax.legend()
+ if key==&#x27;vh_change&#x27;:ax.axvline(-1,color=&#x27;red&#x27;,ls=&#x27;--&#x27;,label=&#x27;VH gate&#x27;);ax.legend()
+axes[0].set_title(&#x27;Points: medians; bars: pixel p10–p90\nSpatial distributions, not confidence intervals&#x27;,fontsize=10)
+fig.suptitle(&#x27;Continuous signals in provisional sampling buffers and visual controls&#x27;);fig.tight_layout();fig.savefig(R/&#x27;continuous_signal_summary.png&#x27;,dpi=160);fig.savefig(R/&#x27;continuous_signal_summary.pdf&#x27;);plt.close(fig)
+e=json.loads((R/&#x27;threshold_experiments.json&#x27;).read_text())[&#x27;settings&#x27;];fig,ax=plt.subplots(figsize=(10,4));x=np.arange(len(e));ax.plot(x,[v[&#x27;optical&#x27;]*.04 for v in e],&#x27;-o&#x27;,label=&#x27;robust optical&#x27;);ax.plot(x,[v[&#x27;and&#x27;]*.04 for v in e],&#x27;-o&#x27;,label=&#x27;paired AND&#x27;);ax.plot(x,[v[&#x27;or&#x27;]*.04 for v in e],&#x27;-o&#x27;,label=&#x27;paired OR&#x27;);ax.set_xticks(x,[f&quot;{v[&#x27;k&#x27;]}\n{v[&#x27;delta_min&#x27;]}\n{v[&#x27;epsilon&#x27;]}&quot; for v in e],fontsize=8);ax.set_xlabel(&#x27;Setting: k / minimum NDVI drop / noise floor&#x27;);ax.set_ylabel(&#x27;Candidate hectares, all land cover&#x27;);ax.set_title(&#x27;Prespecified sensitivity; stability comparison, no accuracy labels&#x27;);ax.legend();ax.grid(alpha=.2);fig.tight_layout();fig.savefig(R/&#x27;threshold_sensitivity.png&#x27;,dpi=160);fig.savefig(R/&#x27;threshold_sensitivity.pdf&#x27;);plt.close(fig)
+</pre></main></body></html>

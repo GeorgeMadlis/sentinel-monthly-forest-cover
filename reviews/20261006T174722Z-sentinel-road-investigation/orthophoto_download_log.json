@@ -1,0 +1,250 @@
+[
+  {
+    "id": "ROI-01-2024",
+    "roi_id": "ROI-01",
+    "source_url": "https://kaart.maaamet.ee/wms/ajalooline",
+    "query": {
+      "service": "WMS",
+      "version": "1.1.1",
+      "request": "GetMap",
+      "layers": "of2024aero",
+      "styles": "",
+      "srs": "EPSG:3301",
+      "bbox": "543875.2409946925,6485951.113108702,544375.2409946925,6486451.113108702",
+      "width": 1000,
+      "height": 1000,
+      "format": "image/png",
+      "transparent": "TRUE"
+    },
+    "retrieved_at": "2026-10-06T18:00:12.351244+00:00",
+    "layer_year": 2024,
+    "observation_date": null,
+    "source_independence_group": "national-aerial-imagery",
+    "display_resolution_m": 0.5,
+    "native_resolution": "not yet established; requested WMS sampling is not native resolution",
+    "bbox_epsg3301": [
+      543875.2409946925,
+      6485951.113108702,
+      544375.2409946925,
+      6486451.113108702
+    ],
+    "point_wgs84": [
+      24.757142857142856,
+      58.513721391596995
+    ],
+    "limitations": [
+      "Layer year is not exact acquisition date; WMS rendering is derived, not a native source tile."
+    ],
+    "nontransparent_fraction": 0.000641,
+    "sha256": "b4d524d8a2388f7d3f40012eb4e368b485213616e78ce48e63cb3faa8b267f4c",
+    "path": "cache/orthophotos/ROI-01-2024.png",
+    "georeferenced_path": "cache/orthophotos/ROI-01-2024.tif",
+    "tif_sha256": "64c4215965fd5152907cb588be860a1a67ca04ef11c684b4cdaa9e5e146d48fc",
+    "metadata_path": "cache/orthophotos/ROI-01-2024-metadata.txt",
+    "metadata_query": {
+      "service": "WMS",
+      "version": "1.1.1",
+      "request": "GetFeatureInfo",
+      "layers": "metainfo",
+      "styles": "",
+      "srs": "EPSG:3301",
+      "bbox": "543875.2409946925,6485951.113108702,544375.2409946925,6486451.113108702",
+      "width": 1000,
+      "height": 1000,
+      "format": "image/png",
+      "transparent": "TRUE",
+      "query_layers": "metainfo",
+      "info_format": "text/plain",
+      "x": 500,
+      "y": 500,
+      "feature_count": 10
+    },
+    "accessibility": "no coverage"
+  },
+  {
+    "id": "ROI-01-2025",
+    "roi_id": "ROI-01",
+    "source_url": "https://kaart.maaamet.ee/wms/ajalooline",
+    "query": {
+      "service": "WMS",
+      "version": "1.1.1",
+      "request": "GetMap",
+      "layers": "of2025aero",
+      "styles": "",
+      "srs": "EPSG:3301",
+      "bbox": "543875.2409946925,6485951.113108702,544375.2409946925,6486451.113108702",
+      "width": 1000,
+      "height": 1000,
+      "format": "image/png",
+      "transparent": "TRUE"
+    },
+    "retrieved_at": "2026-10-06T18:00:12.614344+00:00",
+    "layer_year": 2025,
+    "observation_date": null,
+    "source_independence_group": "national-aerial-imagery",
+    "display_resolution_m": 0.5,
+    "native_resolution": "not yet established; requested WMS sampling is not native resolution",
+    "bbox_epsg3301": [
+      543875.2409946925,
+      6485951.113108702,
+      544375.2409946925,
+      6486451.113108702
+    ],
+    "point_wgs84": [
+      24.757142857142856,
+      58.513721391596995
+    ],
+    "limitations": [
+      "Layer year is not exact acquisition date; WMS rendering is derived, not a native source tile."
+    ],
+    "nontransparent_fraction": 1.0,
+    "sha256": "9c099522a2beb623cab78041501f50601504277d5006510e69692638c07a8894",
+    "path": "cache/orthophotos/ROI-01-2025.png",
+    "georeferenced_path": "cache/orthophotos/ROI-01-2025.tif",
+    "tif_sha256": "3c17a95b1a7cc675ffbeb25551ce2a0b3d586285a693dd8aad414e38c97c8cdf",
+    "metadata_path": "cache/orthophotos/ROI-01-2025-metadata.txt",
+    "metadata_query": {
+      "service": "WMS",
+      "version": "1.1.1",
+      "request": "GetFeatureInfo",
+      "layers": "metainfo",
+      "styles": "",
+      "srs": "EPSG:3301",
+      "bbox": "543875.2409946925,6485951.113108702,544375.2409946925,6486451.113108702",
+      "width": 1000,
+      "height": 1000,
+      "format": "image/png",
+      "transparent": "TRUE",
+      "query_layers": "metainfo",
+      "info_format": "text/plain",
+      "x": 500,
+      "y": 500,
+      "feature_count": 10
+    },
+    "accessibility": "available"
+  },
+  {
+    "id": "ROI-02-2024",
+    "roi_id": "ROI-02",
+    "source_url": "https://kaart.maaamet.ee/wms/ajalooline",
+    "query": {
+      "service": "WMS",
+      "version": "1.1.1",
+      "request": "GetMap",
+      "layers": "of2024aero",
+      "styles": "",
+      "srs": "EPSG:3301",
+      "bbox": "530730.5892659656,6489895.888164161,531230.5892659656,6490395.888164161",
+      "width": 1000,
+      "height": 1000,
+      "format": "image/png",
+      "transparent": "TRUE"
+    },
+    "retrieved_at": "2026-10-06T18:00:13.347121+00:00",
+    "layer_year": 2024,
+    "observation_date": null,
+    "source_independence_group": "national-aerial-imagery",
+    "display_resolution_m": 0.5,
+    "native_resolution": "not yet established; requested WMS sampling is not native resolution",
+    "bbox_epsg3301": [
+      530730.5892659656,
+      6489895.888164161,
+      531230.5892659656,
+      6490395.888164161
+    ],
+    "point_wgs84": [
+      24.532142857142855,
+      58.550271318644185
+    ],
+    "limitations": [
+      "Layer year is not exact acquisition date; WMS rendering is derived, not a native source tile."
+    ],
+    "nontransparent_fraction": 0.000641,
+    "sha256": "b4d524d8a2388f7d3f40012eb4e368b485213616e78ce48e63cb3faa8b267f4c",
+    "path": "cache/orthophotos/ROI-02-2024.png",
+    "georeferenced_path": "cache/orthophotos/ROI-02-2024.tif",
+    "tif_sha256": "203d02f83f6aa79e2b66686df39478a5f32ad3ea0d996ceccbc0331043ffce1e",
+    "metadata_path": "cache/orthophotos/ROI-02-2024-metadata.txt",
+    "metadata_query": {
+      "service": "WMS",
+      "version": "1.1.1",
+      "request": "GetFeatureInfo",
+      "layers": "metainfo",
+      "styles": "",
+      "srs": "EPSG:3301",
+      "bbox": "530730.5892659656,6489895.888164161,531230.5892659656,6490395.888164161",
+      "width": 1000,
+      "height": 1000,
+      "format": "image/png",
+      "transparent": "TRUE",
+      "query_layers": "metainfo",
+      "info_format": "text/plain",
+      "x": 500,
+      "y": 500,
+      "feature_count": 10
+    },
+    "accessibility": "no coverage"
+  },
+  {
+    "id": "ROI-02-2025",
+    "roi_id": "ROI-02",
+    "source_url": "https://kaart.maaamet.ee/wms/ajalooline",
+    "query": {
+      "service": "WMS",
+      "version": "1.1.1",
+      "request": "GetMap",
+      "layers": "of2025aero",
+      "styles": "",
+      "srs": "EPSG:3301",
+      "bbox": "530730.5892659656,6489895.888164161,531230.5892659656,6490395.888164161",
+      "width": 1000,
+      "height": 1000,
+      "format": "image/png",
+      "transparent": "TRUE"
+    },
+    "retrieved_at": "2026-10-06T18:00:13.531019+00:00",
+    "layer_year": 2025,
+    "observation_date": null,
+    "source_independence_group": "national-aerial-imagery",
+    "display_resolution_m": 0.5,
+    "native_resolution": "not yet established; requested WMS sampling is not native resolution",
+    "bbox_epsg3301": [
+      530730.5892659656,
+      6489895.888164161,
+      531230.5892659656,
+      6490395.888164161
+    ],
+    "point_wgs84": [
+      24.532142857142855,
+      58.550271318644185
+    ],
+    "limitations": [
+      "Layer year is not exact acquisition date; WMS rendering is derived, not a native source tile."
+    ],
+    "nontransparent_fraction": 1.0,
+    "sha256": "4db23a9af3a6287986623abad92a38ff99d34d7379b7abe9cca7878cf343878c",
+    "path": "cache/orthophotos/ROI-02-2025.png",
+    "georeferenced_path": "cache/orthophotos/ROI-02-2025.tif",
+    "tif_sha256": "cf84f21c2512c4b9531dc8e1cb7c5ff75faec23642f0df6443db08d79eadda85",
+    "metadata_path": "cache/orthophotos/ROI-02-2025-metadata.txt",
+    "metadata_query": {
+      "service": "WMS",
+      "version": "1.1.1",
+      "request": "GetFeatureInfo",
+      "layers": "metainfo",
+      "styles": "",
+      "srs": "EPSG:3301",
+      "bbox": "530730.5892659656,6489895.888164161,531230.5892659656,6490395.888164161",
+      "width": 1000,
+      "height": 1000,
+      "format": "image/png",
+      "transparent": "TRUE",
+      "query_layers": "metainfo",
+      "info_format": "text/plain",
+      "x": 500,
+      "y": 500,
+      "feature_count": 10
+    },
+    "accessibility": "available"
+  }
+]

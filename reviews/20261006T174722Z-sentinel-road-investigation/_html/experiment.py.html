@@ -1,0 +1,121 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>experiment.py</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>experiment.py</h1><p class="muted">experiment.py · <a href="../experiment.py">raw file</a> · <a href="index.html">folder</a></p><pre>from pathlib import Path
+import sys,importlib.util,json,csv,shutil
+from contextlib import ExitStack
+import numpy as np,rasterio
+from pyproj import Transformer
+from shapely.geometry import LineString,box,mapping
+from rasterio.features import geometry_mask
+from rasterio.warp import transform_geom
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+from forest_change.providers import LocalRasterProvider
+from forest_change.raster import Grid,tiles,read_asset,write_window
+from forest_change.algorithms import feature,fuse
+from forest_change.evidence import checksum,write_json
+from forest_change.leaflet import visual_grid,anomaly_rgba,generate_map
+from PIL import Image
+R=Path(__file__).resolve().parent;REPO=R.parents[1];RUN=REPO/&#x27;runs/aoi-s2-s1-jja-2025-2026-sigma&#x27;;E=R/&#x27;experiments&#x27;;E.mkdir(exist_ok=True)
+spec=importlib.util.spec_from_file_location(&#x27;robust&#x27;,REPO/&#x27;.codex/skills/inspect-sentinel-change/scripts/robust_threshold.py&#x27;);mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod);mod.self_test()
+provider=LocalRasterProvider({&#x27;inventory&#x27;:str(RUN/&#x27;optical_inventory.json&#x27;),&#x27;collection&#x27;:&#x27;archived-calibrated-s2&#x27;})
+ref=[i for i in provider.items if i[&#x27;datetime&#x27;].startswith(&#x27;2025&#x27;)];target=next(i for i in provider.items if i[&#x27;datetime&#x27;].startswith(&#x27;2026&#x27;));assert len({i[&#x27;datetime&#x27;][:10] for i in ref})==8
+with rasterio.open(RUN/&#x27;w0000/NDVI_current.tif&#x27;) as s:grid=Grid(str(s.crs),s.transform,s.width,s.height)
+fwd=Transformer.from_crs(4326,3857,always_xy=True);proj=Transformer.from_crs(3857,6933,always_xy=True)
+x0,y0=fwd.transform(24.4,58.2);x1,y1=fwd.transform(24.9,58.6)
+def displaypoint(x,y):return proj.transform(x0+x/1400*(x1-x0),y1-y/2137*(y1-y0))
+lines={&#x27;ROI-01&#x27;:[(550,927),(675,735),(820,595),(1000,463),(1160,310)],&#x27;ROI-02&#x27;:[(306,82),(311,178),(370,267),(398,392),(390,470)]}
+regions={};features=[]
+for name,points in lines.items():
+ line=LineString([displaypoint(x,y) for x,y in points]);poly=line.buffer(40)
+ regions[name]=mapping(poly)
+ features.append({&#x27;type&#x27;:&#x27;Feature&#x27;,&#x27;properties&#x27;:{&#x27;id&#x27;:name,&#x27;role&#x27;:&#x27;candidate-corridor&#x27;,&#x27;length_m&#x27;:round(line.length,1),&#x27;buffer_m&#x27;:40,&#x27;apparent_width_m&#x27;:&#x27;approximately 20–60, visual and unresolved edges&#x27;,&#x27;source_pixel_width&#x27;:&#x27;approximately 2–6 at 10 m; not independently measured&#x27;,&#x27;analysis_pixel_width&#x27;:&#x27;approximately 1–3 at 20 m&#x27;,&#x27;uncertainty&#x27;:&#x27;manual coarse centreline; 40 m sampling buffer is declared tolerance, not measured registration error&#x27;},&#x27;geometry&#x27;:transform_geom(grid.crs,&#x27;EPSG:4326&#x27;,mapping(poly))})
+# Comparison controls: visual forest background patches. Not independently labeled unchanged.
+for name,xy in {&#x27;CONTROL-01&#x27;:(800,120),&#x27;CONTROL-02&#x27;:(1140,1510)}.items():
+ x,y=displaypoint(*xy);p=box(x-160,y-160,x+160,y+160);regions[name]=mapping(p)
+ features.append({&#x27;type&#x27;:&#x27;Feature&#x27;,&#x27;properties&#x27;:{&#x27;id&#x27;:name,&#x27;role&#x27;:&#x27;visual-control&#x27;,&#x27;uncertainty&#x27;:&#x27;stable-looking forest; no independent stability label&#x27;},&#x27;geometry&#x27;:transform_geom(grid.crs,&#x27;EPSG:4326&#x27;,mapping(p))})
+write_json(R/&#x27;rois.geojson&#x27;,{&#x27;type&#x27;:&#x27;FeatureCollection&#x27;,&#x27;features&#x27;:features})
+settings=[(k,d,e) for k in (2,2.5,3) for d in (.1,.15,.2) for e in (.02,.05)]
+results={p:{&#x27;valid&#x27;:0,&#x27;paired_valid&#x27;:0,&#x27;optical&#x27;:0,&#x27;and&#x27;:0,&#x27;or&#x27;:0,&#x27;discordant&#x27;:0,&#x27;shared_all_baselines_valid&#x27;:0,&#x27;shared_optical&#x27;:0} for p in settings}
+samples={n:{k:[] for k in (&#x27;ndvi_change&#x27;,&#x27;vv_change&#x27;,&#x27;vh_change&#x27;,&#x27;count&#x27;,&#x27;std&#x27;)} for n in regions};roi_counts={n:{&#x27;valid&#x27;:0,&#x27;fixed&#x27;:0,&#x27;sigma&#x27;:0,&#x27;sar&#x27;:0,&#x27;fixed_and&#x27;:0,&#x27;sigma_and&#x27;:0,&#x27;vv_only_fail&#x27;:0,&#x27;vh_only_fail&#x27;:0,&#x27;both_fail&#x27;:0} for n in regions}
+with ExitStack() as stack:
+ src={k:stack.enter_context(rasterio.open(RUN/&#x27;w0000&#x27;/p)) for k,p in {&#x27;current&#x27;:&#x27;NDVI_current.tif&#x27;,&#x27;change&#x27;:&#x27;NDVI_change.tif&#x27;,&#x27;mean&#x27;:&#x27;NDVI_reference.tif&#x27;,&#x27;std&#x27;:&#x27;NDVI_reference_std.tif&#x27;,&#x27;count&#x27;:&#x27;NDVI_reference_count.tif&#x27;,&#x27;vv&#x27;:&#x27;VV_change.tif&#x27;,&#x27;vh&#x27;:&#x27;VH_change.tif&#x27;,&#x27;sigma&#x27;:&#x27;optical_candidate.tif&#x27;,&#x27;sar&#x27;:&#x27;sar_candidate.tif&#x27;}.items()}
+ base=Path(json.loads((RUN/&#x27;maps/map_metadata.json&#x27;).read_text())[&#x27;source_run&#x27;]);src[&#x27;fixed&#x27;]=stack.enter_context(rasterio.open(base/&#x27;w0000/disturbance.tif&#x27;))
+ dst={}
+ for setting in settings:
+  k,d,e=setting;name=f&#x27;k{k:g}_drop{d:g}_floor{e:g}&#x27;;folder=E/name;folder.mkdir(exist_ok=True)
+  dst[setting]={mode:stack.enter_context(rasterio.open(folder/f&#x27;{mode}.tif&#x27;,&#x27;w&#x27;,**grid.profile)) for mode in (&#x27;optical&#x27;,&#x27;and&#x27;,&#x27;or&#x27;,&#x27;discordance&#x27;)}
+ default=(2.5,.15,.02)
+ diagnostic={key:stack.enter_context(rasterio.open(E/f&#x27;robust_{key}.tif&#x27;,&#x27;w&#x27;,**grid.profile)) for key in (&#x27;median&#x27;,&#x27;mad&#x27;,&#x27;score&#x27;,&#x27;count&#x27;)}
+ for w in tiles(grid,512):
+  a={k:s.read(1,window=w,masked=True).filled(np.nan) for k,s in src.items()}
+  ndvis=[]
+  for item in ref:
+   bands={key:read_asset(provider,item[&#x27;assets&#x27;][key],grid,w,categorical=key==&#x27;scl&#x27;) for key in (&#x27;red&#x27;,&#x27;nir&#x27;,&#x27;scl&#x27;)}
+   ndvi=feature(&#x27;NDVI&#x27;,bands);ndvi[~np.isin(bands[&#x27;scl&#x27;],[4,5,6,7])]=np.nan;ndvis.append(ndvi)
+  refs=np.stack(ndvis)
+  # Archived reference composition reproduces exactly within floating point tolerance.
+  import warnings
+  with warnings.catch_warnings():
+   warnings.simplefilter(&#x27;ignore&#x27;,RuntimeWarning);means=np.nanmean(refs,axis=0);std=np.nanstd(refs,axis=0)
+  v=np.isfinite(a[&#x27;mean&#x27;]);assert np.allclose(means[v],a[&#x27;mean&#x27;][v],atol=2e-6)
+  sv=np.isfinite(a[&#x27;std&#x27;]);assert np.allclose(std[sv],a[&#x27;std&#x27;][sv],atol=2e-6)
+  for setting in settings:
+   k,d,e=setting;r=mod.robust_candidate(refs,a[&#x27;current&#x27;],k=k,delta_min=d,epsilon=e,min_count=5)
+   optical=np.where(r[&#x27;valid&#x27;],r[&#x27;candidate&#x27;],np.nan).astype(&#x27;float32&#x27;);both=np.isfinite(optical)&amp;np.isfinite(a[&#x27;sar&#x27;]);shared=both&amp;np.isfinite(a[&#x27;fixed&#x27;])&amp;np.isfinite(a[&#x27;sigma&#x27;])
+   and_mask,_,discord=fuse(optical,a[&#x27;sar&#x27;],&#x27;optical_and_sar&#x27;);or_mask,_,_=fuse(optical,a[&#x27;sar&#x27;],&#x27;optical_or_sar&#x27;)
+   masks={&#x27;optical&#x27;:optical,&#x27;and&#x27;:and_mask,&#x27;or&#x27;:or_mask,&#x27;discordance&#x27;:discord}
+   out=results[setting]
+   for key,value in {&#x27;valid&#x27;:r[&#x27;valid&#x27;].sum(),&#x27;paired_valid&#x27;:both.sum(),&#x27;optical&#x27;:(optical==1).sum(),&#x27;and&#x27;:(and_mask==1).sum(),&#x27;or&#x27;:(or_mask==1).sum(),&#x27;discordant&#x27;:(discord==1).sum(),&#x27;shared_all_baselines_valid&#x27;:shared.sum(),&#x27;shared_optical&#x27;:((optical==1)&amp;shared).sum()}.items():out[key]+=int(value)
+   for mode,values in masks.items():write_window(dst[setting][mode],values,w)
+   if setting==default:
+    for key in diagnostic:write_window(diagnostic[key],r[key].astype(&#x27;float32&#x27;),w)
+  for name,geom in regions.items():
+   gate=geometry_mask([geom],out_shape=a[&#x27;current&#x27;].shape,transform=rasterio.windows.transform(w,grid.transform),invert=True)
+   valid=gate&amp;np.isfinite(a[&#x27;fixed&#x27;])&amp;np.isfinite(a[&#x27;sigma&#x27;])&amp;np.isfinite(a[&#x27;sar&#x27;]);c=roi_counts[name];c[&#x27;valid&#x27;]+=int(valid.sum())
+   for key in (&#x27;fixed&#x27;,&#x27;sigma&#x27;,&#x27;sar&#x27;):c[key]+=int(((a[key]==1)&amp;valid).sum())
+   for key in (&#x27;fixed&#x27;,&#x27;sigma&#x27;):c[key+&#x27;_and&#x27;]+=int(((a[key]==1)&amp;(a[&#x27;sar&#x27;]==1)&amp;valid).sum())
+   rejection=valid&amp;(a[&#x27;sigma&#x27;]==1)&amp;(a[&#x27;sar&#x27;]==0);vf=a[&#x27;vv&#x27;]&gt;=-1.5;hf=a[&#x27;vh&#x27;]&gt;=-1
+   for key,m in {&#x27;vv_only_fail&#x27;:vf&amp;~hf,&#x27;vh_only_fail&#x27;:hf&amp;~vf,&#x27;both_fail&#x27;:vf&amp;hf}.items():c[key]+=int((m&amp;rejection).sum())
+   for key,arr in {&#x27;ndvi_change&#x27;:a[&#x27;change&#x27;],&#x27;vv_change&#x27;:a[&#x27;vv&#x27;],&#x27;vh_change&#x27;:a[&#x27;vh&#x27;],&#x27;count&#x27;:a[&#x27;count&#x27;],&#x27;std&#x27;:a[&#x27;std&#x27;]}.items():samples[name][key].extend(arr[gate&amp;np.isfinite(arr)].tolist())
+records=[]
+for setting,c in results.items():
+ k,d,e=setting;folder=E/f&#x27;k{k:g}_drop{d:g}_floor{e:g}&#x27;;records.append({&#x27;k&#x27;:k,&#x27;delta_min&#x27;:d,&#x27;epsilon&#x27;:e,**c,&#x27;candidate_ha&#x27;:c[&#x27;optical&#x27;]*grid.pixel_ha,&#x27;and_ha&#x27;:c[&#x27;and&#x27;]*grid.pixel_ha,&#x27;artifacts&#x27;:{p.name:{&#x27;path&#x27;:str(p.relative_to(R)),&#x27;sha256&#x27;:checksum(p)} for p in folder.glob(&#x27;*.tif&#x27;)}})
+write_json(R/&#x27;threshold_experiments.json&#x27;,{&#x27;status&#x27;:&#x27;executed&#x27;,&#x27;helper_sha256&#x27;:checksum(REPO/&#x27;.codex/skills/inspect-sentinel-change/scripts/robust_threshold.py&#x27;),&#x27;self_test&#x27;:&#x27;5 synthetic checks passed&#x27;,&#x27;reference_item_ids&#x27;:[i[&#x27;id&#x27;] for i in ref],&#x27;reference_unique_dates&#x27;:8,&#x27;target&#x27;:target[&#x27;id&#x27;],&#x27;min_count&#x27;:5,&#x27;settings&#x27;:records,&#x27;baseline_reproduction&#x27;:&#x27;reference mean/std reproduced tile by tile within 2e-6&#x27;,&#x27;interpretation&#x27;:&#x27;heuristic, no independent labels or probability calibration&#x27;})
+rows=[]
+for name,data in samples.items():
+ row={&#x27;roi_id&#x27;:name,**roi_counts[name]}
+ for key,values in data.items():
+  row[key+&#x27;_n&#x27;]=len(values)
+  for label,q in [(&#x27;p10&#x27;,.1),(&#x27;median&#x27;,.5),(&#x27;p90&#x27;,.9)]:row[key+&#x27;_&#x27;+label]=float(np.quantile(values,q)) if values else None
+ rows.append(row)
+with (R/&#x27;roi_metrics.csv&#x27;).open(&#x27;w&#x27;) as f:writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+write_json(R/&#x27;roi_metrics.json&#x27;,rows)
+# All settings have a common display grid, original backgrounds, vendored Leaflet and masks.
+aoi={&#x27;type&#x27;:&#x27;Polygon&#x27;,&#x27;coordinates&#x27;:[[[24.4,58.2],[24.9,58.2],[24.9,58.6],[24.4,58.6],[24.4,58.2]]]};vg=visual_grid(aoi)
+from rasterio.windows import Window
+vw=Window(0,0,vg.width,vg.height)
+selected={&#x27;reference&#x27;:{&#x27;item&#x27;:ref[0]},&#x27;target&#x27;:{&#x27;item&#x27;:target}}
+for record in records:
+ folder=R/record[&#x27;artifacts&#x27;][&#x27;optical.tif&#x27;][&#x27;path&#x27;];folder=folder.parent
+ for mode in (&#x27;optical&#x27;,&#x27;and&#x27;,&#x27;or&#x27;):
+  maps=folder/(&#x27;maps_&#x27;+mode);maps.mkdir(exist_ok=True)
+  values=read_asset(provider,{&#x27;href&#x27;:str(folder/f&#x27;{mode}.tif&#x27;),&#x27;scale&#x27;:1,&#x27;offset&#x27;:0},vg,vw,categorical=True);Image.fromarray(anomaly_rgba(values)).save(maps/&#x27;anomalies.png&#x27;)
+  for role in (&#x27;reference&#x27;,&#x27;target&#x27;):shutil.copyfile(R/f&#x27;{role}.png&#x27;,maps/f&#x27;{role}.png&#x27;)
+  for asset in (&#x27;leaflet.js&#x27;,&#x27;leaflet.css&#x27;):shutil.copyfile(RUN/&#x27;maps&#x27;/asset,maps/asset)
+  shutil.copytree(RUN/&#x27;maps/images&#x27;,maps/&#x27;images&#x27;,dirs_exist_ok=True)
+  generate_map(maps/&#x27;map.html&#x27;,aoi,[[58.2,24.4],[58.6,24.9]],selected,{&#x27;run_id&#x27;:&#x27;review-experiment&#x27;,&#x27;method&#x27;:f&#x27;Robust NDVI {mode}&#x27;,&#x27;threshold&#x27;:{k:record[k] for k in (&#x27;k&#x27;,&#x27;delta_min&#x27;,&#x27;epsilon&#x27;)},&#x27;legend&#x27;:&#x27;Red: experimental candidate; transparent: negative or unavailable; not road identity&#x27;,&#x27;reference_note&#x27;:&#x27;RGB reference is 15 June; robust median uses eight dates&#x27;,&#x27;heuristic&#x27;:True})
+print(json.dumps({&#x27;settings&#x27;:len(records),&#x27;default&#x27;:next(r for r in records if (r[&#x27;k&#x27;],r[&#x27;delta_min&#x27;],r[&#x27;epsilon&#x27;])==default),&#x27;roi_metrics&#x27;:rows},indent=2))
+</pre></main></body></html>

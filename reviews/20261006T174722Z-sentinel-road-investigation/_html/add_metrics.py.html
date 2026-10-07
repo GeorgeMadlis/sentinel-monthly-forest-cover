@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>add_metrics.py</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>add_metrics.py</h1><p class="muted">add_metrics.py · <a href="../add_metrics.py">raw file</a> · <a href="index.html">folder</a></p><pre>from pathlib import Path
+import sys,json
+from contextlib import ExitStack
+import numpy as np,rasterio
+from rasterio.features import geometry_mask
+from rasterio.warp import transform_geom
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+from forest_change.evidence import write_json
+R=Path(__file__).parent;RUN=R.parents[1]/&#x27;runs/aoi-s2-s1-jja-2025-2026-sigma&#x27;;base=Path(json.loads((RUN/&#x27;maps/map_metadata.json&#x27;).read_text())[&#x27;source_run&#x27;])
+rois=json.loads((R/&#x27;rois.geojson&#x27;).read_text())[&#x27;features&#x27;];results={r[&#x27;properties&#x27;][&#x27;id&#x27;]:{&#x27;counts&#x27;:dict.fromkeys([&#x27;joint_valid&#x27;,&#x27;both&#x27;,&#x27;optical_only&#x27;,&#x27;radar_only&#x27;,&#x27;neither&#x27;,&#x27;optical_valid_radar_unavailable&#x27;],0),&#x27;sigma_rejected_vv&#x27;:[],&#x27;sigma_rejected_vh&#x27;:[]} for r in rois};shared_counts=dict.fromkeys([&#x27;valid&#x27;,&#x27;fixed&#x27;,&#x27;fixed_sar&#x27;,&#x27;sigma&#x27;,&#x27;sigma_sar&#x27;,&#x27;robust&#x27;,&#x27;robust_sar&#x27;],0)
+with ExitStack() as stack:
+ paths={&#x27;fixed&#x27;:base/&#x27;w0000/disturbance.tif&#x27;,&#x27;sigma&#x27;:RUN/&#x27;w0000/optical_candidate.tif&#x27;,&#x27;sar&#x27;:RUN/&#x27;w0000/sar_candidate.tif&#x27;,&#x27;vv&#x27;:RUN/&#x27;w0000/VV_change.tif&#x27;,&#x27;vh&#x27;:RUN/&#x27;w0000/VH_change.tif&#x27;,&#x27;robust&#x27;:R/&#x27;experiments/k2.5_drop0.15_floor0.02/optical.tif&#x27;}
+ src={k:stack.enter_context(rasterio.open(p)) for k,p in paths.items()};first=src[&#x27;robust&#x27;];geoms={r[&#x27;properties&#x27;][&#x27;id&#x27;]:transform_geom(&#x27;EPSG:4326&#x27;,first.crs,r[&#x27;geometry&#x27;]) for r in rois}
+ for _,w in first.block_windows(1):
+  a={k:s.read(1,window=w,masked=True).filled(np.nan) for k,s in src.items()};shared=np.isfinite(a[&#x27;fixed&#x27;])&amp;np.isfinite(a[&#x27;sigma&#x27;])&amp;np.isfinite(a[&#x27;sar&#x27;])&amp;np.isfinite(a[&#x27;robust&#x27;]);shared_counts[&#x27;valid&#x27;]+=int(shared.sum())
+  for k in (&#x27;fixed&#x27;,&#x27;sigma&#x27;,&#x27;robust&#x27;):
+   shared_counts[k]+=int((shared&amp;(a[k]==1)).sum());shared_counts[k+&#x27;_sar&#x27;]+=int((shared&amp;(a[k]==1)&amp;(a[&#x27;sar&#x27;]==1)).sum())
+  for roi,geom in geoms.items():
+   gate=geometry_mask([geom],out_shape=a[&#x27;robust&#x27;].shape,transform=rasterio.windows.transform(w,first.transform),invert=True);v=gate&amp;np.isfinite(a[&#x27;robust&#x27;])&amp;np.isfinite(a[&#x27;sar&#x27;]);c=results[roi][&#x27;counts&#x27;];o=a[&#x27;robust&#x27;]==1;s=a[&#x27;sar&#x27;]==1
+   for k,m in {&#x27;joint_valid&#x27;:v,&#x27;both&#x27;:v&amp;o&amp;s,&#x27;optical_only&#x27;:v&amp;o&amp;~s,&#x27;radar_only&#x27;:v&amp;~o&amp;s,&#x27;neither&#x27;:v&amp;~o&amp;~s,&#x27;optical_valid_radar_unavailable&#x27;:gate&amp;np.isfinite(a[&#x27;robust&#x27;])&amp;~np.isfinite(a[&#x27;sar&#x27;])}.items():c[k]+=int(m.sum())
+   rej=gate&amp;(a[&#x27;sigma&#x27;]==1)&amp;(a[&#x27;sar&#x27;]==0)
+   for key in (&#x27;vv&#x27;,&#x27;vh&#x27;):results[roi][&#x27;sigma_rejected_&#x27;+key].extend(a[key][rej].tolist())
+for r in results.values():
+ for key in (&#x27;vv&#x27;,&#x27;vh&#x27;):
+  arr=r.pop(&#x27;sigma_rejected_&#x27;+key);r[&#x27;sigma_rejected_&#x27;+key+&#x27;_summary&#x27;]={&#x27;n&#x27;:len(arr),&#x27;p10_median_p90&#x27;:np.quantile(arr,[.1,.5,.9]).tolist() if arr else None}
+write_json(R/&#x27;common_support_and_roi_robust.json&#x27;,{&#x27;default_robust_shared_support&#x27;:shared_counts,&#x27;roi_robust_categories&#x27;:results,&#x27;scope&#x27;:&#x27;provisional manually sampled corridor buffers and visual controls; all areas use .04 ha/pixel&#x27;})
+print(json.dumps(shared_counts))
+</pre></main></body></html>

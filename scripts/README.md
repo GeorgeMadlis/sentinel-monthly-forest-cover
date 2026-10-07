@@ -22,3 +22,8 @@ flags solely to give a clear migration error, not for local execution.
 `run_anomaly_map_test.py --aoi configs/aoi.example.geojson` uses the existing
 STAC/provider/raster/workflow boundaries to select two real observations and build
 an offline Leaflet RGB/anomaly map. See [configuration and access rules](../docs/anomaly_map_test.md).
+
+`build_review_site.py REVIEW [--strict] [--zip]` makes an investigation folder under
+`reviews/` browsable offline: `index.html`, per-folder listings and Markdown/JSON/CSV
+viewers under `_html/`, a SHA-256 inventory and a relative-link check. The
+`.codex/skills/*-sentinel-change` skills run it at the end of every stage.

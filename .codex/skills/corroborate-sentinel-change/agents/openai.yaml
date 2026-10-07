@@ -1,0 +1,4 @@
+interface:
+  display_name: "Corroborate Sentinel change"
+  short_description: "Find dated independent maps for change hypotheses"
+  default_prompt: "Use $corroborate-sentinel-change to investigate the candidate road in the Sentinel comparison run."

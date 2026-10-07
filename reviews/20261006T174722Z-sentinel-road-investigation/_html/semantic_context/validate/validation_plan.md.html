@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>semantic_context/validate/validation_plan.md</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../../index.html">Review home</a> · <a href="../../index.html">All files</a></nav><h1>validation_plan.md</h1><p class="muted">semantic_context/validate/validation_plan.md · <a href="../../../semantic_context/validate/validation_plan.md">raw file</a> · <a href="index.html">folder</a></p><div class="md"><h1 id="validation-plan">Validation Plan</h1>
+<h2 id="minimum-validation-requirements">Minimum validation requirements</h2>
+<h3 id="1-geometry-and-area-unit-tests">1. Geometry and area unit tests</h3>
+<p>Required before reporting any area statistics. See <code>tests/</code>.</p>
+<div class="wrap"><table><tr><th>Test ID</th><th>Description</th></tr><tr><td><code>test_area_units</code></td><td>Assert area output is in hectares; assert method is stated in manifest</td></tr><tr><td><code>test_crs_round_trip</code></td><td>EPSG:4326 → equal-area → EPSG:4326 area drift &lt; 0.01 % on a known polygon</td></tr><tr><td><code>test_threshold_sensitivity</code></td><td>Output area changes monotonically as <code>canopy_threshold_pct</code> increases</td></tr><tr><td><code>test_datamask_applied</code></td><td>Pixels with <code>datamask != 1</code> are excluded from the forest mask</td></tr><tr><td><code>test_manifest_present</code></td><td>Every run output directory contains <code>run_manifest.json</code></td></tr><tr><td><code>test_manifest_schema</code></td><td>The manifest validates against <code>validate/run_manifest.schema.json</code></td></tr><tr><td><code>test_data_source_roles</code></td><td>Every manifest data source declares an evidence role and separates context products from core inputs</td></tr></table></div>
+<h3 id="2-small-aoi-integration-test">2. Small-AOI integration test</h3>
+<p>Required before any v1 baseline run is reported externally.</p>
+<div class="wrap"><table><tr><th>Property</th><th>Requirement</th></tr><tr><td>AOI size</td><td>≤ 10 000 hectares</td></tr><tr><td>Forest composition</td><td>Known reference value available</td></tr><tr><td>Tolerance</td><td>Output forest area within ± 5 % of reference</td></tr><tr><td>Runtime</td><td>&lt; 10 minutes on a standard laptop using cached tiles</td></tr><tr><td>Output</td><td>Valid <code>run_manifest.json</code> and <code>area_summary.csv</code></td></tr></table></div>
+<h3 id="3-external-comparison-hooks">3. External comparison hooks</h3>
+<p>Where authoritative or widely used reference layers exist, validation must support comparison hooks.</p>
+<p>Examples:</p>
+<ul><li>national authoritative forest inventory layers</li><li>Global Forest Watch annual loss overlay (reference / visual QA only)</li><li>manually reviewed orthophoto samples (≥ 30 random points per stratum)</li><li>context products from <code>research/data_sources/</code> only when their <code>evidence_role</code> and</li></ul>
+<p><code>forest_relevance</code> justify the comparison</p>
+<h3 id="4-temporal-plausibility-review-v2-v3">4. Temporal plausibility review (v2 / v3)</h3>
+<p>Monthly outputs require a documented review design:</p>
+<ul><li>N ≥ 30 random pixel-months per stratum reviewed manually or by external triangulation</li><li>Reviewer notes archived in <code>outputs/&lt;run_id&gt;/validation/</code></li><li>Implausible flicker (rapid month-to-month state oscillation without evidence) flagged and counted</li></ul>
+<h2 id="important-caution">Important caution</h2>
+<blockquote>Annual agreement with annual forest-loss products <strong>does not</strong> prove monthly correctness.</blockquote>
+<p>This caveat must appear in every monthly report and in every v3 run manifest&#x27;s <code>limitations</code> field.</p>
+<p>Context products require the same caution: agreement with biodiversity, flood, integrity, energy, ocean/coastal, climate, or land-pressure layers may support interpretation, but it does not validate forest-cover truth unless the product has been admitted as a documented validation reference.</p>
+<h2 id="local-semantic-contract-checks">Local semantic contract checks</h2>
+<p>Run <code>python -m pytest</code> and <code>python graph/build.py --check</code> before publishing a semantic snapshot. Tests check parsing, IDs, typed relations, unresolved references, deterministic regeneration, downstream descriptors and legacy/extended provenance compatibility. These checks establish contract integrity, not empirical scientific accuracy. See <code>validate/semantic_provenance.md</code> for snapshot-aware run checks.</p></div></main></body></html>

@@ -1,0 +1,20 @@
+[
+  {
+    "status": "candidate",
+    "human_review_required": true,
+    "title": "Preserve optical/SAR disagreement when investigating linear infrastructure",
+    "sources": [
+      "raster_audit.json",
+      "literature_evidence.json",
+      "semantic_trace.json"
+    ],
+    "existing_concepts": [
+      "method:s1-backscatter-confirmation",
+      "method:ndvi-anomaly",
+      "claim:monthly-non-truth"
+    ],
+    "proposed_context": "A failed AND gate does not refute physical road existence; evaluate dated independent imagery and separate construction, widening/reopening, forest and legality claims.",
+    "contradictions": "No site-specific labels or independent dated evidence; thresholds remain heuristic.",
+    "promotion": "Not submitted to canonical corpus or generated graph."
+  }
+]

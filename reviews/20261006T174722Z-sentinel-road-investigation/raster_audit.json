@@ -1,0 +1,62 @@
+{
+  "comparison": {
+    "fixed": {
+      "agreement": 9469,
+      "joint_valid": 3255306,
+      "neither": 3053891,
+      "optical_only": 81822,
+      "optical_valid_radar_unavailable": 0,
+      "radar_only": 110124,
+      "unavailable": 4657
+    },
+    "sigma": {
+      "agreement": 12875,
+      "joint_valid": 3255351,
+      "neither": 3027390,
+      "optical_only": 108367,
+      "optical_valid_radar_unavailable": 0,
+      "radar_only": 106719,
+      "unavailable": 4612
+    }
+  },
+  "counts": {
+    "fixed": {
+      "anomaly_ha": 3651.64,
+      "anomaly_pixels": 91291,
+      "valid_pixels": 3255306
+    },
+    "fixed_sar": {
+      "anomaly_ha": 378.76,
+      "anomaly_pixels": 9469,
+      "valid_pixels": 3255306
+    },
+    "sigma": {
+      "anomaly_ha": 4849.68,
+      "anomaly_pixels": 121242,
+      "valid_pixels": 3255351
+    },
+    "sigma_sar": {
+      "anomaly_ha": 515.0,
+      "anomaly_pixels": 12875,
+      "valid_pixels": 3255351
+    }
+  },
+  "grid": {
+    "crs": "EPSG:6933",
+    "height": 1351,
+    "pixel_ha": 0.04,
+    "transform": [
+      20.0,
+      0.0,
+      2354260.0,
+      0.0,
+      -20.0,
+      6259340.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "width": 2413
+  },
+  "support_note": "Unavailable counts include grid exterior; joint-valid denominators exclude nodata. Radar-only means threshold-positive optical-negative, not a road label."
+}

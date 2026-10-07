@@ -6,3 +6,7 @@ __pycache__/
 runs/aoi-s2-jja-2025-2026/
 runs/aoi-s2-jja-2025-2026-calibrated/
 runs/aoi-s2-s1-jja-2025-2026-sigma/
+
+# Review bundles: regenerable experiment rasters and Leaflet maps stay local (~1.2 GB).
+reviews/*/experiments/
+reviews/*/maps/

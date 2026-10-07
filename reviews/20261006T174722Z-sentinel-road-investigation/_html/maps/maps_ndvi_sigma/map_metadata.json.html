@@ -1,0 +1,106 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>maps/maps_ndvi_sigma/map_metadata.json</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../../index.html">Review home</a> · <a href="../../index.html">All files</a></nav><h1>map_metadata.json</h1><p class="muted">maps/maps_ndvi_sigma/map_metadata.json · <a href="../../../maps/maps_ndvi_sigma/map_metadata.json">raw file</a> · <a href="index.html">folder</a></p><pre>{
+  &quot;comparison_note&quot;: &quot;RGB backgrounds identical to original. Sigma optical reference differs from the original single-scene reference.&quot;,
+  &quot;forest_mask&quot;: null,
+  &quot;k&quot;: 2,
+  &quot;legend&quot;: &quot;Red: NDVI decrease exceeding the sigma threshold; transparent: no candidate or unavailable data.&quot;,
+  &quot;method&quot;: &quot;NDVI decrease &lt; −k × reference σ; optical-only control&quot;,
+  &quot;metrics&quot;: {
+    &quot;anomaly_ha&quot;: 4849.68,
+    &quot;anomaly_pixels&quot;: 121242,
+    &quot;valid_pixels&quot;: 3255351
+  },
+  &quot;non_claims&quot;: [
+    &quot;Monthly/seasonal disturbance is not automatically legal deforestation.&quot;,
+    &quot;Hansen annual loss is not monthly ground truth; external/annual reconciliation remains necessary.&quot;,
+    &quot;Optical anomalies can reflect phenology, clouds, fire, agriculture, moisture or other causes.&quot;,
+    &quot;SAR changes depend on moisture, geometry, terrain and acquisition conditions.&quot;,
+    &quot;S1/S2 agreement increases screening confidence but does not establish causal attribution.&quot;,
+    &quot;Outputs are provisional candidates, not persistence-confirmed forest state or causal loss labels.&quot;,
+    &quot;Terrain flattening and speckle filtering must be supplied upstream; this workflow does not implement them.&quot;,
+    &quot;Pixel-centre AOI rasterization approximates boundary area at the configured resolution.&quot;,
+    &quot;Optical quality masks are applied on the target grid; bilinear reprojection can mix values near cloud-mask boundaries.&quot;
+  ],
+  &quot;optical_reference_dates&quot;: [
+    &quot;2025-06-15T09:54:39.645000Z&quot;,
+    &quot;2025-06-14T09:44:37.984000Z&quot;,
+    &quot;2025-07-25T09:54:42.941000Z&quot;,
+    &quot;2025-07-04T09:44:41.632000Z&quot;,
+    &quot;2025-08-26T09:54:34.887000Z&quot;,
+    &quot;2025-08-14T09:54:39.640000Z&quot;,
+    &quot;2025-06-30T09:54:23.198000Z&quot;,
+    &quot;2025-08-04T09:54:40.261000Z&quot;
+  ],
+  &quot;optical_target&quot;: &quot;2026-06-20T09:54:20.028000Z&quot;,
+  &quot;qa_limitations&quot;: [
+    &quot;Ungated all-land-cover screening&quot;,
+    &quot;Reference sigma includes within-summer vegetation variation&quot;,
+    &quot;Bounded scene sampling&quot;,
+    &quot;No spatial speckle filter; temporal median only&quot;,
+    &quot;Radar summarizes the whole summer; target optical NDVI is a single June observation&quot;
+  ],
+  &quot;radar_dates&quot;: {
+    &quot;reference&quot;: [
+      &quot;2025-06-02T15:55:38.113075Z&quot;,
+      &quot;2025-06-08T15:56:46.961319Z&quot;,
+      &quot;2025-06-20T15:56:46.218942Z&quot;,
+      &quot;2025-06-26T15:55:39.586493Z&quot;,
+      &quot;2025-07-02T15:56:45.663617Z&quot;,
+      &quot;2025-07-14T15:56:45.067503Z&quot;,
+      &quot;2025-07-20T15:55:40.884693Z&quot;,
+      &quot;2025-08-01T15:55:41.576263Z&quot;,
+      &quot;2025-08-07T15:56:44.529277Z&quot;,
+      &quot;2025-08-13T15:55:42.210267Z&quot;,
+      &quot;2025-08-25T15:55:42.656569Z&quot;,
+      &quot;2025-08-31T15:56:44.682466Z&quot;
+    ],
+    &quot;target&quot;: [
+      &quot;2026-06-03T15:56:35.148661Z&quot;,
+      &quot;2026-06-10T15:55:53.511901Z&quot;,
+      &quot;2026-06-22T15:55:54.565151Z&quot;,
+      &quot;2026-06-27T15:56:33.701977Z&quot;,
+      &quot;2026-06-28T15:55:41.713258Z&quot;,
+      &quot;2026-07-10T15:55:42.358114Z&quot;,
+      &quot;2026-07-16T15:55:50.203735Z&quot;,
+      &quot;2026-07-28T15:55:50.752418Z&quot;,
+      &quot;2026-08-03T15:55:43.746800Z&quot;,
+      &quot;2026-08-09T15:55:51.339578Z&quot;,
+      &quot;2026-08-21T15:55:51.801528Z&quot;,
+      &quot;2026-08-27T15:55:45.147483Z&quot;
+    ]
+  },
+  &quot;radar_thresholds_db&quot;: {
+    &quot;VH&quot;: -1,
+    &quot;VV&quot;: -1.5
+  },
+  &quot;radar_track&quot;: [
+    &quot;ascending&quot;,
+    160
+  ],
+  &quot;reference_policy&quot;: &quot;pooled observations, bounded best-quality sample; target is original selected scene&quot;,
+  &quot;rgb&quot;: &quot;B04/B03/B02 reflectance 0–0.3, gamma 2.2&quot;,
+  &quot;run_id&quot;: &quot;aoi-s2-s1-jja-2025-2026-sigma&quot;,
+  &quot;sar_reference_statistic&quot;: &quot;median of selected reference observations in dB; target also median&quot;,
+  &quot;sigma_validity&quot;: &quot;&gt;=2 finite reference NDVI observations and strictly positive population standard deviation&quot;,
+  &quot;source_run&quot;: &quot;/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-jja-2025-2026-calibrated&quot;,
+  &quot;threshold&quot;: {
+    &quot;k&quot;: 2,
+    &quot;min_component_pixels&quot;: 1,
+    &quot;min_valid_pixel_ratio&quot;: 0,
+    &quot;mode&quot;: &quot;sigma&quot;
+  }
+}</pre></main></body></html>

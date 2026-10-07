@@ -1,0 +1,15 @@
+---
+name: report-sentinel-change
+description: Write an auditable report combining visual Sentinel analysis, literature, dated independent maps and threshold experiments while separating observed change, road interpretation and forest/legal claims.
+---
+
+# Report the findings
+
+Read [investigation contract](references/investigation-contract.md). Consume existing visual, literature, corroboration and threshold artifacts; explicitly flag any missing stage. Do not substitute summary statements for inspecting cited evidence.
+
+1. Audit references, local links, hashes, ROI IDs, dates and units. Match every conclusion to actual readable evidence. Distinguish external observations from sensor-derived masks and literature. Resolve discrepancies or report them. Never turn three dependent outputs into three independent confirmations.
+2. Write report/report.md and a portable report/report.html with relative links (to `../inspect/...`, `../_html/...` etc.) and escaped text; put its figures in report/figures/. Lead with the proposition-level verdict and evidence limits. Include AOI/ROI locator, exact revisions/dirty state, original run ID, acquisition-vs-composite windows, preprocessing, calibration and baseline semantics.
+3. Include identical-footprint before/after figures with overlays off and on; four-map comparison; common-support agreement/optical-only/radar-only/missing table; ROI continuous signal summaries; independent dated evidence table; and literature-based alternative explanations. Explain that missing radar is not unchanged radar and that narrower AND masks do not prove improved accuracy.
+4. Compare baseline fixed and sigma methods with actually executed robust/effect-size/persistence experiments. Give formulas, thresholds, counts, common-valid denominators, sensitivity and failure cases. Show withheld-label precision/recall only when independently labeled data genuinely exist; otherwise report stability, not accuracy. Do not imply BFAST/CCDC ran if only proposed.
+5. Give separate verdicts for physical linear change, road identity, new vs pre-existing/reopened/widened, appearance interval, prior forest and legal attribution. A supported road-like change can coexist with unresolved road construction. Cite dated sources for location-specific conclusions; literature supports mechanisms only. Explain forest-mask absence and summer-SAR/single-June-optical mismatch prominently.
+6. Include reproducibility commands, artifact inventory/checksums, downloaded-data paths/access decisions, tests, unresolved questions and next observations needed. Write findings.json with claim/evidence IDs and statuses and update investigation.json. Do not promote knowledge automatically. Run the review site builder from the contract with `--strict` (and `--zip` when a single download is wanted), fix every link problem it reports, and check images and map alignment; run affected local tests if code was changed. Return REVIEW/index.html, the exact report paths and a concise conclusion with scope limitations.

@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>semantic_context/research/data_sources/sources_notes.md</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../../../index.html">Review home</a> · <a href="../../../index.html">All files</a></nav><h1>sources_notes.md</h1><p class="muted">semantic_context/research/data_sources/sources_notes.md · <a href="../../../../semantic_context/research/data_sources/sources_notes.md">raw file</a> · <a href="index.html">folder</a></p><div class="md"><h1 id="data-source-notes">Data Source Notes</h1>
+<p>Qualitative notes per data source. One section per entry keyed to <code>inventory.csv</code> IDs. Add a section when a source requires more context than fits in the CSV <code>notes</code> field.</p>
+<hr>
+<h2 id="ds-0001-hansen-gfc-v1-12">DS-0001 — Hansen GFC v1.12</h2>
+<p>The foundational v1 dataset. Key implementation details:</p>
+<ul><li><code>treecover2000</code> is the percentage canopy cover in the year 2000. It does not update annually.</li><li><code>lossyear</code> encodes the year of first canopy loss, not cumulative or recurring loss.</li><li><code>datamask</code> must be used to exclude water and uncharacterized land (only <code>datamask == 1</code></li></ul>
+<p>qualifies as mapped land; see ADR 0002).</p>
+<ul><li>The dataset is updated annually but the <code>treecover2000</code> band is frozen at the 2000 baseline.</li></ul>
+<p><strong>v3 weak supervision caution:</strong> <code>lossyear</code> is annual by construction. Using it as a monthly target variable without temporal disaggregation violates the non-claim stated in the repo README and ADR 0004.</p>
+<hr>
+<h2 id="ds-0002-sentinel-2-msi-l2a">DS-0002 — Sentinel-2 MSI L2A</h2>
+<p>The core v2 optical input. Key implementation details:</p>
+<ul><li>The <code>COPERNICUS/S2_SR_HARMONIZED</code> collection in GEE harmonizes L1C-era and L2A-era data.</li><li>Preferred cloud masking: <code>s2cloudless</code> (probabilistic) or the <code>SCL</code> quality band</li></ul>
+<p>(class 4 = vegetation, class 5 = bare soil, class 6 = water, class 8/9 = clouds/shadows).</p>
+<ul><li>Monthly compositing: use median or percentile composites over all clear-sky acquisitions</li></ul>
+<p>within a calendar month. Record the number of clear observations per pixel in the manifest.</p>
+<ul><li>Temporal gap: pre-2017 data is not available. For AOIs requiring longer baselines,</li></ul>
+<p>supplement with Landsat (DS-0004).</p>
+<hr>
+<h2 id="ds-0003-sentinel-1-grd">DS-0003 — Sentinel-1 GRD</h2>
+<p>The cloud-robust v2 complement. Key implementation details:</p>
+<ul><li>GEE provides border noise correction and thermal noise removal in the <code>COPERNICUS/S1_GRD</code></li></ul>
+<p>collection as of 2021. For earlier acquisitions, verify noise correction status.</p>
+<ul><li>VV+VH dual-polarization is standard for forest monitoring. VH backscatter is more</li></ul>
+<p>sensitive to canopy structure than VV.</p>
+<ul><li>Speckle filtering (e.g. refined Lee, Gamma-MAP) is required before compositing.</li><li>Terrain correction is critical in mountainous regions; GEE applies basic Range-Doppler</li></ul>
+<p>correction but this may be insufficient for steep terrain.</p>
+<ul><li>Backscatter is sensitive to soil moisture — wet season vs. dry season differences can</li></ul>
+<p>mimic deforestation signals. Temporal averaging reduces this artefact.</p>
+<hr>
+<h2 id="ds-0007-jrc-tropical-moist-forest-tmf">DS-0007 — JRC Tropical Moist Forest (TMF)</h2>
+<p>Independent cross-validation source for tropical AOIs. Key notes:</p>
+<ul><li>TMF uses a different forest definition from Hansen GFC — it is calibrated to the humid</li></ul>
+<p>tropics and distinguishes deforestation from degradation.</p>
+<ul><li>Comparison with Hansen GFC for the same AOI should expect systematic differences due to</li></ul>
+<p>definition, not errors in either product.</p>
+<ul><li>Geographic scope is pan-tropical (not global). Not suitable for temperate or boreal AOIs.</li><li>Annual class transitions (undisturbed / disturbed / deforested / regrowth) are more</li></ul>
+<p>granular than Hansen&#x27;s binary lossyear.</p>
+<hr>
+<h2 id="ds-0009-to-ds-0013-context-product-placeholders">DS-0009 to DS-0013 — Context product placeholders</h2>
+<p>These rows reserve the architecture for adjacent Earth-observation context products. Replace each placeholder with a reviewed product only after recording a search scope and completing the suitability assessment.</p>
+<p>Context entries must answer:</p>
+<ul><li>What forest-cover interpretation problem does this product help with?</li><li>Is the product a core input, auxiliary feature, validation reference, context/risk layer,</li></ul>
+<p>exclusion mask, or interpretation-only background?</p>
+<ul><li>Could using this product create circular evidence because it already includes land cover</li></ul>
+<p>or forest information?</p>
+<ul><li>What claims must reports avoid when referencing this product?</li></ul></div></main></body></html>

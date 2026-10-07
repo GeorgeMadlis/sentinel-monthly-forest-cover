@@ -1,0 +1,576 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>findings.json</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>findings.json</h1><p class="muted">findings.json · <a href="../findings.json">raw file</a> · <a href="index.html">folder</a></p><pre>{
+  &quot;claims&quot;: [
+    {
+      &quot;id&quot;: &quot;ROI-01-linear_change&quot;,
+      &quot;proposition&quot;: &quot;A changed linear optical pattern is visible in the sampled corridor.&quot;,
+      &quot;rationale&quot;: &quot;Sensor-derived before/after imagery and optical candidates support a changed linear pattern provisionally, with manual geometry and confounder uncertainty.&quot;,
+      &quot;refuting_evidence_ids&quot;: [],
+      &quot;roi_id&quot;: &quot;ROI-01&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;supported&quot;,
+      &quot;supporting_evidence_ids&quot;: [
+        &quot;E-RGB&quot;,
+        &quot;E-ROI&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;ROI-01-road_identity&quot;,
+      &quot;proposition&quot;: &quot;The entire changed linear feature is a road.&quot;,
+      &quot;rationale&quot;: &quot;ROI-02 has a paved road at its sampled point, but that does not label the entire changed feature; ROI-01 retains rail/earthworks/track alternatives.&quot;,
+      &quot;refuting_evidence_ids&quot;: [],
+      &quot;roi_id&quot;: &quot;ROI-01&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;unresolved&quot;,
+      &quot;supporting_evidence_ids&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;ROI-01-new_construction&quot;,
+      &quot;proposition&quot;: &quot;The sampled feature is a road entirely absent on 15 June 2025 and newly constructed by 20 June 2026.&quot;,
+      &quot;rationale&quot;: &quot;Evidence does not resolve the proposition.&quot;,
+      &quot;refuting_evidence_ids&quot;: [],
+      &quot;roi_id&quot;: &quot;ROI-01&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;unresolved&quot;,
+      &quot;supporting_evidence_ids&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;ROI-01-appearance_interval&quot;,
+      &quot;proposition&quot;: &quot;A road appearance interval can be bounded from sufficiently dated before/after evidence.&quot;,
+      &quot;rationale&quot;: &quot;Evidence does not resolve the proposition.&quot;,
+      &quot;refuting_evidence_ids&quot;: [],
+      &quot;roi_id&quot;: &quot;ROI-01&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;unresolved&quot;,
+      &quot;supporting_evidence_ids&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;ROI-01-prior_forest&quot;,
+      &quot;proposition&quot;: &quot;The affected area met an approved forest definition before change.&quot;,
+      &quot;rationale&quot;: &quot;No approved dated forest baseline or legal/permit evidence supplied or acquired.&quot;,
+      &quot;refuting_evidence_ids&quot;: [],
+      &quot;roi_id&quot;: &quot;ROI-01&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;not_tested&quot;,
+      &quot;supporting_evidence_ids&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;ROI-01-legal_attribution&quot;,
+      &quot;proposition&quot;: &quot;The disturbance establishes legal deforestation or identifies lawful/unlawful activity.&quot;,
+      &quot;rationale&quot;: &quot;No approved dated forest baseline or legal/permit evidence supplied or acquired.&quot;,
+      &quot;refuting_evidence_ids&quot;: [],
+      &quot;roi_id&quot;: &quot;ROI-01&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;not_tested&quot;,
+      &quot;supporting_evidence_ids&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;ROI-02-linear_change&quot;,
+      &quot;proposition&quot;: &quot;A changed linear optical pattern is visible in the sampled corridor.&quot;,
+      &quot;rationale&quot;: &quot;Sensor-derived before/after imagery and optical candidates support a changed linear pattern provisionally, with manual geometry and confounder uncertainty.&quot;,
+      &quot;refuting_evidence_ids&quot;: [],
+      &quot;roi_id&quot;: &quot;ROI-02&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;supported&quot;,
+      &quot;supporting_evidence_ids&quot;: [
+        &quot;E-RGB&quot;,
+        &quot;E-ROI&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;ROI-02-road_identity&quot;,
+      &quot;proposition&quot;: &quot;The entire changed linear feature is a road.&quot;,
+      &quot;rationale&quot;: &quot;ROI-02 has a paved road at its sampled point, but that does not label the entire changed feature; ROI-01 retains rail/earthworks/track alternatives.&quot;,
+      &quot;refuting_evidence_ids&quot;: [],
+      &quot;roi_id&quot;: &quot;ROI-02&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;unresolved&quot;,
+      &quot;supporting_evidence_ids&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;ROI-02-new_construction&quot;,
+      &quot;proposition&quot;: &quot;The sampled feature is a road entirely absent on 15 June 2025 and newly constructed by 20 June 2026.&quot;,
+      &quot;rationale&quot;: &quot;For the sampled main carriageway, the reference RGB already shows a road-like alignment; aerial imagery supports a paved road. This does not reject new branches, widening or work elsewhere.&quot;,
+      &quot;refuting_evidence_ids&quot;: [
+        &quot;E-RGB&quot;,
+        &quot;ROI-02-2025&quot;
+      ],
+      &quot;roi_id&quot;: &quot;ROI-02&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;rejected&quot;,
+      &quot;supporting_evidence_ids&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;ROI-02-appearance_interval&quot;,
+      &quot;proposition&quot;: &quot;A road appearance interval can be bounded from sufficiently dated before/after evidence.&quot;,
+      &quot;rationale&quot;: &quot;Evidence does not resolve the proposition.&quot;,
+      &quot;refuting_evidence_ids&quot;: [],
+      &quot;roi_id&quot;: &quot;ROI-02&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;unresolved&quot;,
+      &quot;supporting_evidence_ids&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;ROI-02-prior_forest&quot;,
+      &quot;proposition&quot;: &quot;The affected area met an approved forest definition before change.&quot;,
+      &quot;rationale&quot;: &quot;No approved dated forest baseline or legal/permit evidence supplied or acquired.&quot;,
+      &quot;refuting_evidence_ids&quot;: [],
+      &quot;roi_id&quot;: &quot;ROI-02&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;not_tested&quot;,
+      &quot;supporting_evidence_ids&quot;: []
+    },
+    {
+      &quot;id&quot;: &quot;ROI-02-legal_attribution&quot;,
+      &quot;proposition&quot;: &quot;The disturbance establishes legal deforestation or identifies lawful/unlawful activity.&quot;,
+      &quot;rationale&quot;: &quot;No approved dated forest baseline or legal/permit evidence supplied or acquired.&quot;,
+      &quot;refuting_evidence_ids&quot;: [],
+      &quot;roi_id&quot;: &quot;ROI-02&quot;,
+      &quot;semantic_concepts&quot;: [
+        &quot;claim:monthly-non-truth&quot;,
+        &quot;validation:forest-evidence&quot;
+      ],
+      &quot;status&quot;: &quot;not_tested&quot;,
+      &quot;supporting_evidence_ids&quot;: []
+    }
+  ],
+  &quot;limitations&quot;: [
+    &quot;Manually chosen candidates are not uniquely identified by the user; exact surveyed line/width remains uncertain.&quot;,
+    &quot;Sampling buffers are approximate: 40 m tolerance is not measured registration error.&quot;,
+    &quot;Two optical local integer-shift checks found zero best shift; SAR/subpixel registration remains unverified.&quot;,
+    &quot;Reference optical variability comes from a selected eight-date sample; some pixels have fewer than five clear dates.&quot;,
+    &quot;Persistence covers two 500 m windows on 7, 20 and 30 June only, not full corridors/monthly confirmation.&quot;,
+    &quot;Independent imagery is WMS-derived with conflicting date metadata; no verified before/after interval.&quot;,
+    &quot;13 current original-run artifacts mismatch archived output hashes; unchanged during review and current hashes pinned.&quot;,
+    &quot;No held-out road labels: all threshold results are screening stability, not accuracy.&quot;,
+    &quot;BFAST, CCDC, probabilistic fusion, NDMI/NBR and causal/legal attribution not executed; appropriate data or labels absent.&quot;,
+    &quot;Interactive browser rendering unavailable; maps/figures inspected through image tools and links checked.&quot;
+  ],
+  &quot;metrics&quot;: {
+    &quot;comparison&quot;: {
+      &quot;fixed&quot;: {
+        &quot;agreement&quot;: 9469,
+        &quot;joint_valid&quot;: 3255306,
+        &quot;neither&quot;: 3053891,
+        &quot;optical_only&quot;: 81822,
+        &quot;optical_valid_radar_unavailable&quot;: 0,
+        &quot;radar_only&quot;: 110124,
+        &quot;unavailable&quot;: 4657
+      },
+      &quot;sigma&quot;: {
+        &quot;agreement&quot;: 12875,
+        &quot;joint_valid&quot;: 3255351,
+        &quot;neither&quot;: 3027390,
+        &quot;optical_only&quot;: 108367,
+        &quot;optical_valid_radar_unavailable&quot;: 0,
+        &quot;radar_only&quot;: 106719,
+        &quot;unavailable&quot;: 4612
+      }
+    },
+    &quot;counts&quot;: {
+      &quot;fixed&quot;: {
+        &quot;anomaly_ha&quot;: 3651.64,
+        &quot;anomaly_pixels&quot;: 91291,
+        &quot;valid_pixels&quot;: 3255306
+      },
+      &quot;fixed_sar&quot;: {
+        &quot;anomaly_ha&quot;: 378.76,
+        &quot;anomaly_pixels&quot;: 9469,
+        &quot;valid_pixels&quot;: 3255306
+      },
+      &quot;sigma&quot;: {
+        &quot;anomaly_ha&quot;: 4849.68,
+        &quot;anomaly_pixels&quot;: 121242,
+        &quot;valid_pixels&quot;: 3255351
+      },
+      &quot;sigma_sar&quot;: {
+        &quot;anomaly_ha&quot;: 515.0,
+        &quot;anomaly_pixels&quot;: 12875,
+        &quot;valid_pixels&quot;: 3255351
+      }
+    },
+    &quot;grid&quot;: {
+      &quot;crs&quot;: &quot;EPSG:6933&quot;,
+      &quot;height&quot;: 1351,
+      &quot;pixel_ha&quot;: 0.04,
+      &quot;transform&quot;: [
+        20.0,
+        0.0,
+        2354260.0,
+        0.0,
+        -20.0,
+        6259340.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      &quot;width&quot;: 2413
+    },
+    &quot;support_note&quot;: &quot;Unavailable counts include grid exterior; joint-valid denominators exclude nodata. Radar-only means threshold-positive optical-negative, not a road label.&quot;
+  },
+  &quot;robust_shared_support&quot;: {
+    &quot;default_robust_shared_support&quot;: {
+      &quot;fixed&quot;: 77092,
+      &quot;fixed_sar&quot;: 7812,
+      &quot;robust&quot;: 61610,
+      &quot;robust_sar&quot;: 7582,
+      &quot;sigma&quot;: 92146,
+      &quot;sigma_sar&quot;: 9312,
+      &quot;valid&quot;: 2735727
+    },
+    &quot;roi_robust_categories&quot;: {
+      &quot;CONTROL-01&quot;: {
+        &quot;counts&quot;: {
+          &quot;both&quot;: 0,
+          &quot;joint_valid&quot;: 120,
+          &quot;neither&quot;: 119,
+          &quot;optical_only&quot;: 0,
+          &quot;optical_valid_radar_unavailable&quot;: 0,
+          &quot;radar_only&quot;: 1
+        },
+        &quot;sigma_rejected_vh_summary&quot;: {
+          &quot;n&quot;: 0,
+          &quot;p10_median_p90&quot;: null
+        },
+        &quot;sigma_rejected_vv_summary&quot;: {
+          &quot;n&quot;: 0,
+          &quot;p10_median_p90&quot;: null
+        }
+      },
+      &quot;CONTROL-02&quot;: {
+        &quot;counts&quot;: {
+          &quot;both&quot;: 0,
+          &quot;joint_valid&quot;: 256,
+          &quot;neither&quot;: 255,
+          &quot;optical_only&quot;: 0,
+          &quot;optical_valid_radar_unavailable&quot;: 0,
+          &quot;radar_only&quot;: 1
+        },
+        &quot;sigma_rejected_vh_summary&quot;: {
+          &quot;n&quot;: 0,
+          &quot;p10_median_p90&quot;: null
+        },
+        &quot;sigma_rejected_vv_summary&quot;: {
+          &quot;n&quot;: 0,
+          &quot;p10_median_p90&quot;: null
+        }
+      },
+      &quot;ROI-01&quot;: {
+        &quot;counts&quot;: {
+          &quot;both&quot;: 93,
+          &quot;joint_valid&quot;: 3141,
+          &quot;neither&quot;: 2694,
+          &quot;optical_only&quot;: 267,
+          &quot;optical_valid_radar_unavailable&quot;: 0,
+          &quot;radar_only&quot;: 87
+        },
+        &quot;sigma_rejected_vh_summary&quot;: {
+          &quot;n&quot;: 730,
+          &quot;p10_median_p90&quot;: [
+            -2.566989517211914,
+            -1.0939092636108398,
+            0.3346676826477054
+          ]
+        },
+        &quot;sigma_rejected_vv_summary&quot;: {
+          &quot;n&quot;: 730,
+          &quot;p10_median_p90&quot;: [
+            -1.2488934993743896,
+            -0.28150177001953125,
+            1.0313786506652833
+          ]
+        }
+      },
+      &quot;ROI-02&quot;: {
+        &quot;counts&quot;: {
+          &quot;both&quot;: 87,
+          &quot;joint_valid&quot;: 1287,
+          &quot;neither&quot;: 988,
+          &quot;optical_only&quot;: 170,
+          &quot;optical_valid_radar_unavailable&quot;: 0,
+          &quot;radar_only&quot;: 42
+        },
+        &quot;sigma_rejected_vh_summary&quot;: {
+          &quot;n&quot;: 195,
+          &quot;p10_median_p90&quot;: [
+            -5.332882690429687,
+            -2.3574790954589844,
+            0.15169124603271442
+          ]
+        },
+        &quot;sigma_rejected_vv_summary&quot;: {
+          &quot;n&quot;: 195,
+          &quot;p10_median_p90&quot;: [
+            -1.186410903930664,
+            0.13619232177734375,
+            1.848788833618164
+          ]
+        }
+      }
+    },
+    &quot;scope&quot;: &quot;provisional manually sampled corridor buffers and visual controls; all areas use .04 ha/pixel&quot;
+  },
+  &quot;schema_version&quot;: &quot;1.0&quot;,
+  &quot;source_access_limits&quot;: {
+    &quot;limits&quot;: &quot;Indexed excerpts, abstracts and issue reports are explicitly weaker than original methods read. No literature proves ROI identity.&quot;,
+    &quot;queries&quot;: [
+      &quot;Sentinel-2 forest roads narrow linear detection Sentinel-1 study&quot;,
+      &quot;site.esa.int Sentinel 1 backscatter moisture roughness vegetation radar roads&quot;,
+      &quot;Verbesselt 2010 BFAST Zhu Woodcock 2014 continuous change detection classification full text&quot;,
+      &quot;Sentinel-2’s Potential for Sub-Pixel Landscape Feature Detection 8 488 DOI&quot;,
+      &quot;Rousseeuw Croux 1993 Alternatives median absolute deviation 1.4826 doi original paper&quot;,
+      &quot;site.planetarycomputer.microsoft.com dataset sentinel-1-rtc radiometric terrain correction&quot;
+    ],
+    &quot;search_date&quot;: &quot;2026-10-06&quot;,
+    &quot;sources&quot;: [
+      {
+        &quot;access&quot;: &quot;indexed original abstract/discussion/conclusion excerpts; direct full-text fetch returned 429&quot;,
+        &quot;algorithm&quot;: &quot;spectral separability and empirical point-spread-function framework&quot;,
+        &quot;authors&quot;: &quot;Radoux et al.&quot;,
+        &quot;doi&quot;: &quot;10.3390/rs8060488&quot;,
+        &quot;finding&quot;: &quot;Subpixel visibility depends on contrast and spatial response. Reported road limit is context-specific.&quot;,
+        &quot;geography&quot;: &quot;study landscapes, not Estonia ROI&quot;,
+        &quot;id&quot;: &quot;L01&quot;,
+        &quot;inclusion&quot;: &quot;mechanism or method-design context; no ROI ground truth&quot;,
+        &quot;inference&quot;: &quot;Mixed-pixel dilution can explain optical/SAR disagreement; actual local width remains uncertain.&quot;,
+        &quot;kg&quot;: [
+          &quot;DS-0002&quot;,
+          &quot;measurement:ndvi&quot;
+        ],
+        &quot;resolution&quot;: &quot;10–20 m S2&quot;,
+        &quot;retrieved_at&quot;: &quot;2026-10-06T18:11:33.633133+00:00&quot;,
+        &quot;section&quot;: &quot;Abstract, Discussion, Conclusions&quot;,
+        &quot;sensor&quot;: &quot;pre-operational Sentinel-2; comparison with Landsat-8/SPOT-5&quot;,
+        &quot;title&quot;: &quot;Sentinel-2’s Potential for Sub-Pixel Landscape Feature Detection&quot;,
+        &quot;transferability&quot;: &quot;Does not establish an NDVI anomaly cutoff or a universal road-width detection limit.&quot;,
+        &quot;url&quot;: &quot;https://www.mdpi.com/2072-4292/8/6/488&quot;,
+        &quot;validation&quot;: &quot;foreground/background separability experiments&quot;,
+        &quot;year&quot;: 2016
+      },
+      {
+        &quot;access&quot;: &quot;full original author paper text read&quot;,
+        &quot;algorithm&quot;: &quot;supervised U-Net variants, ordinal visibility classes, temporal model&quot;,
+        &quot;authors&quot;: &quot;Oehmcke, Thrysøe, Borgstad, Salles, Brandt, Gieseke&quot;,
+        &quot;finding&quot;: &quot;Visibility varies with road type/width; labels and temporal context influence extraction.&quot;,
+        &quot;geography&quot;: &quot;six European S2 tiles&quot;,
+        &quot;id&quot;: &quot;L02&quot;,
+        &quot;inclusion&quot;: &quot;mechanism or method-design context; no ROI ground truth&quot;,
+        &quot;kg&quot;: [
+          &quot;DS-0002&quot;,
+          &quot;observation:optical-vegetation-state&quot;
+        ],
+        &quot;resolution&quot;: &quot;10–60 m bands; 5/10 m label rasters&quot;,
+        &quot;retrieved_at&quot;: &quot;2026-10-06T18:11:33.633133+00:00&quot;,
+        &quot;section&quot;: &quot;II-A, III, IV and Appendix&quot;,
+        &quot;sensor&quot;: &quot;Sentinel-2 L2A&quot;,
+        &quot;temporal&quot;: &quot;12 timestamps, 2016–2018&quot;,
+        &quot;title&quot;: &quot;Detecting Hardly Visible Roads in Low-Resolution Satellite Time Series Data&quot;,
+        &quot;transferability&quot;: &quot;OSM label noise/domain shift and supervised setup differ from this unsupervised gate.&quot;,
+        &quot;url&quot;: &quot;https://arxiv.org/abs/1912.05026&quot;,
+        &quot;validation&quot;: &quot;OSM-derived train/test road labels&quot;,
+        &quot;year&quot;: 2019
+      },
+      {
+        &quot;access&quot;: &quot;author bibliographic page and original-author preprint methods/conclusion read&quot;,
+        &quot;algorithm&quot;: &quot;iterative trend/seasonality decomposition and structural breaks&quot;,
+        &quot;authenticity_limit&quot;: &quot;Preprint footer contains an inconsistent submission year; journal identity checked against author bibliography.&quot;,
+        &quot;authors&quot;: &quot;Verbesselt, Hyndman, Newnham, Culvenor&quot;,
+        &quot;doi&quot;: &quot;10.1016/j.rse.2009.08.014&quot;,
+        &quot;finding&quot;: &quot;Separates temporal components; change characterization still needs causal interpretation.&quot;,
+        &quot;geography&quot;: &quot;southeastern Australia forest&quot;,
+        &quot;id&quot;: &quot;L03&quot;,
+        &quot;inclusion&quot;: &quot;mechanism or method-design context; no ROI ground truth&quot;,
+        &quot;kg&quot;: [
+          &quot;method:temporal-persistence&quot;,
+          &quot;observation:optical-vegetation-state&quot;
+        ],
+        &quot;manuscript_url&quot;: &quot;https://www.researchgate.net/profile/Jan-Verbesselt/publication/252964434_Abrupt_gradual_and_phenological_change_analysis_using_satellite_image_time_series/links/00b49523bfc21f3b0f000000/Abrupt-gradual-and-phenological-change-analysis-using-satellite-image-time-series.pdf&quot;,
+        &quot;retrieved_at&quot;: &quot;2026-10-06T18:11:33.633133+00:00&quot;,
+        &quot;section&quot;: &quot;Preprint 2, 5, 6&quot;,
+        &quot;sensor&quot;: &quot;MODIS NDVI&quot;,
+        &quot;temporal&quot;: &quot;16-day composites, multi-year 2000–2008 application&quot;,
+        &quot;title&quot;: &quot;Detecting trend and seasonal changes in satellite image time series&quot;,
+        &quot;transferability&quot;: &quot;Not executable defensibly with eight reference dates and three June targets; not a road detector.&quot;,
+        &quot;url&quot;: &quot;https://otext.robjhyndman.com/publications/bfast1/&quot;,
+        &quot;validation&quot;: &quot;simulations and forest inventory context&quot;,
+        &quot;year&quot;: 2010
+      },
+      {
+        &quot;access&quot;: &quot;author-hosted journal full text read&quot;,
+        &quot;algorithm&quot;: &quot;seasonal/trend regression, repeated residual deviations, classification&quot;,
+        &quot;authors&quot;: &quot;Zhu and Woodcock&quot;,
+        &quot;doi&quot;: &quot;10.1016/j.rse.2014.01.011&quot;,
+        &quot;finding&quot;: &quot;Single-date ephemeral effects and clear-scene selection can undermine inference; uses repeated dates.&quot;,
+        &quot;geography&quot;: &quot;coastal New England&quot;,
+        &quot;id&quot;: &quot;L04&quot;,
+        &quot;inclusion&quot;: &quot;mechanism or method-design context; no ROI ground truth&quot;,
+        &quot;kg&quot;: [
+          &quot;method:temporal-persistence&quot;,
+          &quot;measurement:persistence-count&quot;
+        ],
+        &quot;preprocessing&quot;: &quot;L1T registration, LEDAPS, Fmask and temporal screening&quot;,
+        &quot;resolution&quot;: &quot;Landsat spatial scale&quot;,
+        &quot;retrieved_at&quot;: &quot;2026-10-06T18:11:33.633133+00:00&quot;,
+        &quot;section&quot;: &quot;2, 3.1–3.3, printed pp.154–157&quot;,
+        &quot;sensor&quot;: &quot;Landsat TM/ETM+ surface reflectance&quot;,
+        &quot;temporal&quot;: &quot;519 images, 1982–2011&quot;,
+        &quot;title&quot;: &quot;Continuous change detection and classification of land cover using all available Landsat data&quot;,
+        &quot;transferability&quot;: &quot;Published temporal model and data requirements differ from the June persistence heuristic; thresholds not transferable.&quot;,
+        &quot;url&quot;: &quot;https://gerslab.cahnr.uconn.edu/wp-content/uploads/sites/2514/2021/06/ZheZhu_CCDC.pdf&quot;,
+        &quot;validation&quot;: &quot;aerial/field-supported reference sites&quot;,
+        &quot;year&quot;: 2014
+      },
+      {
+        &quot;access&quot;: &quot;official full text read&quot;,
+        &quot;algorithm&quot;: &quot;physical explanation, no classifier&quot;,
+        &quot;authors&quot;: &quot;ESA-ESRIN&quot;,
+        &quot;finding&quot;: &quot;Moisture, roughness, polarization and incidence affect backscatter; a wet or rough surface need not exhibit a drop.&quot;,
+        &quot;id&quot;: &quot;L05&quot;,
+        &quot;inclusion&quot;: &quot;mechanism or method-design context; no ROI ground truth&quot;,
+        &quot;kg&quot;: [
+          &quot;DS-0003&quot;,
+          &quot;observation:sar-backscatter-state&quot;
+        ],
+        &quot;retrieved_at&quot;: &quot;2026-10-06T18:11:33.633133+00:00&quot;,
+        &quot;section&quot;: &quot;backscatter factors and polarization/incidence paragraphs&quot;,
+        &quot;sensor&quot;: &quot;radar, general physical principles&quot;,
+        &quot;title&quot;: &quot;Some Basic Radar Principles (SP-1199)&quot;,
+        &quot;transferability&quot;: &quot;Explains mechanisms, not actual local weather or SAR cause.&quot;,
+        &quot;url&quot;: &quot;https://www.esa.int/esapub/sp/sp1199/get21.htm&quot;,
+        &quot;validation&quot;: &quot;not a location-specific validation study&quot;,
+        &quot;year&quot;: 1996
+      },
+      {
+        &quot;access&quot;: &quot;provider repository documentation and issue body read&quot;,
+        &quot;authors&quot;: &quot;Element 84&quot;,
+        &quot;finding&quot;: &quot;Collection metadata and offset behavior need product-specific checks; issue is a user report.&quot;,
+        &quot;id&quot;: &quot;L06&quot;,
+        &quot;inclusion&quot;: &quot;mechanism or method-design context; no ROI ground truth&quot;,
+        &quot;kg&quot;: [
+          &quot;DS-0002&quot;,
+          &quot;access:live-catalogue&quot;
+        ],
+        &quot;related_url&quot;: &quot;https://github.com/Element84/earth-search/issues/66&quot;,
+        &quot;retrieved_at&quot;: &quot;2026-10-06T18:11:33.633133+00:00&quot;,
+        &quot;section&quot;: &quot;collection/calibration documentation, issue body&quot;,
+        &quot;sensor&quot;: &quot;Sentinel-2 COG L2A&quot;,
+        &quot;title&quot;: &quot;Earth Search documentation and offset issue #66&quot;,
+        &quot;transferability&quot;: &quot;Does not independently validate this run’s explicit gain=.0001, no-second-offset interpretation.&quot;,
+        &quot;url&quot;: &quot;https://github.com/Element84/earth-search/blob/main/README.md&quot;,
+        &quot;year&quot;: 2026
+      },
+      {
+        &quot;access&quot;: &quot;original issue body read; user report, not provider-confirmed general defect&quot;,
+        &quot;authors&quot;: &quot;Planetary Computer issue reporter&quot;,
+        &quot;finding&quot;: &quot;Reported persistent geolocation shift in another region.&quot;,
+        &quot;geography&quot;: &quot;Philippines example&quot;,
+        &quot;id&quot;: &quot;L07&quot;,
+        &quot;inclusion&quot;: &quot;mechanism or method-design context; no ROI ground truth&quot;,
+        &quot;kg&quot;: [
+          &quot;DS-0003&quot;,
+          &quot;validation:forest-evidence&quot;
+        ],
+        &quot;retrieved_at&quot;: &quot;2026-10-06T18:11:33.633133+00:00&quot;,
+        &quot;section&quot;: &quot;description/reproduction&quot;,
+        &quot;sensor&quot;: &quot;Planetary Computer S1 RTC&quot;,
+        &quot;title&quot;: &quot;Sentinel-1 RTC — step changes in terrain correction/projection #404&quot;,
+        &quot;transferability&quot;: &quot;Reason to check local registration, not evidence that this Estonia run has a shift. Optical checks do not certify S1 alignment.&quot;,
+        &quot;url&quot;: &quot;https://github.com/microsoft/PlanetaryComputer/issues/404&quot;,
+        &quot;year&quot;: 2025
+      },
+      {
+        &quot;access&quot;: &quot;original author-hosted indexed abstract excerpt; full-text open failed&quot;,
+        &quot;algorithm&quot;: &quot;robust scale estimators&quot;,
+        &quot;authors&quot;: &quot;Rousseeuw and Croux&quot;,
+        &quot;doi&quot;: &quot;10.1080/01621459.1993.10476408&quot;,
+        &quot;finding&quot;: &quot;MAD with a normal-consistency multiplier is robust; small-sample behavior still matters.&quot;,
+        &quot;id&quot;: &quot;L08&quot;,
+        &quot;inclusion&quot;: &quot;mechanism or method-design context; no ROI ground truth&quot;,
+        &quot;kg&quot;: [
+          &quot;method:ndvi-anomaly&quot;
+        ],
+        &quot;retrieved_at&quot;: &quot;2026-10-06T18:11:33.633133+00:00&quot;,
+        &quot;section&quot;: &quot;abstract&quot;,
+        &quot;semantic_gap&quot;: &quot;robust screening method unregistered&quot;,
+        &quot;title&quot;: &quot;Alternatives to the Median Absolute Deviation&quot;,
+        &quot;transferability&quot;: &quot;Does not validate the noise floors, minimum count, effect-size cutoff or false-positive control for NDVI.&quot;,
+        &quot;url&quot;: &quot;https://wis.kuleuven.be/stat/robust/papers/publications-1993/rousseeuwcroux-alternativestomedianad-jasa-1993.pdf&quot;,
+        &quot;year&quot;: 1993
+      },
+      {
+        &quot;access&quot;: &quot;original publisher search abstract only; full text unavailable&quot;,
+        &quot;algorithm&quot;: &quot;supervised multi-sensor deep learning&quot;,
+        &quot;authors&quot;: &quot;identity not fully verified&quot;,
+        &quot;excluded_from_parameter_justification&quot;: true,
+        &quot;finding&quot;: &quot;Road monitoring reported with an independently evaluated supervised model.&quot;,
+        &quot;geography&quot;: &quot;Congo Basin&quot;,
+        &quot;id&quot;: &quot;L09&quot;,
+        &quot;inclusion&quot;: &quot;mechanism or method-design context; no ROI ground truth&quot;,
+        &quot;kg&quot;: [
+          &quot;DS-0002&quot;,
+          &quot;DS-0003&quot;
+        ],
+        &quot;retrieved_at&quot;: &quot;2026-10-06T18:11:33.633133+00:00&quot;,
+        &quot;sensor&quot;: &quot;Sentinel-1 and Sentinel-2&quot;,
+        &quot;title&quot;: &quot;Monitoring road development in Congo Basin forests with multi-sensor satellite imagery and deep learning&quot;,
+        &quot;transferability&quot;: &quot;Methods/labels not fully read; cannot justify exact thresholds or transfer accuracy to Estonia.&quot;,
+        &quot;url&quot;: &quot;https://www.sciencedirect.com/science/article/pii/S0034425724004061&quot;,
+        &quot;year&quot;: 2024
+      }
+    ]
+  },
+  &quot;stage_status&quot;: {
+    &quot;corroborate&quot;: &quot;partial: date conflict and no verified high-resolution after pair&quot;,
+    &quot;inspect&quot;: &quot;complete within declared sampling limits&quot;,
+    &quot;report&quot;: &quot;complete; unresolved propositions preserved&quot;,
+    &quot;research&quot;: &quot;partial: some original full texts inaccessible&quot;
+  },
+  &quot;summary&quot;: &quot;Changed linear patterns are supported provisionally; a newly constructed road is not established. The sampled ROI-02 main carriageway is already visible at reference date.&quot;
+}</pre></main></body></html>

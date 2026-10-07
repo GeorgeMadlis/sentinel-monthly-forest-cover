@@ -1,0 +1,208 @@
+{
+  "limits": "Indexed excerpts, abstracts and issue reports are explicitly weaker than original methods read. No literature proves ROI identity.",
+  "queries": [
+    "Sentinel-2 forest roads narrow linear detection Sentinel-1 study",
+    "site.esa.int Sentinel 1 backscatter moisture roughness vegetation radar roads",
+    "Verbesselt 2010 BFAST Zhu Woodcock 2014 continuous change detection classification full text",
+    "Sentinel-2\u2019s Potential for Sub-Pixel Landscape Feature Detection 8 488 DOI",
+    "Rousseeuw Croux 1993 Alternatives median absolute deviation 1.4826 doi original paper",
+    "site.planetarycomputer.microsoft.com dataset sentinel-1-rtc radiometric terrain correction"
+  ],
+  "search_date": "2026-10-06",
+  "sources": [
+    {
+      "access": "indexed original abstract/discussion/conclusion excerpts; direct full-text fetch returned 429",
+      "algorithm": "spectral separability and empirical point-spread-function framework",
+      "authors": "Radoux et al.",
+      "doi": "10.3390/rs8060488",
+      "finding": "Subpixel visibility depends on contrast and spatial response. Reported road limit is context-specific.",
+      "geography": "study landscapes, not Estonia ROI",
+      "id": "L01",
+      "inclusion": "mechanism or method-design context; no ROI ground truth",
+      "inference": "Mixed-pixel dilution can explain optical/SAR disagreement; actual local width remains uncertain.",
+      "kg": [
+        "DS-0002",
+        "measurement:ndvi"
+      ],
+      "resolution": "10\u201320 m S2",
+      "retrieved_at": "2026-10-06T18:11:33.633133+00:00",
+      "section": "Abstract, Discussion, Conclusions",
+      "sensor": "pre-operational Sentinel-2; comparison with Landsat-8/SPOT-5",
+      "title": "Sentinel-2\u2019s Potential for Sub-Pixel Landscape Feature Detection",
+      "transferability": "Does not establish an NDVI anomaly cutoff or a universal road-width detection limit.",
+      "url": "https://www.mdpi.com/2072-4292/8/6/488",
+      "validation": "foreground/background separability experiments",
+      "year": 2016
+    },
+    {
+      "access": "full original author paper text read",
+      "algorithm": "supervised U-Net variants, ordinal visibility classes, temporal model",
+      "authors": "Oehmcke, Thrys\u00f8e, Borgstad, Salles, Brandt, Gieseke",
+      "finding": "Visibility varies with road type/width; labels and temporal context influence extraction.",
+      "geography": "six European S2 tiles",
+      "id": "L02",
+      "inclusion": "mechanism or method-design context; no ROI ground truth",
+      "kg": [
+        "DS-0002",
+        "observation:optical-vegetation-state"
+      ],
+      "resolution": "10\u201360 m bands; 5/10 m label rasters",
+      "retrieved_at": "2026-10-06T18:11:33.633133+00:00",
+      "section": "II-A, III, IV and Appendix",
+      "sensor": "Sentinel-2 L2A",
+      "temporal": "12 timestamps, 2016\u20132018",
+      "title": "Detecting Hardly Visible Roads in Low-Resolution Satellite Time Series Data",
+      "transferability": "OSM label noise/domain shift and supervised setup differ from this unsupervised gate.",
+      "url": "https://arxiv.org/abs/1912.05026",
+      "validation": "OSM-derived train/test road labels",
+      "year": 2019
+    },
+    {
+      "access": "author bibliographic page and original-author preprint methods/conclusion read",
+      "algorithm": "iterative trend/seasonality decomposition and structural breaks",
+      "authenticity_limit": "Preprint footer contains an inconsistent submission year; journal identity checked against author bibliography.",
+      "authors": "Verbesselt, Hyndman, Newnham, Culvenor",
+      "doi": "10.1016/j.rse.2009.08.014",
+      "finding": "Separates temporal components; change characterization still needs causal interpretation.",
+      "geography": "southeastern Australia forest",
+      "id": "L03",
+      "inclusion": "mechanism or method-design context; no ROI ground truth",
+      "kg": [
+        "method:temporal-persistence",
+        "observation:optical-vegetation-state"
+      ],
+      "manuscript_url": "https://www.researchgate.net/profile/Jan-Verbesselt/publication/252964434_Abrupt_gradual_and_phenological_change_analysis_using_satellite_image_time_series/links/00b49523bfc21f3b0f000000/Abrupt-gradual-and-phenological-change-analysis-using-satellite-image-time-series.pdf",
+      "retrieved_at": "2026-10-06T18:11:33.633133+00:00",
+      "section": "Preprint 2, 5, 6",
+      "sensor": "MODIS NDVI",
+      "temporal": "16-day composites, multi-year 2000\u20132008 application",
+      "title": "Detecting trend and seasonal changes in satellite image time series",
+      "transferability": "Not executable defensibly with eight reference dates and three June targets; not a road detector.",
+      "url": "https://otext.robjhyndman.com/publications/bfast1/",
+      "validation": "simulations and forest inventory context",
+      "year": 2010
+    },
+    {
+      "access": "author-hosted journal full text read",
+      "algorithm": "seasonal/trend regression, repeated residual deviations, classification",
+      "authors": "Zhu and Woodcock",
+      "doi": "10.1016/j.rse.2014.01.011",
+      "finding": "Single-date ephemeral effects and clear-scene selection can undermine inference; uses repeated dates.",
+      "geography": "coastal New England",
+      "id": "L04",
+      "inclusion": "mechanism or method-design context; no ROI ground truth",
+      "kg": [
+        "method:temporal-persistence",
+        "measurement:persistence-count"
+      ],
+      "preprocessing": "L1T registration, LEDAPS, Fmask and temporal screening",
+      "resolution": "Landsat spatial scale",
+      "retrieved_at": "2026-10-06T18:11:33.633133+00:00",
+      "section": "2, 3.1\u20133.3, printed pp.154\u2013157",
+      "sensor": "Landsat TM/ETM+ surface reflectance",
+      "temporal": "519 images, 1982\u20132011",
+      "title": "Continuous change detection and classification of land cover using all available Landsat data",
+      "transferability": "Published temporal model and data requirements differ from the June persistence heuristic; thresholds not transferable.",
+      "url": "https://gerslab.cahnr.uconn.edu/wp-content/uploads/sites/2514/2021/06/ZheZhu_CCDC.pdf",
+      "validation": "aerial/field-supported reference sites",
+      "year": 2014
+    },
+    {
+      "access": "official full text read",
+      "algorithm": "physical explanation, no classifier",
+      "authors": "ESA-ESRIN",
+      "finding": "Moisture, roughness, polarization and incidence affect backscatter; a wet or rough surface need not exhibit a drop.",
+      "id": "L05",
+      "inclusion": "mechanism or method-design context; no ROI ground truth",
+      "kg": [
+        "DS-0003",
+        "observation:sar-backscatter-state"
+      ],
+      "retrieved_at": "2026-10-06T18:11:33.633133+00:00",
+      "section": "backscatter factors and polarization/incidence paragraphs",
+      "sensor": "radar, general physical principles",
+      "title": "Some Basic Radar Principles (SP-1199)",
+      "transferability": "Explains mechanisms, not actual local weather or SAR cause.",
+      "url": "https://www.esa.int/esapub/sp/sp1199/get21.htm",
+      "validation": "not a location-specific validation study",
+      "year": 1996
+    },
+    {
+      "access": "provider repository documentation and issue body read",
+      "authors": "Element 84",
+      "finding": "Collection metadata and offset behavior need product-specific checks; issue is a user report.",
+      "id": "L06",
+      "inclusion": "mechanism or method-design context; no ROI ground truth",
+      "kg": [
+        "DS-0002",
+        "access:live-catalogue"
+      ],
+      "related_url": "https://github.com/Element84/earth-search/issues/66",
+      "retrieved_at": "2026-10-06T18:11:33.633133+00:00",
+      "section": "collection/calibration documentation, issue body",
+      "sensor": "Sentinel-2 COG L2A",
+      "title": "Earth Search documentation and offset issue #66",
+      "transferability": "Does not independently validate this run\u2019s explicit gain=.0001, no-second-offset interpretation.",
+      "url": "https://github.com/Element84/earth-search/blob/main/README.md",
+      "year": 2026
+    },
+    {
+      "access": "original issue body read; user report, not provider-confirmed general defect",
+      "authors": "Planetary Computer issue reporter",
+      "finding": "Reported persistent geolocation shift in another region.",
+      "geography": "Philippines example",
+      "id": "L07",
+      "inclusion": "mechanism or method-design context; no ROI ground truth",
+      "kg": [
+        "DS-0003",
+        "validation:forest-evidence"
+      ],
+      "retrieved_at": "2026-10-06T18:11:33.633133+00:00",
+      "section": "description/reproduction",
+      "sensor": "Planetary Computer S1 RTC",
+      "title": "Sentinel-1 RTC \u2014 step changes in terrain correction/projection #404",
+      "transferability": "Reason to check local registration, not evidence that this Estonia run has a shift. Optical checks do not certify S1 alignment.",
+      "url": "https://github.com/microsoft/PlanetaryComputer/issues/404",
+      "year": 2025
+    },
+    {
+      "access": "original author-hosted indexed abstract excerpt; full-text open failed",
+      "algorithm": "robust scale estimators",
+      "authors": "Rousseeuw and Croux",
+      "doi": "10.1080/01621459.1993.10476408",
+      "finding": "MAD with a normal-consistency multiplier is robust; small-sample behavior still matters.",
+      "id": "L08",
+      "inclusion": "mechanism or method-design context; no ROI ground truth",
+      "kg": [
+        "method:ndvi-anomaly"
+      ],
+      "retrieved_at": "2026-10-06T18:11:33.633133+00:00",
+      "section": "abstract",
+      "semantic_gap": "robust screening method unregistered",
+      "title": "Alternatives to the Median Absolute Deviation",
+      "transferability": "Does not validate the noise floors, minimum count, effect-size cutoff or false-positive control for NDVI.",
+      "url": "https://wis.kuleuven.be/stat/robust/papers/publications-1993/rousseeuwcroux-alternativestomedianad-jasa-1993.pdf",
+      "year": 1993
+    },
+    {
+      "access": "original publisher search abstract only; full text unavailable",
+      "algorithm": "supervised multi-sensor deep learning",
+      "authors": "identity not fully verified",
+      "excluded_from_parameter_justification": true,
+      "finding": "Road monitoring reported with an independently evaluated supervised model.",
+      "geography": "Congo Basin",
+      "id": "L09",
+      "inclusion": "mechanism or method-design context; no ROI ground truth",
+      "kg": [
+        "DS-0002",
+        "DS-0003"
+      ],
+      "retrieved_at": "2026-10-06T18:11:33.633133+00:00",
+      "sensor": "Sentinel-1 and Sentinel-2",
+      "title": "Monitoring road development in Congo Basin forests with multi-sensor satellite imagery and deep learning",
+      "transferability": "Methods/labels not fully read; cannot justify exact thresholds or transfer accuracy to Estonia.",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0034425724004061",
+      "year": 2024
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "heuristic": true,
+  "not_accuracy_validation": true,
+  "settings": [
+    {
+      "combined_candidate_pixels": 46479,
+      "k": 1,
+      "optical_candidate_pixels": 305716,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -0.5,
+      "vv_drop_db": -1.0
+    },
+    {
+      "combined_candidate_pixels": 32778,
+      "k": 1,
+      "optical_candidate_pixels": 305716,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.0,
+      "vv_drop_db": -1.0
+    },
+    {
+      "combined_candidate_pixels": 21479,
+      "k": 1,
+      "optical_candidate_pixels": 305716,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.5,
+      "vv_drop_db": -1.0
+    },
+    {
+      "combined_candidate_pixels": 27730,
+      "k": 1,
+      "optical_candidate_pixels": 305716,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -0.5,
+      "vv_drop_db": -1.5
+    },
+    {
+      "combined_candidate_pixels": 21317,
+      "k": 1,
+      "optical_candidate_pixels": 305716,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.0,
+      "vv_drop_db": -1.5
+    },
+    {
+      "combined_candidate_pixels": 15420,
+      "k": 1,
+      "optical_candidate_pixels": 305716,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.5,
+      "vv_drop_db": -1.5
+    },
+    {
+      "combined_candidate_pixels": 15534,
+      "k": 1,
+      "optical_candidate_pixels": 305716,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -0.5,
+      "vv_drop_db": -2.0
+    },
+    {
+      "combined_candidate_pixels": 12877,
+      "k": 1,
+      "optical_candidate_pixels": 305716,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.0,
+      "vv_drop_db": -2.0
+    },
+    {
+      "combined_candidate_pixels": 10126,
+      "k": 1,
+      "optical_candidate_pixels": 305716,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.5,
+      "vv_drop_db": -2.0
+    },
+    {
+      "combined_candidate_pixels": 22970,
+      "k": 2,
+      "optical_candidate_pixels": 121242,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -0.5,
+      "vv_drop_db": -1.0
+    },
+    {
+      "combined_candidate_pixels": 18692,
+      "k": 2,
+      "optical_candidate_pixels": 121242,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.0,
+      "vv_drop_db": -1.0
+    },
+    {
+      "combined_candidate_pixels": 14220,
+      "k": 2,
+      "optical_candidate_pixels": 121242,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.5,
+      "vv_drop_db": -1.0
+    },
+    {
+      "combined_candidate_pixels": 14791,
+      "k": 2,
+      "optical_candidate_pixels": 121242,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -0.5,
+      "vv_drop_db": -1.5
+    },
+    {
+      "combined_candidate_pixels": 12875,
+      "k": 2,
+      "optical_candidate_pixels": 121242,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.0,
+      "vv_drop_db": -1.5
+    },
+    {
+      "combined_candidate_pixels": 10590,
+      "k": 2,
+      "optical_candidate_pixels": 121242,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.5,
+      "vv_drop_db": -1.5
+    },
+    {
+      "combined_candidate_pixels": 9033,
+      "k": 2,
+      "optical_candidate_pixels": 121242,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -0.5,
+      "vv_drop_db": -2.0
+    },
+    {
+      "combined_candidate_pixels": 8294,
+      "k": 2,
+      "optical_candidate_pixels": 121242,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.0,
+      "vv_drop_db": -2.0
+    },
+    {
+      "combined_candidate_pixels": 7263,
+      "k": 2,
+      "optical_candidate_pixels": 121242,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.5,
+      "vv_drop_db": -2.0
+    },
+    {
+      "combined_candidate_pixels": 16537,
+      "k": 3,
+      "optical_candidate_pixels": 77949,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -0.5,
+      "vv_drop_db": -1.0
+    },
+    {
+      "combined_candidate_pixels": 14148,
+      "k": 3,
+      "optical_candidate_pixels": 77949,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.0,
+      "vv_drop_db": -1.0
+    },
+    {
+      "combined_candidate_pixels": 11344,
+      "k": 3,
+      "optical_candidate_pixels": 77949,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.5,
+      "vv_drop_db": -1.0
+    },
+    {
+      "combined_candidate_pixels": 10959,
+      "k": 3,
+      "optical_candidate_pixels": 77949,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -0.5,
+      "vv_drop_db": -1.5
+    },
+    {
+      "combined_candidate_pixels": 9931,
+      "k": 3,
+      "optical_candidate_pixels": 77949,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.0,
+      "vv_drop_db": -1.5
+    },
+    {
+      "combined_candidate_pixels": 8502,
+      "k": 3,
+      "optical_candidate_pixels": 77949,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.5,
+      "vv_drop_db": -1.5
+    },
+    {
+      "combined_candidate_pixels": 6960,
+      "k": 3,
+      "optical_candidate_pixels": 77949,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -0.5,
+      "vv_drop_db": -2.0
+    },
+    {
+      "combined_candidate_pixels": 6574,
+      "k": 3,
+      "optical_candidate_pixels": 77949,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.0,
+      "vv_drop_db": -2.0
+    },
+    {
+      "combined_candidate_pixels": 5947,
+      "k": 3,
+      "optical_candidate_pixels": 77949,
+      "optical_valid_pixels": 3255351,
+      "vh_drop_db": -1.5,
+      "vv_drop_db": -2.0
+    }
+  ],
+  "status": "executed independently of unavailable bundled helper"
+}

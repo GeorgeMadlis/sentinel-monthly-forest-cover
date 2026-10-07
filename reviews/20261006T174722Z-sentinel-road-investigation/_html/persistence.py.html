@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>persistence.py</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>persistence.py</h1><p class="muted">persistence.py · <a href="../persistence.py">raw file</a> · <a href="index.html">folder</a></p><pre>from pathlib import Path
+import sys,json
+from datetime import datetime
+import rasterio
+import numpy as np
+from affine import Affine
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+from forest_change.sigma_sar_map import materialize
+from forest_change.raster import Grid,read_asset
+from forest_change.providers import LocalRasterProvider
+from forest_change.algorithms import feature
+from forest_change.evidence import write_json,checksum
+from rasterio.windows import Window
+from pyproj import Transformer
+import importlib.util
+R=Path(__file__).resolve().parent;REPO=R.parents[1];RUN=REPO/&#x27;runs/aoi-s2-s1-jja-2025-2026-sigma&#x27;;BASE=Path(json.loads((RUN/&#x27;maps/map_metadata.json&#x27;).read_text())[&#x27;source_run&#x27;])
+spec=importlib.util.spec_from_file_location(&#x27;robust&#x27;,REPO/&#x27;.codex/skills/inspect-sentinel-change/scripts/robust_threshold.py&#x27;);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+provider=LocalRasterProvider({&#x27;inventory&#x27;:str(RUN/&#x27;optical_inventory.json&#x27;),&#x27;collection&#x27;:&#x27;cached-calibrated&#x27;})
+ranking=json.loads((BASE/&#x27;target_ranking.json&#x27;).read_text());print([(q[&#x27;item&#x27;][&#x27;datetime&#x27;],q.get(&#x27;clear_fraction&#x27;),q.keys()) for q in ranking[:4]],flush=True)
+# Select two highest-ranked clear dates at least ten days from previously selected dates.
+selected=[];days=[datetime.fromisoformat(&#x27;2026-06-20&#x27;)]
+for q in ranking:
+ i=q[&#x27;item&#x27;];d=datetime.fromisoformat(i[&#x27;datetime&#x27;][:10]);p=i[&#x27;properties&#x27;]
+ if not p.get(&#x27;earthsearch:boa_offset_applied&#x27;):continue
+ if all(abs((d-old).days)&gt;=10 for old in days):selected.append(i);days.append(d)
+ if len(selected)==2:break
+ledger=[];tr=Transformer.from_crs(4326,6933,always_xy=True)
+points={&#x27;ROI-01&#x27;:(24.7571428571,58.5137213916),&#x27;ROI-02&#x27;:(24.5321428571,58.5502713186)}
+for roi,(lon,lat) in points.items():
+ x,y=tr.transform(lon,lat);left=np.floor((x-250)/20)*20;top=np.ceil((y+250)/20)*20;grid=Grid(&#x27;EPSG:6933&#x27;,Affine(20,0,left,0,-20,top),26,26);win=Window(0,0,26,26)
+ def ndvi(item):
+  bands={key:read_asset(provider,item[&#x27;assets&#x27;][key],grid,win,categorical=key==&#x27;scl&#x27;) for key in (&#x27;red&#x27;,&#x27;nir&#x27;,&#x27;scl&#x27;)};v=feature(&#x27;NDVI&#x27;,bands);v[~np.isin(bands[&#x27;scl&#x27;],[4,5,6,7])]=np.nan;return v
+ refs=np.stack([ndvi(i) for i in provider.items if i[&#x27;datetime&#x27;].startswith(&#x27;2025&#x27;)]);dates=[];candidates=[]
+ targets=[next(i for i in provider.items if i[&#x27;datetime&#x27;].startswith(&#x27;2026&#x27;))]
+ for item in selected:
+  try:
+   out=R/&#x27;cache/persistence&#x27;/roi;out.mkdir(parents=True,exist_ok=True)
+   mapped=materialize(item,{&#x27;red&#x27;:&#x27;red&#x27;,&#x27;nir&#x27;:&#x27;nir&#x27;,&#x27;scl&#x27;:&#x27;scl&#x27;},grid,out);mapped[&#x27;datetime&#x27;]=item[&#x27;datetime&#x27;];targets.append(mapped)
+  except Exception as ex:ledger.append({&#x27;roi_id&#x27;:roi,&#x27;id&#x27;:item[&#x27;id&#x27;],&#x27;status&#x27;:&#x27;inaccessible&#x27;,&#x27;error&#x27;:str(ex)})
+ for item in targets:
+  values=ndvi(item);res=m.robust_candidate(refs,values);candidate=np.where(res[&#x27;valid&#x27;],res[&#x27;candidate&#x27;],np.nan);candidates.append(candidate)
+  folder=R/&#x27;experiments/persistence&#x27;/roi;folder.mkdir(parents=True,exist_ok=True)
+  for label,data in [(&#x27;NDVI&#x27;,values),(&#x27;candidate&#x27;,candidate)]:
+   with rasterio.open(folder/(item[&#x27;datetime&#x27;][:10]+&#x27;-&#x27;+label+&#x27;.tif&#x27;),&#x27;w&#x27;,**grid.profile) as dst:dst.write(np.where(np.isfinite(data),data,-9999).astype(&#x27;float32&#x27;),1)
+  dates.append({&#x27;id&#x27;:item[&#x27;id&#x27;],&#x27;date&#x27;:item[&#x27;datetime&#x27;],&#x27;valid_pixels&#x27;:int(res[&#x27;valid&#x27;].sum()),&#x27;candidate_pixels&#x27;:int((candidate==1).sum()),&#x27;source_independence_group&#x27;:&#x27;Sentinel-2-EarthSearch&#x27;,&#x27;assets&#x27;:item[&#x27;assets&#x27;]})
+ stack=np.stack(candidates);valid=np.isfinite(stack);enough=(valid.sum(0)&gt;=3);persistent=enough&amp;((stack==1).sum(0)&gt;=2)
+ folder=R/&#x27;experiments/persistence&#x27;/roi
+ for label,data in [(&#x27;valid_date_count&#x27;,valid.sum(0)),(&#x27;detection_date_count&#x27;,(stack==1).sum(0)),(&#x27;persistent&#x27;,np.where(enough,persistent,np.nan))]:
+  with rasterio.open(folder/(label+&#x27;.tif&#x27;),&#x27;w&#x27;,**grid.profile) as dst:dst.write(np.where(np.isfinite(data),data,-9999).astype(&#x27;float32&#x27;),1)
+ ledger.append({&#x27;roi_id&#x27;:roi,&#x27;status&#x27;:&#x27;executed&#x27; if len(targets)&gt;=3 else &#x27;partial&#x27;,&#x27;dates&#x27;:dates,&#x27;three_date_valid_pixels&#x27;:int(enough.sum()),&#x27;persistent_at_least_two_pixels&#x27;:int(persistent.sum()),&#x27;pixel_ha&#x27;:grid.pixel_ha,&#x27;grid&#x27;:{&#x27;crs&#x27;:grid.crs,&#x27;transform&#x27;:list(grid.transform),&#x27;width&#x27;:26,&#x27;height&#x27;:26},&#x27;limitations&#x27;:[&#x27;Same sensor/provider; not independent road labels.&#x27;,&#x27;500 m sampling windows only; not corridor-wide persistence.&#x27;,&#x27;Summer baseline does not model phenology.&#x27;],&#x27;selection&#x27;:&#x27;top archived AOI-quality ranking with BOA-offset flag and &gt;=10-day spacing; pixel-level SCL evaluated after acquisition&#x27;})
+ write_json(R/&#x27;persistence_experiment.json&#x27;,{&#x27;records&#x27;:ledger,&#x27;ranking_sha256&#x27;:checksum(BASE/&#x27;target_ranking.json&#x27;),&#x27;rule&#x27;:&#x27;default robust (k=2.5, delta_min=.15, epsilon=.02, min_ref=5); &gt;=2 detections with &gt;=3 valid target dates&#x27;})
+print(&#x27;Persistence processing finished&#x27;,flush=True)
+</pre></main></body></html>

@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>verify_and_figures.py</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>verify_and_figures.py</h1><p class="muted">verify_and_figures.py · <a href="../verify_and_figures.py">raw file</a> · <a href="index.html">folder</a></p><pre>from pathlib import Path
+import sys,json,importlib.util
+import numpy as np,rasterio
+from PIL import Image,ImageDraw
+from contextlib import ExitStack
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+from forest_change.evidence import checksum,write_json
+from forest_change.leaflet import visual_grid,anomaly_rgba
+from forest_change.raster import read_asset
+from forest_change.providers import LocalRasterProvider
+from rasterio.windows import Window
+from rasterio.features import geometry_mask
+from rasterio.warp import transform_geom
+R=Path(__file__).resolve().parent;RUN=R.parents[1]/&#x27;runs/aoi-s2-s1-jja-2025-2026-sigma&#x27;;base=Path(json.loads((RUN/&#x27;maps/map_metadata.json&#x27;).read_text())[&#x27;source_run&#x27;])
+manifest=json.loads((RUN/&#x27;run_manifest.json&#x27;).read_text());outputs=[]
+for o in manifest[&#x27;outputs&#x27;]:
+ p=RUN/o[&#x27;path&#x27;];actual=checksum(p) if p.exists() else None;outputs.append({&#x27;path&#x27;:o[&#x27;path&#x27;],&#x27;expected&#x27;:o.get(&#x27;sha256&#x27;),&#x27;actual&#x27;:actual,&#x27;matches&#x27;:actual==o.get(&#x27;sha256&#x27;)})
+write_json(R/&#x27;manifest_verification.json&#x27;,{&#x27;outputs&#x27;:outputs,&#x27;all_match&#x27;:all(x[&#x27;matches&#x27;] for x in outputs)})
+spec=importlib.util.spec_from_file_location(&#x27;build&#x27;,Path(&#x27;/Users/server/projects/forest-cover-lab/graph/build.py&#x27;));m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+g=json.loads(Path(&#x27;/Users/server/projects/forest-cover-lab/graph/generated/knowledge.json&#x27;).read_text())
+try:m.validate_provenance(manifest,g);provenance={&#x27;status&#x27;:&#x27;passed&#x27;,&#x27;comparison&#x27;:&#x27;current pinned graph&#x27;}
+except Exception as ex:provenance={&#x27;status&#x27;:&#x27;failed&#x27;,&#x27;error&#x27;:str(ex),&#x27;note&#x27;:&#x27;Run was not edited; pinned historical context may differ.&#x27;}
+write_json(R/&#x27;provenance_validation.json&#x27;,provenance)
+records=json.loads((R/&#x27;threshold_experiments.json&#x27;).read_text())[&#x27;settings&#x27;]
+sheet=Image.new(&#x27;RGB&#x27;,(6*210,3*390),&#x27;white&#x27;);d=ImageDraw.Draw(sheet)
+for i,record in enumerate(records):
+ x=(i%6)*210;y=(i//6)*390;d.text((x+3,y+3),f&quot;k={record[&#x27;k&#x27;]} drop={record[&#x27;delta_min&#x27;]} floor={record[&#x27;epsilon&#x27;]}&quot;,fill=&#x27;black&#x27;)
+ for j,mode in enumerate((&#x27;optical&#x27;,&#x27;and&#x27;,&#x27;or&#x27;)):
+  folder=(R/record[&#x27;artifacts&#x27;][&#x27;optical.tif&#x27;][&#x27;path&#x27;]).parent/f&#x27;maps_{mode}&#x27;
+  bg=Image.open(folder/&#x27;target.png&#x27;).convert(&#x27;RGBA&#x27;);ov=Image.open(folder/&#x27;anomalies.png&#x27;).convert(&#x27;RGBA&#x27;);img=Image.alpha_composite(bg,ov);img.thumbnail((65,340));sheet.paste(img.convert(&#x27;RGB&#x27;),(x+j*69,y+32));d.text((x+j*69,y+17),mode,fill=&#x27;black&#x27;)
+sheet.save(R/&#x27;robust_contact_sheet.png&#x27;);Image.open(R/&#x27;four_map_contact_sheet.jpg&#x27;).save(R/&#x27;contact_sheet.png&#x27;)
+# Individual georeferenced sampling figures on original 20 m grid.
+rois=json.loads((R/&#x27;rois.geojson&#x27;).read_text())[&#x27;features&#x27;]
+provider=LocalRasterProvider({&#x27;inventory&#x27;:str(RUN/&#x27;optical_inventory.json&#x27;),&#x27;collection&#x27;:&#x27;archived-calibrated&#x27;})
+with rasterio.open(RUN/&#x27;w0000/NDVI_current.tif&#x27;) as s:
+ for roi in rois[:2]:
+  geom=transform_geom(&#x27;EPSG:4326&#x27;,s.crs,roi[&#x27;geometry&#x27;]);from rasterio.features import geometry_window
+  w=geometry_window(s,[geom],pad_x=5,pad_y=5);w=w.round_offsets().round_lengths()
+  # Persist multi-band RGB georeferenced crops, analytical resolution only.
+  for role in (&#x27;reference&#x27;,&#x27;target&#x27;):
+   assets=base/&#x27;source_windows&#x27;/role
+   bands=[]
+   for band in (&#x27;red&#x27;,&#x27;green&#x27;,&#x27;blue&#x27;):
+    with rasterio.open(assets/(band+&#x27;.tif&#x27;)) as source:bands.append(source.read(1,window=w,masked=True).filled(np.nan))
+   values=np.stack(bands);prof=s.profile.copy();prof.update(count=3,width=int(w.width),height=int(w.height),transform=rasterio.windows.transform(w,s.transform))
+   p=R/f&quot;{roi[&#x27;properties&#x27;][&#x27;id&#x27;]}-{role}-georef.tif&quot;
+   with rasterio.open(p,&#x27;w&#x27;,**prof) as dst:dst.write(np.where(np.isfinite(values),values,-9999))
+# Approximate local registration using unchanged-looking landmark patches; integer shifts, no correction.
+from forest_change.raster import Grid
+with rasterio.open(RUN/&#x27;w0000/NDVI_current.tif&#x27;) as s:grid=Grid(str(s.crs),s.transform,s.width,s.height)
+landmarks=[(&#x27;Pärnu urban crossing&#x27;,300,610),(&#x27;existing road junction&#x27;,1830,420)]
+reg=[]
+for name,col,row in landmarks:
+ w=Window(col,row,40,40);images=[]
+ for role in (&#x27;reference&#x27;,&#x27;target&#x27;):
+  arr=[]
+  for band in (&#x27;red&#x27;,&#x27;green&#x27;,&#x27;blue&#x27;):
+   with rasterio.open(base/&#x27;source_windows&#x27;/role/(band+&#x27;.tif&#x27;)) as src:arr.append(src.read(1,window=w,masked=True).filled(np.nan))
+  images.append(np.nanmean(arr,axis=0))
+ a,b=images;sc=[]
+ for dy in range(-2,3):
+  for dx in range(-2,3):
+   core=a[3:-3,3:-3];other=b[3+dy:37+dy,3+dx:37+dx];v=np.isfinite(core)&amp;np.isfinite(other)
+   if v.sum()&gt;30:sc.append((float(np.corrcoef(core[v],other[v])[0,1]),dx,dy))
+ best=max(sc);zero=next(q[0] for q in sc if q[1:]==(0,0));reg.append({&#x27;landmark&#x27;:name,&#x27;window&#x27;:[col,row,40,40],&#x27;best_integer_shift_pixels&#x27;:[best[1],best[2]],&#x27;correlation&#x27;:best[0],&#x27;zero_shift_correlation&#x27;:zero,&#x27;resolution_m&#x27;:20,&#x27;uncertainty&#x27;:&#x27;local radiometric/seasonal correlation only, not surveyed subpixel geolocation accuracy&#x27;,&#x27;action&#x27;:&#x27;no shift applied&#x27;})
+write_json(R/&#x27;registration_check.json&#x27;,reg)
+# Preserve original hashes from first stage, check after all work.
+before=json.loads((R/&#x27;original_hashes_before.json&#x27;).read_text());changed=[p for p,h in before.items() if checksum(p)!=h]
+write_json(R/&#x27;original_integrity.json&#x27;,{&#x27;files_checked&#x27;:len(before),&#x27;unchanged&#x27;:not changed,&#x27;changed&#x27;:changed})
+print(json.dumps({&#x27;manifest_mismatches&#x27;:[x[&#x27;path&#x27;] for x in outputs if not x[&#x27;matches&#x27;]],&#x27;provenance&#x27;:provenance,&#x27;registration&#x27;:reg,&#x27;originals_unchanged&#x27;:not changed},indent=2))
+</pre></main></body></html>

@@ -1,0 +1,60 @@
+test_access_remote_cache_and_fallback (tests.test_anomaly_map.AnomalyMapTests.test_access_remote_cache_and_fallback) ... ok
+test_anomaly_transparency (tests.test_anomaly_map.AnomalyMapTests.test_anomaly_transparency) ... ok
+test_calibration_requirements_prevent_double_offset_assumptions (tests.test_anomaly_map.AnomalyMapTests.test_calibration_requirements_prevent_double_offset_assumptions) ... ok
+test_deterministic_quality_ranking (tests.test_anomaly_map.AnomalyMapTests.test_deterministic_quality_ranking) ... ok
+test_high_level_runner_and_evidence_checksums (tests.test_anomaly_map.AnomalyMapTests.test_high_level_runner_and_evidence_checksums) ... Discovering reference: ['2025-06-01', '2025-07-01']
+Discovered 2 reference observations
+Quality assessed reference: 2/2 (s2-2025-15)
+Selected reference: s2-2025-15 {'aoi_valid_pixel_fraction': 1.0, 'aoi_cloud_shadow_fraction': 0.0, 'aoi_clear_pixel_fraction': 1.0, 'scene_cloud_percentage': None, 'central_date_distance_seconds': 50400.0, 'assessment_resolution_m': 200}
+Discovering target: ['2026-06-01', '2026-07-01']
+Discovered 2 target observations
+Quality assessed target: 2/2 (s2-2026-15)
+Selected target: s2-2026-15 {'aoi_valid_pixel_fraction': 1.0, 'aoi_cloud_shadow_fraction': 0.0, 'aoi_clear_pixel_fraction': 1.0, 'scene_cloud_percentage': None, 'central_date_distance_seconds': 50400.0, 'assessment_resolution_m': 200}
+Completed: /private/var/folders/_y/yj6hdhbs057c4bnyg_ff8xt80000gn/T/tmp3jy0bljx/map-run/maps/anomaly_leaflet.html; {'anomaly_pixels': 15, 'paired_valid_pixels': 99, 'anomaly_ha': 0.6}
+ok
+test_replay_recalibrates_verified_source_windows (tests.test_anomaly_map.AnomalyMapTests.test_replay_recalibrates_verified_source_windows) ... Discovering reference: ['2025-06-01', '2025-07-01']
+Discovered 2 reference observations
+Quality assessed reference: 2/2 (s2-2025-15)
+Selected reference: s2-2025-15 {'aoi_valid_pixel_fraction': 1.0, 'aoi_cloud_shadow_fraction': 0.0, 'aoi_clear_pixel_fraction': 1.0, 'scene_cloud_percentage': None, 'central_date_distance_seconds': 50400.0, 'assessment_resolution_m': 200}
+Discovering target: ['2026-06-01', '2026-07-01']
+Discovered 2 target observations
+Quality assessed target: 2/2 (s2-2026-15)
+Selected target: s2-2026-15 {'aoi_valid_pixel_fraction': 1.0, 'aoi_cloud_shadow_fraction': 0.0, 'aoi_clear_pixel_fraction': 1.0, 'scene_cloud_percentage': None, 'central_date_distance_seconds': 50400.0, 'assessment_resolution_m': 200}
+Completed: /private/var/folders/_y/yj6hdhbs057c4bnyg_ff8xt80000gn/T/tmp0nwhvpx8/map-run/maps/anomaly_leaflet.html; {'anomaly_pixels': 15, 'paired_valid_pixels': 99, 'anomaly_ha': 0.6}
+Completed: /private/var/folders/_y/yj6hdhbs057c4bnyg_ff8xt80000gn/T/tmp0nwhvpx8/replayed/maps/anomaly_leaflet.html; {'anomaly_pixels': 15, 'paired_valid_pixels': 99, 'anomaly_ha': 0.6}
+ok
+test_scl_quality_assessment (tests.test_anomaly_map.AnomalyMapTests.test_scl_quality_assessment) ... ok
+test_ungated_workflow_map_bounds_and_layers (tests.test_anomaly_map.AnomalyMapTests.test_ungated_workflow_map_bounds_and_layers) ... ok
+test_both_radar_decreases_required_and_missing_is_not_negative (tests.test_sigma_sar_map.SigmaRadarTests.test_both_radar_decreases_required_and_missing_is_not_negative) ... ok
+test_radar_reference_uses_median_rather_than_pooled_mean (tests.test_sigma_sar_map.SigmaRadarTests.test_radar_reference_uses_median_rather_than_pooled_mean) ... ok
+test_strict_sigma_boundary_and_missing_reference (tests.test_sigma_sar_map.SigmaRadarTests.test_strict_sigma_boundary_and_missing_reference) ... ok
+test_track_selection_excludes_partial_coverage_and_other_tracks (tests.test_sigma_sar_map.SigmaRadarTests.test_track_selection_excludes_partial_coverage_and_other_tracks) ... ok
+test_component_semantics (tests.test_workflow.AlgorithmTests.test_component_semantics) ... ok
+test_equal_area_policy_and_tile_edges (tests.test_workflow.AlgorithmTests.test_equal_area_policy_and_tile_edges) ... ok
+test_features_and_provider_independence (tests.test_workflow.AlgorithmTests.test_features_and_provider_independence) ... ok
+test_fusion_disagreement_and_missingness (tests.test_workflow.AlgorithmTests.test_fusion_disagreement_and_missingness) ... ok
+test_mean_median_std_missing (tests.test_workflow.AlgorithmTests.test_mean_median_std_missing) ... ok
+test_application_must_be_lab_concept_id (tests.test_workflow.LocalWorkflowTests.test_application_must_be_lab_concept_id) ... ok
+test_component_halo_across_tiles (tests.test_workflow.LocalWorkflowTests.test_component_halo_across_tiles) ... ok
+test_end_to_end_area_gating_disagreement_manifest (tests.test_workflow.LocalWorkflowTests.test_end_to_end_area_gating_disagreement_manifest) ... ok
+test_inputs_changed_after_discovery_rejected (tests.test_workflow.LocalWorkflowTests.test_inputs_changed_after_discovery_rejected) ... ok
+test_legacy_manifest_explicit_migration_error (tests.test_workflow.LocalWorkflowTests.test_legacy_manifest_explicit_migration_error) ... ok
+test_legacy_monthly_migration_with_explicit_local_inputs (tests.test_workflow.LocalWorkflowTests.test_legacy_monthly_migration_with_explicit_local_inputs) ... ok
+test_missing_optical_not_zero_and_sar_only (tests.test_workflow.LocalWorkflowTests.test_missing_optical_not_zero_and_sar_only) ... ok
+test_moving_modes_end_to_end_separate_window_summaries (tests.test_workflow.LocalWorkflowTests.test_moving_modes_end_to_end_separate_window_summaries) ... ok
+test_production_no_earth_engine_import (tests.test_workflow.LocalWorkflowTests.test_production_no_earth_engine_import) ... ok
+test_provider_interface_spatial_temporal_filter_window_reads (tests.test_workflow.LocalWorkflowTests.test_provider_interface_spatial_temporal_filter_window_reads) ... ok
+test_sar_geometry_rejection_and_config_snapshot_guard (tests.test_workflow.LocalWorkflowTests.test_sar_geometry_rejection_and_config_snapshot_guard) ... ok
+test_schema_and_lab_contracts (tests.test_workflow.LocalWorkflowTests.test_schema_and_lab_contracts) ... ok
+test_seasonal_s1_s2_semantic_example_end_to_end (tests.test_workflow.LocalWorkflowTests.test_seasonal_s1_s2_semantic_example_end_to_end) ... ok
+test_semantic_trace_cli_and_unresolved_application (tests.test_workflow.LocalWorkflowTests.test_semantic_trace_cli_and_unresolved_application) ... ok
+test_stac_interface_query_inventory_and_equivalence (tests.test_workflow.LocalWorkflowTests.test_stac_interface_query_inventory_and_equivalence) ... ok
+test_invalid_window_parameters_and_alignment (tests.test_workflow.TemporalTests.test_invalid_window_parameters_and_alignment) ... ok
+test_matched_season_alignment_and_southern_season (tests.test_workflow.TemporalTests.test_matched_season_alignment_and_southern_season) ... ok
+test_monthly_leap_end (tests.test_workflow.TemporalTests.test_monthly_leap_end) ... ok
+test_moving_complete_half_open (tests.test_workflow.TemporalTests.test_moving_complete_half_open) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 15.927s
+
+OK

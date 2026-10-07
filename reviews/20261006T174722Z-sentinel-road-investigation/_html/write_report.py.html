@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>write_report.py</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>write_report.py</h1><p class="muted">write_report.py · <a href="../write_report.py">raw file</a> · <a href="index.html">folder</a></p><pre>from pathlib import Path
+import json,html
+from pyproj import Transformer
+from PIL import Image
+R=Path(__file__).parent
+j=json.loads((R/&#x27;raster_audit.json&#x27;).read_text())
+# Coarse visually selected search rectangles, explicitly not road boundaries.
+fwd=Transformer.from_crs(4326,3857,always_xy=True); inv=Transformer.from_crs(3857,4326,always_xy=True)
+x0,y0=fwd.transform(24.4,58.2);x1,y1=fwd.transform(24.9,58.6)
+boxes={&#x27;ROI-01&#x27;:(.39,.12,.98,.47),&#x27;ROI-02&#x27;:(.20,.02,.34,.30)}
+features=[]
+for name,(l,t,r,b) in boxes.items():
+    xy=[(l,t),(r,t),(r,b),(l,b),(l,t)]
+    coords=[inv.transform(x0+u*(x1-x0),y1-v*(y1-y0)) for u,v in xy]
+    features.append({&#x27;type&#x27;:&#x27;Feature&#x27;,&#x27;properties&#x27;:{&#x27;id&#x27;:name,&#x27;status&#x27;:&#x27;candidate-search-region&#x27;,&#x27;uncertainty&#x27;:&#x27;broad display-derived rectangle; not a surveyed road footprint&#x27;,&#x27;hypothesis&#x27;:&#x27;diagonal linear corridor&#x27; if name==&#x27;ROI-01&#x27; else &#x27;northwestern linear corridor&#x27;},&#x27;geometry&#x27;:{&#x27;type&#x27;:&#x27;Polygon&#x27;,&#x27;coordinates&#x27;:[coords]}})
+    for role in (&#x27;reference&#x27;,&#x27;target&#x27;):
+        im=Image.open(R/f&#x27;{role}.png&#x27;);w,h=im.size;im.crop((int(l*w),int(t*h),int(r*w),int(b*h))).save(R/f&#x27;{name}-{role}.png&#x27;)
+(R/&#x27;rois.geojson&#x27;).write_text(json.dumps({&#x27;type&#x27;:&#x27;FeatureCollection&#x27;,&#x27;features&#x27;:features},indent=2))
+blockers=[&#x27;Actual portable-skill-bundle JSON and all four SKILL.md/reference files unavailable; prompt document and metric JSON cannot substitute for their bytes or hashes.&#x27;,&#x27;Supplied robust_threshold.py self-test, MAD/effect-size branch, and prespecified grid not executed: script and parameter contract unavailable.&#x27;,&#x27;ROI search rectangles are provisional; no exact road trace, width estimate, stable-control sample or registration residuals established.&#x27;,&#x27;Only one selected target optical acquisition is analyzed; persistence not executed. Additional target acquisition/cache availability not exhaustively evaluated.&#x27;,&#x27;No dated independent native-resolution before/after images downloaded or examined. Official orthophoto portal found, but per-ROI sheet dates, coverage and visibility not verified.&#x27;,&#x27;No construction/forestry/legal documents examined; no forest baseline supplied.&#x27;,&#x27;Browser rendering of interactive maps not available in the exposed tools; PNG figures inspected.&#x27;]
+claims={k:&#x27;unresolved&#x27; for k in [&#x27;linear_physical_change&#x27;,&#x27;road_identity&#x27;,&#x27;new_construction_vs_reopening_widening&#x27;,&#x27;appearance_interval&#x27;,&#x27;prior_forest&#x27;,&#x27;legal_attribution&#x27;]}
+findings={&#x27;status&#x27;:&#x27;partial investigation; skill-dependent and corroboration work remains&#x27;,&#x27;claims&#x27;:claims,&#x27;metrics&#x27;:j,&#x27;blockers&#x27;:blockers,&#x27;executed&#x27;:[&#x27;read-only graph validation&#x27;,&#x27;resolved outgoing semantic relationships with linked contextual corpus snapshot&#x27;,&#x27;tiled count and AND-mask reproduction&#x27;,&#x27;27-setting exploratory sigma/SAR count sensitivity&#x27;,&#x27;RGB and four-mask figure inspection&#x27;,&#x27;limited primary-source research&#x27;,&#x27;original run checksum preservation&#x27;],&#x27;unexecuted&#x27;:blockers}
+(R/&#x27;findings.json&#x27;).write_text(json.dumps(findings,indent=2))
+sources=[{&#x27;id&#x27;:&#x27;ESA-radar&#x27;,&#x27;url&#x27;:&#x27;https://www.esa.int/esapub/sp/sp1199/get21.htm&#x27;,&#x27;access&#x27;:&#x27;full text read&#x27;,&#x27;claim&#x27;:&#x27;Backscatter responds to roughness, humidity, polarization and incidence angle.&#x27;,&#x27;kg&#x27;:[&#x27;DS-0003&#x27;,&#x27;observation:sar-backscatter-state&#x27;,&#x27;method:s1-backscatter-confirmation&#x27;]},{&#x27;id&#x27;:&#x27;Oehmcke2019&#x27;,&#x27;url&#x27;:&#x27;https://arxiv.org/abs/1912.05026&#x27;,&#x27;access&#x27;:&#x27;full text read&#x27;,&#x27;claim&#x27;:&#x27;Road visibility varies with width; supervised temporal models and fine labels address difficult roads. No validation of this NDVI/SAR rule.&#x27;,&#x27;kg&#x27;:[&#x27;DS-0002&#x27;,&#x27;observation:optical-vegetation-state&#x27;],&#x27;semantic_gap&#x27;:&#x27;road identity and visibility-specific classifier&#x27;},{&#x27;id&#x27;:&#x27;Congo-road-study&#x27;,&#x27;url&#x27;:&#x27;https://www.sciencedirect.com/science/article/pii/S0034425724004061&#x27;,&#x27;access&#x27;:&#x27;search abstract only; open failed&#x27;,&#x27;claim&#x27;:&#x27;Multi-sensor road-development model reported in another geography; details and transferability unverified.&#x27;},{&#x27;id&#x27;:&#x27;Estonian-orthophotos&#x27;,&#x27;url&#x27;:&#x27;https://geoportaal.maaruum.ee/eng/spatial-data/orthophotos/download-orthophotos-p662.html&#x27;,&#x27;access&#x27;:&#x27;official portal full text read; imagery not inspected&#x27;,&#x27;claim&#x27;:&#x27;Official map-sheet download route exists; no site-specific dated corroboration obtained.&#x27;}]
+(R/&#x27;literature_evidence.json&#x27;).write_text(json.dumps(sources,indent=2))
+(R/&#x27;literature_review.md&#x27;).write_text(&#x27;Partial primary-source review\n\nESA radar principles support several possible explanations for failure of a drop-only radar gate: roughness or wetness may maintain/increase backscatter. At a mixed 20 m analysis pixel a narrow corridor may occupy a small fraction. The latter is a mechanism hypothesis, not a measured result here. Single-June optical and summer-median radar also observe different temporal summaries. Oehmcke et al. demonstrate width-dependent visibility and use supervised models; their results do not validate this threshold rule. The Congo study is abstract-only evidence and cannot support detailed parameter choices. No source proves a road at these coordinates. Small reference samples and best-clear selection require context-specific validation; this limited review does not justify new calibrated thresholds. MAD remains an unexecuted proposal, and BFAST/CCDC were not attempted on the short series.\n\n&#x27;+ &#x27;\n&#x27;.join(f&quot;- [{s[&#x27;id&#x27;]}]({s[&#x27;url&#x27;]}): {s[&#x27;access&#x27;]}. {s[&#x27;claim&#x27;]}&quot; for s in sources))
+ledger={&#x27;jurisdiction&#x27;:&#x27;Estonia; AOI 24.4–24.9 E, 58.2–58.6 N&#x27;,&#x27;sources&#x27;:[{&#x27;source&#x27;:&#x27;Estonian-orthophotos&#x27;,&#x27;independence_group&#x27;:&#x27;national-aerial-imagery&#x27;,&#x27;assessment&#x27;:{k:&#x27;inconclusive&#x27; for k in claims},&#x27;imagery_access&#x27;:&#x27;not yet acquired&#x27;,&#x27;dates&#x27;:&#x27;not established&#x27;}],&#x27;first_appearance_interval&#x27;:None}
+(R/&#x27;independent_evidence_ledger.json&#x27;).write_text(json.dumps(ledger,indent=2))
+(R/&#x27;corroboration_report.md&#x27;).write_text(&#x27;Road and construction claims remain unresolved. The official Estonian orthophoto download portal was inspected, but no dated imagery was examined. The source therefore provides an access route, not corroboration. Per-ROI historical imagery with dates, adequate resolution and unobscured coverage is still required. Missing OSM features or editing dates cannot establish absence or construction timing. Prior forest and legal attribution require separate evidence.\n&#x27;)
+(R/&#x27;candidates&#x27;).mkdir(exist_ok=True)
+proposal={&#x27;status&#x27;:&#x27;candidate&#x27;,&#x27;human_review_required&#x27;:True,&#x27;title&#x27;:&#x27;Preserve optical/SAR disagreement when investigating linear infrastructure&#x27;,&#x27;sources&#x27;:[&#x27;raster_audit.json&#x27;,&#x27;literature_evidence.json&#x27;,&#x27;semantic_trace.json&#x27;],&#x27;existing_concepts&#x27;:[&#x27;method:s1-backscatter-confirmation&#x27;,&#x27;method:ndvi-anomaly&#x27;,&#x27;claim:monthly-non-truth&#x27;],&#x27;proposed_context&#x27;:&#x27;A failed AND gate does not refute physical road existence; evaluate dated independent imagery and separate construction, widening/reopening, forest and legality claims.&#x27;,&#x27;contradictions&#x27;:&#x27;No site-specific labels or independent dated evidence; thresholds remain heuristic.&#x27;,&#x27;promotion&#x27;:&#x27;Not submitted to canonical corpus or generated graph.&#x27;}
+(R/&#x27;candidates/index.json&#x27;).write_text(json.dumps([proposal],indent=2))
+rows=&#x27;\n&#x27;.join(f&quot;| {k} | {v[&#x27;anomaly_pixels&#x27;]:,} | {v[&#x27;anomaly_ha&#x27;]:,.2f} | {v[&#x27;valid_pixels&#x27;]:,} |&quot; for k,v in j[&#x27;counts&#x27;].items())
+md=f&#x27;&#x27;&#x27;# Sentinel linear-feature review — partial evidence report
+
+The available analysis does not establish a newly constructed road. All six site-specific claims remain unresolved. The reduction in red area is explained by the configured AND rule, not demonstrated improvement in accuracy.
+
+| Variant | Candidate pixels | Candidate ha | Valid pixels |
+|---|---:|---:|---:|
+{rows}
+
+Fixed NDVI retains 9,469 of 91,291 candidates after SAR (10.37%); sigma retains 12,875 of 121,242 (10.62%). Fixed comparison: 81,822 optical-only, 110,124 radar-only, 3,053,891 neither on 3,255,306 jointly valid pixels. Sigma: 108,367 optical-only, 106,719 radar-only, 3,027,390 neither on 3,255,351 jointly valid pixels. Optical-valid/radar-unavailable is zero for both. Grid-exterior/nodata counts are recorded separately in raster_audit.json.
+
+The strict gate requires ΔVV &lt; −1.5 dB AND ΔVH &lt; −1 dB alongside optical detection. Rejected optical candidates fail at least one radar condition. Radar-only is a screening classification, not road evidence. Raw RGB comparisons show multiple candidate corridors; rois.geojson contains two broad search regions, not certified road traces. Images use identical footprint and stretch; visual alignment is not a quantified registration test. Apparent width has not been measured.
+
+Optical target: 20 June 2026. Sigma optical reference: eight selected 2025 summer dates. Display reference: 15 June 2025, a single scene, distinct from the sigma mean. Radar: twelve selected dates per summer, ascending relative orbit 160, median in dB. This temporal mismatch may suppress transient/local changes; it does not establish a construction date. Cloud-edge mixing, phenology, agriculture, moisture and mixed pixels remain alternatives. No forest mask was applied.
+
+Executed exploratory sensitivity uses k={{1,2,3}}, VV={{−1,−1.5,−2}} dB, VH={{−0.5,−1,−1.5}} dB, all 27 combinations saved in sigma_sar_sensitivity.json. This is an independently declared count experiment, not the missing skill&#x27;s prespecified experiment, a probability or accuracy validation. No experimental robust masks/maps were produced.
+
+KG check passed without writing, revision ef90b703ae150c09cc7cac6fd324d7b5ecd8305a5a0d5130ec0deb61ed291e49. Commit, worktree state, traversed nodes/edges and context hashes are pinned in semantic_trace.json. Linked corpus and contract records are copied under semantic_context/. Candidate edges remain candidates; contract-transcription validation is not empirical validation. The local candidate package is candidates/index.json; no canonical knowledge was changed.
+
+Original run and source-run files were hashed before and after audit: original_integrity.json reports unchanged. Reproduce with `.venv/bin/python reviews/{R.name}/audit.py`; reports are generated by write_report.py. Inputs, copies and all results stay under this REVIEW. No Earth Engine dependency was used.
+
+Remaining work and blockers:
+
+&#x27;&#x27;&#x27;+ &#x27;\n&#x27;.join(&#x27;- &#x27;+b for b in blockers)+&#x27;\n\nSee literature_review.md and independent_evidence_ledger.json for source access limits.\n&#x27;
+(R/&#x27;report.md&#x27;).write_text(md)
+links=[&#x27;maps/comparison.html&#x27;,&#x27;raster_audit.json&#x27;,&#x27;sigma_sar_sensitivity.json&#x27;,&#x27;semantic_trace.json&#x27;,&#x27;findings.json&#x27;,&#x27;rois.geojson&#x27;,&#x27;literature_review.md&#x27;,&#x27;independent_evidence_ledger.json&#x27;,&#x27;candidates/index.json&#x27;]
+body=&#x27;&lt;html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;title&gt;Sentinel review&lt;/title&gt;&lt;style&gt;body{max-width:1100px;margin:30px auto;font:16px sans-serif}img{max-width:100%}pre{white-space:pre-wrap} .pair{display:flex}.pair img{width:49%}&lt;/style&gt;&lt;body&gt;&lt;pre&gt;&#x27;+html.escape(md)+&#x27;&lt;/pre&gt;&lt;img src=<a href="../four_map_contact_sheet.jpg">&quot;four_map_contact_sheet.jpg&quot;</a>&gt;&lt;h2&gt;Matched RGB search-region crops, overlays off&lt;/h2&gt;&#x27;
+for name in boxes:body+=f&#x27;&lt;p&gt;{name}: reference left, target right. Display-derived search extent; no measured road boundary.&lt;/p&gt;&lt;div class=&quot;pair&quot;&gt;&lt;img src=&quot;{name}-reference.png&quot;&gt;&lt;img src=&quot;{name}-target.png&quot;&gt;&lt;/div&gt;&#x27;
+body+=&#x27;&lt;ul&gt;&#x27;+&#x27;&#x27;.join(f&#x27;&lt;li&gt;&lt;a href=&quot;{p}&quot;&gt;{p}&lt;/a&gt;&lt;/li&gt;&#x27; for p in links)+&#x27;&lt;/ul&gt;&lt;/body&gt;&lt;/html&gt;&#x27;
+(R/&#x27;report.html&#x27;).write_text(body)
+for p in links:assert (R/p).exists(),p
+print(&#x27;Report links verified; staged partial report and candidate package.&#x27;)
+</pre></main></body></html>

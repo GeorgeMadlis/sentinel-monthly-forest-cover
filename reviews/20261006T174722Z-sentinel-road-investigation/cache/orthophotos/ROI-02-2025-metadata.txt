@@ -1,0 +1,11 @@
+GetFeatureInfo results:
+
+Layer 'metainfo'
+  Feature 24665: 
+    NR_10000: '53931'
+    NR_2000: '490530'
+    PK_AASTA: '2007'
+    LIDAR_AAST: '2021'
+    OF_GSD: '25'
+    LENNUAEG: '09.06.2023'
+    NGR_AEG: '09.06.2023'

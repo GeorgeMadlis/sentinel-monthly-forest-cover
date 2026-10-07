@@ -1,0 +1,654 @@
+{
+  "ranking_sha256": "85893642f082996dfe65e13e196ceac08f3cdd0c15300f356c20b40280a458cb",
+  "records": [
+    {
+      "dates": [
+        {
+          "assets": {
+            "blue": {
+              "asset_id": "blue",
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/blue.tif",
+              "offset": 0,
+              "scale": 1,
+              "source_asset": {
+                "asset_id": "blue",
+                "eo:bands": [
+                  {
+                    "center_wavelength": 0.49,
+                    "common_name": "blue",
+                    "full_width_half_max": 0.098,
+                    "name": "B02"
+                  }
+                ],
+                "gsd": 10,
+                "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B02.tif",
+                "proj:shape": [
+                  10980,
+                  10980
+                ],
+                "proj:transform": [
+                  10,
+                  0,
+                  300000,
+                  0,
+                  -10,
+                  6500040
+                ],
+                "raster:bands": [
+                  {
+                    "data_type": "uint16",
+                    "nodata": 0,
+                    "offset": -0.1,
+                    "scale": 0.0001,
+                    "spatial_resolution": 10
+                  }
+                ],
+                "roles": [
+                  "data",
+                  "reflectance"
+                ],
+                "title": "Blue - 10m",
+                "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+              },
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B02.tif"
+            },
+            "green": {
+              "asset_id": "green",
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/green.tif",
+              "offset": 0,
+              "scale": 1,
+              "source_asset": {
+                "asset_id": "green",
+                "eo:bands": [
+                  {
+                    "center_wavelength": 0.56,
+                    "common_name": "green",
+                    "full_width_half_max": 0.045,
+                    "name": "B03"
+                  }
+                ],
+                "gsd": 10,
+                "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B03.tif",
+                "proj:shape": [
+                  10980,
+                  10980
+                ],
+                "proj:transform": [
+                  10,
+                  0,
+                  300000,
+                  0,
+                  -10,
+                  6500040
+                ],
+                "raster:bands": [
+                  {
+                    "data_type": "uint16",
+                    "nodata": 0,
+                    "offset": -0.1,
+                    "scale": 0.0001,
+                    "spatial_resolution": 10
+                  }
+                ],
+                "roles": [
+                  "data",
+                  "reflectance"
+                ],
+                "title": "Green - 10m",
+                "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+              },
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B03.tif"
+            },
+            "nir": {
+              "asset_id": "nir",
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/nir.tif",
+              "offset": 0,
+              "scale": 1,
+              "source_asset": {
+                "asset_id": "nir",
+                "eo:bands": [
+                  {
+                    "center_wavelength": 0.842,
+                    "common_name": "nir",
+                    "full_width_half_max": 0.145,
+                    "name": "B08"
+                  }
+                ],
+                "gsd": 10,
+                "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B08.tif",
+                "proj:shape": [
+                  10980,
+                  10980
+                ],
+                "proj:transform": [
+                  10,
+                  0,
+                  300000,
+                  0,
+                  -10,
+                  6500040
+                ],
+                "raster:bands": [
+                  {
+                    "data_type": "uint16",
+                    "nodata": 0,
+                    "offset": -0.1,
+                    "scale": 0.0001,
+                    "spatial_resolution": 10
+                  }
+                ],
+                "roles": [
+                  "data",
+                  "reflectance"
+                ],
+                "title": "NIR 1 - 10m",
+                "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+              },
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B08.tif"
+            },
+            "red": {
+              "asset_id": "red",
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/red.tif",
+              "offset": 0,
+              "scale": 1,
+              "source_asset": {
+                "asset_id": "red",
+                "eo:bands": [
+                  {
+                    "center_wavelength": 0.665,
+                    "common_name": "red",
+                    "full_width_half_max": 0.038,
+                    "name": "B04"
+                  }
+                ],
+                "gsd": 10,
+                "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B04.tif",
+                "proj:shape": [
+                  10980,
+                  10980
+                ],
+                "proj:transform": [
+                  10,
+                  0,
+                  300000,
+                  0,
+                  -10,
+                  6500040
+                ],
+                "raster:bands": [
+                  {
+                    "data_type": "uint16",
+                    "nodata": 0,
+                    "offset": -0.1,
+                    "scale": 0.0001,
+                    "spatial_resolution": 10
+                  }
+                ],
+                "roles": [
+                  "data",
+                  "reflectance"
+                ],
+                "title": "Red - 10m",
+                "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+              },
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B04.tif"
+            },
+            "scl": {
+              "asset_id": "scl",
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/scl.tif",
+              "offset": 0,
+              "scale": 1,
+              "source_asset": {
+                "asset_id": "scl",
+                "gsd": 20,
+                "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/SCL.tif",
+                "proj:shape": [
+                  5490,
+                  5490
+                ],
+                "proj:transform": [
+                  20,
+                  0,
+                  300000,
+                  0,
+                  -20,
+                  6500040
+                ],
+                "raster:bands": [
+                  {
+                    "data_type": "uint8",
+                    "nodata": 0,
+                    "spatial_resolution": 20
+                  }
+                ],
+                "roles": [
+                  "data"
+                ],
+                "title": "Scene classification map (SCL)",
+                "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+              },
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/SCL.tif"
+            }
+          },
+          "candidate_pixels": 2,
+          "date": "2026-06-20T09:54:20.028000Z",
+          "id": "S2C_35VLE_20260620_0_L2A",
+          "source_independence_group": "Sentinel-2-EarthSearch",
+          "valid_pixels": 145
+        },
+        {
+          "assets": {
+            "nir": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-01/source_windows/S2C_35VLE_20260630_0_L2A/nir.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "c87a43f01650562acaa317eb2e0c1d8a8c013f524ad55accb7a195e44f4e7f68",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260630_0_L2A/B08.tif"
+            },
+            "red": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-01/source_windows/S2C_35VLE_20260630_0_L2A/red.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "3c0d16bf8f13300e6f22924a387baa1e0d1de41de59b77ff667edc4fd9b973f2",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260630_0_L2A/B04.tif"
+            },
+            "scl": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-01/source_windows/S2C_35VLE_20260630_0_L2A/scl.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "e64a90c65a2f7644e367c5b94af2c9e233095f8ebd879d12047388ec36c5709f",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260630_0_L2A/SCL.tif"
+            }
+          },
+          "candidate_pixels": 1,
+          "date": "2026-06-30T09:54:18.815000Z",
+          "id": "S2C_35VLE_20260630_0_L2A",
+          "source_independence_group": "Sentinel-2-EarthSearch",
+          "valid_pixels": 145
+        },
+        {
+          "assets": {
+            "nir": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-01/source_windows/S2C_35VLE_20260607_0_L2A/nir.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "33b2dca6c86c997e4017cffa2d638d542a487d621796f953786061a4cc840a45",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260607_0_L2A/B08.tif"
+            },
+            "red": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-01/source_windows/S2C_35VLE_20260607_0_L2A/red.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "164787f0c22fc10ed7371f4f4444057b2c3ca3b4856af091c73faaf39261c6cd",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260607_0_L2A/B04.tif"
+            },
+            "scl": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-01/source_windows/S2C_35VLE_20260607_0_L2A/scl.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "c3bf2db721377e76e9ea9ef9bfbe44b61bb27dd1095fd3034ff71e06760c0147",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260607_0_L2A/SCL.tif"
+            }
+          },
+          "candidate_pixels": 2,
+          "date": "2026-06-07T09:44:22.619000Z",
+          "id": "S2C_35VLE_20260607_0_L2A",
+          "source_independence_group": "Sentinel-2-EarthSearch",
+          "valid_pixels": 145
+        }
+      ],
+      "grid": {
+        "crs": "EPSG:6933",
+        "height": 26,
+        "transform": [
+          20.0,
+          0.0,
+          2388460.0,
+          0.0,
+          -20.0,
+          6253800.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "width": 26
+      },
+      "limitations": [
+        "Same sensor/provider; not independent road labels.",
+        "500 m sampling windows only; not corridor-wide persistence.",
+        "Summer baseline does not model phenology."
+      ],
+      "persistent_at_least_two_pixels": 2,
+      "pixel_ha": 0.04,
+      "roi_id": "ROI-01",
+      "selection": "top archived AOI-quality ranking with BOA-offset flag and >=10-day spacing; pixel-level SCL evaluated after acquisition",
+      "status": "executed",
+      "three_date_valid_pixels": 145
+    },
+    {
+      "dates": [
+        {
+          "assets": {
+            "blue": {
+              "asset_id": "blue",
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/blue.tif",
+              "offset": 0,
+              "scale": 1,
+              "source_asset": {
+                "asset_id": "blue",
+                "eo:bands": [
+                  {
+                    "center_wavelength": 0.49,
+                    "common_name": "blue",
+                    "full_width_half_max": 0.098,
+                    "name": "B02"
+                  }
+                ],
+                "gsd": 10,
+                "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B02.tif",
+                "proj:shape": [
+                  10980,
+                  10980
+                ],
+                "proj:transform": [
+                  10,
+                  0,
+                  300000,
+                  0,
+                  -10,
+                  6500040
+                ],
+                "raster:bands": [
+                  {
+                    "data_type": "uint16",
+                    "nodata": 0,
+                    "offset": -0.1,
+                    "scale": 0.0001,
+                    "spatial_resolution": 10
+                  }
+                ],
+                "roles": [
+                  "data",
+                  "reflectance"
+                ],
+                "title": "Blue - 10m",
+                "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+              },
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B02.tif"
+            },
+            "green": {
+              "asset_id": "green",
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/green.tif",
+              "offset": 0,
+              "scale": 1,
+              "source_asset": {
+                "asset_id": "green",
+                "eo:bands": [
+                  {
+                    "center_wavelength": 0.56,
+                    "common_name": "green",
+                    "full_width_half_max": 0.045,
+                    "name": "B03"
+                  }
+                ],
+                "gsd": 10,
+                "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B03.tif",
+                "proj:shape": [
+                  10980,
+                  10980
+                ],
+                "proj:transform": [
+                  10,
+                  0,
+                  300000,
+                  0,
+                  -10,
+                  6500040
+                ],
+                "raster:bands": [
+                  {
+                    "data_type": "uint16",
+                    "nodata": 0,
+                    "offset": -0.1,
+                    "scale": 0.0001,
+                    "spatial_resolution": 10
+                  }
+                ],
+                "roles": [
+                  "data",
+                  "reflectance"
+                ],
+                "title": "Green - 10m",
+                "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+              },
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B03.tif"
+            },
+            "nir": {
+              "asset_id": "nir",
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/nir.tif",
+              "offset": 0,
+              "scale": 1,
+              "source_asset": {
+                "asset_id": "nir",
+                "eo:bands": [
+                  {
+                    "center_wavelength": 0.842,
+                    "common_name": "nir",
+                    "full_width_half_max": 0.145,
+                    "name": "B08"
+                  }
+                ],
+                "gsd": 10,
+                "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B08.tif",
+                "proj:shape": [
+                  10980,
+                  10980
+                ],
+                "proj:transform": [
+                  10,
+                  0,
+                  300000,
+                  0,
+                  -10,
+                  6500040
+                ],
+                "raster:bands": [
+                  {
+                    "data_type": "uint16",
+                    "nodata": 0,
+                    "offset": -0.1,
+                    "scale": 0.0001,
+                    "spatial_resolution": 10
+                  }
+                ],
+                "roles": [
+                  "data",
+                  "reflectance"
+                ],
+                "title": "NIR 1 - 10m",
+                "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+              },
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B08.tif"
+            },
+            "red": {
+              "asset_id": "red",
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/red.tif",
+              "offset": 0,
+              "scale": 1,
+              "source_asset": {
+                "asset_id": "red",
+                "eo:bands": [
+                  {
+                    "center_wavelength": 0.665,
+                    "common_name": "red",
+                    "full_width_half_max": 0.038,
+                    "name": "B04"
+                  }
+                ],
+                "gsd": 10,
+                "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B04.tif",
+                "proj:shape": [
+                  10980,
+                  10980
+                ],
+                "proj:transform": [
+                  10,
+                  0,
+                  300000,
+                  0,
+                  -10,
+                  6500040
+                ],
+                "raster:bands": [
+                  {
+                    "data_type": "uint16",
+                    "nodata": 0,
+                    "offset": -0.1,
+                    "scale": 0.0001,
+                    "spatial_resolution": 10
+                  }
+                ],
+                "roles": [
+                  "data",
+                  "reflectance"
+                ],
+                "title": "Red - 10m",
+                "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+              },
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B04.tif"
+            },
+            "scl": {
+              "asset_id": "scl",
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/scl.tif",
+              "offset": 0,
+              "scale": 1,
+              "source_asset": {
+                "asset_id": "scl",
+                "gsd": 20,
+                "href": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/SCL.tif",
+                "proj:shape": [
+                  5490,
+                  5490
+                ],
+                "proj:transform": [
+                  20,
+                  0,
+                  300000,
+                  0,
+                  -20,
+                  6500040
+                ],
+                "raster:bands": [
+                  {
+                    "data_type": "uint8",
+                    "nodata": 0,
+                    "spatial_resolution": 20
+                  }
+                ],
+                "roles": [
+                  "data"
+                ],
+                "title": "Scene classification map (SCL)",
+                "type": "image/tiff; application=geotiff; profile=cloud-optimized"
+              },
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/SCL.tif"
+            }
+          },
+          "candidate_pixels": 148,
+          "date": "2026-06-20T09:54:20.028000Z",
+          "id": "S2C_35VLE_20260620_0_L2A",
+          "source_independence_group": "Sentinel-2-EarthSearch",
+          "valid_pixels": 676
+        },
+        {
+          "assets": {
+            "nir": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-02/source_windows/S2C_35VLE_20260630_0_L2A/nir.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "caa67b0ac0b733631d9844586f43758bc980f581b33c71edaf49753a42c32928",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260630_0_L2A/B08.tif"
+            },
+            "red": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-02/source_windows/S2C_35VLE_20260630_0_L2A/red.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "961408dbdd4f3de7eb509934379705ee83c554427a663d56ca3b123624ecae35",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260630_0_L2A/B04.tif"
+            },
+            "scl": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-02/source_windows/S2C_35VLE_20260630_0_L2A/scl.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "4107d786d82d31029c6147af1147c080a8c98dd0173885b7e355196cba66157a",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260630_0_L2A/SCL.tif"
+            }
+          },
+          "candidate_pixels": 138,
+          "date": "2026-06-30T09:54:18.815000Z",
+          "id": "S2C_35VLE_20260630_0_L2A",
+          "source_independence_group": "Sentinel-2-EarthSearch",
+          "valid_pixels": 676
+        },
+        {
+          "assets": {
+            "nir": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-02/source_windows/S2C_35VLE_20260607_0_L2A/nir.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "ebe310c5c8d46ff08f0b68161d05dcecf083bc56b6e7f32371458a1da380423c",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260607_0_L2A/B08.tif"
+            },
+            "red": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-02/source_windows/S2C_35VLE_20260607_0_L2A/red.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "e60dbf91cdc87e082dec8c7a7f1a1d1c7a64ac17b5dc30b5fe59395c9b8a3ce7",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260607_0_L2A/B04.tif"
+            },
+            "scl": {
+              "href": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation/cache/persistence/ROI-02/source_windows/S2C_35VLE_20260607_0_L2A/scl.tif",
+              "offset": 0,
+              "scale": 1,
+              "sha256": "492ee416a8f5971e59cea1ec987dda0c3bd3e3ee6dc30ab4079c7bbe102b07b7",
+              "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260607_0_L2A/SCL.tif"
+            }
+          },
+          "candidate_pixels": 174,
+          "date": "2026-06-07T09:44:22.619000Z",
+          "id": "S2C_35VLE_20260607_0_L2A",
+          "source_independence_group": "Sentinel-2-EarthSearch",
+          "valid_pixels": 676
+        }
+      ],
+      "grid": {
+        "crs": "EPSG:6933",
+        "height": 26,
+        "transform": [
+          20.0,
+          0.0,
+          2366760.0,
+          0.0,
+          -20.0,
+          6256240.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "width": 26
+      },
+      "limitations": [
+        "Same sensor/provider; not independent road labels.",
+        "500 m sampling windows only; not corridor-wide persistence.",
+        "Summer baseline does not model phenology."
+      ],
+      "persistent_at_least_two_pixels": 149,
+      "pixel_ha": 0.04,
+      "roi_id": "ROI-02",
+      "selection": "top archived AOI-quality ranking with BOA-offset flag and >=10-day spacing; pixel-level SCL evaluated after acquisition",
+      "status": "executed",
+      "three_date_valid_pixels": 676
+    }
+  ],
+  "rule": "default robust (k=2.5, delta_min=.15, epsilon=.02, min_ref=5); >=2 detections with >=3 valid target dates"
+}

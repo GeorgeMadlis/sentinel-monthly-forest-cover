@@ -1,0 +1,25 @@
+{
+  "access": "remote-cog-aoi-window",
+  "acquired_at": "2026-10-06T18:00:53.750910Z",
+  "grid": {
+    "crs": "EPSG:6933",
+    "height": 26,
+    "transform": [
+      20.0,
+      0.0,
+      2388460.0,
+      0.0,
+      -20.0,
+      6253800.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "width": 26
+  },
+  "item_id": "S2C_35VLE_20260630_0_L2A",
+  "offset": 0,
+  "scale": 0.0001,
+  "sha256": "3c0d16bf8f13300e6f22924a387baa1e0d1de41de59b77ff667edc4fd9b973f2",
+  "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260630_0_L2A/B04.tif"
+}

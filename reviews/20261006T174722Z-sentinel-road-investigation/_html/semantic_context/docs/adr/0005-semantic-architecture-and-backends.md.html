@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>semantic_context/docs/adr/0005-semantic-architecture-and-backends.md</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../../../index.html">Review home</a> · <a href="../../../index.html">All files</a></nav><h1>0005-semantic-architecture-and-backends.md</h1><p class="muted">semantic_context/docs/adr/0005-semantic-architecture-and-backends.md · <a href="../../../../semantic_context/docs/adr/0005-semantic-architecture-and-backends.md">raw file</a> · <a href="index.html">folder</a></p><div class="md"><h1 id="adr-0005-semantic-authority-and-execution-backends">ADR 0005: Semantic authority and execution backends</h1>
+<ul><li><strong>Status:</strong> Accepted (task-supplied architecture policy; empirical methods remain candidates)</li><li><strong>Date:</strong> 2026-10-06</li><li><strong>Deciders:</strong> Repository task owner</li><li><strong>Supersedes:</strong> ADR 0001 default backend policy</li></ul>
+<h2 id="context-and-decision">Context and decision</h2>
+<p>Forest Cover Lab is the scientific, governance and semantic authority for forest-cover work. Human-maintained Markdown/YAML concepts describe applications, scientific questions, methods, observation requirements, measurements, dataset families, access mechanisms, processing capabilities, workflows, validation and bounded claims. Generated JSON is a rebuildable index. Live catalogues hold scenes; downstream software executes methods; run manifests and evidence hold execution provenance. No graph database is required.</p>
+<p>Regional/country-scale production and commercial-compatible execution should prefer open, local, cloud-neutral Python tooling: GDAL, Rasterio, rioxarray/xarray, GeoPandas, Shapely, PyProj, DuckDB Spatial, STAC clients and COG/GeoParquet access. Use Dask where scale requires it. Production scientific methods must not depend on Google Earth Engine. These are backend policy choices, not empirical endorsements of an algorithm or legal assertions about any provider&#x27;s license.</p>
+<p>GEE may remain an example implementation, research/reference backend, demonstration of equivalent calculations, or optional backend for very large/global analyses when its licensing and terms are appropriate. It is optional in packaging. Backend selection must be separate from method selection and recorded in provenance. Existing GEE-specific v1/v2/v3 acquisition descriptions now describe reference implementation routes; their scientific definitions, thresholds, uncertainty and non-claims remain in force.</p>
+<h2 id="seasonal-proposal">Seasonal proposal</h2>
+<p>The corpus adds candidate matched-season interannual and moving-window concepts: reference years contain matched seasonal windows; the target year has corresponding windows; a declared mean, median or other aggregation is applied; comparison is current minus reference using optical and/or SAR evidence. Window alignment, minimum coverage, missingness, sensor compatibility and decision rules must be configured and validated. A moving mean is not universally preferred. This proposal supplies no accuracy claim and no validated threshold; promotion requires scientific review.</p>
+<h2 id="consequences-and-acceptance">Consequences and acceptance</h2>
+<ul><li>Stable DS identifiers and existing inventory semantics remain unchanged.</li><li>Tool capability facts cite official documentation and do not imply method validity.</li><li>Candidate relationships are exported separately and cannot become authoritative through</li></ul>
+<p>a workflow run. Contract transcriptions identify their basis explicitly.</p>
+<ul><li>Methods can have several partial implementations; IMPLEMENTS does not certify equivalence.</li><li>Local graph checks, downstream descriptor checks and compatible provenance extensions</li></ul>
+<p>govern reproducibility without installing execution software.</p>
+<ul><li>ADR 0001 remains historical; this decision supersedes its default-platform policy.</li></ul>
+<p>References: <code>knowledge/README.md</code>, <code>graph/README.md</code>, <code>docs/downstream_repos.md</code>, <code>governance/knowledge_promotion.md</code>, <code>validate/semantic_provenance.md</code>.</p>
+<h2 id="alternatives-considered">Alternatives considered</h2>
+<p>A hosted graph database is deferred: a derived local JSON graph supports the initial contracts with less operational burden. Dataset-only application links are rejected because they hide observation semantics and prevent principled substitution. A mandatory GEE backend is rejected by the supplied production policy. Automatic promotion from AI extraction or individual runs is rejected because syntax and execution success do not establish science.</p></div></main></body></html>

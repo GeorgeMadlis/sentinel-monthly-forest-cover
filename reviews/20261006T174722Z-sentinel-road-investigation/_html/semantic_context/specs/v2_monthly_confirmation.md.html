@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>semantic_context/specs/v2_monthly_confirmation.md</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../../index.html">Review home</a> · <a href="../../index.html">All files</a></nav><h1>v2_monthly_confirmation.md</h1><p class="muted">semantic_context/specs/v2_monthly_confirmation.md · <a href="../../../semantic_context/specs/v2_monthly_confirmation.md">raw file</a> · <a href="index.html">folder</a></p><div class="md"><h1 id="v2-monthly-confirmation-specification">v2 Monthly Confirmation Specification</h1>
+<blockquote>Backend scope: GEE/EE acquisition steps below describe optional reference implementations. Under ADR 0005 production scientific methods must not require GEE. Equivalent open/local implementations must preserve all scientific rules, label semantics and non-claims.</blockquote>
+<h2 id="goal">Goal</h2>
+<p>Produce monthly forest-related summaries using monthly Sentinel-1 SAR and Sentinel-2 optical composites, with confirmation logic to reduce false positives.</p>
+<h2 id="inputs">Inputs</h2>
+<div class="wrap"><table><tr><th>Input</th><th>Format</th><th>Source</th></tr><tr><td>AOI geometry</td><td>GeoJSON or WKT in EPSG:4326</td><td>User-supplied</td></tr><tr><td>Forest definition config</td><td>YAML</td><td><code>configs/v2_defaults.yaml</code> (TBD)</td></tr><tr><td>v1 baseline forest mask</td><td>GeoTIFF / COG</td><td>Output of v1 run</td></tr><tr><td>Sentinel-2 L2A</td><td>EE ImageCollection</td><td><code>COPERNICUS/S2_SR_HARMONIZED</code></td></tr><tr><td>Sentinel-1 GRD</td><td>EE ImageCollection</td><td><code>COPERNICUS/S1_GRD</code></td></tr></table></div>
+<h2 id="outputs">Outputs</h2>
+<div class="wrap"><table><tr><th>Output</th><th>Format</th><th>Path</th></tr><tr><td>Monthly S2 composite</td><td>GeoTIFF / COG per month</td><td><code>outputs/&lt;run_id&gt;/composites/s2_&lt;YYYY-MM&gt;.tif</code></td></tr><tr><td>Monthly S1 composite</td><td>GeoTIFF / COG per month</td><td><code>outputs/&lt;run_id&gt;/composites/s1_&lt;YYYY-MM&gt;.tif</code></td></tr><tr><td>Monthly forest indicator</td><td>GeoTIFF / COG per month</td><td><code>outputs/&lt;run_id&gt;/indicators/forest_&lt;YYYY-MM&gt;.tif</code></td></tr><tr><td>Monthly area summary</td><td>CSV</td><td><code>outputs/&lt;run_id&gt;/monthly_area_summary.csv</code></td></tr><tr><td>Run manifest</td><td>JSON</td><td><code>outputs/&lt;run_id&gt;/run_manifest.json</code></td></tr><tr><td>QA thumbnails</td><td>PNG per month</td><td><code>outputs/&lt;run_id&gt;/qa/&lt;YYYY-MM&gt;.png</code></td></tr></table></div>
+<h2 id="algorithm-high-level">Algorithm (high level)</h2>
+<ol><li>Build monthly cloud-masked S2 composites (median; cloud probability mask).</li><li>Build monthly S1 SAR composites (mean VV/VH, terrain-flattened).</li><li>Compute monthly indicators on the v1 baseline mask only:</li><li>NDVI, NDMI from S2</li><li>VV/VH ratio from S1</li><li>Apply temporal persistence rule: a pixel must satisfy the forest indicator condition for <strong>N consecutive months</strong> (default N=2) before being labelled &quot;confirmed forest&quot; for the focal month.</li><li>Handle optical/SAR disagreement by emitting a <code>disagreement</code> flag per pixel per month.</li><li>Compute monthly forest area on the confirmed mask using ADR 0003 area policy.</li><li>Write monthly composites, indicators, and <code>monthly_area_summary.csv</code>.</li><li>Emit run manifest and QA thumbnails.</li></ol>
+<h2 id="required-rules">Required rules</h2>
+<ul><li>Quality-aware compositing (cloud, shadow, sensor-quality masks)</li><li>Temporal persistence logic must be explicit and configurable</li><li>Optical/SAR disagreement must be flagged, not silently resolved</li><li>Area computation per ADR 0003</li><li>Every monthly indicator must reference the v1 baseline mask used</li></ul>
+<h2 id="error-modes">Error modes</h2>
+<div class="wrap"><table><tr><th>Error mode</th><th>Mitigation</th></tr><tr><td>Sparse S2 coverage in cloudy months</td><td>Fall back to S1-only with explicit flag</td></tr><tr><td>AOI fully cloud-covered for a month</td><td>Emit empty composite + record gap in manifest</td></tr><tr><td>Speckle artefacts in S1</td><td>Apply terrain flattening + Refined Lee or equivalent filter</td></tr></table></div>
+<h2 id="validation-requirements">Validation requirements</h2>
+<ul><li>Visual QA on at least 3 months per run</li><li>Cross-check against authoritative national datasets where available</li><li>Manifest validates against schema</li></ul>
+<h2 id="non-claims">Non-claims</h2>
+<p>This v2 spec must not produce or imply:</p>
+<ul><li>That annual Hansen labels are equivalent to monthly forest-state labels.</li><li>That a single month&#x27;s indicator value proves forest loss without temporal persistence.</li><li>Disturbance attribution to a specific cause.</li></ul>
+<h2 id="references">References</h2>
+<ul><li>ADR 0001 — Default Platform (superseded by ADR 0005)</li><li>ADR 0002 — Forest Definition</li><li>ADR 0003 — Area Computation Policy</li><li>ADR 0004 — Monthly Target Definition</li><li><code>specs/v1_forest_baseline.md</code></li></ul></div></main></body></html>

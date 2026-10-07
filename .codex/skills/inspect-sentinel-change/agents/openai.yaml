@@ -1,0 +1,4 @@
+interface:
+  display_name: "Inspect Sentinel change"
+  short_description: "Compare optical and radar evidence visually"
+  default_prompt: "Use $inspect-sentinel-change to investigate the candidate road in the Sentinel comparison run."

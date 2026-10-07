@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Sentinel change"
+  short_description: "Investigate literature for disturbance hypotheses"
+  default_prompt: "Use $research-sentinel-change to investigate the candidate road in the Sentinel comparison run."

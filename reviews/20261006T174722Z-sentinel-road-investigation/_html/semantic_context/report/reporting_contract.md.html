@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>semantic_context/report/reporting_contract.md</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../../index.html">Review home</a> · <a href="../../index.html">All files</a></nav><h1>reporting_contract.md</h1><p class="muted">semantic_context/report/reporting_contract.md · <a href="../../../semantic_context/report/reporting_contract.md">raw file</a> · <a href="index.html">folder</a></p><div class="md"><h1 id="reporting-contract">Reporting Contract</h1>
+<p>Every report produced by Forest Cover Lab must include the following sections.</p>
+<h2 id="required-sections">Required sections</h2>
+<ol><li><strong>Run identifier</strong> — <code>run_id</code> from the manifest</li><li><strong>AOI identifier</strong> — <code>aoi_id</code> and a thumbnail of the AOI</li><li><strong>Purpose of the run</strong> — one-paragraph description</li><li><strong>Phase identifier</strong> — v1, v2, or v3</li><li><strong>Data sources</strong> — full <code>data_provenance</code> block from the manifest</li><li><strong>Forest definition</strong> — full <code>forest_definition</code> block from the manifest</li><li><strong>Area method</strong> — <code>area_method.type</code>, <code>crs</code>, <code>unit</code></li><li><strong>Context products</strong> — any non-core data sources and their evidence roles</li><li><strong>Main outputs</strong> — table of artifacts with paths</li><li><strong>Limitations</strong> — full <code>limitations</code> array from the manifest</li><li><strong>Non-claims</strong> — explicit statement of what the run does not claim</li></ol>
+<h2 id="interpretation-rules">Interpretation rules</h2>
+<p>Reports must not:</p>
+<ul><li>present annual labels as monthly truth</li><li>hide threshold choices</li><li>omit the area method</li><li>omit limitations</li><li>report area without stating the unit (hectares)</li><li>present biodiversity, flood, integrity, energy, ocean/coastal, climate, or land-pressure</li></ul>
+<p>products as forest-cover ground truth</p>
+<ul><li>hide whether a source is a core input, validation reference, auxiliary feature, context</li></ul>
+<p>layer, exclusion mask, or interpretation-only background</p>
+<h2 id="required-disclaimer-for-monthly-reports-v2-v3">Required disclaimer for monthly reports (v2 / v3)</h2>
+<p>Every monthly report must include this verbatim:</p>
+<blockquote>Hansen annual loss is not monthly ground truth. Monthly outputs in this report are derived from Sentinel composites and (where applicable) trained under annual weak supervision. They have not been validated as month-resolved truth.</blockquote>
+<h2 id="required-disclaimer-for-v3-reports">Required disclaimer for v3 reports</h2>
+<blockquote>Monthly latent predictions are research outputs. Annual consistency with Hansen does not prove monthly correctness. External triangulation is required for any operational use.</blockquote>
+<h2 id="semantic-provenance-when-supplied">Semantic provenance when supplied</h2>
+<p>Include the complete <code>semantic_provenance</code> block when present: method versions, pinned Forest Cover Lab revision and graph hash, relevant concept and dataset IDs, selected tools/ backend versions, workflow implementation version and AI planning record identifier. Monthly monitoring products must not be presented as legal deforestation ground truth. This extension does not replace any required disclaimer or validation requirement.</p></div></main></body></html>

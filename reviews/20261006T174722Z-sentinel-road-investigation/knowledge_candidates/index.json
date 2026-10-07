@@ -1,0 +1,36 @@
+[
+  {
+    "contradicting_or_limiting_evidence": [
+      "No independent labels",
+      "Conflicting orthophoto dates"
+    ],
+    "id": "method:robust-ndvi-screening",
+    "intended_canonical_target": "knowledge/methods/method-robust-ndvi-screening.md",
+    "path": "method-robust-ndvi-screening.md",
+    "promotion": "human scientific review required; no canonical edits",
+    "registered": false,
+    "schema_check": "passed",
+    "status": "candidate",
+    "supporting_evidence": [
+      "L04",
+      "L08"
+    ]
+  },
+  {
+    "contradicting_or_limiting_evidence": [
+      "No independent labels",
+      "Conflicting orthophoto dates"
+    ],
+    "id": "validation:linear-feature-identity",
+    "intended_canonical_target": "knowledge/validation/validation-linear-feature-identity.md",
+    "path": "validation-linear-feature-identity.md",
+    "promotion": "human scientific review required; no canonical edits",
+    "registered": false,
+    "schema_check": "passed",
+    "status": "candidate",
+    "supporting_evidence": [
+      "L01",
+      "independent_map_evidence.json"
+    ]
+  }
+]

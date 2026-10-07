@@ -1,0 +1,14 @@
+{
+  "python": "3.11.14 (main, Dec 17 2025, 21:09:14) [Clang 21.1.4 ]",
+  "packages": {
+    "numpy": "2.4.4",
+    "rasterio": "1.4.4",
+    "pyproj": "3.7.2",
+    "shapely": "2.1.2",
+    "Pillow": "12.2.0",
+    "scipy": "1.17.1",
+    "matplotlib": "3.10.9",
+    "jsonschema": "4.26.0",
+    "PyYAML": "6.0.3"
+  }
+}

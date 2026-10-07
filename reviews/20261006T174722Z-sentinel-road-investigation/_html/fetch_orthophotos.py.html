@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>fetch_orthophotos.py</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>fetch_orthophotos.py</h1><p class="muted">fetch_orthophotos.py · <a href="../fetch_orthophotos.py">raw file</a> · <a href="index.html">folder</a></p><pre>from pathlib import Path
+from datetime import datetime,timezone
+import sys,json
+import requests,rasterio
+from rasterio.transform import from_bounds
+from pyproj import Transformer
+from PIL import Image
+import numpy as np
+sys.path.insert(0,str(Path(__file__).resolve().parents[2]))
+from forest_change.evidence import checksum,write_json
+R=Path(__file__).resolve().parent;cache=R/&#x27;cache/orthophotos&#x27;;cache.mkdir(parents=True,exist_ok=True)
+u=&#x27;https://kaart.maaamet.ee/wms/ajalooline&#x27;;fwd=Transformer.from_crs(4326,3857,always_xy=True);inv=Transformer.from_crs(3857,4326,always_xy=True);est=Transformer.from_crs(4326,3301,always_xy=True)
+x0,y0=fwd.transform(24.4,58.2);x1,y1=fwd.transform(24.9,58.6)
+ledger=[]
+for roi,px,py in [(&#x27;ROI-01&#x27;,1000,463),(&#x27;ROI-02&#x27;,370,267)]:
+ lon,lat=inv.transform(x0+px/1400*(x1-x0),y1-py/2137*(y1-y0));x,y=est.transform(lon,lat);bbox=[x-250,y-250,x+250,y+250]
+ for year in (2024,2025):
+  layer=f&#x27;of{year}aero&#x27;;params={&#x27;service&#x27;:&#x27;WMS&#x27;,&#x27;version&#x27;:&#x27;1.1.1&#x27;,&#x27;request&#x27;:&#x27;GetMap&#x27;,&#x27;layers&#x27;:layer,&#x27;styles&#x27;:&#x27;&#x27;,&#x27;srs&#x27;:&#x27;EPSG:3301&#x27;,&#x27;bbox&#x27;:&#x27;,&#x27;.join(map(str,bbox)),&#x27;width&#x27;:1000,&#x27;height&#x27;:1000,&#x27;format&#x27;:&#x27;image/png&#x27;,&#x27;transparent&#x27;:&#x27;TRUE&#x27;}
+  name=f&#x27;{roi}-{year}&#x27;;p=cache/(name+&#x27;.png&#x27;);record={&#x27;id&#x27;:name,&#x27;roi_id&#x27;:roi,&#x27;source_url&#x27;:u,&#x27;query&#x27;:params,&#x27;retrieved_at&#x27;:datetime.now(timezone.utc).isoformat(),&#x27;layer_year&#x27;:year,&#x27;observation_date&#x27;:None,&#x27;source_independence_group&#x27;:&#x27;national-aerial-imagery&#x27;,&#x27;display_resolution_m&#x27;:.5,&#x27;native_resolution&#x27;:&#x27;not yet established; requested WMS sampling is not native resolution&#x27;,&#x27;bbox_epsg3301&#x27;:bbox,&#x27;point_wgs84&#x27;:[lon,lat],&#x27;limitations&#x27;:[&#x27;Layer year is not exact acquisition date; WMS rendering is derived, not a native source tile.&#x27;]}
+  try:
+   response=requests.get(u,params=params,timeout=35);response.raise_for_status();p.write_bytes(response.content);im=Image.open(p).convert(&#x27;RGBA&#x27;);a=np.array(im);record[&#x27;nontransparent_fraction&#x27;]=float((a[:,:,3]&gt;0).mean());record[&#x27;sha256&#x27;]=checksum(p);record[&#x27;path&#x27;]=str(p.relative_to(R))
+   if (a[:,:,3]&gt;0).any():
+    tif=cache/(name+&#x27;.tif&#x27;);profile={&#x27;driver&#x27;:&#x27;GTiff&#x27;,&#x27;width&#x27;:1000,&#x27;height&#x27;:1000,&#x27;count&#x27;:4,&#x27;dtype&#x27;:&#x27;uint8&#x27;,&#x27;crs&#x27;:&#x27;EPSG:3301&#x27;,&#x27;transform&#x27;:from_bounds(*bbox,1000,1000),&#x27;tiled&#x27;:True,&#x27;compress&#x27;:&#x27;deflate&#x27;}
+    with rasterio.open(tif,&#x27;w&#x27;,**profile) as dst:dst.write(a.transpose(2,0,1))
+    record[&#x27;georeferenced_path&#x27;]=str(tif.relative_to(R));record[&#x27;tif_sha256&#x27;]=checksum(tif)
+   info={**params,&#x27;request&#x27;:&#x27;GetFeatureInfo&#x27;,&#x27;query_layers&#x27;:&#x27;metainfo&#x27;,&#x27;layers&#x27;:&#x27;metainfo&#x27;,&#x27;info_format&#x27;:&#x27;text/plain&#x27;,&#x27;x&#x27;:500,&#x27;y&#x27;:500,&#x27;feature_count&#x27;:10}
+   resp=requests.get(u,params=info,timeout=25);resp.raise_for_status();ip=cache/(name+&#x27;-metadata.txt&#x27;);ip.write_bytes(resp.content);record[&#x27;metadata_path&#x27;]=str(ip.relative_to(R));record[&#x27;metadata_query&#x27;]=info
+   record[&#x27;accessibility&#x27;]=&#x27;available&#x27; if record[&#x27;nontransparent_fraction&#x27;]&gt;.01 else &#x27;no coverage&#x27;
+  except Exception as ex:record[&#x27;accessibility&#x27;]=&#x27;inaccessible&#x27;;record[&#x27;error&#x27;]=str(ex)
+  ledger.append(record);write_json(R/&#x27;independent_map_evidence.json&#x27;,{&#x27;records&#x27;:ledger,&#x27;license&#x27;:&#x27;Official open data; attribute Republic of Estonia Land and Spatial Development Board and retrieval date.&#x27;,&#x27;source_reference&#x27;:&#x27;https://geoportaal.maaruum.ee/eng/spatial-data/orthophotos/download-orthophotos-p662.html&#x27;})
+print(json.dumps(ledger,indent=2))
+</pre></main></body></html>

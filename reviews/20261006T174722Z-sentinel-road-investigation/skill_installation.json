@@ -1,0 +1,71 @@
+{
+  "root": "/Users/server/projects/sentinel-monthly-forest-cover/.codex/skills",
+  "files": [
+    {
+      "path": "corroborate-sentinel-change/SKILL.md",
+      "sha256": "3b6f5e5b64fa49abf891652b4c6a79a9e47f4647530e852243080a18e2df49ce"
+    },
+    {
+      "path": "corroborate-sentinel-change/agents/openai.yaml",
+      "sha256": "3be52625780703be5ae2496b3292a2753f2632e5e5694db0ab686848877a6a53"
+    },
+    {
+      "path": "corroborate-sentinel-change/references/investigation-contract.md",
+      "sha256": "7598d5f413073d543f4d9a8a2ea3323cd1cbc9242bd27f1d2ca07e7d224c787f"
+    },
+    {
+      "path": "inspect-sentinel-change/SKILL.md",
+      "sha256": "4d22e55c04e4b1d9cbccf49f3251dbd2d999c3398592f619863d0f3e8aa1cb59"
+    },
+    {
+      "path": "inspect-sentinel-change/agents/openai.yaml",
+      "sha256": "10c2cf0aa64af56135981730893009d62c1a1a77485efa9f16ada7b6e9bc3039"
+    },
+    {
+      "path": "inspect-sentinel-change/references/investigation-contract.md",
+      "sha256": "7598d5f413073d543f4d9a8a2ea3323cd1cbc9242bd27f1d2ca07e7d224c787f"
+    },
+    {
+      "path": "inspect-sentinel-change/references/threshold-protocol.md",
+      "sha256": "66f694c7a1f8d3e857b8463f789d199dd397d62d2f1578dcaa273fb9e2e1534e"
+    },
+    {
+      "path": "inspect-sentinel-change/scripts/robust_threshold.py",
+      "sha256": "58c6cec898915651169bfb0a85dc43358c4cbab86173e6afd384fc77b9e0839a"
+    },
+    {
+      "path": "report-sentinel-change/SKILL.md",
+      "sha256": "413519d4b90b480d92bdc3bbba157951cfae607186298699c20c7c5452a3c606"
+    },
+    {
+      "path": "report-sentinel-change/agents/openai.yaml",
+      "sha256": "cb1f368acc60fbe40f69652dadaf65d6c14f03d9fd41ce1ad672a994b3b921fc"
+    },
+    {
+      "path": "report-sentinel-change/references/investigation-contract.md",
+      "sha256": "7598d5f413073d543f4d9a8a2ea3323cd1cbc9242bd27f1d2ca07e7d224c787f"
+    },
+    {
+      "path": "research-sentinel-change/SKILL.md",
+      "sha256": "67d55315f35488cd7aa80d3b6e66ad9dfa4dee5681545c4d7f5eceb1f6f0a464"
+    },
+    {
+      "path": "research-sentinel-change/agents/openai.yaml",
+      "sha256": "f03f1c88e2fc523abc729d8c977c595e0c9ab494e92f82ef3e733f3b359d221c"
+    },
+    {
+      "path": "research-sentinel-change/references/investigation-contract.md",
+      "sha256": "7598d5f413073d543f4d9a8a2ea3323cd1cbc9242bd27f1d2ca07e7d224c787f"
+    }
+  ],
+  "bundle_sha256": "d6c0b146d8250c584132040eaff49021728e1e2ebb6a8d971bafadb950105bef",
+  "validation": {
+    "format": "portable-skill-bundle",
+    "version": 1,
+    "exact_four_names": true,
+    "all_utf8_hashes_match": true,
+    "relative_paths_no_traversal": true,
+    "linked_references_present": true,
+    "destinations_no_symlinks": true
+  }
+}

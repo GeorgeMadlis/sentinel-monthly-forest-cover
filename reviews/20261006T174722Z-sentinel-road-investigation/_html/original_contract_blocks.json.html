@@ -1,0 +1,128 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>original_contract_blocks.json</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>original_contract_blocks.json</h1><p class="muted">original_contract_blocks.json · <a href="../original_contract_blocks.json">raw file</a> · <a href="index.html">folder</a></p><pre>{
+  &quot;area_method&quot;: {
+    &quot;crs&quot;: &quot;EPSG:6933&quot;,
+    &quot;pixel_ha&quot;: 0.04,
+    &quot;type&quot;: &quot;equal-area&quot;,
+    &quot;unit&quot;: &quot;hectares&quot;
+  },
+  &quot;data_provenance&quot;: [
+    {
+      &quot;access_time_utc&quot;: &quot;2026-10-06T14:01:28.557991Z&quot;,
+      &quot;dataset_name&quot;: &quot;optical&quot;,
+      &quot;dataset_version&quot;: &quot;Earth Search sentinel-2-l2a harmonized COG DN; gain 0.0001, no second BOA offset; item processing baseline archived&quot;,
+      &quot;evidence_role&quot;: &quot;core estimation input&quot;,
+      &quot;inventory_id&quot;: &quot;DS-0002&quot;,
+      &quot;source&quot;: &quot;{\&quot;collection\&quot;: \&quot;archived-calibrated-s2\&quot;, \&quot;inventory\&quot;: \&quot;/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-s1-jja-2025-2026-sigma/optical_inventory.json\&quot;, \&quot;inventory_sha256\&quot;: \&quot;63fb931e21668608a7fb8cfeb100ae97be226aadaa45e74932e546660c38f374\&quot;, \&quot;provider\&quot;: \&quot;local-raster\&quot;}&quot;
+    },
+    {
+      &quot;access_time_utc&quot;: &quot;2026-10-06T14:01:28.557991Z&quot;,
+      &quot;dataset_name&quot;: &quot;sar&quot;,
+      &quot;dataset_version&quot;: &quot;Planetary Computer sentinel-1-rtc; item provenance archived&quot;,
+      &quot;evidence_role&quot;: &quot;core estimation input&quot;,
+      &quot;inventory_id&quot;: &quot;DS-0003&quot;,
+      &quot;source&quot;: &quot;{\&quot;collection\&quot;: \&quot;planetary-computer-sentinel-1-rtc\&quot;, \&quot;inventory\&quot;: \&quot;/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-s1-jja-2025-2026-sigma/radar_inventory.json\&quot;, \&quot;inventory_sha256\&quot;: \&quot;42493d35deede0540674af1fb5113142219ea897fe7a2300808840a936ca3a3d\&quot;, \&quot;provider\&quot;: \&quot;local-raster\&quot;}&quot;
+    }
+  ],
+  &quot;forest_definition&quot;: {
+    &quot;baseline_dataset&quot;: &quot;none&quot;,
+    &quot;forest_threshold_value&quot;: &quot;not-applied&quot;,
+    &quot;forest_threshold_variable&quot;: &quot;not-applied&quot;,
+    &quot;minimum_mapping_area_ha&quot;: 0.04,
+    &quot;name&quot;: &quot;ungated anomaly screening; no forest definition applied&quot;,
+    &quot;nodata_policy&quot;: &quot;exclude&quot;,
+    &quot;temporal_interpretation&quot;: &quot;not-applied&quot;
+  },
+  &quot;limitations&quot;: [
+    &quot;Monthly/seasonal disturbance is not automatically legal deforestation.&quot;,
+    &quot;Hansen annual loss is not monthly ground truth; external/annual reconciliation remains necessary.&quot;,
+    &quot;Optical anomalies can reflect phenology, clouds, fire, agriculture, moisture or other causes.&quot;,
+    &quot;SAR changes depend on moisture, geometry, terrain and acquisition conditions.&quot;,
+    &quot;S1/S2 agreement increases screening confidence but does not establish causal attribution.&quot;,
+    &quot;Outputs are provisional candidates, not persistence-confirmed forest state or causal loss labels.&quot;,
+    &quot;Terrain flattening and speckle filtering must be supplied upstream; this workflow does not implement them.&quot;,
+    &quot;Pixel-centre AOI rasterization approximates boundary area at the configured resolution.&quot;,
+    &quot;Optical quality masks are applied on the target grid; bilinear reprojection can mix values near cloud-mask boundaries.&quot;,
+    &quot;Optical AND SAR: pixels lacking either sensor remain nodata.&quot;,
+    &quot;No forest mask: anomalies cover all AOI land covers; candidate hectares are not forest-loss area.&quot;,
+    &quot;Partial v2 coverage: emits provisional disturbance candidates; temporal persistence and confirmed forest-state labels are not implemented.&quot;,
+    &quot;Terrain flattening and speckle filtering are external prerequisites, not implemented here.&quot;,
+    &quot;Default optical median and SAR configurable mean/median; reference uses declared period-composites or legacy pooled-observations.&quot;,
+    &quot;NDVI anomaly and seasonal decision thresholds are experimental user parameters, not canonical validated thresholds.&quot;,
+    &quot;Weighted confidence is a weighted candidate-vote score, not calibrated probability.&quot;,
+    &quot;No automatic S1-only fallback; select sar_only explicitly. Missing evidence is preserved as nodata.&quot;,
+    &quot;Minimum component filtering uses 8-connectivity with bounded halos; no causal attribution.&quot;,
+    &quot;Temporal aggregation (method capability capability:labeled-array-aggregation) uses NumPy arrays, which have no Forest Cover Lab tool record; tool:xarray is not used.&quot;,
+    &quot;method:s1-backscatter-confirmation is implemented only as per-window SAR candidate evidence; observation:disturbance-confirmation is not produced.&quot;,
+    &quot;method:moving-window-comparison lists observation:temporal-persistence; windows are compared independently and no persistence observation is produced.&quot;,
+    &quot;NDMI, NBR and VV_MINUS_VH_DB are implementation features without Forest Cover Lab measurement records; only NDVI maps to measurement:ndvi.&quot;,
+    &quot;Monthly, moving-window and matched-season modes, window sizes, steps and reference statistics are run configuration, not canonical scientific defaults.&quot;
+  ],
+  &quot;semantic_provenance&quot;: {
+    &quot;ai_planner_involved&quot;: false,
+    &quot;concept_ids&quot;: [
+      &quot;application:seasonal-forest-change-monitoring&quot;,
+      &quot;claim:monthly-non-truth&quot;,
+      &quot;observation:forest-baseline&quot;,
+      &quot;observation:forest-cover-change&quot;,
+      &quot;observation:optical-vegetation-state&quot;,
+      &quot;observation:sar-backscatter-state&quot;,
+      &quot;validation:forest-evidence&quot;
+    ],
+    &quot;dataset_ids&quot;: [
+      &quot;DS-0002&quot;,
+      &quot;DS-0003&quot;
+    ],
+    &quot;knowledge_snapshot&quot;: {
+      &quot;forest_cover_lab_revision&quot;: &quot;f3895e46fe3a5109e8bf0e3e01328e942b1e98c5&quot;,
+      &quot;graph_revision&quot;: &quot;ef90b703ae150c09cc7cac6fd324d7b5ecd8305a5a0d5130ec0deb61ed291e49&quot;
+    },
+    &quot;methods&quot;: [
+      {
+        &quot;id&quot;: &quot;method:matched-season-interannual-comparison&quot;,
+        &quot;version&quot;: &quot;1.0&quot;
+      },
+      {
+        &quot;id&quot;: &quot;method:ndvi-anomaly&quot;,
+        &quot;version&quot;: &quot;1.0&quot;
+      },
+      {
+        &quot;id&quot;: &quot;method:s1-backscatter-confirmation&quot;,
+        &quot;version&quot;: &quot;1.0&quot;
+      }
+    ],
+    &quot;schema_version&quot;: &quot;1.0&quot;,
+    &quot;tools&quot;: [
+      {
+        &quot;id&quot;: &quot;tool:pyproj&quot;,
+        &quot;version&quot;: &quot;3.7.2&quot;
+      },
+      {
+        &quot;id&quot;: &quot;tool:rasterio&quot;,
+        &quot;version&quot;: &quot;1.4.4&quot;
+      },
+      {
+        &quot;id&quot;: &quot;tool:shapely&quot;,
+        &quot;version&quot;: &quot;2.1.2&quot;
+      }
+    ],
+    &quot;workflow&quot;: {
+      &quot;id&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;version&quot;: &quot;2.0.0&quot;
+    }
+  }
+}</pre></main></body></html>

@@ -1,0 +1,117 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>common_support_and_roi_robust.json</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>common_support_and_roi_robust.json</h1><p class="muted">common_support_and_roi_robust.json · <a href="../common_support_and_roi_robust.json">raw file</a> · <a href="index.html">folder</a></p><pre>{
+  &quot;default_robust_shared_support&quot;: {
+    &quot;fixed&quot;: 77092,
+    &quot;fixed_sar&quot;: 7812,
+    &quot;robust&quot;: 61610,
+    &quot;robust_sar&quot;: 7582,
+    &quot;sigma&quot;: 92146,
+    &quot;sigma_sar&quot;: 9312,
+    &quot;valid&quot;: 2735727
+  },
+  &quot;roi_robust_categories&quot;: {
+    &quot;CONTROL-01&quot;: {
+      &quot;counts&quot;: {
+        &quot;both&quot;: 0,
+        &quot;joint_valid&quot;: 120,
+        &quot;neither&quot;: 119,
+        &quot;optical_only&quot;: 0,
+        &quot;optical_valid_radar_unavailable&quot;: 0,
+        &quot;radar_only&quot;: 1
+      },
+      &quot;sigma_rejected_vh_summary&quot;: {
+        &quot;n&quot;: 0,
+        &quot;p10_median_p90&quot;: null
+      },
+      &quot;sigma_rejected_vv_summary&quot;: {
+        &quot;n&quot;: 0,
+        &quot;p10_median_p90&quot;: null
+      }
+    },
+    &quot;CONTROL-02&quot;: {
+      &quot;counts&quot;: {
+        &quot;both&quot;: 0,
+        &quot;joint_valid&quot;: 256,
+        &quot;neither&quot;: 255,
+        &quot;optical_only&quot;: 0,
+        &quot;optical_valid_radar_unavailable&quot;: 0,
+        &quot;radar_only&quot;: 1
+      },
+      &quot;sigma_rejected_vh_summary&quot;: {
+        &quot;n&quot;: 0,
+        &quot;p10_median_p90&quot;: null
+      },
+      &quot;sigma_rejected_vv_summary&quot;: {
+        &quot;n&quot;: 0,
+        &quot;p10_median_p90&quot;: null
+      }
+    },
+    &quot;ROI-01&quot;: {
+      &quot;counts&quot;: {
+        &quot;both&quot;: 93,
+        &quot;joint_valid&quot;: 3141,
+        &quot;neither&quot;: 2694,
+        &quot;optical_only&quot;: 267,
+        &quot;optical_valid_radar_unavailable&quot;: 0,
+        &quot;radar_only&quot;: 87
+      },
+      &quot;sigma_rejected_vh_summary&quot;: {
+        &quot;n&quot;: 730,
+        &quot;p10_median_p90&quot;: [
+          -2.566989517211914,
+          -1.0939092636108398,
+          0.3346676826477054
+        ]
+      },
+      &quot;sigma_rejected_vv_summary&quot;: {
+        &quot;n&quot;: 730,
+        &quot;p10_median_p90&quot;: [
+          -1.2488934993743896,
+          -0.28150177001953125,
+          1.0313786506652833
+        ]
+      }
+    },
+    &quot;ROI-02&quot;: {
+      &quot;counts&quot;: {
+        &quot;both&quot;: 87,
+        &quot;joint_valid&quot;: 1287,
+        &quot;neither&quot;: 988,
+        &quot;optical_only&quot;: 170,
+        &quot;optical_valid_radar_unavailable&quot;: 0,
+        &quot;radar_only&quot;: 42
+      },
+      &quot;sigma_rejected_vh_summary&quot;: {
+        &quot;n&quot;: 195,
+        &quot;p10_median_p90&quot;: [
+          -5.332882690429687,
+          -2.3574790954589844,
+          0.15169124603271442
+        ]
+      },
+      &quot;sigma_rejected_vv_summary&quot;: {
+        &quot;n&quot;: 195,
+        &quot;p10_median_p90&quot;: [
+          -1.186410903930664,
+          0.13619232177734375,
+          1.848788833618164
+        ]
+      }
+    }
+  },
+  &quot;scope&quot;: &quot;provisional manually sampled corridor buffers and visual controls; all areas use .04 ha/pixel&quot;
+}</pre></main></body></html>

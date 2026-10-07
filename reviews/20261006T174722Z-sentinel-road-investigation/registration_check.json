@@ -1,0 +1,38 @@
+[
+  {
+    "action": "no shift applied",
+    "best_integer_shift_pixels": [
+      0,
+      0
+    ],
+    "correlation": 0.9420274456542702,
+    "landmark": "P\u00e4rnu urban crossing",
+    "resolution_m": 20,
+    "uncertainty": "local radiometric/seasonal correlation only, not surveyed subpixel geolocation accuracy",
+    "window": [
+      300,
+      610,
+      40,
+      40
+    ],
+    "zero_shift_correlation": 0.9420274456542702
+  },
+  {
+    "action": "no shift applied",
+    "best_integer_shift_pixels": [
+      0,
+      0
+    ],
+    "correlation": 0.7856362709960444,
+    "landmark": "existing road junction",
+    "resolution_m": 20,
+    "uncertainty": "local radiometric/seasonal correlation only, not surveyed subpixel geolocation accuracy",
+    "window": [
+      1830,
+      420,
+      40,
+      40
+    ],
+    "zero_shift_correlation": 0.7856362709960444
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "REVIEW": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/20261006T174722Z-sentinel-road-investigation",
+  "REPO": "/Users/server/projects/sentinel-monthly-forest-cover",
+  "LAB": "/Users/server/projects/forest-cover-lab",
+  "RUN": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-s1-jja-2025-2026-sigma",
+  "blockers": [
+    "Independent orthophoto acquisition dates conflict; no adequately dated independent before/after pair."
+  ],
+  "original_runs": "read-only",
+  "knowledge_policy": "candidate proposals only; no graph writes",
+  "skill_status": "verified and installed .codex/skills; missing bundle blocker resolved",
+  "agents_lookup": [
+    {
+      "path": "/Users/server/projects/sentinel-monthly-forest-cover/AGENTS.md",
+      "exists": false
+    },
+    {
+      "path": "/Users/server/projects/AGENTS.md",
+      "exists": false
+    },
+    {
+      "path": "/Users/server/AGENTS.md",
+      "exists": false
+    },
+    {
+      "path": "/Users/AGENTS.md",
+      "exists": false
+    },
+    {
+      "path": "/AGENTS.md",
+      "exists": false
+    },
+    {
+      "path": "/Users/server/projects/forest-cover-lab/AGENTS.md",
+      "exists": false
+    },
+    {
+      "path": "/Users/server/projects/AGENTS.md",
+      "exists": false
+    },
+    {
+      "path": "/Users/server/AGENTS.md",
+      "exists": false
+    },
+    {
+      "path": "/Users/AGENTS.md",
+      "exists": false
+    },
+    {
+      "path": "/AGENTS.md",
+      "exists": false
+    }
+  ]
+}

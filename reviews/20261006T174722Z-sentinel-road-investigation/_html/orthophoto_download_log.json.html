@@ -1,0 +1,265 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>orthophoto_download_log.json</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>orthophoto_download_log.json</h1><p class="muted">orthophoto_download_log.json · <a href="../orthophoto_download_log.json">raw file</a> · <a href="index.html">folder</a></p><pre>[
+  {
+    &quot;id&quot;: &quot;ROI-01-2024&quot;,
+    &quot;roi_id&quot;: &quot;ROI-01&quot;,
+    &quot;source_url&quot;: &quot;https://kaart.maaamet.ee/wms/ajalooline&quot;,
+    &quot;query&quot;: {
+      &quot;service&quot;: &quot;WMS&quot;,
+      &quot;version&quot;: &quot;1.1.1&quot;,
+      &quot;request&quot;: &quot;GetMap&quot;,
+      &quot;layers&quot;: &quot;of2024aero&quot;,
+      &quot;styles&quot;: &quot;&quot;,
+      &quot;srs&quot;: &quot;EPSG:3301&quot;,
+      &quot;bbox&quot;: &quot;543875.2409946925,6485951.113108702,544375.2409946925,6486451.113108702&quot;,
+      &quot;width&quot;: 1000,
+      &quot;height&quot;: 1000,
+      &quot;format&quot;: &quot;image/png&quot;,
+      &quot;transparent&quot;: &quot;TRUE&quot;
+    },
+    &quot;retrieved_at&quot;: &quot;2026-10-06T18:00:12.351244+00:00&quot;,
+    &quot;layer_year&quot;: 2024,
+    &quot;observation_date&quot;: null,
+    &quot;source_independence_group&quot;: &quot;national-aerial-imagery&quot;,
+    &quot;display_resolution_m&quot;: 0.5,
+    &quot;native_resolution&quot;: &quot;not yet established; requested WMS sampling is not native resolution&quot;,
+    &quot;bbox_epsg3301&quot;: [
+      543875.2409946925,
+      6485951.113108702,
+      544375.2409946925,
+      6486451.113108702
+    ],
+    &quot;point_wgs84&quot;: [
+      24.757142857142856,
+      58.513721391596995
+    ],
+    &quot;limitations&quot;: [
+      &quot;Layer year is not exact acquisition date; WMS rendering is derived, not a native source tile.&quot;
+    ],
+    &quot;nontransparent_fraction&quot;: 0.000641,
+    &quot;sha256&quot;: &quot;b4d524d8a2388f7d3f40012eb4e368b485213616e78ce48e63cb3faa8b267f4c&quot;,
+    &quot;path&quot;: <a href="../cache/orthophotos/ROI-01-2024.png">&quot;cache/orthophotos/ROI-01-2024.png&quot;</a>,
+    &quot;georeferenced_path&quot;: <a href="../cache/orthophotos/ROI-01-2024.tif">&quot;cache/orthophotos/ROI-01-2024.tif&quot;</a>,
+    &quot;tif_sha256&quot;: &quot;64c4215965fd5152907cb588be860a1a67ca04ef11c684b4cdaa9e5e146d48fc&quot;,
+    &quot;metadata_path&quot;: <a href="cache/orthophotos/ROI-01-2024-metadata.txt.html">&quot;cache/orthophotos/ROI-01-2024-metadata.txt&quot;</a>,
+    &quot;metadata_query&quot;: {
+      &quot;service&quot;: &quot;WMS&quot;,
+      &quot;version&quot;: &quot;1.1.1&quot;,
+      &quot;request&quot;: &quot;GetFeatureInfo&quot;,
+      &quot;layers&quot;: &quot;metainfo&quot;,
+      &quot;styles&quot;: &quot;&quot;,
+      &quot;srs&quot;: &quot;EPSG:3301&quot;,
+      &quot;bbox&quot;: &quot;543875.2409946925,6485951.113108702,544375.2409946925,6486451.113108702&quot;,
+      &quot;width&quot;: 1000,
+      &quot;height&quot;: 1000,
+      &quot;format&quot;: &quot;image/png&quot;,
+      &quot;transparent&quot;: &quot;TRUE&quot;,
+      &quot;query_layers&quot;: &quot;metainfo&quot;,
+      &quot;info_format&quot;: &quot;text/plain&quot;,
+      &quot;x&quot;: 500,
+      &quot;y&quot;: 500,
+      &quot;feature_count&quot;: 10
+    },
+    &quot;accessibility&quot;: &quot;no coverage&quot;
+  },
+  {
+    &quot;id&quot;: &quot;ROI-01-2025&quot;,
+    &quot;roi_id&quot;: &quot;ROI-01&quot;,
+    &quot;source_url&quot;: &quot;https://kaart.maaamet.ee/wms/ajalooline&quot;,
+    &quot;query&quot;: {
+      &quot;service&quot;: &quot;WMS&quot;,
+      &quot;version&quot;: &quot;1.1.1&quot;,
+      &quot;request&quot;: &quot;GetMap&quot;,
+      &quot;layers&quot;: &quot;of2025aero&quot;,
+      &quot;styles&quot;: &quot;&quot;,
+      &quot;srs&quot;: &quot;EPSG:3301&quot;,
+      &quot;bbox&quot;: &quot;543875.2409946925,6485951.113108702,544375.2409946925,6486451.113108702&quot;,
+      &quot;width&quot;: 1000,
+      &quot;height&quot;: 1000,
+      &quot;format&quot;: &quot;image/png&quot;,
+      &quot;transparent&quot;: &quot;TRUE&quot;
+    },
+    &quot;retrieved_at&quot;: &quot;2026-10-06T18:00:12.614344+00:00&quot;,
+    &quot;layer_year&quot;: 2025,
+    &quot;observation_date&quot;: null,
+    &quot;source_independence_group&quot;: &quot;national-aerial-imagery&quot;,
+    &quot;display_resolution_m&quot;: 0.5,
+    &quot;native_resolution&quot;: &quot;not yet established; requested WMS sampling is not native resolution&quot;,
+    &quot;bbox_epsg3301&quot;: [
+      543875.2409946925,
+      6485951.113108702,
+      544375.2409946925,
+      6486451.113108702
+    ],
+    &quot;point_wgs84&quot;: [
+      24.757142857142856,
+      58.513721391596995
+    ],
+    &quot;limitations&quot;: [
+      &quot;Layer year is not exact acquisition date; WMS rendering is derived, not a native source tile.&quot;
+    ],
+    &quot;nontransparent_fraction&quot;: 1.0,
+    &quot;sha256&quot;: &quot;9c099522a2beb623cab78041501f50601504277d5006510e69692638c07a8894&quot;,
+    &quot;path&quot;: <a href="../cache/orthophotos/ROI-01-2025.png">&quot;cache/orthophotos/ROI-01-2025.png&quot;</a>,
+    &quot;georeferenced_path&quot;: <a href="../cache/orthophotos/ROI-01-2025.tif">&quot;cache/orthophotos/ROI-01-2025.tif&quot;</a>,
+    &quot;tif_sha256&quot;: &quot;3c17a95b1a7cc675ffbeb25551ce2a0b3d586285a693dd8aad414e38c97c8cdf&quot;,
+    &quot;metadata_path&quot;: <a href="cache/orthophotos/ROI-01-2025-metadata.txt.html">&quot;cache/orthophotos/ROI-01-2025-metadata.txt&quot;</a>,
+    &quot;metadata_query&quot;: {
+      &quot;service&quot;: &quot;WMS&quot;,
+      &quot;version&quot;: &quot;1.1.1&quot;,
+      &quot;request&quot;: &quot;GetFeatureInfo&quot;,
+      &quot;layers&quot;: &quot;metainfo&quot;,
+      &quot;styles&quot;: &quot;&quot;,
+      &quot;srs&quot;: &quot;EPSG:3301&quot;,
+      &quot;bbox&quot;: &quot;543875.2409946925,6485951.113108702,544375.2409946925,6486451.113108702&quot;,
+      &quot;width&quot;: 1000,
+      &quot;height&quot;: 1000,
+      &quot;format&quot;: &quot;image/png&quot;,
+      &quot;transparent&quot;: &quot;TRUE&quot;,
+      &quot;query_layers&quot;: &quot;metainfo&quot;,
+      &quot;info_format&quot;: &quot;text/plain&quot;,
+      &quot;x&quot;: 500,
+      &quot;y&quot;: 500,
+      &quot;feature_count&quot;: 10
+    },
+    &quot;accessibility&quot;: &quot;available&quot;
+  },
+  {
+    &quot;id&quot;: &quot;ROI-02-2024&quot;,
+    &quot;roi_id&quot;: &quot;ROI-02&quot;,
+    &quot;source_url&quot;: &quot;https://kaart.maaamet.ee/wms/ajalooline&quot;,
+    &quot;query&quot;: {
+      &quot;service&quot;: &quot;WMS&quot;,
+      &quot;version&quot;: &quot;1.1.1&quot;,
+      &quot;request&quot;: &quot;GetMap&quot;,
+      &quot;layers&quot;: &quot;of2024aero&quot;,
+      &quot;styles&quot;: &quot;&quot;,
+      &quot;srs&quot;: &quot;EPSG:3301&quot;,
+      &quot;bbox&quot;: &quot;530730.5892659656,6489895.888164161,531230.5892659656,6490395.888164161&quot;,
+      &quot;width&quot;: 1000,
+      &quot;height&quot;: 1000,
+      &quot;format&quot;: &quot;image/png&quot;,
+      &quot;transparent&quot;: &quot;TRUE&quot;
+    },
+    &quot;retrieved_at&quot;: &quot;2026-10-06T18:00:13.347121+00:00&quot;,
+    &quot;layer_year&quot;: 2024,
+    &quot;observation_date&quot;: null,
+    &quot;source_independence_group&quot;: &quot;national-aerial-imagery&quot;,
+    &quot;display_resolution_m&quot;: 0.5,
+    &quot;native_resolution&quot;: &quot;not yet established; requested WMS sampling is not native resolution&quot;,
+    &quot;bbox_epsg3301&quot;: [
+      530730.5892659656,
+      6489895.888164161,
+      531230.5892659656,
+      6490395.888164161
+    ],
+    &quot;point_wgs84&quot;: [
+      24.532142857142855,
+      58.550271318644185
+    ],
+    &quot;limitations&quot;: [
+      &quot;Layer year is not exact acquisition date; WMS rendering is derived, not a native source tile.&quot;
+    ],
+    &quot;nontransparent_fraction&quot;: 0.000641,
+    &quot;sha256&quot;: &quot;b4d524d8a2388f7d3f40012eb4e368b485213616e78ce48e63cb3faa8b267f4c&quot;,
+    &quot;path&quot;: <a href="../cache/orthophotos/ROI-02-2024.png">&quot;cache/orthophotos/ROI-02-2024.png&quot;</a>,
+    &quot;georeferenced_path&quot;: <a href="../cache/orthophotos/ROI-02-2024.tif">&quot;cache/orthophotos/ROI-02-2024.tif&quot;</a>,
+    &quot;tif_sha256&quot;: &quot;203d02f83f6aa79e2b66686df39478a5f32ad3ea0d996ceccbc0331043ffce1e&quot;,
+    &quot;metadata_path&quot;: <a href="cache/orthophotos/ROI-02-2024-metadata.txt.html">&quot;cache/orthophotos/ROI-02-2024-metadata.txt&quot;</a>,
+    &quot;metadata_query&quot;: {
+      &quot;service&quot;: &quot;WMS&quot;,
+      &quot;version&quot;: &quot;1.1.1&quot;,
+      &quot;request&quot;: &quot;GetFeatureInfo&quot;,
+      &quot;layers&quot;: &quot;metainfo&quot;,
+      &quot;styles&quot;: &quot;&quot;,
+      &quot;srs&quot;: &quot;EPSG:3301&quot;,
+      &quot;bbox&quot;: &quot;530730.5892659656,6489895.888164161,531230.5892659656,6490395.888164161&quot;,
+      &quot;width&quot;: 1000,
+      &quot;height&quot;: 1000,
+      &quot;format&quot;: &quot;image/png&quot;,
+      &quot;transparent&quot;: &quot;TRUE&quot;,
+      &quot;query_layers&quot;: &quot;metainfo&quot;,
+      &quot;info_format&quot;: &quot;text/plain&quot;,
+      &quot;x&quot;: 500,
+      &quot;y&quot;: 500,
+      &quot;feature_count&quot;: 10
+    },
+    &quot;accessibility&quot;: &quot;no coverage&quot;
+  },
+  {
+    &quot;id&quot;: &quot;ROI-02-2025&quot;,
+    &quot;roi_id&quot;: &quot;ROI-02&quot;,
+    &quot;source_url&quot;: &quot;https://kaart.maaamet.ee/wms/ajalooline&quot;,
+    &quot;query&quot;: {
+      &quot;service&quot;: &quot;WMS&quot;,
+      &quot;version&quot;: &quot;1.1.1&quot;,
+      &quot;request&quot;: &quot;GetMap&quot;,
+      &quot;layers&quot;: &quot;of2025aero&quot;,
+      &quot;styles&quot;: &quot;&quot;,
+      &quot;srs&quot;: &quot;EPSG:3301&quot;,
+      &quot;bbox&quot;: &quot;530730.5892659656,6489895.888164161,531230.5892659656,6490395.888164161&quot;,
+      &quot;width&quot;: 1000,
+      &quot;height&quot;: 1000,
+      &quot;format&quot;: &quot;image/png&quot;,
+      &quot;transparent&quot;: &quot;TRUE&quot;
+    },
+    &quot;retrieved_at&quot;: &quot;2026-10-06T18:00:13.531019+00:00&quot;,
+    &quot;layer_year&quot;: 2025,
+    &quot;observation_date&quot;: null,
+    &quot;source_independence_group&quot;: &quot;national-aerial-imagery&quot;,
+    &quot;display_resolution_m&quot;: 0.5,
+    &quot;native_resolution&quot;: &quot;not yet established; requested WMS sampling is not native resolution&quot;,
+    &quot;bbox_epsg3301&quot;: [
+      530730.5892659656,
+      6489895.888164161,
+      531230.5892659656,
+      6490395.888164161
+    ],
+    &quot;point_wgs84&quot;: [
+      24.532142857142855,
+      58.550271318644185
+    ],
+    &quot;limitations&quot;: [
+      &quot;Layer year is not exact acquisition date; WMS rendering is derived, not a native source tile.&quot;
+    ],
+    &quot;nontransparent_fraction&quot;: 1.0,
+    &quot;sha256&quot;: &quot;4db23a9af3a6287986623abad92a38ff99d34d7379b7abe9cca7878cf343878c&quot;,
+    &quot;path&quot;: <a href="../cache/orthophotos/ROI-02-2025.png">&quot;cache/orthophotos/ROI-02-2025.png&quot;</a>,
+    &quot;georeferenced_path&quot;: <a href="../cache/orthophotos/ROI-02-2025.tif">&quot;cache/orthophotos/ROI-02-2025.tif&quot;</a>,
+    &quot;tif_sha256&quot;: &quot;cf84f21c2512c4b9531dc8e1cb7c5ff75faec23642f0df6443db08d79eadda85&quot;,
+    &quot;metadata_path&quot;: <a href="cache/orthophotos/ROI-02-2025-metadata.txt.html">&quot;cache/orthophotos/ROI-02-2025-metadata.txt&quot;</a>,
+    &quot;metadata_query&quot;: {
+      &quot;service&quot;: &quot;WMS&quot;,
+      &quot;version&quot;: &quot;1.1.1&quot;,
+      &quot;request&quot;: &quot;GetFeatureInfo&quot;,
+      &quot;layers&quot;: &quot;metainfo&quot;,
+      &quot;styles&quot;: &quot;&quot;,
+      &quot;srs&quot;: &quot;EPSG:3301&quot;,
+      &quot;bbox&quot;: &quot;530730.5892659656,6489895.888164161,531230.5892659656,6490395.888164161&quot;,
+      &quot;width&quot;: 1000,
+      &quot;height&quot;: 1000,
+      &quot;format&quot;: &quot;image/png&quot;,
+      &quot;transparent&quot;: &quot;TRUE&quot;,
+      &quot;query_layers&quot;: &quot;metainfo&quot;,
+      &quot;info_format&quot;: &quot;text/plain&quot;,
+      &quot;x&quot;: 500,
+      &quot;y&quot;: 500,
+      &quot;feature_count&quot;: 10
+    },
+    &quot;accessibility&quot;: &quot;available&quot;
+  }
+]</pre></main></body></html>

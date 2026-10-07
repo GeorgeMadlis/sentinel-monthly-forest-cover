@@ -1,0 +1,6 @@
+[('2026-06-20T09:54:20.028000Z', None, dict_keys(['item', 'metrics'])), ('2026-06-30T09:54:18.815000Z', None, dict_keys(['item', 'metrics'])), ('2026-06-07T09:44:22.619000Z', None, dict_keys(['item', 'metrics'])), ('2026-07-17T09:44:24.822000Z', None, dict_keys(['item', 'metrics']))]
+Ready S2C_35VLE_20260630_0_L2A
+Ready S2C_35VLE_20260607_0_L2A
+Ready S2C_35VLE_20260630_0_L2A
+Ready S2C_35VLE_20260607_0_L2A
+Persistence processing finished

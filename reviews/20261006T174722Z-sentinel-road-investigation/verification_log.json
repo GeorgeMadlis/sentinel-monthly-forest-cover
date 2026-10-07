@@ -1,0 +1,60 @@
+{
+  "manifest_mismatches": [
+    "comparison.html",
+    "comparison_metrics.json",
+    "execution_status.json",
+    "maps/anomalies.png",
+    "maps/anomaly_leaflet.html",
+    "maps/map_metadata.json",
+    "maps_fixed_sar/anomalies.png",
+    "maps_fixed_sar/anomaly_leaflet.html",
+    "maps_fixed_sar/map_metadata.json",
+    "maps_fixed_sar_mask.tif",
+    "maps_mask.tif",
+    "maps_ndvi_sigma/anomaly_leaflet.html",
+    "maps_ndvi_sigma/map_metadata.json"
+  ],
+  "provenance": {
+    "status": "passed",
+    "comparison": "current pinned graph"
+  },
+  "registration": [
+    {
+      "landmark": "P\u00e4rnu urban crossing",
+      "window": [
+        300,
+        610,
+        40,
+        40
+      ],
+      "best_integer_shift_pixels": [
+        0,
+        0
+      ],
+      "correlation": 0.9420274456542702,
+      "zero_shift_correlation": 0.9420274456542702,
+      "resolution_m": 20,
+      "uncertainty": "local radiometric/seasonal correlation only, not surveyed subpixel geolocation accuracy",
+      "action": "no shift applied"
+    },
+    {
+      "landmark": "existing road junction",
+      "window": [
+        1830,
+        420,
+        40,
+        40
+      ],
+      "best_integer_shift_pixels": [
+        0,
+        0
+      ],
+      "correlation": 0.7856362709960444,
+      "zero_shift_correlation": 0.7856362709960444,
+      "resolution_m": 20,
+      "uncertainty": "local radiometric/seasonal correlation only, not surveyed subpixel geolocation accuracy",
+      "action": "no shift applied"
+    }
+  ],
+  "originals_unchanged": true
+}

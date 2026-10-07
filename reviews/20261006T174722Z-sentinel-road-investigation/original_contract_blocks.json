@@ -1,0 +1,113 @@
+{
+  "area_method": {
+    "crs": "EPSG:6933",
+    "pixel_ha": 0.04,
+    "type": "equal-area",
+    "unit": "hectares"
+  },
+  "data_provenance": [
+    {
+      "access_time_utc": "2026-10-06T14:01:28.557991Z",
+      "dataset_name": "optical",
+      "dataset_version": "Earth Search sentinel-2-l2a harmonized COG DN; gain 0.0001, no second BOA offset; item processing baseline archived",
+      "evidence_role": "core estimation input",
+      "inventory_id": "DS-0002",
+      "source": "{\"collection\": \"archived-calibrated-s2\", \"inventory\": \"/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-s1-jja-2025-2026-sigma/optical_inventory.json\", \"inventory_sha256\": \"63fb931e21668608a7fb8cfeb100ae97be226aadaa45e74932e546660c38f374\", \"provider\": \"local-raster\"}"
+    },
+    {
+      "access_time_utc": "2026-10-06T14:01:28.557991Z",
+      "dataset_name": "sar",
+      "dataset_version": "Planetary Computer sentinel-1-rtc; item provenance archived",
+      "evidence_role": "core estimation input",
+      "inventory_id": "DS-0003",
+      "source": "{\"collection\": \"planetary-computer-sentinel-1-rtc\", \"inventory\": \"/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-s1-jja-2025-2026-sigma/radar_inventory.json\", \"inventory_sha256\": \"42493d35deede0540674af1fb5113142219ea897fe7a2300808840a936ca3a3d\", \"provider\": \"local-raster\"}"
+    }
+  ],
+  "forest_definition": {
+    "baseline_dataset": "none",
+    "forest_threshold_value": "not-applied",
+    "forest_threshold_variable": "not-applied",
+    "minimum_mapping_area_ha": 0.04,
+    "name": "ungated anomaly screening; no forest definition applied",
+    "nodata_policy": "exclude",
+    "temporal_interpretation": "not-applied"
+  },
+  "limitations": [
+    "Monthly/seasonal disturbance is not automatically legal deforestation.",
+    "Hansen annual loss is not monthly ground truth; external/annual reconciliation remains necessary.",
+    "Optical anomalies can reflect phenology, clouds, fire, agriculture, moisture or other causes.",
+    "SAR changes depend on moisture, geometry, terrain and acquisition conditions.",
+    "S1/S2 agreement increases screening confidence but does not establish causal attribution.",
+    "Outputs are provisional candidates, not persistence-confirmed forest state or causal loss labels.",
+    "Terrain flattening and speckle filtering must be supplied upstream; this workflow does not implement them.",
+    "Pixel-centre AOI rasterization approximates boundary area at the configured resolution.",
+    "Optical quality masks are applied on the target grid; bilinear reprojection can mix values near cloud-mask boundaries.",
+    "Optical AND SAR: pixels lacking either sensor remain nodata.",
+    "No forest mask: anomalies cover all AOI land covers; candidate hectares are not forest-loss area.",
+    "Partial v2 coverage: emits provisional disturbance candidates; temporal persistence and confirmed forest-state labels are not implemented.",
+    "Terrain flattening and speckle filtering are external prerequisites, not implemented here.",
+    "Default optical median and SAR configurable mean/median; reference uses declared period-composites or legacy pooled-observations.",
+    "NDVI anomaly and seasonal decision thresholds are experimental user parameters, not canonical validated thresholds.",
+    "Weighted confidence is a weighted candidate-vote score, not calibrated probability.",
+    "No automatic S1-only fallback; select sar_only explicitly. Missing evidence is preserved as nodata.",
+    "Minimum component filtering uses 8-connectivity with bounded halos; no causal attribution.",
+    "Temporal aggregation (method capability capability:labeled-array-aggregation) uses NumPy arrays, which have no Forest Cover Lab tool record; tool:xarray is not used.",
+    "method:s1-backscatter-confirmation is implemented only as per-window SAR candidate evidence; observation:disturbance-confirmation is not produced.",
+    "method:moving-window-comparison lists observation:temporal-persistence; windows are compared independently and no persistence observation is produced.",
+    "NDMI, NBR and VV_MINUS_VH_DB are implementation features without Forest Cover Lab measurement records; only NDVI maps to measurement:ndvi.",
+    "Monthly, moving-window and matched-season modes, window sizes, steps and reference statistics are run configuration, not canonical scientific defaults."
+  ],
+  "semantic_provenance": {
+    "ai_planner_involved": false,
+    "concept_ids": [
+      "application:seasonal-forest-change-monitoring",
+      "claim:monthly-non-truth",
+      "observation:forest-baseline",
+      "observation:forest-cover-change",
+      "observation:optical-vegetation-state",
+      "observation:sar-backscatter-state",
+      "validation:forest-evidence"
+    ],
+    "dataset_ids": [
+      "DS-0002",
+      "DS-0003"
+    ],
+    "knowledge_snapshot": {
+      "forest_cover_lab_revision": "f3895e46fe3a5109e8bf0e3e01328e942b1e98c5",
+      "graph_revision": "ef90b703ae150c09cc7cac6fd324d7b5ecd8305a5a0d5130ec0deb61ed291e49"
+    },
+    "methods": [
+      {
+        "id": "method:matched-season-interannual-comparison",
+        "version": "1.0"
+      },
+      {
+        "id": "method:ndvi-anomaly",
+        "version": "1.0"
+      },
+      {
+        "id": "method:s1-backscatter-confirmation",
+        "version": "1.0"
+      }
+    ],
+    "schema_version": "1.0",
+    "tools": [
+      {
+        "id": "tool:pyproj",
+        "version": "3.7.2"
+      },
+      {
+        "id": "tool:rasterio",
+        "version": "1.4.4"
+      },
+      {
+        "id": "tool:shapely",
+        "version": "2.1.2"
+      }
+    ],
+    "workflow": {
+      "id": "workflow:sentinel-monthly-forest-cover",
+      "version": "2.0.0"
+    }
+  }
+}

@@ -1,0 +1,1922 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>semantic_trace.json</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>semantic_trace.json</h1><p class="muted">semantic_trace.json · <a href="../semantic_trace.json">raw file</a> · <a href="index.html">folder</a></p><pre>{
+  &quot;authority_note&quot;: &quot;Validated contract-transcription edges are not empirical accuracy or road validation. Candidate edges remain candidates.&quot;,
+  &quot;context_hashes&quot;: {
+    &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;: &quot;b3922961a6aede7c4849c30eeddaa275a1a3f13622026ef8294b883f22153d29&quot;,
+    &quot;docs/downstream_repos.md&quot;: &quot;253cdad4f7440b1fe41ef857863e510581ee26c7d350f2fef27d52c691582471&quot;,
+    &quot;knowledge/access/access-gee-asset.md&quot;: &quot;afcf5979e02059c03bb6d4da644e18e027608b715c3c45f96650a204277c1d36&quot;,
+    &quot;knowledge/access/access-live-catalogue.md&quot;: &quot;1066673618755c4c1f4deb118cc699c86a52c5248205ddfa600376831209259d&quot;,
+    &quot;knowledge/access/access-provider-download.md&quot;: &quot;3bbf4873bd70b011bea36c430ad1b4dd029102a2e37d496abc9d4c6270616faf&quot;,
+    &quot;knowledge/applications/application-seasonal-forest-change-monitoring.md&quot;: &quot;80fbac40effba75b1a89857ad1d77b42950bcbc92b59fad4b76c7e401a3b0a26&quot;,
+    &quot;knowledge/capabilities/capability-coordinate-transformation.md&quot;: &quot;2c5fb2a04fcd13a2a9a63a2bb70725495b3461cfb73839560bbf2e5079fd898b&quot;,
+    &quot;knowledge/capabilities/capability-geometry-predicates.md&quot;: &quot;651aee2e78b89eb945afd3d4e301ed21b619fbbf7924c9f8a022fb15e8291e99&quot;,
+    &quot;knowledge/capabilities/capability-labeled-array-aggregation.md&quot;: &quot;b412c4844230b8a4f8e9a8e013ea058276c0a1f5dcb4c965371fca3d7d52430f&quot;,
+    &quot;knowledge/capabilities/capability-metadata-filtering.md&quot;: &quot;7078dcd54553bd87a7f8064b455be030c206115bc6c8aff6b924da27ff184597&quot;,
+    &quot;knowledge/capabilities/capability-raster-mask.md&quot;: &quot;f6c3eb380d6261c93c3118545441bb3c0e990651c8a4b623373231ccb0df9148&quot;,
+    &quot;knowledge/capabilities/capability-raster-read.md&quot;: &quot;ef5606cd41f339db58439f8c89aa2c4b77cf10b9dbcc8a78a7aba75d1010c5d9&quot;,
+    &quot;knowledge/capabilities/capability-reprojection.md&quot;: &quot;ad048cd72eea3838d819598ea8522632d2a4bd488d32cb86e5b9924d92e2f409&quot;,
+    &quot;knowledge/capabilities/capability-spatial-search.md&quot;: &quot;74a93742260c4ee794a5ef1de3adaf0fd4dd866e40b4767c8c27eead175f6b9a&quot;,
+    &quot;knowledge/capabilities/capability-temporal-search.md&quot;: &quot;78d874ba44eaf5340f4e05920a561efcdb72deb6ae0c859bf7efd20d0bc9ee5e&quot;,
+    &quot;knowledge/capabilities/capability-windowed-io.md&quot;: &quot;cf9e34fde0b400aa0606a05ffabeadde997c394cbbac90a003d00c884aace034&quot;,
+    &quot;knowledge/claims/claim-monthly-non-truth.md&quot;: &quot;6e1d0246dc5ace5caa2defca0feb9436e8102ec194d1ae3d68023e00793c1754&quot;,
+    &quot;knowledge/datasets/DS-0001.md&quot;: &quot;8fa5e36bfa7d89c26a19333a3bd25f4111e8aae17e892c682c6a6a61325406eb&quot;,
+    &quot;knowledge/datasets/DS-0002.md&quot;: &quot;8f0f0782484406ecd74d4e8538185b364e57af6b3950ecd97390da9b218d3fa4&quot;,
+    &quot;knowledge/datasets/DS-0003.md&quot;: &quot;a163e52620373d68a17403e07b6059e540b7499961b0273a2dd63237e814d65d&quot;,
+    &quot;knowledge/datasets/DS-0007.md&quot;: &quot;b247b1cac2d5b6436b772ed00c65e1768b3a68d1da7ecc32aca31c2639e83087&quot;,
+    &quot;knowledge/measurements/measurement-annual-loss-year.md&quot;: &quot;e79e8c3b11005825762aa6d2364d8c38ee2e3854f6c96bf04fbb794742687fbb&quot;,
+    &quot;knowledge/measurements/measurement-canopy-cover.md&quot;: &quot;df7218e6d8ea0e7d09e658ded209910855516af3e18e8ad44cd991a7773dccb7&quot;,
+    &quot;knowledge/measurements/measurement-forest-class-transition.md&quot;: &quot;4a78aa747d42f3e463c8e987d978c2882e765f538a632e176420566f320e7cb4&quot;,
+    &quot;knowledge/measurements/measurement-ndvi.md&quot;: &quot;b5c1235baa3a98d93794f34f3b53f690f47db422ef25204528e8c3d3f3be5c3b&quot;,
+    &quot;knowledge/measurements/measurement-persistence-count.md&quot;: &quot;d207e291e262537ec0164891eb8c2a75b8c7b5aa18c577842bbbd3681f39bb51&quot;,
+    &quot;knowledge/measurements/measurement-vv-vh-backscatter.md&quot;: &quot;20895c545214605c54ae2b3f7c6af654930d0109b2f71e691cbc0ce4b6632cb0&quot;,
+    &quot;knowledge/methods/method-matched-season-interannual-comparison.md&quot;: &quot;952906e0b93d2eb8b8f36900b790827bea68b9b1a2256eb76517c157fa72ea61&quot;,
+    &quot;knowledge/methods/method-monthly-compositing.md&quot;: &quot;3ab60f54becf5286fa04d419c1971389d30943edaef47b869ba4b8f0806c43ae&quot;,
+    &quot;knowledge/methods/method-moving-window-comparison.md&quot;: &quot;339fb1edfafc56daebfa64b5e9bfed535a4d319f28d0b9eb089390a9e23f8d36&quot;,
+    &quot;knowledge/methods/method-ndvi-anomaly.md&quot;: &quot;4d691908361c67d9aac3b6f39bd9f7848600453ce261afd1359d332b5d0d21c4&quot;,
+    &quot;knowledge/methods/method-s1-backscatter-confirmation.md&quot;: &quot;24f33ab464b08ba30e12582ac0f46756cb7891f054e4608434908977559a6a71&quot;,
+    &quot;knowledge/methods/method-temporal-persistence.md&quot;: &quot;04a03a59125b54c3205da8af69eb6a4efd27267f567deaa3a749e3de625fba21&quot;,
+    &quot;knowledge/observations/observation-disturbance-confirmation.md&quot;: &quot;cee192e3548e46c411ecbd3be0434d9172a93f1c91a1b314fb788effb85faea9&quot;,
+    &quot;knowledge/observations/observation-forest-baseline.md&quot;: &quot;3eac571b279e047f0f50a8a11092a7faab3e44aef60d2fa65d628040ff05d7e7&quot;,
+    &quot;knowledge/observations/observation-forest-cover-change.md&quot;: &quot;60dfa30e2165359734d3438ed6cd7d24ccd6f27629d055f63ce9b68e43ce5ab2&quot;,
+    &quot;knowledge/observations/observation-optical-vegetation-state.md&quot;: &quot;31bbfda3b702ed9a6f33f5d70d55f0fe54a40b38c364250d6c99090b3c9bfb12&quot;,
+    &quot;knowledge/observations/observation-sar-backscatter-state.md&quot;: &quot;2b4fac60c81982ba11f0b2083c89aaf6cb57b7de2a3c47b9546e2de8b7211bf6&quot;,
+    &quot;knowledge/observations/observation-temporal-persistence.md&quot;: &quot;6bfad3f65e39dd4441541ffab58468266407c893877d0d8e34c51c3de6c837e5&quot;,
+    &quot;knowledge/questions/question-seasonal-forest-change-monitoring.md&quot;: &quot;705db8184635ac37f8d81074cd24b2a4d12ad4affffc811e885a1546c155f3a1&quot;,
+    &quot;knowledge/tools/tool-pyproj.md&quot;: &quot;502488010ebb6238434041c2ecfebf910f86214aa29c88611fe382676c9bbf75&quot;,
+    &quot;knowledge/tools/tool-rasterio.md&quot;: &quot;3e7c313e947ffdb5c05fcba4d1554af2b7f78e69e3418e0353e2c8e0aa81b82f&quot;,
+    &quot;knowledge/tools/tool-shapely.md&quot;: &quot;410908ef9c7ef928b13c722a7d3d70d1258e83bc926b7f94430d620cdcf97723&quot;,
+    &quot;knowledge/tools/tool-stac-client.md&quot;: &quot;4b8addca1cfd83788b14ec07b2b75a6d7d50b8b42dcd4797e41ce7b50440ff81&quot;,
+    &quot;knowledge/tools/tool-xarray.md&quot;: &quot;d5558d813d8bf2c0776e2a910612464528574d704494d2d052d20d352ed3302d&quot;,
+    &quot;knowledge/validation/validation-forest-evidence.md&quot;: &quot;81ab3c2db172f804128f809a6bc7fe60392948664effa1ff99f898cfa5c41311&quot;,
+    &quot;knowledge/workflows/workflow-sentinel-monthly-forest-cover.md&quot;: &quot;9152f6254c8baf30ef2643d5d312045e27b5e425441910287f0601a2bfbe9fd1&quot;,
+    &quot;report/reporting_contract.md&quot;: &quot;b429136f1fe0a88de1f418a68394c38918bfe4d95a94d423dadc9c0a11dd187a&quot;,
+    &quot;research/data_sources/inventory.csv&quot;: &quot;2721b958bc8ff6c3fd5d62568a05b2e005a6948e3949f333ab7055cba0bc0789&quot;,
+    &quot;research/data_sources/sources_notes.md&quot;: &quot;cd0cbb8cd7bae4164ae581ca3b58d4d1da7a3bfabe4e0a0ee75cea4089851ac6&quot;,
+    &quot;specs/v1_forest_baseline.md&quot;: &quot;c1abdf986b9627ce5542b3715fbbed1ac4be4048bf578affeec653e6127fa03d&quot;,
+    &quot;specs/v2_monthly_confirmation.md&quot;: &quot;e9c7e91a927720065c0dea4b81a4c0194caba07ebd58c8c88e1c287629ccff82&quot;,
+    &quot;validate/validation_plan.md&quot;: &quot;9443dfc8b96bc5dcf290f9fce3749d1011a5b61a16340cdb358d02c1de02055d&quot;
+  },
+  &quot;graph_check&quot;: &quot;68 concepts; 72 validated and 67 candidate relationships; check passed without writing&quot;,
+  &quot;graph_revision&quot;: &quot;ef90b703ae150c09cc7cac6fd324d7b5ecd8305a5a0d5130ec0deb61ed291e49&quot;,
+  &quot;lab_commit&quot;: &quot;f3895e46fe3a5109e8bf0e3e01328e942b1e98c5&quot;,
+  &quot;lab_worktree&quot;: &quot; M pyproject.toml\n?? research/code_sources/analysis/foreto_24_reverse_engineering.md\n?? research/data_sources/foreto_24_satellite_sources_2026_verification.md\n?? research/publications/forest-cover-lab.code-workspace\n?? research/publications/sentinel_disturbance_literature_scan_2026.md\n?? sentinel-monthly-forest-cover.code-workspace\n&quot;,
+  &quot;nodes&quot;: [
+    {
+      &quot;context&quot;: &quot;# Hansen GFC v1.12 (global_forest_change_2024_v1_12)\n\nDirect forest cover and annual loss baseline; weak supervision only for monthly tasks.\n\nPrimary v1 baseline. treecover2000 + lossyear + datamask bands. Annual labels; not suitable as monthly ground truth (see ADR 0004). v3 potential as weak supervision signal.\n\nInventory access routes are historical assessments; select and verify provider, version, coverage and access at planning time. Individual scenes are excluded.&quot;,
+      &quot;id&quot;: &quot;DS-0001&quot;,
+      &quot;path&quot;: &quot;knowledge/datasets/DS-0001.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Hansen GFC v1.12 (global_forest_change_2024_v1_12)&quot;,
+      &quot;type&quot;: &quot;dataset&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Sentinel-2 MSI L2A\n\nHigh-resolution optical signal for forest state and disturbance confirmation.\n\nCore v2 input. 10 m optical. Cloud masking required. Monthly compositing with SCL or s2cloudless. v3: usable as input to weakly supervised model.\n\nInventory access routes are historical assessments; select and verify provider, version, coverage and access at planning time. Individual scenes are excluded. NDVI is derived from reflectance bands, not asserted to be a native dataset band.&quot;,
+      &quot;id&quot;: &quot;DS-0002&quot;,
+      &quot;path&quot;: &quot;knowledge/datasets/DS-0002.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Sentinel-2 MSI L2A&quot;,
+      &quot;type&quot;: &quot;dataset&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Sentinel-1 GRD (C-band SAR)\n\nCloud-robust SAR signal for forest structure and monthly disturbance confirmation.\n\nCloud-robust v2 complement to Sentinel-2. VV+VH polarizations. Requires speckle filtering and terrain correction. Backscatter sensitive to moisture and structure.\n\nInventory access routes are historical assessments; select and verify provider, version, coverage and access at planning time. Individual scenes are excluded.&quot;,
+      &quot;id&quot;: &quot;DS-0003&quot;,
+      &quot;path&quot;: &quot;knowledge/datasets/DS-0003.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Sentinel-1 GRD (C-band SAR)&quot;,
+      &quot;type&quot;: &quot;dataset&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# JRC Tropical Moist Forest (TMF)\n\nIndependent forest/non-forest and degradation reference for humid tropics.\n\nAnnual forest / non-forest classification for the humid tropics. Independent of Hansen GFC - useful for cross-validation. Includes deforestation / degradation classes.\n\nInventory access routes are historical assessments; select and verify provider, version, coverage and access at planning time. Individual scenes are excluded.&quot;,
+      &quot;id&quot;: &quot;DS-0007&quot;,
+      &quot;path&quot;: &quot;knowledge/datasets/DS-0007.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;JRC Tropical Moist Forest (TMF)&quot;,
+      &quot;type&quot;: &quot;dataset&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# GEE asset access\n\nHistorical inventory route, retained as optional reference access under ADR 0005.&quot;,
+      &quot;id&quot;: &quot;access:gee-asset&quot;,
+      &quot;path&quot;: &quot;knowledge/access/access-gee-asset.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;GEE asset access&quot;,
+      &quot;type&quot;: &quot;access&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Live observation catalogue\n\nQuery STAC, GeoParquet or provider services at run time. Record query, version, timestamps and actual selected scene identifiers in run evidence, never the semantic corpus.&quot;,
+      &quot;id&quot;: &quot;access:live-catalogue&quot;,
+      &quot;path&quot;: &quot;knowledge/access/access-live-catalogue.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Live observation catalogue&quot;,
+      &quot;type&quot;: &quot;access&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Provider download\n\nUse documented provider downloads/APIs; assess access and versions for each run. Does not assert a universal STAC endpoint.&quot;,
+      &quot;id&quot;: &quot;access:provider-download&quot;,
+      &quot;path&quot;: &quot;knowledge/access/access-provider-download.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Provider download&quot;,
+      &quot;type&quot;: &quot;access&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Seasonal forest-change monitoring\n\nDiscovery intent: How do corresponding seasonal observation windows differ between reference and target years? Outputs remain screening or monitoring evidence under explicit validation, uncertainty and forest definitions.&quot;,
+      &quot;id&quot;: &quot;application:seasonal-forest-change-monitoring&quot;,
+      &quot;path&quot;: &quot;knowledge/applications/application-seasonal-forest-change-monitoring.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;title&quot;: &quot;Seasonal forest-change monitoring&quot;,
+      &quot;type&quot;: &quot;application&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Coordinate transformation\n\nReusable processing or discovery operation. A capability does not certify an entire scientific method or production deployment.&quot;,
+      &quot;id&quot;: &quot;capability:coordinate-transformation&quot;,
+      &quot;path&quot;: &quot;knowledge/capabilities/capability-coordinate-transformation.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://pyproj4.github.io/pyproj/stable/api/transformer.html&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Coordinate transformation&quot;,
+      &quot;type&quot;: &quot;capability&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Geometry predicates\n\nReusable processing or discovery operation. A capability does not certify an entire scientific method or production deployment.&quot;,
+      &quot;id&quot;: &quot;capability:geometry-predicates&quot;,
+      &quot;path&quot;: &quot;knowledge/capabilities/capability-geometry-predicates.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://shapely.readthedocs.io/en/stable/manual.html&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Geometry predicates&quot;,
+      &quot;type&quot;: &quot;capability&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Labeled array aggregation\n\nReusable processing or discovery operation. A capability does not certify an entire scientific method or production deployment.&quot;,
+      &quot;id&quot;: &quot;capability:labeled-array-aggregation&quot;,
+      &quot;path&quot;: &quot;knowledge/capabilities/capability-labeled-array-aggregation.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://docs.xarray.dev/en/stable/user-guide/computation.html&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Labeled array aggregation&quot;,
+      &quot;type&quot;: &quot;capability&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Metadata filtering\n\nReusable processing or discovery operation. A capability does not certify an entire scientific method or production deployment.&quot;,
+      &quot;id&quot;: &quot;capability:metadata-filtering&quot;,
+      &quot;path&quot;: &quot;knowledge/capabilities/capability-metadata-filtering.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://pystac-client.readthedocs.io/en/stable/usage.html&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Metadata filtering&quot;,
+      &quot;type&quot;: &quot;capability&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Raster mask\n\nReusable processing or discovery operation. A capability does not certify an entire scientific method or production deployment.&quot;,
+      &quot;id&quot;: &quot;capability:raster-mask&quot;,
+      &quot;path&quot;: &quot;knowledge/capabilities/capability-raster-mask.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://rasterio.readthedocs.io/en/stable/topics/&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Raster mask&quot;,
+      &quot;type&quot;: &quot;capability&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Raster read\n\nReusable processing or discovery operation. A capability does not certify an entire scientific method or production deployment.&quot;,
+      &quot;id&quot;: &quot;capability:raster-read&quot;,
+      &quot;path&quot;: &quot;knowledge/capabilities/capability-raster-read.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://rasterio.readthedocs.io/en/stable/topics/&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Raster read&quot;,
+      &quot;type&quot;: &quot;capability&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Reprojection\n\nReusable processing or discovery operation. A capability does not certify an entire scientific method or production deployment.&quot;,
+      &quot;id&quot;: &quot;capability:reprojection&quot;,
+      &quot;path&quot;: &quot;knowledge/capabilities/capability-reprojection.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://rasterio.readthedocs.io/en/stable/topics/&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Reprojection&quot;,
+      &quot;type&quot;: &quot;capability&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Spatial search\n\nReusable processing or discovery operation. A capability does not certify an entire scientific method or production deployment.&quot;,
+      &quot;id&quot;: &quot;capability:spatial-search&quot;,
+      &quot;path&quot;: &quot;knowledge/capabilities/capability-spatial-search.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://pystac-client.readthedocs.io/en/stable/usage.html&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Spatial search&quot;,
+      &quot;type&quot;: &quot;capability&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Temporal search\n\nReusable processing or discovery operation. A capability does not certify an entire scientific method or production deployment.&quot;,
+      &quot;id&quot;: &quot;capability:temporal-search&quot;,
+      &quot;path&quot;: &quot;knowledge/capabilities/capability-temporal-search.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://pystac-client.readthedocs.io/en/stable/usage.html&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Temporal search&quot;,
+      &quot;type&quot;: &quot;capability&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Windowed io\n\nReusable processing or discovery operation. A capability does not certify an entire scientific method or production deployment.&quot;,
+      &quot;id&quot;: &quot;capability:windowed-io&quot;,
+      &quot;path&quot;: &quot;knowledge/capabilities/capability-windowed-io.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://rasterio.readthedocs.io/en/stable/topics/&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Windowed io&quot;,
+      &quot;type&quot;: &quot;capability&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Monthly non-claims\n\nHansen annual loss is not monthly ground truth. Annual agreement does not prove monthly correctness. Single-month anomalies do not prove loss or its cause. Monthly products are not legal deforestation ground truth.&quot;,
+      &quot;id&quot;: &quot;claim:monthly-non-truth&quot;,
+      &quot;path&quot;: &quot;knowledge/claims/claim-monthly-non-truth.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;report/reporting_contract.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Monthly non-claims&quot;,
+      &quot;type&quot;: &quot;claim&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Annual loss year\n\nYear of first canopy loss, not monthly timing or recurring loss.&quot;,
+      &quot;id&quot;: &quot;measurement:annual-loss-year&quot;,
+      &quot;path&quot;: &quot;knowledge/measurements/measurement-annual-loss-year.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/sources_notes.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Annual loss year&quot;,
+      &quot;type&quot;: &quot;measurement&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Canopy cover\n\nHansen treecover2000 is percent canopy cover in 2000.&quot;,
+      &quot;id&quot;: &quot;measurement:canopy-cover&quot;,
+      &quot;path&quot;: &quot;knowledge/measurements/measurement-canopy-cover.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/sources_notes.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Canopy cover&quot;,
+      &quot;type&quot;: &quot;measurement&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Forest class transition\n\nDataset-native annual classes; harmonize forest definitions before comparison.&quot;,
+      &quot;id&quot;: &quot;measurement:forest-class-transition&quot;,
+      &quot;path&quot;: &quot;knowledge/measurements/measurement-forest-class-transition.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/sources_notes.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Forest class transition&quot;,
+      &quot;type&quot;: &quot;measurement&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# NDVI\n\nVegetation index from optical red and near-infrared measurements; not forest class by itself.&quot;,
+      &quot;id&quot;: &quot;measurement:ndvi&quot;,
+      &quot;path&quot;: &quot;knowledge/measurements/measurement-ndvi.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;NDVI&quot;,
+      &quot;type&quot;: &quot;measurement&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Persistence count\n\nNumber of consecutive periods satisfying a declared condition; missingness policy required.&quot;,
+      &quot;id&quot;: &quot;measurement:persistence-count&quot;,
+      &quot;path&quot;: &quot;knowledge/measurements/measurement-persistence-count.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Persistence count&quot;,
+      &quot;type&quot;: &quot;measurement&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# VV/VH backscatter\n\nPolarized backscatter and declared derived ratio; units and preprocessing must match.&quot;,
+      &quot;id&quot;: &quot;measurement:vv-vh-backscatter&quot;,
+      &quot;path&quot;: &quot;knowledge/measurements/measurement-vv-vh-backscatter.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;VV/VH backscatter&quot;,
+      &quot;type&quot;: &quot;measurement&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Matched-season interannual comparison\n\nCompare corresponding seasonal windows in reference years and target year using optical and/or SAR. Align season, quality, coverage and sensor processing before calculating current minus reference. Decision rules require explicit configuration and validation. No performance superiority is asserted.&quot;,
+      &quot;id&quot;: &quot;method:matched-season-interannual-comparison&quot;,
+      &quot;parameters&quot;: {
+        &quot;aggregation&quot;: &quot;mean | median | another declared operator&quot;,
+        &quot;decision_rule&quot;: &quot;configured and validated&quot;,
+        &quot;input_selection&quot;: &quot;optical | SAR | both, explicitly declared; listed observation edges are alternatives for sensor inputs&quot;,
+        &quot;minimum_observations&quot;: &quot;configured&quot;,
+        &quot;missingness&quot;: &quot;configured&quot;,
+        &quot;reference_years&quot;: &quot;explicit list&quot;,
+        &quot;seasonal_windows&quot;: &quot;matched reference/target windows&quot;,
+        &quot;target_year&quot;: &quot;declared year&quot;,
+        &quot;window_width&quot;: &quot;declared duration&quot;
+      },
+      &quot;path&quot;: &quot;knowledge/methods/method-matched-season-interannual-comparison.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;title&quot;: &quot;Matched-season interannual comparison&quot;,
+      &quot;type&quot;: &quot;method&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Monthly compositing\n\nQuality-aware calendar-month composites. Existing v2 reference uses optical median and SAR mean; record coverage and gaps.&quot;,
+      &quot;id&quot;: &quot;method:monthly-compositing&quot;,
+      &quot;parameters&quot;: {
+        &quot;decision_rule&quot;: &quot;configured; validate for target context&quot;
+      },
+      &quot;path&quot;: &quot;knowledge/methods/method-monthly-compositing.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Monthly compositing&quot;,
+      &quot;type&quot;: &quot;method&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Moving-window comparison\n\nAggregate declared moving windows and compare with matched reference windows. Mean, median or another declared operator are parameters, not a universal preference. Edge handling, minimum observations and missingness must be explicit.&quot;,
+      &quot;id&quot;: &quot;method:moving-window-comparison&quot;,
+      &quot;parameters&quot;: {
+        &quot;aggregation&quot;: &quot;mean | median | another declared operator&quot;,
+        &quot;decision_rule&quot;: &quot;configured and validated&quot;,
+        &quot;minimum_observations&quot;: &quot;configured&quot;,
+        &quot;missingness&quot;: &quot;configured&quot;,
+        &quot;reference_years&quot;: &quot;explicit list&quot;,
+        &quot;seasonal_windows&quot;: &quot;matched reference/target windows&quot;,
+        &quot;target_year&quot;: &quot;declared year&quot;,
+        &quot;window_width&quot;: &quot;declared duration&quot;
+      },
+      &quot;path&quot;: &quot;knowledge/methods/method-moving-window-comparison.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;title&quot;: &quot;Moving-window comparison&quot;,
+      &quot;type&quot;: &quot;method&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# NDVI anomaly\n\nCompare NDVI with a declared reference under quality masks. Reference, anomaly threshold and confounder handling need validation; v2 specifies indicators but not an anomaly classifier.&quot;,
+      &quot;id&quot;: &quot;method:ndvi-anomaly&quot;,
+      &quot;parameters&quot;: {
+        &quot;decision_rule&quot;: &quot;configured; validate for target context&quot;
+      },
+      &quot;path&quot;: &quot;knowledge/methods/method-ndvi-anomaly.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;title&quot;: &quot;NDVI anomaly&quot;,
+      &quot;type&quot;: &quot;method&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Sentinel-1 backscatter confirmation\n\nUse comparable VV/VH time series as complementary confirmation. v2 requires disagreement flags and preprocessing; backscatter is not uniquely diagnostic of loss.&quot;,
+      &quot;id&quot;: &quot;method:s1-backscatter-confirmation&quot;,
+      &quot;parameters&quot;: {
+        &quot;decision_rule&quot;: &quot;configured; validate for target context&quot;
+      },
+      &quot;path&quot;: &quot;knowledge/methods/method-s1-backscatter-confirmation.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Sentinel-1 backscatter confirmation&quot;,
+      &quot;type&quot;: &quot;method&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Temporal persistence\n\nRequire configured consecutive-period conditions (v2 default N=2); declare treatment of missingness and focal-month attribution.&quot;,
+      &quot;id&quot;: &quot;method:temporal-persistence&quot;,
+      &quot;parameters&quot;: {
+        &quot;decision_rule&quot;: &quot;configured; validate for target context&quot;
+      },
+      &quot;path&quot;: &quot;knowledge/methods/method-temporal-persistence.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Temporal persistence&quot;,
+      &quot;type&quot;: &quot;method&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Disturbance confirmation\n\nCombine temporal and optical/SAR evidence; flag disagreement. Confirmation is conditional on validation, not cause attribution.&quot;,
+      &quot;id&quot;: &quot;observation:disturbance-confirmation&quot;,
+      &quot;path&quot;: &quot;knowledge/observations/observation-disturbance-confirmation.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Disturbance confirmation&quot;,
+      &quot;type&quot;: &quot;observation&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Forest baseline\n\nDeclared baseline forest extent, definition, MMU, exclusions and nodata; baseline is not a current forest census.&quot;,
+      &quot;id&quot;: &quot;observation:forest-baseline&quot;,
+      &quot;path&quot;: &quot;knowledge/observations/observation-forest-baseline.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v1_forest_baseline.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Forest baseline&quot;,
+      &quot;type&quot;: &quot;observation&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Forest-cover change\n\nChange relative to a declared forest definition and reference period; temporal meaning follows the input labels.&quot;,
+      &quot;id&quot;: &quot;observation:forest-cover-change&quot;,
+      &quot;path&quot;: &quot;knowledge/observations/observation-forest-cover-change.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v1_forest_baseline.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Forest-cover change&quot;,
+      &quot;type&quot;: &quot;observation&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Optical vegetation state\n\nQuality-masked optical evidence; clouds, shadows and phenology limit interpretation.&quot;,
+      &quot;id&quot;: &quot;observation:optical-vegetation-state&quot;,
+      &quot;path&quot;: &quot;knowledge/observations/observation-optical-vegetation-state.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Optical vegetation state&quot;,
+      &quot;type&quot;: &quot;observation&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# SAR structural/backscatter state\n\nComparable SAR backscatter with declared polarization, orbit and preprocessing; moisture and terrain confound structure.&quot;,
+      &quot;id&quot;: &quot;observation:sar-backscatter-state&quot;,
+      &quot;path&quot;: &quot;knowledge/observations/observation-sar-backscatter-state.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;SAR structural/backscatter state&quot;,
+      &quot;type&quot;: &quot;observation&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Temporal persistence\n\nRepeated conditions over explicitly configured periods; missing observations are not negative evidence.&quot;,
+      &quot;id&quot;: &quot;observation:temporal-persistence&quot;,
+      &quot;path&quot;: &quot;knowledge/observations/observation-temporal-persistence.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Temporal persistence&quot;,
+      &quot;type&quot;: &quot;observation&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# How do corresponding seasonal observation windows differ between reference and target years?\n\nSelect methods according to required observations and validated context, then resolve datasets and executable implementations.&quot;,
+      &quot;id&quot;: &quot;question:seasonal-forest-change-monitoring&quot;,
+      &quot;path&quot;: &quot;knowledge/questions/question-seasonal-forest-change-monitoring.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;title&quot;: &quot;How do corresponding seasonal observation windows differ between reference and target years?&quot;,
+      &quot;type&quot;: &quot;question&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# PyProj\n\nCapabilities describe API-level operations, not scientific correctness. Pin tool versions in runs. Provider/extension support and preprocessing must be checked by the implementation; catalogue filters depend on server conformance.&quot;,
+      &quot;id&quot;: &quot;tool:pyproj&quot;,
+      &quot;path&quot;: &quot;knowledge/tools/tool-pyproj.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://pyproj4.github.io/pyproj/stable/api/transformer.html&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;PyProj&quot;,
+      &quot;type&quot;: &quot;tool&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Rasterio\n\nCapabilities describe API-level operations, not scientific correctness. Pin tool versions in runs. Provider/extension support and preprocessing must be checked by the implementation; catalogue filters depend on server conformance.&quot;,
+      &quot;id&quot;: &quot;tool:rasterio&quot;,
+      &quot;path&quot;: &quot;knowledge/tools/tool-rasterio.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://rasterio.readthedocs.io/en/stable/topics/&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Rasterio&quot;,
+      &quot;type&quot;: &quot;tool&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Shapely\n\nCapabilities describe API-level operations, not scientific correctness. Pin tool versions in runs. Provider/extension support and preprocessing must be checked by the implementation; catalogue filters depend on server conformance.&quot;,
+      &quot;id&quot;: &quot;tool:shapely&quot;,
+      &quot;path&quot;: &quot;knowledge/tools/tool-shapely.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://shapely.readthedocs.io/en/stable/manual.html&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Shapely&quot;,
+      &quot;type&quot;: &quot;tool&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# PySTAC Client\n\nCapabilities describe API-level operations, not scientific correctness. Pin tool versions in runs. Provider/extension support and preprocessing must be checked by the implementation; catalogue filters depend on server conformance.&quot;,
+      &quot;id&quot;: &quot;tool:stac-client&quot;,
+      &quot;path&quot;: &quot;knowledge/tools/tool-stac-client.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://pystac-client.readthedocs.io/en/stable/usage.html&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;PySTAC Client&quot;,
+      &quot;type&quot;: &quot;tool&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# xarray\n\nCapabilities describe API-level operations, not scientific correctness. Pin tool versions in runs. Provider/extension support and preprocessing must be checked by the implementation; catalogue filters depend on server conformance.&quot;,
+      &quot;id&quot;: &quot;tool:xarray&quot;,
+      &quot;path&quot;: &quot;knowledge/tools/tool-xarray.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;https://docs.xarray.dev/en/stable/user-guide/computation.html&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;xarray&quot;,
+      &quot;type&quot;: &quot;tool&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# Forest evidence validation\n\nDeclare geometry, area method in hectares, thresholds and datamask; apply temporal plausibility review and external triangulation as required by the phase. Review limitations, disagreement and sparse observations.&quot;,
+      &quot;id&quot;: &quot;validation:forest-evidence&quot;,
+      &quot;path&quot;: &quot;knowledge/validation/validation-forest-evidence.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;validate/validation_plan.md&quot;
+      ],
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;title&quot;: &quot;Forest evidence validation&quot;,
+      &quot;type&quot;: &quot;validation&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.0&quot;
+    },
+    {
+      &quot;context&quot;: &quot;# sentinel-monthly-forest-cover\n\nExecutable downstream workflow (an implementation, not a scientific method). It may implement\nseveral methods partially; IMPLEMENTS edges are candidate registrations, not audited scientific\nequivalence. Each edge scope distinguishes relationships declared by the pinned implementation\ndescriptor from proposed target-contract relationships it does not yet implement. Downstream\ndescriptors and run manifests are validated against these registered relationships, so a new\nimplementation relationship must be proposed here first. The implementation pins its own\nversion, declares divergences and must demonstrate validation.&quot;,
+      &quot;id&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;path&quot;: &quot;knowledge/workflows/workflow-sentinel-monthly-forest-cover.md&quot;,
+      &quot;review_after&quot;: &quot;2027-04-06&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;title&quot;: &quot;sentinel-monthly-forest-cover&quot;,
+      &quot;type&quot;: &quot;workflow&quot;,
+      &quot;updated&quot;: &quot;2026-10-06&quot;,
+      &quot;version&quot;: &quot;1.1&quot;
+    }
+  ],
+  &quot;relationships&quot;: [
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;DS-0001&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;access:gee-asset&quot;,
+      &quot;type&quot;: &quot;ACCESSED_VIA&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;DS-0001&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;measurement:annual-loss-year&quot;,
+      &quot;type&quot;: &quot;PROVIDES&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;DS-0001&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;measurement:canopy-cover&quot;,
+      &quot;type&quot;: &quot;PROVIDES&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;DS-0002&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;access:gee-asset&quot;,
+      &quot;type&quot;: &quot;ACCESSED_VIA&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;DS-0002&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;access:provider-download&quot;,
+      &quot;type&quot;: &quot;ACCESSED_VIA&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;DS-0002&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;measurement:ndvi&quot;,
+      &quot;type&quot;: &quot;PROVIDES&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;DS-0003&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;access:gee-asset&quot;,
+      &quot;type&quot;: &quot;ACCESSED_VIA&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;DS-0003&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;measurement:vv-vh-backscatter&quot;,
+      &quot;type&quot;: &quot;PROVIDES&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;DS-0007&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;access:gee-asset&quot;,
+      &quot;type&quot;: &quot;ACCESSED_VIA&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;DS-0007&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;access:provider-download&quot;,
+      &quot;type&quot;: &quot;ACCESSED_VIA&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;DS-0007&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;measurement:forest-class-transition&quot;,
+      &quot;type&quot;: &quot;PROVIDES&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;method:monthly-compositing&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;claim:monthly-non-truth&quot;,
+      &quot;type&quot;: &quot;BOUNDED_BY&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;method:monthly-compositing&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;observation:optical-vegetation-state&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;method:monthly-compositing&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;observation:sar-backscatter-state&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;method:monthly-compositing&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;validation:forest-evidence&quot;,
+      &quot;type&quot;: &quot;REQUIRES_VALIDATION&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;method:s1-backscatter-confirmation&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;claim:monthly-non-truth&quot;,
+      &quot;type&quot;: &quot;BOUNDED_BY&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;method:s1-backscatter-confirmation&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;observation:disturbance-confirmation&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;method:s1-backscatter-confirmation&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;observation:sar-backscatter-state&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;method:s1-backscatter-confirmation&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;validation:forest-evidence&quot;,
+      &quot;type&quot;: &quot;REQUIRES_VALIDATION&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;method:temporal-persistence&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;claim:monthly-non-truth&quot;,
+      &quot;type&quot;: &quot;BOUNDED_BY&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;method:temporal-persistence&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;observation:temporal-persistence&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;method:temporal-persistence&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;validation:forest-evidence&quot;,
+      &quot;type&quot;: &quot;REQUIRES_VALIDATION&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;observation:disturbance-confirmation&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;measurement:vv-vh-backscatter&quot;,
+      &quot;type&quot;: &quot;MEASURED_AS&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;observation:forest-baseline&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v1_forest_baseline.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;DS-0001&quot;,
+      &quot;type&quot;: &quot;CAN_BE_OBSERVED_BY&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;observation:forest-baseline&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v1_forest_baseline.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;measurement:canopy-cover&quot;,
+      &quot;type&quot;: &quot;MEASURED_AS&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;observation:forest-cover-change&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v1_forest_baseline.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;DS-0001&quot;,
+      &quot;type&quot;: &quot;CAN_BE_OBSERVED_BY&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;observation:forest-cover-change&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v1_forest_baseline.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;DS-0007&quot;,
+      &quot;type&quot;: &quot;CAN_BE_OBSERVED_BY&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;observation:forest-cover-change&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v1_forest_baseline.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;measurement:annual-loss-year&quot;,
+      &quot;type&quot;: &quot;MEASURED_AS&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;observation:optical-vegetation-state&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;DS-0002&quot;,
+      &quot;type&quot;: &quot;CAN_BE_OBSERVED_BY&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;observation:optical-vegetation-state&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;measurement:ndvi&quot;,
+      &quot;type&quot;: &quot;MEASURED_AS&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;observation:sar-backscatter-state&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;DS-0003&quot;,
+      &quot;type&quot;: &quot;CAN_BE_OBSERVED_BY&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;observation:sar-backscatter-state&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;measurement:vv-vh-backscatter&quot;,
+      &quot;type&quot;: &quot;MEASURED_AS&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;observation:temporal-persistence&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;measurement:persistence-count&quot;,
+      &quot;type&quot;: &quot;MEASURED_AS&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;tool:pyproj&quot;,
+      &quot;sources&quot;: [
+        &quot;https://pyproj4.github.io/pyproj/stable/api/transformer.html&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;capability:coordinate-transformation&quot;,
+      &quot;type&quot;: &quot;CAN&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;tool:rasterio&quot;,
+      &quot;sources&quot;: [
+        &quot;https://rasterio.readthedocs.io/en/stable/topics/&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;capability:raster-mask&quot;,
+      &quot;type&quot;: &quot;CAN&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;tool:rasterio&quot;,
+      &quot;sources&quot;: [
+        &quot;https://rasterio.readthedocs.io/en/stable/topics/&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;capability:raster-read&quot;,
+      &quot;type&quot;: &quot;CAN&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;tool:rasterio&quot;,
+      &quot;sources&quot;: [
+        &quot;https://rasterio.readthedocs.io/en/stable/topics/&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;capability:reprojection&quot;,
+      &quot;type&quot;: &quot;CAN&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;tool:rasterio&quot;,
+      &quot;sources&quot;: [
+        &quot;https://rasterio.readthedocs.io/en/stable/topics/&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;capability:windowed-io&quot;,
+      &quot;type&quot;: &quot;CAN&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;tool:shapely&quot;,
+      &quot;sources&quot;: [
+        &quot;https://shapely.readthedocs.io/en/stable/manual.html&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;capability:geometry-predicates&quot;,
+      &quot;type&quot;: &quot;CAN&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;tool:stac-client&quot;,
+      &quot;sources&quot;: [
+        &quot;https://pystac-client.readthedocs.io/en/stable/usage.html&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;capability:metadata-filtering&quot;,
+      &quot;type&quot;: &quot;CAN&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;tool:stac-client&quot;,
+      &quot;sources&quot;: [
+        &quot;https://pystac-client.readthedocs.io/en/stable/usage.html&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;capability:spatial-search&quot;,
+      &quot;type&quot;: &quot;CAN&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;tool:stac-client&quot;,
+      &quot;sources&quot;: [
+        &quot;https://pystac-client.readthedocs.io/en/stable/usage.html&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;capability:temporal-search&quot;,
+      &quot;type&quot;: &quot;CAN&quot;
+    },
+    {
+      &quot;review&quot;: {
+        &quot;basis&quot;: &quot;Traceable transcription of the cited contract; no empirical validation implied.&quot;,
+        &quot;by&quot;: &quot;repository-contract-transcription&quot;,
+        &quot;date&quot;: &quot;2026-10-06&quot;
+      },
+      &quot;source&quot;: &quot;tool:xarray&quot;,
+      &quot;sources&quot;: [
+        &quot;https://docs.xarray.dev/en/stable/user-guide/computation.html&quot;
+      ],
+      &quot;status&quot;: &quot;validated&quot;,
+      &quot;target&quot;: &quot;capability:labeled-array-aggregation&quot;,
+      &quot;type&quot;: &quot;CAN&quot;
+    },
+    {
+      &quot;source&quot;: &quot;DS-0002&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;access:live-catalogue&quot;,
+      &quot;type&quot;: &quot;ACCESSED_VIA&quot;
+    },
+    {
+      &quot;source&quot;: &quot;DS-0003&quot;,
+      &quot;sources&quot;: [
+        &quot;research/data_sources/inventory.csv&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;access:live-catalogue&quot;,
+      &quot;type&quot;: &quot;ACCESSED_VIA&quot;
+    },
+    {
+      &quot;source&quot;: &quot;access:live-catalogue&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:metadata-filtering&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;source&quot;: &quot;access:live-catalogue&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:spatial-search&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;source&quot;: &quot;access:live-catalogue&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:temporal-search&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;source&quot;: &quot;application:seasonal-forest-change-monitoring&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;question:seasonal-forest-change-monitoring&quot;,
+      &quot;type&quot;: &quot;ASKS&quot;
+    },
+    {
+      &quot;source&quot;: &quot;application:seasonal-forest-change-monitoring&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;claim:monthly-non-truth&quot;,
+      &quot;type&quot;: &quot;BOUNDED_BY&quot;
+    },
+    {
+      &quot;source&quot;: &quot;application:seasonal-forest-change-monitoring&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:disturbance-confirmation&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;application:seasonal-forest-change-monitoring&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:forest-baseline&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;application:seasonal-forest-change-monitoring&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:forest-cover-change&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;application:seasonal-forest-change-monitoring&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:optical-vegetation-state&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;application:seasonal-forest-change-monitoring&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:sar-backscatter-state&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;application:seasonal-forest-change-monitoring&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:temporal-persistence&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:matched-season-interannual-comparison&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;claim:monthly-non-truth&quot;,
+      &quot;type&quot;: &quot;BOUNDED_BY&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:matched-season-interannual-comparison&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:forest-cover-change&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:matched-season-interannual-comparison&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:optical-vegetation-state&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:matched-season-interannual-comparison&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:sar-backscatter-state&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:matched-season-interannual-comparison&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;validation:forest-evidence&quot;,
+      &quot;type&quot;: &quot;REQUIRES_VALIDATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:matched-season-interannual-comparison&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;method:moving-window-comparison&quot;,
+      &quot;type&quot;: &quot;USES_METHOD&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:monthly-compositing&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:labeled-array-aggregation&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:moving-window-comparison&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;claim:monthly-non-truth&quot;,
+      &quot;type&quot;: &quot;BOUNDED_BY&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:moving-window-comparison&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:labeled-array-aggregation&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:moving-window-comparison&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:temporal-persistence&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:moving-window-comparison&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;validation:forest-evidence&quot;,
+      &quot;type&quot;: &quot;REQUIRES_VALIDATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:ndvi-anomaly&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;claim:monthly-non-truth&quot;,
+      &quot;type&quot;: &quot;BOUNDED_BY&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:ndvi-anomaly&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:optical-vegetation-state&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;method:ndvi-anomaly&quot;,
+      &quot;sources&quot;: [
+        &quot;specs/v2_monthly_confirmation.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;validation:forest-evidence&quot;,
+      &quot;type&quot;: &quot;REQUIRES_VALIDATION&quot;
+    },
+    {
+      &quot;source&quot;: &quot;question:seasonal-forest-change-monitoring&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/adr/0005-semantic-architecture-and-backends.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;method:matched-season-interannual-comparison&quot;,
+      &quot;type&quot;: &quot;ADDRESSED_BY&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;DS-0002&quot;,
+      &quot;type&quot;: &quot;CONSUMES&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;DS-0003&quot;,
+      &quot;type&quot;: &quot;CONSUMES&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;method:matched-season-interannual-comparison&quot;,
+      &quot;type&quot;: &quot;IMPLEMENTS&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;method:monthly-compositing&quot;,
+      &quot;type&quot;: &quot;IMPLEMENTS&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;method:moving-window-comparison&quot;,
+      &quot;type&quot;: &quot;IMPLEMENTS&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;method:ndvi-anomaly&quot;,
+      &quot;type&quot;: &quot;IMPLEMENTS&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;method:s1-backscatter-confirmation&quot;,
+      &quot;type&quot;: &quot;IMPLEMENTS&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0. Persistence periods above one are rejected.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;method:temporal-persistence&quot;,
+      &quot;type&quot;: &quot;IMPLEMENTS&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:coordinate-transformation&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:geometry-predicates&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:labeled-array-aggregation&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:metadata-filtering&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:raster-mask&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:raster-read&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:reprojection&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:spatial-search&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:temporal-search&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;capability:windowed-io&quot;,
+      &quot;type&quot;: &quot;REQUIRES_CAPABILITY&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:disturbance-confirmation&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:forest-baseline&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:forest-cover-change&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:optical-vegetation-state&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:sar-backscatter-state&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;observation:temporal-persistence&quot;,
+      &quot;type&quot;: &quot;REQUIRES_OBSERVATION&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;validation:forest-evidence&quot;,
+      &quot;type&quot;: &quot;REQUIRES_VALIDATION&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;tool:pyproj&quot;,
+      &quot;type&quot;: &quot;USES_TOOL&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;tool:rasterio&quot;,
+      &quot;type&quot;: &quot;USES_TOOL&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;tool:shapely&quot;,
+      &quot;type&quot;: &quot;USES_TOOL&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;tool:stac-client&quot;,
+      &quot;type&quot;: &quot;USES_TOOL&quot;
+    },
+    {
+      &quot;scope&quot;: &quot;Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0. Temporal aggregation uses NumPy arrays.&quot;,
+      &quot;source&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;sources&quot;: [
+        &quot;docs/downstream_repos.md&quot;
+      ],
+      &quot;status&quot;: &quot;candidate&quot;,
+      &quot;target&quot;: &quot;tool:xarray&quot;,
+      &quot;type&quot;: &quot;USES_TOOL&quot;
+    }
+  ],
+  &quot;repo_commit&quot;: &quot;28d079efc7c51b510f7e1d7fe196552df2d3c09d&quot;,
+  &quot;repo_worktree&quot;: &quot;?? reviews/\n?? tools/\n&quot;,
+  &quot;planning_date&quot;: &quot;2026-10-06&quot;,
+  &quot;planning_time_utc&quot;: &quot;2026-10-06T18:04:21.883741+00:00&quot;,
+  &quot;overdue_concepts&quot;: [],
+  &quot;graph_file_sha256&quot;: &quot;df62f0dab985b283875c508dd98ba981a26d1a1649b187f7ecaa9caa0781e784&quot;,
+  &quot;semantic_gaps&quot;: [
+    &quot;robust MAD/effect-size NDVI screening&quot;,
+    &quot;road identity and dated construction evidence&quot;,
+    &quot;national orthophoto dataset family&quot;
+  ],
+  &quot;selected_capabilities&quot;: [
+    &quot;capability:windowed-io&quot;,
+    &quot;capability:raster-read&quot;,
+    &quot;capability:raster-mask&quot;,
+    &quot;capability:reprojection&quot;,
+    &quot;capability:coordinate-transformation&quot;
+  ],
+  &quot;rejected_capabilities&quot;: {
+    &quot;access:gee-asset&quot;: &quot;optional route unnecessary&quot;,
+    &quot;DS-0007&quot;: &quot;humid-tropics domain unsuitable for Estonia&quot;,
+    &quot;tool:xarray&quot;: &quot;existing NumPy tiled aggregation sufficient&quot;
+  },
+  &quot;corpus_limits&quot;: &quot;OKF-oriented repository profile; no claim of full standard conformance. Road ROIs and scenes remain review evidence.&quot;
+}</pre></main></body></html>
