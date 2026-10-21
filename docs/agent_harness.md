@@ -50,4 +50,5 @@ traversing a sibling checkout. Zero rounds means none recorded, not a validation
 investigations. The CLI is read-only. Structural validation checks declarations, not file
 digest authenticity, actual host use, append-only history or scientific correctness.
 
-Human review remains pending for this architecture and every candidate scientific result.
+Publication and merge are operator-authorized. ADR 0006 remains proposed upstream;
+scientific candidate promotion still requires its separate human scientific review.

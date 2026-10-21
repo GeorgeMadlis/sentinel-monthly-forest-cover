@@ -68,3 +68,40 @@ orchestration/promotion is implemented. No merge, push or scientific approval is
 **Changed-file inventory:** AGENTS.md; CLAUDE.md; README.md; docs/architecture.md;
 docs/agent_harness.md; docs/architecture_audit.md; scripts/validate_agent_rounds.py;
 tests/test_agent_harness.py; workflow.yaml; .github/workflows/contracts.yml.
+
+
+## 2026-10-21 — Publication reconciliation and final Lab pin
+
+**Trigger:** Operator authorized commit, push and merge. Fetching current main revealed
+`30f2e08` had added standing instructions and a re-pin to Lab `71f5481`. Merged that history
+into the feature branch and resolved instruction/descriptor conflicts. Kept all upstream
+processing, nodata, equal-area, provenance, demo, re-pin and convention constraints; added
+round responsibilities rather than replacing those constraints. Current standing host text
+names ChatGPT, Claude, Claude Code and Codex. Historical validation/audit entries are retained.
+
+**Compatibility review:** Lab's reconciled harness commit is
+`85281485ac82d4a40a4b1e05e25c8102c9178bdb`. Reviewed its changes since the upstream descriptor
+pin: governance/instructions, harness contracts/tests and generated overview changed;
+knowledge, graph inputs, scientific inventories and consumed DS-0002/DS-0003 meanings did
+not. Graph revision remains `3e6dc320bd9f59a483d605d100614005eaa1beb35139edcd1d7d37f04914380a`.
+CI and workflow.yaml both pin this exact commit, retaining all declarations/divergences.
+
+**Actual checks:** `.venv/bin/python -m unittest discover -v`: 42 tests, OK, 14.594 s.
+`.venv/bin/python ../forest-cover-lab/graph/build.py --check --descriptor workflow.yaml`:
+PASS. `.venv/bin/python scripts/validate_agent_rounds.py --lab ../forest-cover-lab`:
+PASS, zero recorded rounds. Ran the documented synthetic demo with
+`scripts/create_synthetic_fixture.py --directory /private/tmp/sentinel-harness-merged-demo`
+and `scripts/run_pipeline.py --manifest /private/tmp/sentinel-harness-merged-demo/workflow.yaml
+--forest-def /private/tmp/sentinel-harness-merged-demo/forest.yaml
+--aoi-geojson /private/tmp/sentinel-harness-merged-demo/aoi.geojson`: PASS. Lab
+validate_provenance accepted its manifest; local assertions confirmed CI/descriptor pin
+alignment. Synthetic outputs remain temporary test fixtures, not scientific findings.
+`git diff --check`: PASS. Hosted CI follows publication and is reported in the PR.
+
+**Drift review / open findings:** Mission and P1–P6 retained; no new research track,
+scientific source, independent validation result, existing run/review mutation or knowledge
+promotion. Lab's newly fetched diagram governance is preserved upstream and its overview
+regenerated through the generator. The initial missing-overview/local-only limitations
+are superseded by this publication work. Existing scientific/host-authenticity limitations
+remain. Authorization to merge infrastructure is separate from scientific review; proposed
+ADR status is not changed by this record. Reviewer: Codex integration/contract checks.
