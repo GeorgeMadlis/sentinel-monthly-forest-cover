@@ -63,3 +63,7 @@ Leaflet maps without Earth Engine:
 ```sh
 .venv/bin/python -m forest_change.sigma_sar_map
 ```
+
+[Agent harness integration](docs/agent_harness.md) describes portable Lab roles, host/client
+accountability and per-round records alongside review evidence. See [AGENTS.md](AGENTS.md)
+for repository rules. Round manifests do not replace scientific or provenance ledgers.

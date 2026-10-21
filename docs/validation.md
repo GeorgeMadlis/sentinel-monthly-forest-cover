@@ -153,3 +153,16 @@ Commands: `python ../forest-cover-lab/graph/build.py --check --descriptor workfl
 (0.16 ha synthetic candidates, unchanged), whose manifest records the new snapshot and
 passes Lab `validate_provenance`. Historical review bundles under `reviews/` keep the
 revisions they were produced with.
+
+
+## Harness publication and Lab re-pin — 2026-10-21
+
+After reconciling current main's instructions and prior `71f5481` compatibility re-pin,
+workflow.yaml and hosted CI now pin Lab `85281485ac82d4a40a4b1e05e25c8102c9178bdb`.
+The upstream diff changes governance, role/round records, tests and the generated overview;
+consumed scientific semantics and graph revision `3e6dc320…914380a` are unchanged.
+42 tests, descriptor/graph checks, explicit round validation (zero recorded rounds), the
+README synthetic CLI demo and Lab validation of its provenance all pass. Exact commands,
+results and unresolved limits are recorded in [the architecture audit](architecture_audit.md).
+Existing run/review manifests and candidate findings are preserved; this records compatibility,
+not scientific validation or promotion. Publication and merge are operator-authorized.

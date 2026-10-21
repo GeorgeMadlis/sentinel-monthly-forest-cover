@@ -1,0 +1,35 @@
+name: Local contracts and agent rounds
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sentinel-monthly-forest-cover
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: sentinel-monthly-forest-cover
+      - uses: actions/checkout@v4
+        with:
+          repository: GeorgeMadlis/forest-cover-lab
+          ref: 85281485ac82d4a40a4b1e05e25c8102c9178bdb
+          path: forest-cover-lab
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install execution and contract dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Test local contracts and workflows
+        run: python -m unittest discover -v
+      - name: Check Lab graph and downstream descriptor
+        run: python ../forest-cover-lab/graph/build.py --check --descriptor workflow.yaml
+      - name: Validate this repository's round records
+        run: python scripts/validate_agent_rounds.py --lab ../forest-cover-lab

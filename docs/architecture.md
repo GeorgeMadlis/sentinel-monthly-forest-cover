@@ -65,3 +65,11 @@ remain external/not implemented. Persistence periods other than one are rejected
 Missing optical/SAR evidence remains nodata; S1-only use requires explicit configuration.
 No automatic fallback or legality/attribution inference occurs. Weighted fusion is a
 weighted candidate-vote score, not a calibrated confidence probability.
+
+## Agent responsibilities and execution traces
+
+[Harness integration](agent_harness.md) uses Lab-owned logical role contracts and schema,
+with task assignments and actual execution records under review-local rounds. Tool skills,
+host configuration and scientific observations stay separate. Run manifests, investigation
+and semantic ledgers retain their existing contracts. The proposed architecture grants no
+scientific authority or automatic promotion to any host and does not backfill old reviews.
