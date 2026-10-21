@@ -137,3 +137,19 @@ no Earth Engine dependency. Configuration/semantic trace, pinned Lab descriptor,
 compileall, pip check and git diff whitespace checks pass. Coarse SCL ranking,
 cloud-edge interpolation, phenology and unvalidated thresholds/calibration remain
 limitations; no national-scale performance or independent accuracy claim is made.
+
+## Forest Cover Lab re-pin — 2026-10-21
+
+`workflow.yaml` previously pinned Lab `f3895e4` / graph `ef90b703…`, and the Lab descriptor
+check at Lab `main` failed with "stale graph revision". It now pins Lab
+`71f54816d148a8b011a3917e731361768447205f` / graph
+`3e6dc320bd9f59a483d605d100614005eaa1beb35139edcd1d7d37f04914380a`. The intervening Lab
+commits add the offline graph viewer, GeoFM architecture documents and inventory rows
+DS-0014/DS-0015. No concept, relationship, workflow record or DS-0002/DS-0003 entry
+consumed here changed. Methods, divergences and configuration are unchanged.
+
+Commands: `python ../forest-cover-lab/graph/build.py --check --descriptor workflow.yaml`
+(passes); `.venv/bin/python -m unittest discover` (39 OK); the README synthetic CLI demo
+(0.16 ha synthetic candidates, unchanged), whose manifest records the new snapshot and
+passes Lab `validate_provenance`. Historical review bundles under `reviews/` keep the
+revisions they were produced with.
