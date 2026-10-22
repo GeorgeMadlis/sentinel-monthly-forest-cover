@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: GeorgeMadlis/forest-cover-lab
-          ref: 85281485ac82d4a40a4b1e05e25c8102c9178bdb
+          ref: c322e89fb96def2434c62776ac595f6cd995ef92
           path: forest-cover-lab
       - uses: actions/setup-python@v5
         with:
