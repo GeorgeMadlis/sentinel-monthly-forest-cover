@@ -166,3 +166,29 @@ README synthetic CLI demo and Lab validation of its provenance all pass. Exact c
 results and unresolved limits are recorded in [the architecture audit](architecture_audit.md).
 Existing run/review manifests and candidate findings are preserved; this records compatibility,
 not scientific validation or promotion. Publication and merge are operator-authorized.
+
+
+## Candidate governance KG and Lab re-pin — 2026-10-22
+
+Re-pinned workflow.yaml and hosted CI from Lab
+`85281485ac82d4a40a4b1e05e25c8102c9178bdb` / graph `3e6dc320…914380a` to merged
+Lab `c322e89fb96def2434c62776ac595f6cd995ef92` / graph `f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7`
+([Lab PR #8](https://github.com/GeorgeMadlis/forest-cover-lab/pull/8)). Reviewed the
+intervening knowledge/, graph/ and DS-0002/DS-0003 inventory diff. The upstream changes
+add dataset/tool-discovery guidance, optional per-round graphs (proposed ADR 0007), and
+20 candidate governance concepts with 37 candidate relationships (proposed ADR 0008).
+The consumed scientific methods, observations, dataset definitions, DS-0002/DS-0003 rows
+and graph generator are unchanged. The workflow concept's version/date and one candidate
+harness-contract link changed; no production processing or divergence change is required.
+
+`.venv/bin/python -m unittest discover -v`: **42 passed** (14.820 s), resolving the four
+previous stale-snapshot errors. `.venv/bin/python ../forest-cover-lab/graph/build.py
+--check --descriptor workflow.yaml` and `.venv/bin/python scripts/validate_agent_rounds.py
+--lab /Users/server/projects/forest-cover-lab` pass (zero recorded operational rounds).
+The documented fixture/pipeline CLI demo and Lab validate_provenance pass against the
+committed snapshot; fixture root is recorded in the architecture audit.
+
+Updated the harness guide to distinguish the reusable KG from an optional round execution
+plan and to describe backward-compatible schema 1.1 capture. Historical runs/reviews
+retain their original manifests and pins. Graph candidates, ADR acceptance and scientific
+promotion remain pending human review; passing checks establishes compatibility only.

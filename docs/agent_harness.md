@@ -52,3 +52,18 @@ digest authenticity, actual host use, append-only history or scientific correctn
 
 Publication and merge are operator-authorized. ADR 0006 remains proposed upstream;
 scientific candidate promotion still requires its separate human scientific review.
+
+The candidate Lab knowledge-graph layer (proposed ADR 0008) exposes reusable roles,
+skills and harness contracts; it does not store operational agent instances. An
+optional per-round execution graph (proposed ADR 0007) records planned instances,
+handoffs, bounded loops and approval gates. Use the pinned Lab renderer and validator
+for such plans; their declared approvals must precede recorded attempts. These two
+graphs have different purposes and neither implements an execution runner.
+
+New Lab round templates use schema 1.1 for delegation scope and observed runtime,
+handoffs, source independence and coordination-event capture. Existing schema 1.0
+records and their optional round graphs remain supported. Preserve old records;
+unknown runtime details require limitations rather than inferred histories. Static
+skill availability and agent agreement do not prove instruction loading or independent
+scientific evidence. The Lab behavioral evaluation contract proposes future trials,
+not completed model experiments or scientific validation.

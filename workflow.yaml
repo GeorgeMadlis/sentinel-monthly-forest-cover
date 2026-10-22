@@ -41,8 +41,8 @@ implemented_method_ids:
 - method:moving-window-comparison
 - method:matched-season-interannual-comparison
 knowledge_snapshot:
-  forest_cover_lab_revision: 85281485ac82d4a40a4b1e05e25c8102c9178bdb
-  graph_revision: 3e6dc320bd9f59a483d605d100614005eaa1beb35139edcd1d7d37f04914380a
+  forest_cover_lab_revision: c322e89fb96def2434c62776ac595f6cd995ef92
+  graph_revision: f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7
 observation_ids:
 - observation:forest-baseline
 - observation:optical-vegetation-state
