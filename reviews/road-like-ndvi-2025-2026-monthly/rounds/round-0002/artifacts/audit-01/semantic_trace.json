@@ -1,0 +1,769 @@
+{
+  "lab_graph_revision": "f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7",
+  "nodes": [
+    {
+      "context": "# Hansen GFC v1.12 (global_forest_change_2024_v1_12)\n\nDirect forest cover and annual loss baseline; weak supervision only for monthly tasks.\n\nPrimary v1 baseline. treecover2000 + lossyear + datamask bands. Annual labels; not suitable as monthly ground truth (see ADR 0004). v3 potential as weak supervision signal.\n\nInventory access routes are historical assessments; select and verify provider, version, coverage and access at planning time. Individual scenes are excluded.",
+      "id": "DS-0001",
+      "path": "knowledge/datasets/DS-0001.md",
+      "review_after": "2027-04-06",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "active",
+      "title": "Hansen GFC v1.12 (global_forest_change_2024_v1_12)",
+      "type": "dataset",
+      "updated": "2026-10-06",
+      "version": "1.0"
+    },
+    {
+      "context": "# Sentinel-2 MSI L2A\n\nHigh-resolution optical signal for forest state and disturbance confirmation.\n\nCore v2 input. 10 m optical. Cloud masking required. Monthly compositing with SCL or s2cloudless. v3: usable as input to weakly supervised model.\n\nInventory access routes are historical assessments; select and verify provider, version, coverage and access at planning time. Individual scenes are excluded. NDVI is derived from reflectance bands, not asserted to be a native dataset band.",
+      "id": "DS-0002",
+      "path": "knowledge/datasets/DS-0002.md",
+      "review_after": "2027-04-06",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "active",
+      "title": "Sentinel-2 MSI L2A",
+      "type": "dataset",
+      "updated": "2026-10-06",
+      "version": "1.0"
+    },
+    {
+      "context": "# Sentinel-1 GRD (C-band SAR)\n\nCloud-robust SAR signal for forest structure and monthly disturbance confirmation.\n\nCloud-robust v2 complement to Sentinel-2. VV+VH polarizations. Requires speckle filtering and terrain correction. Backscatter sensitive to moisture and structure.\n\nInventory access routes are historical assessments; select and verify provider, version, coverage and access at planning time. Individual scenes are excluded.",
+      "id": "DS-0003",
+      "path": "knowledge/datasets/DS-0003.md",
+      "review_after": "2027-04-06",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "active",
+      "title": "Sentinel-1 GRD (C-band SAR)",
+      "type": "dataset",
+      "updated": "2026-10-06",
+      "version": "1.0"
+    },
+    {
+      "context": "# NDVI anomaly\n\nCompare NDVI with a declared reference under quality masks. Reference, anomaly threshold and confounder handling need validation; v2 specifies indicators but not an anomaly classifier.",
+      "id": "method:ndvi-anomaly",
+      "parameters": {
+        "decision_rule": "configured; validate for target context"
+      },
+      "path": "knowledge/methods/method-ndvi-anomaly.md",
+      "review_after": "2027-04-06",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "candidate",
+      "title": "NDVI anomaly",
+      "type": "method",
+      "updated": "2026-10-06",
+      "version": "1.0"
+    },
+    {
+      "context": "# Sentinel-1 backscatter confirmation\n\nUse comparable VV/VH time series as complementary confirmation. v2 requires disagreement flags and preprocessing; backscatter is not uniquely diagnostic of loss.",
+      "id": "method:s1-backscatter-confirmation",
+      "parameters": {
+        "decision_rule": "configured; validate for target context"
+      },
+      "path": "knowledge/methods/method-s1-backscatter-confirmation.md",
+      "review_after": "2027-04-06",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "active",
+      "title": "Sentinel-1 backscatter confirmation",
+      "type": "method",
+      "updated": "2026-10-06",
+      "version": "1.0"
+    },
+    {
+      "context": "# Temporal persistence\n\nRequire configured consecutive-period conditions (v2 default N=2); declare treatment of missingness and focal-month attribution.",
+      "id": "method:temporal-persistence",
+      "parameters": {
+        "decision_rule": "configured; validate for target context"
+      },
+      "path": "knowledge/methods/method-temporal-persistence.md",
+      "review_after": "2027-04-06",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "active",
+      "title": "Temporal persistence",
+      "type": "method",
+      "updated": "2026-10-06",
+      "version": "1.0"
+    },
+    {
+      "context": "# Optical vegetation state\n\nQuality-masked optical evidence; clouds, shadows and phenology limit interpretation.",
+      "id": "observation:optical-vegetation-state",
+      "path": "knowledge/observations/observation-optical-vegetation-state.md",
+      "review_after": "2027-04-06",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "active",
+      "title": "Optical vegetation state",
+      "type": "observation",
+      "updated": "2026-10-06",
+      "version": "1.0"
+    },
+    {
+      "context": "# SAR structural/backscatter state\n\nComparable SAR backscatter with declared polarization, orbit and preprocessing; moisture and terrain confound structure.",
+      "id": "observation:sar-backscatter-state",
+      "path": "knowledge/observations/observation-sar-backscatter-state.md",
+      "review_after": "2027-04-06",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "active",
+      "title": "SAR structural/backscatter state",
+      "type": "observation",
+      "updated": "2026-10-06",
+      "version": "1.0"
+    },
+    {
+      "context": "# sentinel-monthly-forest-cover\n\nExecutable downstream workflow (an implementation, not a scientific method). It may implement\nseveral methods partially; IMPLEMENTS edges are candidate registrations, not audited scientific\nequivalence. Each edge scope distinguishes relationships declared by the pinned implementation\ndescriptor from proposed target-contract relationships it does not yet implement. Downstream\ndescriptors and run manifests are validated against these registered relationships, so a new\nimplementation relationship must be proposed here first. The implementation pins its own\nversion, declares divergences and must demonstrate validation.",
+      "id": "workflow:sentinel-monthly-forest-cover",
+      "path": "knowledge/workflows/workflow-sentinel-monthly-forest-cover.md",
+      "review_after": "2027-04-06",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "title": "sentinel-monthly-forest-cover",
+      "type": "workflow",
+      "updated": "2026-10-22",
+      "version": "1.2"
+    }
+  ],
+  "relationships": [
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "DS-0001",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "validated",
+      "target": "access:gee-asset",
+      "type": "ACCESSED_VIA"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "DS-0001",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "validated",
+      "target": "measurement:annual-loss-year",
+      "type": "PROVIDES"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "DS-0001",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "validated",
+      "target": "measurement:canopy-cover",
+      "type": "PROVIDES"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "DS-0002",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "validated",
+      "target": "access:gee-asset",
+      "type": "ACCESSED_VIA"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "DS-0002",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "validated",
+      "target": "access:provider-download",
+      "type": "ACCESSED_VIA"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "DS-0002",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "validated",
+      "target": "measurement:ndvi",
+      "type": "PROVIDES"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "DS-0003",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "validated",
+      "target": "access:gee-asset",
+      "type": "ACCESSED_VIA"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "DS-0003",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "validated",
+      "target": "measurement:vv-vh-backscatter",
+      "type": "PROVIDES"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "method:s1-backscatter-confirmation",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "validated",
+      "target": "claim:monthly-non-truth",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "method:s1-backscatter-confirmation",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "validated",
+      "target": "observation:disturbance-confirmation",
+      "type": "REQUIRES_OBSERVATION"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "method:s1-backscatter-confirmation",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "validated",
+      "target": "observation:sar-backscatter-state",
+      "type": "REQUIRES_OBSERVATION"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "method:s1-backscatter-confirmation",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "validated",
+      "target": "validation:forest-evidence",
+      "type": "REQUIRES_VALIDATION"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "method:temporal-persistence",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "validated",
+      "target": "claim:monthly-non-truth",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "method:temporal-persistence",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "validated",
+      "target": "observation:temporal-persistence",
+      "type": "REQUIRES_OBSERVATION"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "method:temporal-persistence",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "validated",
+      "target": "validation:forest-evidence",
+      "type": "REQUIRES_VALIDATION"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "observation:optical-vegetation-state",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "validated",
+      "target": "DS-0002",
+      "type": "CAN_BE_OBSERVED_BY"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "observation:optical-vegetation-state",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "validated",
+      "target": "measurement:ndvi",
+      "type": "MEASURED_AS"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "observation:sar-backscatter-state",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "validated",
+      "target": "DS-0003",
+      "type": "CAN_BE_OBSERVED_BY"
+    },
+    {
+      "review": {
+        "basis": "Traceable transcription of the cited contract; no empirical validation implied.",
+        "by": "repository-contract-transcription",
+        "date": "2026-10-06"
+      },
+      "source": "observation:sar-backscatter-state",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "validated",
+      "target": "measurement:vv-vh-backscatter",
+      "type": "MEASURED_AS"
+    }
+  ],
+  "candidate_relationships": [
+    {
+      "source": "DS-0002",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "candidate",
+      "target": "access:live-catalogue",
+      "type": "ACCESSED_VIA"
+    },
+    {
+      "source": "DS-0003",
+      "sources": [
+        "research/data_sources/inventory.csv"
+      ],
+      "status": "candidate",
+      "target": "access:live-catalogue",
+      "type": "ACCESSED_VIA"
+    },
+    {
+      "source": "method:ndvi-anomaly",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "candidate",
+      "target": "claim:monthly-non-truth",
+      "type": "BOUNDED_BY"
+    },
+    {
+      "source": "method:ndvi-anomaly",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "candidate",
+      "target": "observation:optical-vegetation-state",
+      "type": "REQUIRES_OBSERVATION"
+    },
+    {
+      "source": "method:ndvi-anomaly",
+      "sources": [
+        "specs/v2_monthly_confirmation.md"
+      ],
+      "status": "candidate",
+      "target": "validation:forest-evidence",
+      "type": "REQUIRES_VALIDATION"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "DS-0002",
+      "type": "CONSUMES"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "DS-0003",
+      "type": "CONSUMES"
+    },
+    {
+      "scope": "Candidate research-governance integration; no production method change, agent execution or required orchestration asserted.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/agents.md",
+        "docs/adr/0006-round-agent-harness.md",
+        "research/publications/agent_harness_review_2026.md"
+      ],
+      "status": "candidate",
+      "target": "harness:round-bound-research",
+      "type": "HAS_HARNESS_CONTRACT"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "method:matched-season-interannual-comparison",
+      "type": "IMPLEMENTS"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "method:monthly-compositing",
+      "type": "IMPLEMENTS"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "method:moving-window-comparison",
+      "type": "IMPLEMENTS"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "method:ndvi-anomaly",
+      "type": "IMPLEMENTS"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "method:s1-backscatter-confirmation",
+      "type": "IMPLEMENTS"
+    },
+    {
+      "scope": "Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0. Persistence periods above one are rejected.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "method:temporal-persistence",
+      "type": "IMPLEMENTS"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:coordinate-transformation",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:geometry-predicates",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:labeled-array-aggregation",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:metadata-filtering",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:raster-mask",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:raster-read",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:reprojection",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:spatial-search",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:temporal-search",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "capability:windowed-io",
+      "type": "REQUIRES_CAPABILITY"
+    },
+    {
+      "scope": "Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "observation:disturbance-confirmation",
+      "type": "REQUIRES_OBSERVATION"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "observation:forest-baseline",
+      "type": "REQUIRES_OBSERVATION"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "observation:forest-cover-change",
+      "type": "REQUIRES_OBSERVATION"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "observation:optical-vegetation-state",
+      "type": "REQUIRES_OBSERVATION"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "observation:sar-backscatter-state",
+      "type": "REQUIRES_OBSERVATION"
+    },
+    {
+      "scope": "Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "observation:temporal-persistence",
+      "type": "REQUIRES_OBSERVATION"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "validation:forest-evidence",
+      "type": "REQUIRES_VALIDATION"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "tool:pyproj",
+      "type": "USES_TOOL"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "tool:rasterio",
+      "type": "USES_TOOL"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "tool:shapely",
+      "type": "USES_TOOL"
+    },
+    {
+      "scope": "Declared by sentinel-monthly-forest-cover 2.0.0 descriptor; partial, equivalence not audited.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "tool:stac-client",
+      "type": "USES_TOOL"
+    },
+    {
+      "scope": "Proposed target contract only; not implemented by sentinel-monthly-forest-cover 2.0.0. Temporal aggregation uses NumPy arrays.",
+      "source": "workflow:sentinel-monthly-forest-cover",
+      "sources": [
+        "docs/downstream_repos.md"
+      ],
+      "status": "candidate",
+      "target": "tool:xarray",
+      "type": "USES_TOOL"
+    }
+  ],
+  "planning_date": "2026-10-24",
+  "authority_note": "Candidate/validated edges retain Lab status; contract transcriptions are not empirical scientific validation. No new road or 2024-baseline semantics promoted."
+}

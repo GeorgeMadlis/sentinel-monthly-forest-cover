@@ -1,0 +1,137 @@
+{
+  "recorded_started_utc": "2026-10-24T06:41:45.407797+00:00",
+  "approval_recorded_utc": "2026-10-24T06:41:45.285199+00:00",
+  "preflight_first_clock_utc": "2026-10-24T06:40:17Z",
+  "budget_deadline_utc": "2026-10-24T07:10:17Z",
+  "tool_calls_observed_preflight": 8,
+  "repos": {
+    "forest_cover_lab": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sentinel_monthly_forest_cover": "2f512fec185d1290ab5203c8892231f2d5c219be",
+    "lab_graph_revision": "f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7"
+  },
+  "worktrees": {
+    "sentinel-monthly-forest-cover": " M .gitignore\n M docs/architecture_audit.md\n?? docs/portable_bundle.md\n?? forest_change/bundle.py\n?? reviews/road-like-ndvi-2025-2026-monthly/\n?? scripts/build_bundle.py\n?? tests/check_bundle_browser.cjs\n?? tests/test_bundle.py\n",
+    "forest-cover-lab": " M pyproject.toml\n?? research/code_sources/analysis/foreto_24_reverse_engineering.md\n?? research/data_sources/foreto_24_satellite_sources_2026_verification.md\n?? research/publications/forest-cover-lab.code-workspace\n?? research/publications/sentinel_disturbance_literature_scan_2026.md\n?? sentinel-monthly-forest-cover.code-workspace\n"
+  },
+  "files_loaded": [
+    {
+      "source": "sentinel-monthly-forest-cover",
+      "path_or_identifier": "AGENTS.md",
+      "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+      "sha256": "f8d8c9a7ff59417777732e98a9c4cfb8339a22284c6f0bc0e9705ebacdbb29e5",
+      "capture_status": "captured"
+    },
+    {
+      "source": "sentinel-monthly-forest-cover",
+      "path_or_identifier": "docs/agent_harness.md",
+      "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+      "sha256": "720850e1cb28f817428ee6697b2ea97e18b9cd7f158c6db1edbe5d91bf0aadcb",
+      "capture_status": "captured"
+    },
+    {
+      "source": "sentinel-monthly-forest-cover",
+      "path_or_identifier": ".codex/skills/inspect-sentinel-change/SKILL.md",
+      "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+      "sha256": "9e0b704996dab429cccb77bf8592adb7f42b0f5ad96591b968c85b3ce8616a28",
+      "capture_status": "captured"
+    },
+    {
+      "source": "sentinel-monthly-forest-cover",
+      "path_or_identifier": ".codex/skills/inspect-sentinel-change/references/investigation-contract.md",
+      "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+      "sha256": "b3ac5b236fc313c7ff8c3b5f914232161913511e7a87c391e2539e10ffc4a372",
+      "capture_status": "captured"
+    },
+    {
+      "source": "sentinel-monthly-forest-cover",
+      "path_or_identifier": ".codex/skills/inspect-sentinel-change/references/threshold-protocol.md",
+      "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+      "sha256": "66f694c7a1f8d3e857b8463f789d199dd397d62d2f1578dcaa273fb9e2e1534e",
+      "capture_status": "captured"
+    },
+    {
+      "source": "sentinel-monthly-forest-cover",
+      "path_or_identifier": "docs/sigma_sar_comparison.md",
+      "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+      "sha256": "ab7431663de28700fdc95b1a60f5a81c924190f7e3f5a0edb0ebb81eea51e5b7",
+      "capture_status": "captured"
+    },
+    {
+      "source": "sentinel-monthly-forest-cover",
+      "path_or_identifier": "forest_change/algorithms.py",
+      "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+      "sha256": "d548131a9ccf616573dff800aba38a496ac4d43ed8c5382bb0e60683300fa291",
+      "capture_status": "captured"
+    },
+    {
+      "source": "sentinel-monthly-forest-cover",
+      "path_or_identifier": "forest_change/raster.py",
+      "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+      "sha256": "dd4eb8b500c6098e312aad81bf95cbea27d9f792d1479c0c48b51c0e8e4df4f8",
+      "capture_status": "captured"
+    },
+    {
+      "source": "forest-cover-lab",
+      "path_or_identifier": "AGENTS.md",
+      "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+      "sha256": "6cf2a9e0c6fec2e2b7a2a59a28d2e479f2ba05c99c3817b0d7328661f244098a",
+      "capture_status": "captured"
+    },
+    {
+      "source": "forest-cover-lab",
+      "path_or_identifier": "docs/agents.md",
+      "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+      "sha256": "bc98c873e5f52aaaf6236d21c976c87f81115d1cead52f3d1f237bf40531481f",
+      "capture_status": "captured"
+    },
+    {
+      "source": "forest-cover-lab",
+      "path_or_identifier": "agent_harness/README.md",
+      "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+      "sha256": "2f92d8823bdb7e499baaf16df43d3bcc24efeb1ea1db624d617bda6121908f55",
+      "capture_status": "captured"
+    },
+    {
+      "source": "forest-cover-lab",
+      "path_or_identifier": "agent_harness/schemas/round.schema.json",
+      "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+      "sha256": "1c9b9981c9517a823d5f1546257f24b66869b4eac4b56e4734365f82a5b4f1dd",
+      "capture_status": "captured"
+    },
+    {
+      "source": "forest-cover-lab",
+      "path_or_identifier": "knowledge/README.md",
+      "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+      "sha256": "731bdb8d08727d5f3edb1c1a25483addc2dd2b9d71e68f7f61b03887c26bab85",
+      "capture_status": "captured"
+    },
+    {
+      "source": "forest-cover-lab",
+      "path_or_identifier": "governance/knowledge_promotion.md",
+      "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+      "sha256": "e7320143280412d6fb3ba0b92a9fd088311b49c253150984b11fe3ddc3052e16",
+      "capture_status": "captured"
+    },
+    {
+      "source": "round",
+      "path_or_identifier": "assignments/audit-01.md",
+      "revision": null,
+      "sha256": "d94ff95e0c4fd75f87341faf01a7d9187cc1c08b13ab66a32fb8cf2bb4ad57d7",
+      "capture_status": "captured"
+    },
+    {
+      "source": "round",
+      "path_or_identifier": "roles/pipeline-audit.md",
+      "revision": null,
+      "sha256": "36d262bf3a08340be662bc16b8a61bcb639354e156aed4fe13b1094a8f4ea504",
+      "capture_status": "captured"
+    },
+    {
+      "source": "external-private",
+      "path_or_identifier": "session-system-developer-runtime-instructions",
+      "revision": null,
+      "sha256": null,
+      "capture_status": "not_captured"
+    }
+  ]
+}

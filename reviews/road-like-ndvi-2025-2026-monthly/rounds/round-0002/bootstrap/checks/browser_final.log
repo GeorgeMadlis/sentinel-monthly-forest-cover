@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "protocol": "file://",
+  "network": "blocked",
+  "external_requests": [],
+  "page_errors": [],
+  "archived_pngs_switched": 2,
+  "roi_and_control_features": 4,
+  "scientific_verification": false
+}

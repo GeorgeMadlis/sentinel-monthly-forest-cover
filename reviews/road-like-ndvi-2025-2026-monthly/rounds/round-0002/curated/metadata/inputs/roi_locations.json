@@ -1,0 +1,59 @@
+{
+  "source": "reviews/20261006T174722Z-sentinel-road-investigation/rois.geojson",
+  "source_sha256": "b079d3dbff8a473daf6e3d33cdfdaedffc29de470425b8fe9a212f796a862125",
+  "features": [
+    {
+      "id": "ROI-01",
+      "role": "candidate-corridor",
+      "bbox_wgs84_lonlat": [
+        24.59601409568563,
+        58.42645019226389,
+        24.814699942029094,
+        58.5428504650451
+      ],
+      "geometry_sha256": "482140572d26478fbc583b13e96221b0f714a3f7b7f1b04d12232446daabaf22",
+      "qa": "not_tested",
+      "uncertainty": "manual coarse centreline; 40 m sampling buffer is declared tolerance, not measured registration error"
+    },
+    {
+      "id": "ROI-02",
+      "role": "candidate-corridor",
+      "bbox_wgs84_lonlat": [
+        24.508871554760752,
+        58.51182098617653,
+        24.542557164225435,
+        58.58533014576505
+      ],
+      "geometry_sha256": "86b940fa1c345d4a2a60527eabcbe40f097a4fec7a0452f74b58618782c08719",
+      "qa": "not_tested",
+      "uncertainty": "manual coarse centreline; 40 m sampling buffer is declared tolerance, not measured registration error"
+    },
+    {
+      "id": "CONTROL-01",
+      "role": "visual-control",
+      "bbox_wgs84_lonlat": [
+        24.684056018864492,
+        58.57527657220925,
+        24.687372552564078,
+        58.58004112960793
+      ],
+      "geometry_sha256": "6e1573736aad67f932bbc75d568ad7c09aac05777d38934ecc524d76e94fba89",
+      "qa": "not_tested",
+      "uncertainty": "stable-looking forest; no independent stability label"
+    },
+    {
+      "id": "CONTROL-02",
+      "role": "visual-control",
+      "bbox_wgs84_lonlat": [
+        24.80548459029306,
+        58.315466746319395,
+        24.808801123992648,
+        58.320196503915795
+      ],
+      "geometry_sha256": "15c4448aa8be954c163d569d2dbd78df762b2c79393ef21bbf49c16520e3f82d",
+      "qa": "not_tested",
+      "uncertainty": "stable-looking forest; no independent stability label"
+    }
+  ],
+  "coordinate_policy": "Bounds are extracted from archived polygons, not reinterpretations or surveyed centrelines."
+}

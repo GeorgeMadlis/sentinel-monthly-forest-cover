@@ -1,0 +1,110 @@
+{
+  "continuous_rasters": {
+    "NDVI_current": {
+      "compared_finite_pixels": 3255517,
+      "max_absolute_error": 0.0,
+      "validity_disagreements": 0
+    },
+    "NDVI_reference": {
+      "compared_finite_pixels": 3255862,
+      "max_absolute_error": 2.384185791015625e-07,
+      "validity_disagreements": 0
+    },
+    "NDVI_reference_std": {
+      "compared_finite_pixels": 3255351,
+      "max_absolute_error": 5.960464477539063e-08,
+      "validity_disagreements": 0
+    },
+    "NDVI_reference_count": {
+      "compared_finite_pixels": 3256200,
+      "max_absolute_error": 0.0,
+      "validity_disagreements": 0
+    },
+    "NDVI_change": {
+      "compared_finite_pixels": 3255453,
+      "max_absolute_error": 2.384185791015625e-07,
+      "validity_disagreements": 0
+    },
+    "VV_current": {
+      "compared_finite_pixels": 3256200,
+      "max_absolute_error": 0.0,
+      "validity_disagreements": 0
+    },
+    "VV_reference": {
+      "compared_finite_pixels": 3256200,
+      "max_absolute_error": 0.0,
+      "validity_disagreements": 0
+    },
+    "VH_current": {
+      "compared_finite_pixels": 3256200,
+      "max_absolute_error": 0.0,
+      "validity_disagreements": 0
+    },
+    "VH_reference": {
+      "compared_finite_pixels": 3256200,
+      "max_absolute_error": 0.0,
+      "validity_disagreements": 0
+    },
+    "VV_change": {
+      "compared_finite_pixels": 3256200,
+      "max_absolute_error": 0.0,
+      "validity_disagreements": 0
+    },
+    "VH_change": {
+      "compared_finite_pixels": 3256200,
+      "max_absolute_error": 0.0,
+      "validity_disagreements": 0
+    }
+  },
+  "production_masks": {
+    "fixed": {
+      "recomputed_candidates": 91291,
+      "archived_candidates": 91291,
+      "value_disagreements_common_support": 0,
+      "validity_disagreements": 0
+    },
+    "sigma": {
+      "recomputed_candidates": 121242,
+      "archived_candidates": 121242,
+      "value_disagreements_common_support": 0,
+      "validity_disagreements": 0
+    },
+    "radar": {
+      "recomputed_candidates": 119603,
+      "archived_candidates": 119603,
+      "value_disagreements_common_support": 0,
+      "validity_disagreements": 0
+    },
+    "sigma_and_radar": {
+      "recomputed_candidates": 12875,
+      "archived_candidates": 12875,
+      "value_disagreements_common_support": 0,
+      "validity_disagreements": 0
+    }
+  },
+  "unauthenticated_presentation_masks_comparison_only": {
+    "sigma": {
+      "current_display_candidates": 121242,
+      "recomputed_candidates": 121242,
+      "value_disagreements_common_support": 0,
+      "validity_disagreements": 0
+    },
+    "fixed_and_radar": {
+      "current_display_candidates": 9469,
+      "recomputed_candidates": 9469,
+      "value_disagreements_common_support": 0,
+      "validity_disagreements": 0
+    },
+    "sigma_and_radar": {
+      "current_display_candidates": 12875,
+      "recomputed_candidates": 12875,
+      "value_disagreements_common_support": 0,
+      "validity_disagreements": 0
+    }
+  },
+  "continuous_tolerance": 2e-06,
+  "continuous_reproduction_pass": true,
+  "production_mask_reproduction_pass": true,
+  "formula": "absolute current-minus-reference NDVI, not relative percentage; sigma compares absolute delta to -2 population SD; radar medians in dB",
+  "interpretation": "Agreement is a reproducibility result, not road/forest/causal validation."
+}

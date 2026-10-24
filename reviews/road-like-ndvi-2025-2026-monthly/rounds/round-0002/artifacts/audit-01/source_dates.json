@@ -1,0 +1,713 @@
+[
+  {
+    "item_id": "S2C_35VLE_20250615_0_L2A",
+    "band": "blue",
+    "acquisition_utc": "2025-06-15T09:54:39.645000Z",
+    "historical_retrieval_utc": "not_exposed_in_this_sidecar",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/6/S2C_35VLE_20250615_0_L2A/B02.tif",
+    "source_sha256": "aeb24e588d708d825e179feacf7bd44972e2fe49556b302a8496ed151fdeb295",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250615_0_L2A",
+    "band": "green",
+    "acquisition_utc": "2025-06-15T09:54:39.645000Z",
+    "historical_retrieval_utc": "not_exposed_in_this_sidecar",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/6/S2C_35VLE_20250615_0_L2A/B03.tif",
+    "source_sha256": "f62c7fa8f939ed5c73bf637410822f7be24a14df11fd529f44ab4ed395912cdd",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250615_0_L2A",
+    "band": "nir",
+    "acquisition_utc": "2025-06-15T09:54:39.645000Z",
+    "historical_retrieval_utc": "not_exposed_in_this_sidecar",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/6/S2C_35VLE_20250615_0_L2A/B08.tif",
+    "source_sha256": "6f6ed0bed428e5b450bf1635b9462f6f41f2403a2fc0c5d8ded67d82332f7310",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250615_0_L2A",
+    "band": "red",
+    "acquisition_utc": "2025-06-15T09:54:39.645000Z",
+    "historical_retrieval_utc": "not_exposed_in_this_sidecar",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/6/S2C_35VLE_20250615_0_L2A/B04.tif",
+    "source_sha256": "ca2b8b5d0829fc2901929cab4c5986f1603be00b87dc9b07fc1a82d847abdfe5",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250615_0_L2A",
+    "band": "scl",
+    "acquisition_utc": "2025-06-15T09:54:39.645000Z",
+    "historical_retrieval_utc": "not_exposed_in_this_sidecar",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/6/S2C_35VLE_20250615_0_L2A/SCL.tif",
+    "source_sha256": "3ef8d39d467af401224287df0abe766a07ce2cc2d4748e14e15dde9777234cd8",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2A_35VLE_20250614_1_L2A",
+    "band": "nir",
+    "acquisition_utc": "2025-06-14T09:44:37.984000Z",
+    "historical_retrieval_utc": "2026-10-06T13:40:04.760612Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/6/S2A_35VLE_20250614_1_L2A/B08.tif",
+    "source_sha256": "a5c174c44d252630d3e215188a2f411daa6cae45dbd66b4eb8d0874f265f8452",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2A_35VLE_20250614_1_L2A",
+    "band": "red",
+    "acquisition_utc": "2025-06-14T09:44:37.984000Z",
+    "historical_retrieval_utc": "2026-10-06T13:39:38.450345Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/6/S2A_35VLE_20250614_1_L2A/B04.tif",
+    "source_sha256": "d6f5e05be7e5c39e38502462ab075c76ea63ccd660bd487baec180ddf8e5f207",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2A_35VLE_20250614_1_L2A",
+    "band": "scl",
+    "acquisition_utc": "2025-06-14T09:44:37.984000Z",
+    "historical_retrieval_utc": "2026-10-06T13:40:06.055443Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/6/S2A_35VLE_20250614_1_L2A/SCL.tif",
+    "source_sha256": "9b12b6bb8566ad92c33ae555a6ec37db0c449d86789f96b7f564bb41a602bd10",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250725_0_L2A",
+    "band": "nir",
+    "acquisition_utc": "2025-07-25T09:54:42.941000Z",
+    "historical_retrieval_utc": "2026-10-06T13:44:18.007257Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/7/S2C_35VLE_20250725_0_L2A/B08.tif",
+    "source_sha256": "4ec6e909354b7c8de346f2b93ceeee3ee43fbf534b7e7cd4fb569ba83cede0f9",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250725_0_L2A",
+    "band": "red",
+    "acquisition_utc": "2025-07-25T09:54:42.941000Z",
+    "historical_retrieval_utc": "2026-10-06T13:43:19.474756Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/7/S2C_35VLE_20250725_0_L2A/B04.tif",
+    "source_sha256": "52e3c0d10b23daaaf90649e2410e77b4d42998983c2d7998b6b84ebf1d682b49",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250725_0_L2A",
+    "band": "scl",
+    "acquisition_utc": "2025-07-25T09:54:42.941000Z",
+    "historical_retrieval_utc": "2026-10-06T13:44:19.539655Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/7/S2C_35VLE_20250725_0_L2A/SCL.tif",
+    "source_sha256": "88c8659ba98b1458db4be0267c8da0f9e2114c589f6717b879340e2ad6e2441a",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2A_35VLE_20250704_1_L2A",
+    "band": "nir",
+    "acquisition_utc": "2025-07-04T09:44:41.632000Z",
+    "historical_retrieval_utc": "2026-10-06T13:44:19.839647Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/7/S2A_35VLE_20250704_1_L2A/B08.tif",
+    "source_sha256": "1abaf5893561a5f980cd312a97a9d353114a3ca0e886f9b9a28917681625c45d",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2A_35VLE_20250704_1_L2A",
+    "band": "red",
+    "acquisition_utc": "2025-07-04T09:44:41.632000Z",
+    "historical_retrieval_utc": "2026-10-06T13:43:26.714708Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/7/S2A_35VLE_20250704_1_L2A/B04.tif",
+    "source_sha256": "21d8007f95e18f7f05fc9beb5fd96ef419e4c095b20e0d8d756f1e3596dbffba",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2A_35VLE_20250704_1_L2A",
+    "band": "scl",
+    "acquisition_utc": "2025-07-04T09:44:41.632000Z",
+    "historical_retrieval_utc": "2026-10-06T13:44:23.207812Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/7/S2A_35VLE_20250704_1_L2A/SCL.tif",
+    "source_sha256": "ecb81dad672c3d7cfc289322e5ec61bef8e57e9dbb2a2afd452742d93ad56951",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2A_35VLE_20250826_1_L2A",
+    "band": "nir",
+    "acquisition_utc": "2025-08-26T09:54:34.887000Z",
+    "historical_retrieval_utc": "2026-10-06T13:44:55.832687Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/8/S2A_35VLE_20250826_1_L2A/B08.tif",
+    "source_sha256": "6839b02844c913380ace34dcb60617b9539320121e0125ec2cbdd048ca5fac93",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2A_35VLE_20250826_1_L2A",
+    "band": "red",
+    "acquisition_utc": "2025-08-26T09:54:34.887000Z",
+    "historical_retrieval_utc": "2026-10-06T13:43:47.582266Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/8/S2A_35VLE_20250826_1_L2A/B04.tif",
+    "source_sha256": "abd4f797e8f9ca5f7c42296f014277e2881e6b0d67252548ff3e313eab7d52d5",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2A_35VLE_20250826_1_L2A",
+    "band": "scl",
+    "acquisition_utc": "2025-08-26T09:54:34.887000Z",
+    "historical_retrieval_utc": "2026-10-06T13:44:57.406736Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/8/S2A_35VLE_20250826_1_L2A/SCL.tif",
+    "source_sha256": "c7ae6e86de40ebd9df55811326138f62c1888b72c25ab83e44bafd1359379ce2",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250814_0_L2A",
+    "band": "nir",
+    "acquisition_utc": "2025-08-14T09:54:39.640000Z",
+    "historical_retrieval_utc": "2026-10-06T13:47:32.180958Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/8/S2C_35VLE_20250814_0_L2A/B08.tif",
+    "source_sha256": "0a1c826cd99278c523913e10142f43d1250b3ad9ad2a6acc0c7a897c57470db8",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250814_0_L2A",
+    "band": "red",
+    "acquisition_utc": "2025-08-14T09:54:39.640000Z",
+    "historical_retrieval_utc": "2026-10-06T13:45:28.774071Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/8/S2C_35VLE_20250814_0_L2A/B04.tif",
+    "source_sha256": "12716d5950063289fe40360125fd10146ac5a072c2f942cdb65a2d51536bae9d",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250814_0_L2A",
+    "band": "scl",
+    "acquisition_utc": "2025-08-14T09:54:39.640000Z",
+    "historical_retrieval_utc": "2026-10-06T13:47:34.774024Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/8/S2C_35VLE_20250814_0_L2A/SCL.tif",
+    "source_sha256": "b08b9b2016977b7e8a86f286b04ee9c404be4312100da084bd05dc4aebc104fd",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2B_35VLE_20250630_0_L2A",
+    "band": "nir",
+    "acquisition_utc": "2025-06-30T09:54:23.198000Z",
+    "historical_retrieval_utc": "2026-10-06T13:46:47.395059Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/6/S2B_35VLE_20250630_0_L2A/B08.tif",
+    "source_sha256": "82f70ce4d42b2c662fd8f4c314f1020f373d6335c2174a82fb8cc54a78ccccfd",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2B_35VLE_20250630_0_L2A",
+    "band": "red",
+    "acquisition_utc": "2025-06-30T09:54:23.198000Z",
+    "historical_retrieval_utc": "2026-10-06T13:45:19.210633Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/6/S2B_35VLE_20250630_0_L2A/B04.tif",
+    "source_sha256": "8f2e6f7260687008baed5f749354c593d44a9ad8af2b28b8578443eb84d54825",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2B_35VLE_20250630_0_L2A",
+    "band": "scl",
+    "acquisition_utc": "2025-06-30T09:54:23.198000Z",
+    "historical_retrieval_utc": "2026-10-06T13:46:50.910294Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/6/S2B_35VLE_20250630_0_L2A/SCL.tif",
+    "source_sha256": "52427351fd4364841f9a3324c48b7492c6735851251faa7732f5c8c4bb002574",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250804_0_L2A",
+    "band": "nir",
+    "acquisition_utc": "2025-08-04T09:54:40.261000Z",
+    "historical_retrieval_utc": "2026-10-06T13:47:25.497700Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/8/S2C_35VLE_20250804_0_L2A/B08.tif",
+    "source_sha256": "e15a926a6110a946f1d34825ba29f47f3bc3218b20ca115dc07e16cddf4f9cc7",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250804_0_L2A",
+    "band": "red",
+    "acquisition_utc": "2025-08-04T09:54:40.261000Z",
+    "historical_retrieval_utc": "2026-10-06T13:45:58.793840Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/8/S2C_35VLE_20250804_0_L2A/B04.tif",
+    "source_sha256": "17fc9d610758f6bee7d1bd31e1e02c1551f45a9cc5c13a405d4cfba7cb6195e6",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20250804_0_L2A",
+    "band": "scl",
+    "acquisition_utc": "2025-08-04T09:54:40.261000Z",
+    "historical_retrieval_utc": "2026-10-06T13:47:28.771923Z",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2025/8/S2C_35VLE_20250804_0_L2A/SCL.tif",
+    "source_sha256": "eedfb2e4b8002e4fa345f9c0bc7a6c1330e6653f7e328470aa07bd77606e65dd",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20260620_0_L2A",
+    "band": "blue",
+    "acquisition_utc": "2026-06-20T09:54:20.028000Z",
+    "historical_retrieval_utc": "not_exposed_in_this_sidecar",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B02.tif",
+    "source_sha256": "db86b50e3b8f7a3d74d11bd58f0e98dd49a97dc7b76158570b83b903741c8c9c",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20260620_0_L2A",
+    "band": "green",
+    "acquisition_utc": "2026-06-20T09:54:20.028000Z",
+    "historical_retrieval_utc": "not_exposed_in_this_sidecar",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B03.tif",
+    "source_sha256": "d14fc378de22360ec679ec6935f0e8628a5afe7df27e3149b5401aa1b1fdfa92",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20260620_0_L2A",
+    "band": "nir",
+    "acquisition_utc": "2026-06-20T09:54:20.028000Z",
+    "historical_retrieval_utc": "not_exposed_in_this_sidecar",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B08.tif",
+    "source_sha256": "a1d0bb5ed7fb6352837fcd900f16d480a83b9cb7760962fa9b18e048cb74893a",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20260620_0_L2A",
+    "band": "red",
+    "acquisition_utc": "2026-06-20T09:54:20.028000Z",
+    "historical_retrieval_utc": "not_exposed_in_this_sidecar",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/B04.tif",
+    "source_sha256": "83c2eabb2b60315f08b6720bb3ab842738a87f51a6eee5ecea0949c97da98ed0",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S2C_35VLE_20260620_0_L2A",
+    "band": "scl",
+    "acquisition_utc": "2026-06-20T09:54:20.028000Z",
+    "historical_retrieval_utc": "not_exposed_in_this_sidecar",
+    "source_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/2026/6/S2C_35VLE_20260620_0_L2A/SCL.tif",
+    "source_sha256": "8b0c25cd67d341e1be6735326495b31f7ca51114996b637fefe2ac9ae36a490e",
+    "lineage": "Sentinel/Copernicus optical"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250602T155525_20250602T155550_002606_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-06-02T15:55:38.113075Z",
+    "historical_retrieval_utc": "2026-10-06T13:46:23.703635Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/6/2/IW/DV/S1C_IW_GRDH_1SDV_20250602T155525_20250602T155550_002606_005671_D401/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "c761c10ff8dbfea8d22dcb716171df24b7808a44b02d04bc783f2a5b73123e8b",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250602T155525_20250602T155550_002606_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-06-02T15:55:38.113075Z",
+    "historical_retrieval_utc": "2026-10-06T13:41:20.271721Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/6/2/IW/DV/S1C_IW_GRDH_1SDV_20250602T155525_20250602T155550_002606_005671_D401/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "3980ae032f2d302902ba32ba18985ee649dbf6be6bf57f5399cf2e8e72765d10",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250608T155634_20250608T155659_059557_0764DC_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-06-08T15:56:46.961319Z",
+    "historical_retrieval_utc": "2026-10-06T13:42:08.786324Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/6/8/IW/DV/S1A_IW_GRDH_1SDV_20250608T155634_20250608T155659_059557_0764DC_F9D9/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "f9a877f997cddc0119fc70ee8cdee676d37e5e0b76637c862c66ad064b6b9497",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250608T155634_20250608T155659_059557_0764DC_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-06-08T15:56:46.961319Z",
+    "historical_retrieval_utc": "2026-10-06T13:41:12.492680Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/6/8/IW/DV/S1A_IW_GRDH_1SDV_20250608T155634_20250608T155659_059557_0764DC_F9D9/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "27c763d322255b1858fccb03280d45b3b53a83917b98e7f57637e61a18240231",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250620T155633_20250620T155658_059732_076AE3_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-06-20T15:56:46.218942Z",
+    "historical_retrieval_utc": "2026-10-06T13:42:05.236059Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/6/20/IW/DV/S1A_IW_GRDH_1SDV_20250620T155633_20250620T155658_059732_076AE3_0EDA/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "c2ba44b8fe79e0a7b13e0eff9c535180cf9fe5ba70d7695beee866edecbd3e42",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250620T155633_20250620T155658_059732_076AE3_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-06-20T15:56:46.218942Z",
+    "historical_retrieval_utc": "2026-10-06T13:41:11.503480Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/6/20/IW/DV/S1A_IW_GRDH_1SDV_20250620T155633_20250620T155658_059732_076AE3_0EDA/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "5a4a9436e13d75119371957f6455c4e7123eb89d878b45d492126374d7fc0aff",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250626T155527_20250626T155552_002956_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-06-26T15:55:39.586493Z",
+    "historical_retrieval_utc": "2026-10-06T13:42:57.187237Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/6/26/IW/DV/S1C_IW_GRDH_1SDV_20250626T155527_20250626T155552_002956_006091_E05F/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "08446ccd956dad2cc0cee5af3ecef19389ddc438efb78d235384637ec5636f47",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250626T155527_20250626T155552_002956_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-06-26T15:55:39.586493Z",
+    "historical_retrieval_utc": "2026-10-06T13:42:21.699089Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/6/26/IW/DV/S1C_IW_GRDH_1SDV_20250626T155527_20250626T155552_002956_006091_E05F/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "946bdc6a169ae4717f4ff580b5405ef987763ca4ebbc7f81bfd8452cd19011a9",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250702T155633_20250702T155658_059907_0770FE_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-07-02T15:56:45.663617Z",
+    "historical_retrieval_utc": "2026-10-06T13:56:28.605110Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/7/2/IW/DV/S1A_IW_GRDH_1SDV_20250702T155633_20250702T155658_059907_0770FE_8D8E/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "433d839d5c6c2a930609004a24b751c6d43f611d96ac82a68f753c98e019a19f",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250702T155633_20250702T155658_059907_0770FE_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-07-02T15:56:45.663617Z",
+    "historical_retrieval_utc": "2026-10-06T13:55:33.650390Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/7/2/IW/DV/S1A_IW_GRDH_1SDV_20250702T155633_20250702T155658_059907_0770FE_8D8E/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "f62bad85d5cc1141109658d9f2013521880bde5f07887c03f57cb3a8c222c028",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250714T155632_20250714T155657_060082_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-07-14T15:56:45.067503Z",
+    "historical_retrieval_utc": "2026-10-06T13:47:07.196856Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/7/14/IW/DV/S1A_IW_GRDH_1SDV_20250714T155632_20250714T155657_060082_077701_4708/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "041197aabfa139e1f294e5292a905148fbfe48dc0d911af2574f7520feb18741",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250714T155632_20250714T155657_060082_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-07-14T15:56:45.067503Z",
+    "historical_retrieval_utc": "2026-10-06T13:46:14.617957Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/7/14/IW/DV/S1A_IW_GRDH_1SDV_20250714T155632_20250714T155657_060082_077701_4708/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "c3f7b232a734583fdd0911557e2f7cd42a1cde94fb69e7f902ca30bc854f97a9",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250720T155528_20250720T155553_003306_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-07-20T15:55:40.884693Z",
+    "historical_retrieval_utc": "2026-10-06T13:47:56.127854Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/7/20/IW/DV/S1C_IW_GRDH_1SDV_20250720T155528_20250720T155553_003306_006AAF_BF4E/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "6c86a67e7962d46df1208ad88a7a46c5cc6960a1b5507e97cf4453514ed5a181",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250720T155528_20250720T155553_003306_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-07-20T15:55:40.884693Z",
+    "historical_retrieval_utc": "2026-10-06T13:47:15.979928Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/7/20/IW/DV/S1C_IW_GRDH_1SDV_20250720T155528_20250720T155553_003306_006AAF_BF4E/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "58a2994c0b0a83961cab2d1006d0f40638899c2aaae66447e615e77bab8b0701",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250801T155529_20250801T155554_003481_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-08-01T15:55:41.576263Z",
+    "historical_retrieval_utc": "2026-10-06T13:48:34.308584Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/8/1/IW/DV/S1C_IW_GRDH_1SDV_20250801T155529_20250801T155554_003481_006FCD_30A3/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "d345d57b26e097709a24c39849ded020f77b0cd489a155fc8ad8dce35202325b",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250801T155529_20250801T155554_003481_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-08-01T15:55:41.576263Z",
+    "historical_retrieval_utc": "2026-10-06T13:47:53.407421Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/8/1/IW/DV/S1C_IW_GRDH_1SDV_20250801T155529_20250801T155554_003481_006FCD_30A3/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "cd8e8d1d9286df854d1bed0fab3802715a3ede12c2357db336f0cb725ca4db34",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250807T155632_20250807T155657_060432_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-08-07T15:56:44.529277Z",
+    "historical_retrieval_utc": "2026-10-06T13:49:06.937795Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/8/7/IW/DV/S1A_IW_GRDH_1SDV_20250807T155632_20250807T155657_060432_078324_87D9/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "09abd8e8990addbdf90e6267e5a789cd031652d92422f0c0b0136e22bf36b37d",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250807T155632_20250807T155657_060432_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-08-07T15:56:44.529277Z",
+    "historical_retrieval_utc": "2026-10-06T13:48:29.697381Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/8/7/IW/DV/S1A_IW_GRDH_1SDV_20250807T155632_20250807T155657_060432_078324_87D9/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "ee439f41664d11bc175aa34860b6adf746a6e56d65b3c0bc7316a62dd6b3ed84",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250813T155529_20250813T155554_003656_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-08-13T15:55:42.210267Z",
+    "historical_retrieval_utc": "2026-10-06T13:49:56.651256Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/8/13/IW/DV/S1C_IW_GRDH_1SDV_20250813T155529_20250813T155554_003656_007502_8AE5/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "479686d59e2af8ed9081b9cf301a5f08028153e7ce08a39e3efca7cf4712fce3",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250813T155529_20250813T155554_003656_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-08-13T15:55:42.210267Z",
+    "historical_retrieval_utc": "2026-10-06T13:49:16.043637Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/8/13/IW/DV/S1C_IW_GRDH_1SDV_20250813T155529_20250813T155554_003656_007502_8AE5/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "cd6872e6773ac19faededcd3f7db16778c9ca8867859b0497004f093bc61c8e2",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250825T155530_20250825T155555_003831_007A43_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-08-25T15:55:42.656569Z",
+    "historical_retrieval_utc": "2026-10-06T13:50:19.646922Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/8/25/IW/DV/S1C_IW_GRDH_1SDV_20250825T155530_20250825T155555_003831_007A43_E500/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "9921f4bbeb9b4667474039b96d71467b6a2e748d1bc3e06519c47d7e92a4d997",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20250825T155530_20250825T155555_003831_007A43_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-08-25T15:55:42.656569Z",
+    "historical_retrieval_utc": "2026-10-06T13:49:41.342628Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/8/25/IW/DV/S1C_IW_GRDH_1SDV_20250825T155530_20250825T155555_003831_007A43_E500/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "c23a0e682d5f3c119f1ff1bd543f2e50be155ccec48d4b152bafed1072d868d4",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250831T155632_20250831T155657_060782_0790EC_rtc",
+    "band": "VH",
+    "acquisition_utc": "2025-08-31T15:56:44.682466Z",
+    "historical_retrieval_utc": "2026-10-06T13:51:22.700069Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/8/31/IW/DV/S1A_IW_GRDH_1SDV_20250831T155632_20250831T155657_060782_0790EC_103F/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "3ebeabfc26d0eed8fc9d683c269bff47925848eb637880d55661a34151484723",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20250831T155632_20250831T155657_060782_0790EC_rtc",
+    "band": "VV",
+    "acquisition_utc": "2025-08-31T15:56:44.682466Z",
+    "historical_retrieval_utc": "2026-10-06T13:50:38.520993Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2025/8/31/IW/DV/S1A_IW_GRDH_1SDV_20250831T155632_20250831T155657_060782_0790EC_103F/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "8670b1526bbf9ced2a859fa3195c93361b07c69a908ee68327b4b0e38c4851ee",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20260603T155622_20260603T155647_064807_082A6D_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-06-03T15:56:35.148661Z",
+    "historical_retrieval_utc": "2026-10-06T13:51:43.942129Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/6/3/IW/DV/S1A_IW_GRDH_1SDV_20260603T155622_20260603T155647_064807_082A6D_4006/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "0ee971ea6e76e64e2ac7ae9b74421b728fd1ab9d2f6a7efced12d82cb2dda6ef",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20260603T155622_20260603T155647_064807_082A6D_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-06-03T15:56:35.148661Z",
+    "historical_retrieval_utc": "2026-10-06T13:51:03.563146Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/6/3/IW/DV/S1A_IW_GRDH_1SDV_20260603T155622_20260603T155647_064807_082A6D_4006/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "85d852498ccd35e83e4ff766dfaf371544d06d73468c98f038d9c6e41d176e00",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260610T155541_20260610T155606_003176_005874_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-06-10T15:55:53.511901Z",
+    "historical_retrieval_utc": "2026-10-06T13:52:50.637446Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/6/10/IW/DV/S1D_IW_GRDH_1SDV_20260610T155541_20260610T155606_003176_005874_AE7E/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "1da37b96a8e48ed47c168c70631190ecb7ac9ef3b5bffda7b4bcd56e1c22effa",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260610T155541_20260610T155606_003176_005874_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-06-10T15:55:53.511901Z",
+    "historical_retrieval_utc": "2026-10-06T13:52:05.761352Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/6/10/IW/DV/S1D_IW_GRDH_1SDV_20260610T155541_20260610T155606_003176_005874_AE7E/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "63abf8e7f051844ef55779c120a3aa5d2321b02de998aec3fc579ddea34d46bf",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260622T155542_20260622T155607_003351_005E29_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-06-22T15:55:54.565151Z",
+    "historical_retrieval_utc": "2026-10-06T13:53:05.191000Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/6/22/IW/DV/S1D_IW_GRDH_1SDV_20260622T155542_20260622T155607_003351_005E29_A253/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "9fe0d3e037abd20c56163b81bdb44cb079a41a4e924b4fc4a32009dc1712d289",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260622T155542_20260622T155607_003351_005E29_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-06-22T15:55:54.565151Z",
+    "historical_retrieval_utc": "2026-10-06T13:52:23.581196Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/6/22/IW/DV/S1D_IW_GRDH_1SDV_20260622T155542_20260622T155607_003351_005E29_A253/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "62278d84499380e2851f5238d105dbadff421407b251265bfda6cc06b00922c3",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20260627T155621_20260627T155646_065157_0836A8_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-06-27T15:56:33.701977Z",
+    "historical_retrieval_utc": "2026-10-06T13:54:17.592416Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/6/27/IW/DV/S1A_IW_GRDH_1SDV_20260627T155621_20260627T155646_065157_0836A8_0868/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "6411c9721f00a4ce90a9e8cb83af15c4a518ac2e26570de39697d53b4b5ad550",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1A_IW_GRDH_1SDV_20260627T155621_20260627T155646_065157_0836A8_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-06-27T15:56:33.701977Z",
+    "historical_retrieval_utc": "2026-10-06T13:53:32.461171Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/6/27/IW/DV/S1A_IW_GRDH_1SDV_20260627T155621_20260627T155646_065157_0836A8_0868/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "cae9c326569b0e2ce93e3170166fcc208ca75bd1f1e32d2d9aa10bae8fb0abc3",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20260628T155529_20260628T155554_008308_0106FE_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-06-28T15:55:41.713258Z",
+    "historical_retrieval_utc": "2026-10-06T13:54:30.892649Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/6/28/IW/DV/S1C_IW_GRDH_1SDV_20260628T155529_20260628T155554_008308_0106FE_C516/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "af866f94a023bc04fa8ee5679ab78295af84f83d0dc5902d45ba4a8e36cd7cb8",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20260628T155529_20260628T155554_008308_0106FE_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-06-28T15:55:41.713258Z",
+    "historical_retrieval_utc": "2026-10-06T13:53:49.172302Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/6/28/IW/DV/S1C_IW_GRDH_1SDV_20260628T155529_20260628T155554_008308_0106FE_C516/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "e6cf4268f7f6d8813f40614f6edce719ef1f7f9b396575507fc2dc49e9e19324",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20260710T155529_20260710T155554_008483_010CAD_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-07-10T15:55:42.358114Z",
+    "historical_retrieval_utc": "2026-10-06T13:55:47.142511Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/7/10/IW/DV/S1C_IW_GRDH_1SDV_20260710T155529_20260710T155554_008483_010CAD_F681/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "030c602b139e9cd6b40c5a7a53f977f267a15ed4aa9aef23dcf446b8f91d0eeb",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20260710T155529_20260710T155554_008483_010CAD_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-07-10T15:55:42.358114Z",
+    "historical_retrieval_utc": "2026-10-06T13:54:57.275361Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/7/10/IW/DV/S1C_IW_GRDH_1SDV_20260710T155529_20260710T155554_008483_010CAD_F681/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "1e20cec342bce94b7fcb0caa5c137449a0d94cc16739f26cc0749849e21754b6",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260716T155537_20260716T155602_003701_0069F4_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-07-16T15:55:50.203735Z",
+    "historical_retrieval_utc": "2026-10-06T13:56:15.363186Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/7/16/IW/DV/S1D_IW_GRDH_1SDV_20260716T155537_20260716T155602_003701_0069F4_AA33/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "b695dd1ea361405af74dc4640077f7899692b38c3fdb3b8be42351b3b388e0a3",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260716T155537_20260716T155602_003701_0069F4_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-07-16T15:55:50.203735Z",
+    "historical_retrieval_utc": "2026-10-06T13:55:16.870969Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/7/16/IW/DV/S1D_IW_GRDH_1SDV_20260716T155537_20260716T155602_003701_0069F4_AA33/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "52f91fc3ec9bd1fba1c9f7e6c62703deba7a1a6c2d1436e86c04dcd2b415719e",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260728T155538_20260728T155603_003876_006FF1_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-07-28T15:55:50.752418Z",
+    "historical_retrieval_utc": "2026-10-06T13:57:41.906291Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/7/28/IW/DV/S1D_IW_GRDH_1SDV_20260728T155538_20260728T155603_003876_006FF1_A0BB/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "0ee309f3e7f9ca300db204fda78cff5b0bfd9e2b8fa701c04e756a64eca533dc",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260728T155538_20260728T155603_003876_006FF1_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-07-28T15:55:50.752418Z",
+    "historical_retrieval_utc": "2026-10-06T13:56:44.115082Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/7/28/IW/DV/S1D_IW_GRDH_1SDV_20260728T155538_20260728T155603_003876_006FF1_A0BB/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "dcb5c16b190badf7a2b9f8790224e49810add9b2f46a2799caaa08e879e44b69",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20260803T155531_20260803T155556_008833_011856_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-08-03T15:55:43.746800Z",
+    "historical_retrieval_utc": "2026-10-06T13:58:01.106842Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/8/3/IW/DV/S1C_IW_GRDH_1SDV_20260803T155531_20260803T155556_008833_011856_5F60/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "4247bf1ff661a007517800b37ecdd4eae626740ddbdf8399584cd88dcd37d049",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20260803T155531_20260803T155556_008833_011856_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-08-03T15:55:43.746800Z",
+    "historical_retrieval_utc": "2026-10-06T13:57:07.034827Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/8/3/IW/DV/S1C_IW_GRDH_1SDV_20260803T155531_20260803T155556_008833_011856_5F60/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "ce5b779174c92ea842d0582d780dbaddf5751bd7a300ce428bbcb3b59c181b37",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260809T155538_20260809T155603_004051_007606_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-08-09T15:55:51.339578Z",
+    "historical_retrieval_utc": "2026-10-06T13:58:16.307231Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/8/9/IW/DV/S1D_IW_GRDH_1SDV_20260809T155538_20260809T155603_004051_007606_7801/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "bbf59bd164dfebb24e04a6cef775b7330b0a1290582963723fca4719db69558d",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260809T155538_20260809T155603_004051_007606_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-08-09T15:55:51.339578Z",
+    "historical_retrieval_utc": "2026-10-06T13:57:22.321967Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/8/9/IW/DV/S1D_IW_GRDH_1SDV_20260809T155538_20260809T155603_004051_007606_7801/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "5bea43207b8757eb458f8dfe50bb0db49d123aca2e574dd9f2125316766f9a76",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260821T155539_20260821T155604_004226_007C1F_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-08-21T15:55:51.801528Z",
+    "historical_retrieval_utc": "2026-10-06T13:59:13.440558Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/8/21/IW/DV/S1D_IW_GRDH_1SDV_20260821T155539_20260821T155604_004226_007C1F_611F/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "457a3e021ec150b2c7f9c12e65eb2c2553ca62f7e81d6d61f5d3cbaab30506ba",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1D_IW_GRDH_1SDV_20260821T155539_20260821T155604_004226_007C1F_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-08-21T15:55:51.801528Z",
+    "historical_retrieval_utc": "2026-10-06T13:58:30.923809Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/8/21/IW/DV/S1D_IW_GRDH_1SDV_20260821T155539_20260821T155604_004226_007C1F_611F/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "cb8b6006e5f64124704fa9dace73a4f0236841d366f2275151fd2fe716e5e6c7",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20260827T155532_20260827T155557_009183_0123E7_rtc",
+    "band": "VH",
+    "acquisition_utc": "2026-08-27T15:55:45.147483Z",
+    "historical_retrieval_utc": "2026-10-06T13:59:25.680900Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/8/27/IW/DV/S1C_IW_GRDH_1SDV_20260827T155532_20260827T155557_009183_0123E7_9558/measurement/iw-vh.rtc.tiff",
+    "source_sha256": "9b5cf3311e4753276c54ec551d06532c87f204bea148654af83add21547baec1",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  },
+  {
+    "item_id": "S1C_IW_GRDH_1SDV_20260827T155532_20260827T155557_009183_0123E7_rtc",
+    "band": "VV",
+    "acquisition_utc": "2026-08-27T15:55:45.147483Z",
+    "historical_retrieval_utc": "2026-10-06T13:58:48.002062Z",
+    "source_url": "https://sentinel1euwestrtc.blob.core.windows.net/sentinel1-grd-rtc/GRD/2026/8/27/IW/DV/S1C_IW_GRDH_1SDV_20260827T155532_20260827T155557_009183_0123E7_9558/measurement/iw-vv.rtc.tiff",
+    "source_sha256": "91da262af9a8e61848d0245a44cd9ed90f56884d57f1014ea5a89d60b452bc75",
+    "lineage": "Planetary Computer Sentinel-1 RTC"
+  }
+]

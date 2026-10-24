@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "scope": "planning integrity, not science",
+  "imported_files_unchanged": 9,
+  "roi_control_features_unchanged": 4,
+  "plan_sha256": {
+    "audit-01": "d94ff95e0c4fd75f87341faf01a7d9187cc1c08b13ab66a32fb8cf2bb4ad57d7",
+    "discovery-01": "a884061d6f6fc075cde8cca59c21e14c2497a4a38b03c7359e0d37a76b016f16",
+    "eo-01": "ee54173b4674a8929c0911567f2e28c8b102d752cf74202cd6e8e0d18dab40fc",
+    "geo-01": "f756bc4925800ff82ff0fb56dde544a89cc8167a24cbcd7ff163c62524128d64",
+    "works-01": "dd682c9abb4fd96b5baa4d64821ba0cf978f1f543005d27699f757cfa9c0b637",
+    "literature-01": "566cc389811450bc578fbe5ca8b315235b35b1e8f14e89f89725209c9aa8e62a",
+    "challenge-01": "d52ea3954a903cdf513cb5c7f0a44a5b5c67810c5fcafbf2c68814d145cdf8b7"
+  },
+  "actual_executions_total": 0,
+  "all_approvals": "pending"
+}

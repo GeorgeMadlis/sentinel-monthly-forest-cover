@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-10-24T06:58:13.327876+00:00",
+  "event": "audit-01 completed after explicit user approval",
+  "approval_sha256": "f3d12134b86d1366d39c13ef2961ea062c39b96522a3917e797f8b57158dcd4e",
+  "original_round_before_approval_sha256": "21f22322c7aabe4405cf0667c2417b39f17c1c24d086338deda72af65d78e106",
+  "current_round_sha256": "39417f14b61e38a225f0f4d0c5ea9bd6b41f97d903c985a2f787e508bb3513b7",
+  "audit_output_files": 166,
+  "output_hashes_all_match": true,
+  "later_roles_executed": 0,
+  "human_review": {
+    "status": "pending",
+    "reviewer": null,
+    "decision": null,
+    "basis": null
+  },
+  "worktree_status": {
+    "sentinel-monthly-forest-cover": " M .gitignore\n M docs/architecture_audit.md\n?? docs/portable_bundle.md\n?? forest_change/bundle.py\n?? reviews/road-like-ndvi-2025-2026-monthly/\n?? scripts/build_bundle.py\n?? tests/check_bundle_browser.cjs\n?? tests/test_bundle.py\n",
+    "forest-cover-lab": " M pyproject.toml\n?? research/code_sources/analysis/foreto_24_reverse_engineering.md\n?? research/data_sources/foreto_24_satellite_sources_2026_verification.md\n?? research/publications/forest-cover-lab.code-workspace\n?? research/publications/sentinel_disturbance_literature_scan_2026.md\n?? sentinel-monthly-forest-cover.code-workspace\n"
+  },
+  "checks": [
+    "79 raw source assets original-manifest authenticated; 59/59 optical and 213/226 sigma-run output hashes match.",
+    "301/301 historical-original hashes and 910/910 historical artifact hashes match.",
+    "1514/1514 original run/review files unchanged before/after audit.",
+    "11 continuous raster/count comparisons <=2e-6 and zero validity disagreements; all four production masks exactly reproduced.",
+    "Four valid unchanged ROI/control polygons inside AOI; two optical integer-shift landmark checks prefer zero.",
+    "Historical semantic provenance passes against historical locally available graph; new audit run schema/current semantic provenance pass.",
+    "Portable review site --strict passes with zero link problems; no browser runtime test in this audit.",
+    "Audit acceptance is limited to source/code/geometry/reproduction QA; human output acceptance pending."
+  ],
+  "scientific_verification": false
+}

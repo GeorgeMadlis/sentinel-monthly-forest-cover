@@ -1,0 +1,27 @@
+{
+  "directory": {
+    "files_verified": 74,
+    "local_links_checked": 45,
+    "scientific_verification": false
+  },
+  "zip_extracted": {
+    "files_verified": 74,
+    "local_links_checked": 45,
+    "scientific_verification": false
+  },
+  "browser": {
+    "result": "PASS",
+    "protocol": "file://",
+    "network": "blocked",
+    "external_requests": [],
+    "page_errors": [],
+    "archived_pngs_switched": 2,
+    "roi_and_control_features": 4,
+    "scientific_verification": false
+  },
+  "historical_audit_prefix_unchanged": true,
+  "all_investigation_html_css_links": 159,
+  "bundle_manifest_sha256": "8b490415575d0c9703060000052e3d2d3850f7abb729c189d63417e8e6593a0f",
+  "zip_sha256": "d0a5d23b0191154187cc58ec65c83781f53a13b02eebe55877e38885eec10ca3",
+  "scientific_verification": false
+}

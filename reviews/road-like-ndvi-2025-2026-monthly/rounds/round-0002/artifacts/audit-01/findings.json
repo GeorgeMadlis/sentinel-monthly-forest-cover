@@ -1,0 +1,189 @@
+{
+  "schema_version": "1.0",
+  "summary": "Local authentication/reproduction audit passed within its scope; scientific branch outputs and human acceptance remain pending.",
+  "claims": [
+    {
+      "id": "AUD-01",
+      "claim_id": "AUD-01",
+      "exact_proposition": "User identifies the two outlined corridors as the intended targets.",
+      "roi_id": "ROI-01,ROI-02",
+      "period": "archived acquisitions / audit on 2026-10-24",
+      "status": "supported",
+      "evidence_ids": [
+        "operator_approval.txt",
+        "geometry_qa.json"
+      ],
+      "source_lineage": [
+        "local archived Sentinel/Copernicus",
+        "operator directions where stated"
+      ],
+      "limitations": [
+        "User identification does not certify surveyed road edges or construction date."
+      ]
+    },
+    {
+      "id": "AUD-02",
+      "claim_id": "AUD-02",
+      "exact_proposition": "Archived ROI/control coordinates are unchanged, valid and inside the AOI.",
+      "roi_id": "all",
+      "period": "archived acquisitions / audit on 2026-10-24",
+      "status": "supported",
+      "evidence_ids": [
+        "roi_review.geojson",
+        "geometry_qa.json",
+        "inspect/ROI-01-compact.png",
+        "inspect/ROI-02-compact.png"
+      ],
+      "source_lineage": [
+        "local archived Sentinel/Copernicus",
+        "operator directions where stated"
+      ],
+      "limitations": [
+        "40 m sampling tolerance is not a measured registration error; controls remain visually selected."
+      ]
+    },
+    {
+      "id": "AUD-03",
+      "claim_id": "AUD-03",
+      "exact_proposition": "79 consumed raw assets match original run-manifest hashes.",
+      "roi_id": "all",
+      "period": "archived acquisitions / audit on 2026-10-24",
+      "status": "supported",
+      "evidence_ids": [
+        "authenticated_inputs.json",
+        "cache_authentication.json"
+      ],
+      "source_lineage": [
+        "local archived Sentinel/Copernicus",
+        "operator directions where stated"
+      ],
+      "limitations": [
+        "Byte authenticity is limited to the local archived chain, not independent provider certification."
+      ]
+    },
+    {
+      "id": "AUD-04",
+      "claim_id": "AUD-04",
+      "exact_proposition": "Thirteen original output-manifest mismatches are historical and remain excluded from original-manifest authority.",
+      "roi_id": "all",
+      "period": "archived acquisitions / audit on 2026-10-24",
+      "status": "supported",
+      "evidence_ids": [
+        "cache_authentication.json",
+        "original_integrity.json",
+        "reproduction.json"
+      ],
+      "source_lineage": [
+        "local archived Sentinel/Copernicus",
+        "operator directions where stated"
+      ],
+      "limitations": [
+        "Original expected bytes have not been restored; the immutable originals are not repaired."
+      ]
+    },
+    {
+      "id": "AUD-05",
+      "claim_id": "AUD-05",
+      "exact_proposition": "Existing production decisions reproduce exactly; optical change is absolute NDVI difference, not relative percent.",
+      "roi_id": "all",
+      "period": "archived acquisitions / audit on 2026-10-24",
+      "status": "supported",
+      "evidence_ids": [
+        "reproduction.json",
+        "run_manifest.json"
+      ],
+      "source_lineage": [
+        "local archived Sentinel/Copernicus",
+        "operator directions where stated"
+      ],
+      "limitations": [
+        "No threshold accuracy, cause or legal/forest claim follows."
+      ]
+    },
+    {
+      "id": "AUD-06",
+      "claim_id": "AUD-06",
+      "exact_proposition": "Two optical patches prefer zero integer shift; no correction applied.",
+      "roi_id": "all",
+      "period": "archived acquisitions / audit on 2026-10-24",
+      "status": "supported",
+      "evidence_ids": [
+        "registration_qa.json"
+      ],
+      "source_lineage": [
+        "local archived Sentinel/Copernicus",
+        "operator directions where stated"
+      ],
+      "limitations": [
+        "Subpixel, full-corridor and radar registration remain unverified."
+      ]
+    },
+    {
+      "id": "AUD-07",
+      "claim_id": "AUD-07",
+      "exact_proposition": "A verified before/after July-2025 orthophoto pair is available in the checked cache.",
+      "roi_id": "all",
+      "period": "archived acquisitions / audit on 2026-10-24",
+      "status": "unresolved",
+      "evidence_ids": [
+        "orthophoto_date_audit.json"
+      ],
+      "source_lineage": [
+        "local archived Sentinel/Copernicus",
+        "operator directions where stated"
+      ],
+      "limitations": [
+        "No linked flight date authenticates either side of the cutoff; no global availability search performed."
+      ]
+    },
+    {
+      "id": "AUD-08",
+      "claim_id": "AUD-08",
+      "exact_proposition": "An approved measured 2024 Hansen forest mask has been consumed.",
+      "roi_id": "all",
+      "period": "archived acquisitions / audit on 2026-10-24",
+      "status": "not_tested",
+      "evidence_ids": [
+        "forest_baseline_audit.json"
+      ],
+      "source_lineage": [
+        "local archived Sentinel/Copernicus",
+        "operator directions where stated"
+      ],
+      "limitations": [
+        "Product selection recorded; no local mask found/ingested. The 2024 edition is not itself measured 2024 canopy cover."
+      ]
+    },
+    {
+      "id": "AUD-09",
+      "claim_id": "AUD-09",
+      "exact_proposition": "Calendar-month June NDVI pairs and causal new-road conclusions are established.",
+      "roi_id": "all",
+      "period": "archived acquisitions / audit on 2026-10-24",
+      "status": "not_tested",
+      "evidence_ids": [
+        "observation_dates.json"
+      ],
+      "source_lineage": [
+        "local archived Sentinel/Copernicus",
+        "operator directions where stated"
+      ],
+      "limitations": [
+        "Only historical single-scene/summer decisions audited; monthly/causal analysis not authorized."
+      ]
+    }
+  ],
+  "stage_status": {
+    "inspect": "audit-only complete with limitations",
+    "research": "not_run",
+    "corroborate": "not_run",
+    "report": "audit report only"
+  },
+  "limitations": [
+    "All-land-cover screening; no forest baseline was consumed, despite later Hansen product selection.",
+    "Not monthly June generation, construction attribution, legality, held-out accuracy or causal validation.",
+    "The original 13 derived artifact hash mismatches remain preserved; original-manifest-matching source caches are required.",
+    "NumPy implements aggregation under the already-declared workflow divergence; no new Lab tool registration.",
+    "Private external instructions and exact serving model/client details are not captured."
+  ]
+}

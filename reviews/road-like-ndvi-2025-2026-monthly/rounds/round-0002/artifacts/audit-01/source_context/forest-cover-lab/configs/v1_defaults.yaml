@@ -1,0 +1,35 @@
+# Forest Cover Lab — v1 default configuration
+# This file declares all parameters required for a v1 baseline run.
+# Do not hardcode any of these values in scripts.
+
+forest_definition:
+  dataset: "UMD/hansen/global_forest_change_2024_v1_12"
+  dataset_version: "v1.12"
+  forest_threshold_variable: "treecover2000"
+  canopy_threshold_pct: 30          # treecover2000 >= this value
+  min_mapping_area_ha: 0.5
+  datamask_value: 1                 # mapped land only
+  exclusions: []                    # document any exclusions here, e.g. ["water", "urban"]
+  nodata_policy: "exclude"
+  temporal_interpretation: "year_2000_baseline_extent"
+
+area_computation:
+  exchange_crs: "EPSG:4326"
+  crs_for_area: "EPSG:6933"         # WGS 84 / NSIDC EASE-Grid 2.0 (equal-area)
+  area_unit: "hectares"
+  method: "projected_equal_area"    # or "geodesic"
+
+output:
+  format: "GeoTIFF/COG"
+  nodata: 255
+  dtype: "uint8"
+  compression: "DEFLATE"
+
+algorithm:
+  name: "v1-baseline"
+  version: "0.1.0"
+
+run:
+  output_root: "outputs/"
+  emit_html_report: true
+  emit_qa_thumbnails: true

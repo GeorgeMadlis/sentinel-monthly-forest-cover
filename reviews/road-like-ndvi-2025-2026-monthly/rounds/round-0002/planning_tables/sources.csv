@@ -1,0 +1,3 @@
+source_id,producer,scene_id,acquisition_date,retrieval_date,license,lineage,status
+archived-S2C_35VLE_20250615_0_L2A,Copernicus Sentinel-2 / Earth Search Element 84,S2C_35VLE_20250615_0_L2A,2025-06-15T09:54:39.645000Z,not_captured_in_bootstrap,original attribution retained; redistribution terms pending verification,archived-calibrated-summer-scene,archived_single_scene_context_not_monthly_mean
+archived-S2C_35VLE_20260620_0_L2A,Copernicus Sentinel-2 / Earth Search Element 84,S2C_35VLE_20260620_0_L2A,2026-06-20T09:54:20.028000Z,not_captured_in_bootstrap,original attribution retained; redistribution terms pending verification,archived-calibrated-summer-scene,archived_single_scene_context_not_monthly_mean

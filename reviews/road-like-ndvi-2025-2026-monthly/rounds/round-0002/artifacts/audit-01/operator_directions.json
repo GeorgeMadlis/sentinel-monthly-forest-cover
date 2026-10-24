@@ -1,0 +1,16 @@
+{
+  "recorded_utc": "2026-10-24T06:41:45.285199+00:00",
+  "originating_message_timestamp": "not_exposed",
+  "scope": "round-0002 graph and audit-01 only",
+  "bounds": {
+    "tool_call_limit": 80,
+    "elapsed_seconds_limit": 1800,
+    "remote_access": false,
+    "paid_external_services": false
+  },
+  "roi_decision": "The user agrees the two outlined corridors are the intended targets; polygon sampling/georegistration QA still separate.",
+  "orthophoto_direction": "Use verified acquisitions before 2025-07-01 vs on/after that cutoff where available; if no post-cutoff photo exists retain only verified pre-cutoff imagery. Conflicting or unknown acquisition dates cannot be assigned to a side. No claim about nonexistence outside local caches.",
+  "forest_baseline_direction": "Select Hansen 2024 coverage product for later configuration. Product edition, variables, 2024 reconstruction, forest threshold and other definition parameters must follow Lab contracts; no baseline download or forest estimate in audit.",
+  "implementation_direction": "Technical solution choice delegated; subsequent scientific steps remain gated.",
+  "future_hosts": "Use free services only; no unsupported host/delegation claim."
+}

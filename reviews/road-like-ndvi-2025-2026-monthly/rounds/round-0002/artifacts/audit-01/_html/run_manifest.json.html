@@ -1,0 +1,264 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>run_manifest.json</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>run_manifest.json</h1><p class="muted">run_manifest.json · <a href="../run_manifest.json">raw file</a> · <a href="index.html">folder</a></p><pre>{
+  &quot;aoi_id&quot;: &quot;example-aoi&quot;,
+  &quot;geometry_hash&quot;: &quot;aa53b6ecf9faa0e6f54bae4092d03bbc68af2243438248b583ada0ea619e40ce&quot;,
+  &quot;exchange_crs&quot;: &quot;EPSG:4326&quot;,
+  &quot;area_method&quot;: {
+    &quot;crs&quot;: &quot;EPSG:6933&quot;,
+    &quot;pixel_ha&quot;: 0.04,
+    &quot;type&quot;: &quot;equal-area&quot;,
+    &quot;unit&quot;: &quot;hectares&quot;
+  },
+  &quot;forest_definition&quot;: {
+    &quot;baseline_dataset&quot;: &quot;none&quot;,
+    &quot;forest_threshold_value&quot;: &quot;not-applied&quot;,
+    &quot;forest_threshold_variable&quot;: &quot;not-applied&quot;,
+    &quot;minimum_mapping_area_ha&quot;: 0.04,
+    &quot;name&quot;: &quot;ungated anomaly screening; no forest definition applied&quot;,
+    &quot;nodata_policy&quot;: &quot;exclude&quot;,
+    &quot;temporal_interpretation&quot;: &quot;not-applied&quot;
+  },
+  &quot;parameters&quot;: {
+    &quot;aoi_id&quot;: &quot;example-aoi&quot;,
+    &quot;application&quot;: &quot;application:seasonal-forest-change-monitoring&quot;,
+    &quot;calibration_requirements&quot;: {
+      &quot;earthsearch:boa_offset_applied&quot;: true
+    },
+    &quot;execution&quot;: {
+      &quot;backend&quot;: &quot;local-python&quot;,
+      &quot;crs&quot;: &quot;EPSG:6933&quot;,
+      &quot;max_observations_per_window&quot;: 1000,
+      &quot;resolution&quot;: 20,
+      &quot;tile_size&quot;: 512
+    },
+    &quot;forest_mask&quot;: null,
+    &quot;fusion&quot;: {
+      &quot;mode&quot;: &quot;optical_and_sar&quot;
+    },
+    &quot;observations&quot;: {
+      &quot;optical&quot;: {
+        &quot;dataset&quot;: &quot;DS-0002&quot;,
+        &quot;features&quot;: [
+          &quot;NDVI&quot;
+        ],
+        &quot;quality&quot;: {
+          &quot;mode&quot;: &quot;scl&quot;,
+          &quot;valid_classes&quot;: [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        &quot;version&quot;: &quot;Earth Search sentinel-2-l2a harmonized COG DN; gain 0.0001, no second BOA offset; item processing baseline archived&quot;
+      },
+      &quot;sar&quot;: {
+        &quot;aggregation&quot;: &quot;median&quot;,
+        &quot;dataset&quot;: &quot;DS-0003&quot;,
+        &quot;features&quot;: [
+          &quot;VV&quot;,
+          &quot;VH&quot;
+        ],
+        &quot;preprocessing&quot;: {
+          &quot;instrument_mode&quot;: &quot;IW&quot;,
+          &quot;orbit_direction&quot;: &quot;ascending&quot;,
+          &quot;relative_orbit&quot;: 160,
+          &quot;speckle_treatment&quot;: &quot;temporal median in dB; no spatial filter&quot;,
+          &quot;terrain_flattening&quot;: &quot;provider radiometric terrain correction&quot;
+        },
+        &quot;thresholds&quot;: {
+          &quot;VH&quot;: -1,
+          &quot;VV&quot;: -1.5
+        },
+        &quot;units&quot;: &quot;linear&quot;,
+        &quot;version&quot;: &quot;Planetary Computer sentinel-1-rtc; item provenance archived&quot;
+      }
+    },
+    &quot;output&quot;: {
+      &quot;export_quicklooks&quot;: true,
+      &quot;prefix&quot;: &quot;/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-s1-jja-2025-2026-sigma&quot;
+    },
+    &quot;providers&quot;: {
+      &quot;optical&quot;: {
+        &quot;collection&quot;: &quot;archived-calibrated-s2&quot;,
+        &quot;inventory&quot;: &quot;/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-s1-jja-2025-2026-sigma/optical_inventory.json&quot;,
+        &quot;type&quot;: &quot;local&quot;
+      },
+      &quot;sar&quot;: {
+        &quot;collection&quot;: &quot;planetary-computer-sentinel-1-rtc&quot;,
+        &quot;inventory&quot;: &quot;/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-s1-jja-2025-2026-sigma/radar_inventory.json&quot;,
+        &quot;type&quot;: &quot;local&quot;
+      }
+    },
+    &quot;run_id&quot;: &quot;aoi-s2-s1-jja-2025-2026-sigma&quot;,
+    &quot;schema_version&quot;: &quot;2.0&quot;,
+    &quot;temporal&quot;: {
+      &quot;aggregation&quot;: &quot;median&quot;,
+      &quot;alignment&quot;: &quot;calendar-date&quot;,
+      &quot;mode&quot;: &quot;matched-season&quot;,
+      &quot;reference_periods&quot;: [
+        {
+          &quot;end&quot;: &quot;2025-08-31&quot;,
+          &quot;start&quot;: &quot;2025-06-01&quot;
+        }
+      ],
+      &quot;reference_statistic&quot;: &quot;pooled-observations&quot;,
+      &quot;target&quot;: {
+        &quot;end&quot;: &quot;2026-08-31&quot;,
+        &quot;start&quot;: &quot;2026-06-01&quot;
+      }
+    },
+    &quot;threshold&quot;: {
+      &quot;k&quot;: 2,
+      &quot;min_component_pixels&quot;: 1,
+      &quot;min_valid_pixel_ratio&quot;: 0,
+      &quot;mode&quot;: &quot;sigma&quot;
+    },
+    &quot;audit_scope&quot;: &quot;Existing fixed/sigma/radar rules reproduced from local authenticated input assets only.&quot;
+  },
+  &quot;run_id&quot;: &quot;road-like-ndvi-round-0002-audit-01-cache-reproduction&quot;,
+  &quot;algorithm&quot;: {
+    &quot;name&quot;: &quot;Local reproduction of existing Sentinel screening decisions for audit&quot;,
+    &quot;version&quot;: &quot;audit-01-attempt-0001&quot;,
+    &quot;not_new_scientific_method&quot;: true,
+    &quot;not_full_production_pipeline_run&quot;: true
+  },
+  &quot;limitations&quot;: [
+    &quot;All-land-cover screening; no forest baseline was consumed, despite later Hansen product selection.&quot;,
+    &quot;Not monthly June generation, construction attribution, legality, held-out accuracy or causal validation.&quot;,
+    &quot;The original 13 derived artifact hash mismatches remain preserved; original-manifest-matching source caches are required.&quot;,
+    &quot;NumPy implements aggregation under the already-declared workflow divergence; no new Lab tool registration.&quot;,
+    &quot;Private external instructions and exact serving model/client details are not captured.&quot;
+  ],
+  &quot;data_provenance&quot;: [
+    {
+      &quot;dataset_name&quot;: &quot;Sentinel-2 L2A cached reflectance&quot;,
+      &quot;inventory_id&quot;: &quot;DS-0002&quot;,
+      &quot;dataset_version&quot;: &quot;archived Earth Search harmonized COGs&quot;,
+      &quot;source&quot;: <a href="authenticated_inputs.json.html">&quot;authenticated_inputs.json&quot;</a>,
+      &quot;evidence_role&quot;: &quot;core estimation input&quot;,
+      &quot;access_time_utc&quot;: &quot;2026-10-24T06:53:20.965386+00:00&quot;,
+      &quot;notes&quot;: &quot;Local reread; original URLs, scene acquisition and historical retrieval times remain in source_dates.json.&quot;
+    },
+    {
+      &quot;dataset_name&quot;: &quot;Sentinel-1 RTC cached linear intensity&quot;,
+      &quot;inventory_id&quot;: &quot;DS-0003&quot;,
+      &quot;dataset_version&quot;: &quot;archived Planetary Computer RTC&quot;,
+      &quot;source&quot;: <a href="authenticated_inputs.json.html">&quot;authenticated_inputs.json&quot;</a>,
+      &quot;evidence_role&quot;: &quot;core estimation input&quot;,
+      &quot;access_time_utc&quot;: &quot;2026-10-24T06:53:20.965456+00:00&quot;,
+      &quot;notes&quot;: &quot;Local reread; original URLs, scene acquisition and historical retrieval times remain in source_dates.json.&quot;
+    }
+  ],
+  &quot;semantic_provenance&quot;: {
+    &quot;ai_planner_involved&quot;: true,
+    &quot;concept_ids&quot;: [
+      &quot;application:seasonal-forest-change-monitoring&quot;,
+      &quot;claim:monthly-non-truth&quot;,
+      &quot;observation:forest-baseline&quot;,
+      &quot;observation:forest-cover-change&quot;,
+      &quot;observation:optical-vegetation-state&quot;,
+      &quot;observation:sar-backscatter-state&quot;,
+      &quot;validation:forest-evidence&quot;
+    ],
+    &quot;dataset_ids&quot;: [
+      &quot;DS-0002&quot;,
+      &quot;DS-0003&quot;
+    ],
+    &quot;knowledge_snapshot&quot;: {
+      &quot;forest_cover_lab_revision&quot;: &quot;c322e89fb96def2434c62776ac595f6cd995ef92&quot;,
+      &quot;graph_revision&quot;: &quot;f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7&quot;
+    },
+    &quot;methods&quot;: [
+      {
+        &quot;id&quot;: &quot;method:matched-season-interannual-comparison&quot;,
+        &quot;version&quot;: &quot;1.0&quot;
+      },
+      {
+        &quot;id&quot;: &quot;method:ndvi-anomaly&quot;,
+        &quot;version&quot;: &quot;1.0&quot;
+      },
+      {
+        &quot;id&quot;: &quot;method:s1-backscatter-confirmation&quot;,
+        &quot;version&quot;: &quot;1.0&quot;
+      }
+    ],
+    &quot;schema_version&quot;: &quot;1.0&quot;,
+    &quot;tools&quot;: [
+      {
+        &quot;id&quot;: &quot;tool:rasterio&quot;,
+        &quot;version&quot;: &quot;1.4.4&quot;
+      },
+      {
+        &quot;id&quot;: &quot;tool:pyproj&quot;,
+        &quot;version&quot;: &quot;3.7.2&quot;
+      },
+      {
+        &quot;id&quot;: &quot;tool:shapely&quot;,
+        &quot;version&quot;: &quot;2.1.2&quot;
+      }
+    ],
+    &quot;workflow&quot;: {
+      &quot;id&quot;: &quot;workflow:sentinel-monthly-forest-cover&quot;,
+      &quot;version&quot;: &quot;2.0.0&quot;
+    },
+    &quot;planning_record_id&quot;: &quot;road-like-ndvi-2025-2026-monthly-round-0002/graph&quot;
+  },
+  &quot;observation_inventory&quot;: {
+    &quot;reference&quot;: <a href="authenticated_inputs.json.html">&quot;authenticated_inputs.json&quot;</a>,
+    &quot;sha256&quot;: &quot;2f39dbc87da613fd9c6746415d7c7f11c5c9d9d0dcbe2064c7bd4086dccfd75f&quot;
+  },
+  &quot;source_code_sha256&quot;: {
+    <a href="scripts/finish_visual_qa.py.html">&quot;scripts/finish_visual_qa.py&quot;</a>: &quot;9b9984bac65e700dd19517f33b3475e8419734b9cc202cf4371f7a99f019999c&quot;,
+    <a href="scripts/montage_masks.py.html">&quot;scripts/montage_masks.py&quot;</a>: &quot;1b6086a2f7831d1d20469c1739c654b1061ed9eb1fdefd8b14f1cc07f712e83c&quot;,
+    <a href="scripts/audit_local.py.html">&quot;scripts/audit_local.py&quot;</a>: &quot;cc9fea38a45c3cb023bd49e8a4f3928528ae1207fd927d77f27105bbd5de4800&quot;,
+    <a href="scripts/write_audit_report.py.html">&quot;scripts/write_audit_report.py&quot;</a>: &quot;bc7dd074914621ba9d25e9b9bec1ed5a7ffa3e84ebff3ae0fc0dc13627c7d088&quot;
+  },
+  &quot;upstream_commits&quot;: {
+    &quot;forest_cover_lab&quot;: &quot;c322e89fb96def2434c62776ac595f6cd995ef92&quot;,
+    &quot;sentinel_monthly_forest_cover&quot;: &quot;2f512fec185d1290ab5203c8892231f2d5c219be&quot;,
+    &quot;lab_graph_revision&quot;: &quot;f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7&quot;
+  },
+  &quot;numpy_version&quot;: &quot;2.4.4&quot;,
+  &quot;outputs&quot;: [
+    {
+      &quot;path&quot;: <a href="../recomputed/fixed.tif">&quot;recomputed/fixed.tif&quot;</a>,
+      &quot;artifact_type&quot;: &quot;audit_reproduction&quot;,
+      &quot;sha256&quot;: &quot;e92f38a188a5ee829f13f68d67bf9566e16d5b72863476141c123992e8cb5532&quot;
+    },
+    {
+      &quot;path&quot;: <a href="../recomputed/fixed_and_radar.tif">&quot;recomputed/fixed_and_radar.tif&quot;</a>,
+      &quot;artifact_type&quot;: &quot;audit_reproduction&quot;,
+      &quot;sha256&quot;: &quot;d3f18c69229dff082fa7e9c36e492cf66ca449474e68a88fc2fa4301053c54a7&quot;
+    },
+    {
+      &quot;path&quot;: <a href="../recomputed/radar.tif">&quot;recomputed/radar.tif&quot;</a>,
+      &quot;artifact_type&quot;: &quot;audit_reproduction&quot;,
+      &quot;sha256&quot;: &quot;5fc24bafdb6f3560f02474908e9514493786a5c67dda1b174306a44e44868156&quot;
+    },
+    {
+      &quot;path&quot;: <a href="../recomputed/sigma.tif">&quot;recomputed/sigma.tif&quot;</a>,
+      &quot;artifact_type&quot;: &quot;audit_reproduction&quot;,
+      &quot;sha256&quot;: &quot;e84aa8d62d4cb794321577c4fd942f308a1d2fc04a87bd12c1c074ba1adf9ef2&quot;
+    },
+    {
+      &quot;path&quot;: <a href="../recomputed/sigma_and_radar.tif">&quot;recomputed/sigma_and_radar.tif&quot;</a>,
+      &quot;artifact_type&quot;: &quot;audit_reproduction&quot;,
+      &quot;sha256&quot;: &quot;6f642245bfde8a131e4cf50a90e98d9c3c3cd0f78acfa54da5cdbde0a5a161fb&quot;
+    }
+  ]
+}</pre></main></body></html>

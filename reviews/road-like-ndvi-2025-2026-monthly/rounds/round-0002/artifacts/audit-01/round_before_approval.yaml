@@ -1,0 +1,579 @@
+schema_version: '1.1'
+round_id: road-like-ndvi-2025-2026-monthly-round-0002
+kind: comparison
+status: planned
+created_utc: '2026-10-23T10:32:17.342790+00:00'
+question: Do two road-like year-over-year NDVI anomalies indicate new construction,
+  maintenance, adjacent vegetation change, or sensor/seasonal artifacts in monthly
+  2025 vs 2026 data?
+frame:
+  aoi_ref: 'inputs/aoi.geojson; unchanged configs/aoi.example.geojson at Sentinel
+    2f512fec185d1290ab5203c8892231f2d5c219be; ROIs: inputs/prior_rois.geojson copied
+    unchanged from historical review, overlay QA pending'
+  period: Baseline June [2025-06-01,2025-07-01) UTC; target June [2026-06-01,2026-07-01)
+    UTC; July/August and prior years sensitivity only
+  measurement: Per-pixel month-mean NDVI on common valid grid (median as sensitivity);
+    absolute and masked relative change, road interior vs adjacent vegetation, forest
+    mask only when a separately approved baseline is available; candidate hectares
+    are not validated forest loss
+  competing_hypotheses:
+  - Pre-existing road and phenological/roadside vegetation difference
+  - Pre-existing road widened or maintained in 2025-2026
+  - New connecting alignment or adjacent clearing
+  - Railway/utility/forestry track misidentified as road
+  - Atmospheric/cloud/BRDF/calibration/registration or compositing artifact
+  - Actual forest disturbance outside pre-existing road footprint
+repos:
+  forest_cover_lab: c322e89fb96def2434c62776ac595f6cd995ef92
+  sentinel_monthly_forest_cover: 2f512fec185d1290ab5203c8892231f2d5c219be
+  lab_graph_revision: f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7
+instances:
+- id: audit-01
+  role: roles/pipeline-audit.md
+  role_scope: round_only
+  host_planned: codex
+  selection_status: planned
+  assignment: assignments/audit-01.md
+  delegation:
+    mode: sequential_role
+    parent_instance_id: null
+    question: Check previous outputs, exact NDVI formulas, imagery dates, calibration,
+      geo-registration and reference ROI coordinates. Keep 2026-10-06 evidence unchanged.
+    output_contract: audit_report.md, roi_review.geojson, audit_evidence_manifest.json
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/audit-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: round
+    path_or_identifier: roles/pipeline-audit.md
+    revision: null
+    sha256: 36d262bf3a08340be662bc16b8a61bcb639354e156aed4fe13b1094a8f4ea504
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/audit-01.md
+    revision: null
+    sha256: d94ff95e0c4fd75f87341faf01a7d9187cc1c08b13ab66a32fb8cf2bb4ad57d7
+    capture_status: selected
+  actual_executions: []
+- id: discovery-01
+  role: agent_harness/roles/dataset-and-tool-discovery.md
+  role_scope: standing
+  host_planned: chatgpt
+  selection_status: planned
+  assignment: assignments/discovery-01.md
+  delegation:
+    mode: separate_session
+    parent_instance_id: null
+    question: Find viable dated Sentinel scenes, aerial orthophotos, ETAK roads and
+      official road/rail geometry with license/availability. Do not treat source listing
+      as acquired evidence.
+    output_contract: dataset_options.csv
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/discovery-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/dataset-and-tool-discovery.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: 259b6d41a8d3962087b31ce49fb1994855d3d3554c55bd367e8adf55ccb82ac1
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/discovery-01.md
+    revision: null
+    sha256: a884061d6f6fc075cde8cca59c21e14c2497a4a38b03c7359e0d37a76b016f16
+    capture_status: selected
+  actual_executions: []
+- id: eo-01
+  role: agent_harness/roles/remote-sensing-quantification.md
+  role_scope: standing
+  host_planned: codex
+  selection_status: planned
+  assignment: assignments/eo-01.md
+  delegation:
+    mode: sequential_role
+    parent_instance_id: null
+    question: Compute true calendar-month S2 NDVI means for 2025/2026 (with median
+      sensitivity), absolute and safely defined relative changes, SAR ancillary evidence
+      and sensitivity with identical support.
+    output_contract: eo_measurements.csv, eo_claims.csv, map_manifest.json, eo_primary_evidence.json
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/eo-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/remote-sensing-quantification.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: 645a06490784a0a4e4f8fc4b0366971756e5da95768f9938df314a9e2d5b79e8
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/eo-01.md
+    revision: null
+    sha256: ee54173b4674a8929c0911567f2e28c8b102d752cf74202cd6e8e0d18dab40fc
+    capture_status: selected
+  actual_executions: []
+- id: geo-01
+  role: agent_harness/roles/national-geospatial-evidence.md
+  role_scope: standing
+  host_planned: claude-code
+  selection_status: planned
+  assignment: assignments/geo-01.md
+  delegation:
+    mode: sequential_role
+    parent_instance_id: null
+    question: Inspect pinned ROI geometries against dated authoritative orthophotos,
+      ETAK mapping and metadata; do not use EO conclusions to guide interpretation.
+    output_contract: geo_sources.csv, geo_claims.csv, geo_primary_evidence.json
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/national-geospatial-evidence.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: 146f230a7f80ca5f56659db0a8c66409fbf12931295571b94e7294b80b7533a8
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/geo-01.md
+    revision: null
+    sha256: f756bc4925800ff82ff0fb56dde544a89cc8167a24cbcd7ff163c62524128d64
+    capture_status: selected
+  actual_executions: []
+- id: works-01
+  role: agent_harness/roles/official-infrastructure-records.md
+  role_scope: standing
+  host_planned: claude
+  selection_status: planned
+  assignment: assignments/works-01.md
+  delegation:
+    mode: separate_session
+    parent_instance_id: null
+    question: Test identity and construction/maintenance intervals for ROI-01/02 with
+      spatially matched official records; never infer Rail Baltica just from proximity.
+    output_contract: works_ledger.csv, works_claims.csv, works_primary_evidence.json
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/works-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/official-infrastructure-records.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: a826ed59a4a7cdb9bae2bead34681a58715d1b26da380eaee11807cf3a19b3ce
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/works-01.md
+    revision: null
+    sha256: dd682c9abb4fd96b5baa4d64821ba0cf978f1f543005d27699f757cfa9c0b637
+    capture_status: selected
+  actual_executions: []
+- id: literature-01
+  role: agent_harness/roles/literature-and-media.md
+  role_scope: standing
+  host_planned: chatgpt
+  selection_status: planned
+  assignment: assignments/literature-01.md
+  delegation:
+    mode: separate_session
+    parent_instance_id: null
+    question: Assess mechanisms for month-year NDVI artifacts, mixed road edges, phenology,
+      radar disagreements, structural road change and independent tests.
+    output_contract: literature_ledger.csv, literature_claims.csv, literature_primary_evidence.json
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/literature-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/literature-and-media.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: cbd5a201f7a8bba503c3ac2f4b3e175dfcca4ca3f4d253e5243e11bdbd804bf3
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/literature-01.md
+    revision: null
+    sha256: 566cc389811450bc578fbe5ca8b315235b35b1e8f14e89f89725209c9aa8e62a
+    capture_status: selected
+  actual_executions: []
+- id: challenge-01
+  role: agent_harness/roles/independent-challenge.md
+  role_scope: standing
+  host_planned: claude
+  selection_status: planned
+  assignment: assignments/challenge-01.md
+  delegation:
+    mode: separate_session
+    parent_instance_id: null
+    question: Inspect primary rasters and records and challenge time attribution,
+      prior-road presence, classifier thresholds, forest definition, apparent source
+      independence and conclusions.
+    output_contract: challenge_report.md, challenge_claims.csv
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/challenge-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/independent-challenge.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: 67a4e382cc888045d420e1a5973da718851772f62958d4cbc87824494d330fa5
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/challenge-01.md
+    revision: null
+    sha256: d52ea3954a903cdf513cb5c7f0a44a5b5c67810c5fcafbf2c68814d145cdf8b7
+    capture_status: selected
+  actual_executions: []
+graph:
+  mode: stepwise
+  approval:
+    proposed_by: Codex local planning revision, 2026-10-23; predecessor round-0001
+      retained
+    planning_record_id: road-like-ndvi-2025-2026-monthly-round-0002/graph
+    status: pending
+    approver: null
+    decided_utc: null
+    basis: null
+  nodes:
+  - id: inputs
+    kind: input
+    label: AOI + archived ROIs + monthly question
+    outputs:
+    - aoi.geojson
+    - prior_rois.geojson
+    - window_spec.yaml
+  - id: audit-01
+    kind: agent
+    instance: audit-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - audit_report.md
+    - roi_review.geojson
+    - audit_evidence_manifest.json
+    step_plan:
+      plan_ref: assignments/audit-01.md
+      plan_sha256: d94ff95e0c4fd75f87341faf01a7d9187cc1c08b13ab66a32fb8cf2bb4ad57d7
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: discovery-01
+    kind: agent
+    instance: discovery-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - dataset_options.csv
+    step_plan:
+      plan_ref: assignments/discovery-01.md
+      plan_sha256: a884061d6f6fc075cde8cca59c21e14c2497a4a38b03c7359e0d37a76b016f16
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: freeze-gate
+    kind: gate
+    label: 'Human: freeze ROIs, periods and data access'
+    approver: human
+    approval:
+      status: pending
+      approver: null
+      decided_utc: null
+      basis: null
+  - id: eo-01
+    kind: agent
+    instance: eo-01
+    loop:
+      max_iterations: 3
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - eo_measurements.csv
+    - eo_claims.csv
+    - map_manifest.json
+    - eo_primary_evidence.json
+    step_plan:
+      plan_ref: assignments/eo-01.md
+      plan_sha256: ee54173b4674a8929c0911567f2e28c8b102d752cf74202cd6e8e0d18dab40fc
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: geo-01
+    kind: agent
+    instance: geo-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - geo_sources.csv
+    - geo_claims.csv
+    - geo_primary_evidence.json
+    step_plan:
+      plan_ref: assignments/geo-01.md
+      plan_sha256: f756bc4925800ff82ff0fb56dde544a89cc8167a24cbcd7ff163c62524128d64
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: works-01
+    kind: agent
+    instance: works-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - works_ledger.csv
+    - works_claims.csv
+    - works_primary_evidence.json
+    step_plan:
+      plan_ref: assignments/works-01.md
+      plan_sha256: dd682c9abb4fd96b5baa4d64821ba0cf978f1f543005d27699f757cfa9c0b637
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: literature-01
+    kind: agent
+    instance: literature-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - literature_ledger.csv
+    - literature_claims.csv
+    - literature_primary_evidence.json
+    step_plan:
+      plan_ref: assignments/literature-01.md
+      plan_sha256: 566cc389811450bc578fbe5ca8b315235b35b1e8f14e89f89725209c9aa8e62a
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: branch-gate
+    kind: gate
+    label: 'Human: accept evidence from independent branches'
+    approver: human
+    approval:
+      status: pending
+      approver: null
+      decided_utc: null
+      basis: null
+  - id: reconcile
+    kind: script
+    label: Deterministic claim and lineage merge
+    command: 'PLANNED: implement scripts/reconcile_claims.py preserving hashed primary
+      evidence references and map_manifest.json; not executed'
+    outputs:
+    - claim_matrix.csv
+    - disagreements.csv
+    - reconciliation_notes.md
+    - primary_evidence_index.json
+    - map_manifest.json
+  - id: challenge-01
+    kind: agent
+    instance: challenge-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - challenge_report.md
+    - challenge_claims.csv
+    step_plan:
+      plan_ref: assignments/challenge-01.md
+      plan_sha256: d52ea3954a903cdf513cb5c7f0a44a5b5c67810c5fcafbf2c68814d145cdf8b7
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: decision-gate
+    kind: gate
+    label: 'Human: assess falsification and publication candidate'
+    approver: human
+    approval:
+      status: pending
+      approver: null
+      decided_utc: null
+      basis: null
+  - id: assemble
+    kind: script
+    label: Assemble offline evidence bundle
+    command: 'PLANNED: reviewed-evidence release adapter required after decision-gate;
+      existing scripts/build_bundle.py supports private planning drafts only'
+    outputs:
+    - bundle/index.html
+    - bundle/bundle_manifest.json
+  - id: release-gate
+    kind: gate
+    label: 'Human: approve public/private bundle release'
+    approver: human
+    approval:
+      status: pending
+      approver: null
+      decided_utc: null
+      basis: null
+  edges:
+  - from: inputs
+    to: audit-01
+    carries:
+    - aoi.geojson
+    - prior_rois.geojson
+    - window_spec.yaml
+  - from: inputs
+    to: discovery-01
+    carries:
+    - aoi.geojson
+    - window_spec.yaml
+  - from: inputs
+    to: freeze-gate
+    carries:
+    - aoi.geojson
+    - prior_rois.geojson
+    - window_spec.yaml
+  - from: audit-01
+    to: freeze-gate
+    carries:
+    - audit_report.md
+    - roi_review.geojson
+    - audit_evidence_manifest.json
+  - from: discovery-01
+    to: freeze-gate
+    carries:
+    - dataset_options.csv
+  - from: freeze-gate
+    to: eo-01
+    carries:
+    - aoi.geojson
+    - window_spec.yaml
+    - roi_review.geojson
+    - audit_report.md
+    - dataset_options.csv
+  - from: freeze-gate
+    to: geo-01
+    carries:
+    - roi_review.geojson
+    - window_spec.yaml
+    - dataset_options.csv
+  - from: freeze-gate
+    to: works-01
+    carries:
+    - roi_review.geojson
+    - window_spec.yaml
+    - dataset_options.csv
+  - from: freeze-gate
+    to: literature-01
+    carries:
+    - window_spec.yaml
+    - dataset_options.csv
+  - from: eo-01
+    to: branch-gate
+    carries:
+    - eo_measurements.csv
+    - eo_claims.csv
+    - map_manifest.json
+    - eo_primary_evidence.json
+  - from: geo-01
+    to: branch-gate
+    carries:
+    - geo_sources.csv
+    - geo_claims.csv
+    - geo_primary_evidence.json
+  - from: works-01
+    to: branch-gate
+    carries:
+    - works_ledger.csv
+    - works_claims.csv
+    - works_primary_evidence.json
+  - from: literature-01
+    to: branch-gate
+    carries:
+    - literature_ledger.csv
+    - literature_claims.csv
+    - literature_primary_evidence.json
+  - from: branch-gate
+    to: reconcile
+    carries:
+    - eo_measurements.csv
+    - eo_claims.csv
+    - map_manifest.json
+    - eo_primary_evidence.json
+    - geo_sources.csv
+    - geo_claims.csv
+    - geo_primary_evidence.json
+    - works_ledger.csv
+    - works_claims.csv
+    - works_primary_evidence.json
+    - literature_ledger.csv
+    - literature_claims.csv
+    - literature_primary_evidence.json
+  - from: reconcile
+    to: challenge-01
+    carries:
+    - claim_matrix.csv
+    - disagreements.csv
+    - reconciliation_notes.md
+    - primary_evidence_index.json
+    - map_manifest.json
+  - from: reconcile
+    to: decision-gate
+    carries:
+    - claim_matrix.csv
+    - disagreements.csv
+    - reconciliation_notes.md
+    - primary_evidence_index.json
+    - map_manifest.json
+  - from: challenge-01
+    to: decision-gate
+    carries:
+    - challenge_report.md
+    - challenge_claims.csv
+  - from: decision-gate
+    to: assemble
+    carries:
+    - claim_matrix.csv
+    - disagreements.csv
+    - challenge_report.md
+    - challenge_claims.csv
+    - primary_evidence_index.json
+    - map_manifest.json
+  - from: assemble
+    to: release-gate
+    carries:
+    - bundle/index.html
+    - bundle/bundle_manifest.json
+  independence_groups:
+  - - eo-01
+    - geo-01
+    - works-01
+    - literature-01
+human_review:
+  status: pending
+  reviewer: null
+  decision: null
+  basis: null

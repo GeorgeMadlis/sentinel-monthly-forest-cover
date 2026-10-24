@@ -1,0 +1,3 @@
+AUTHENTICATED 79 local source assets; originals fingerprinted 1514
+REPRODUCTION True True {"fixed": {"recomputed_candidates": 91291, "archived_candidates": 91291, "value_disagreements_common_support": 0, "validity_disagreements": 0}, "sigma": {"recomputed_candidates": 121242, "archived_candidates": 121242, "value_disagreements_common_support": 0, "validity_disagreements": 0}, "radar": {"recomputed_candidates": 119603, "archived_candidates": 119603, "value_disagreements_common_support": 0, "validity_disagreements": 0}, "sigma_and_radar": {"recomputed_candidates": 12875, "archived_candidates": 12875, "value_disagreements_common_support": 0, "validity_disagreements": 0}}
+ORIGINALS UNCHANGED 1514

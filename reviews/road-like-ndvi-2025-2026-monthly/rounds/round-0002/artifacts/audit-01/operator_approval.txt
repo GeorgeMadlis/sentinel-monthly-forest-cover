@@ -1,0 +1,9 @@
+Yes, I approve the round-0002 graph and authorize only `audit-01` using authenticated local caches, bounded to 80 tool calls/30 minutes, with no remote access
+
+Material blockers:
+1. ROI identity/overlay QA - not clear. If you mean the two roads you have outlined then I agree.
+2. historical hash mismatches - solution is up to you
+3. conflicting orthophoto dates - for purpose of comparison, you could relax the time window by basically using respectively the orthophotos taken before July 2025 and after July 2025. If the photos taken after July 2025 do not exist, use only the existing ones taken before July 2025
+4. absent forest baseline - use Hansen 2024 forest coverage
+5. host/budget availability - use only free services
+6. acquisition deduplication, mask-dilation sensitivity, and the unimplemented reconciler/release adapter. Structural success is not scientific verification - solutions are up to you

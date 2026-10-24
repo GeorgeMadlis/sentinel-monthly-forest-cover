@@ -1,0 +1,6 @@
+{
+  "historical_manifest_provenance_at_own_pins": "PASS",
+  "new_audit_manifest_schema": "PASS",
+  "new_audit_manifest_current_semantic_provenance": "PASS",
+  "interpretation": "Schema/provenance and exact reproduction do not validate science."
+}

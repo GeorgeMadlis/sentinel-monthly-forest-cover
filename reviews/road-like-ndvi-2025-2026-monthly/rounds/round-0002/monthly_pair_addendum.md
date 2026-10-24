@@ -1,0 +1,7 @@
+# Additional code-review finding: acquisition counts
+
+The current feature_stack/composites path counts finite **item** values. Neither calendar-month enforcement nor a STAC inventory alone proves that each counted item is a distinct acquisition. Overlapping MGRS tiles or duplicate/reprocessed items can overweight one overpass in the mean and minimum-count gate. This is an implementation risk identified by local source inspection, not a finding about the actual June catalogues (none were queried).
+
+Add a fail-fast inventory check and declared run policy before using the existing mean path: identify duplicate/overlapping sensing acquisitions from provider metadata; require an authenticated pre-mosaicked inventory or a separately tested per-acquisition mosaic policy rather than silently treating duplicates as independent acquisitions. Freeze the identity/grouping policy and retain item-to-acquisition mappings, then preserve per-pixel temporal-membership evidence. Do not silently deduplicate items by date if they are distinct acquisitions. Add a synthetic overlapping-tile/reprocessed-item test. This extends monthly_pair_proposal.md; no new scientific semantics or production changes have been introduced.
+
+Mask-dilation sensitivity is also not implemented in the present quality path, which selects valid SCL classes. It needs an explicit reviewed preprocessing configuration and provenance, either using separately hashed pre-masked inputs or an opt-in tiled halo operation. It must not be reported as already supported.

@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1256" height="1890" viewBox="0 0 1256 1890" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" role="img">
+<title>Agent graph for round road-like-ndvi-2025-2026-monthly-round-0002</title>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9z" fill="#5F5E5A"/></marker></defs>
+<rect width="1256" height="1890" fill="#FFFFFF"/>
+<text x="28" y="34" font-size="13" font-weight="bold" fill="#2C2C2A">Agent graph · road-like-ndvi-2025-2026-monthly-round-0002</text>
+<text x="28" y="54" font-size="11" fill="#444441">mode: stepwise · graph approval: pending · round status: planned</text>
+<text x="28" y="70" font-size="11" fill="#5F5E5A">proposed by: Codex local planning revision, 2026-10-23; predecessor round-0001 retained</text>
+<rect x="18.0" y="565.0" width="992.4" height="110.0" rx="10" fill="none" stroke="#7F77DD" stroke-dasharray="5 4"/>
+<text x="24.0" y="577.0" font-size="10" fill="#534AB7">group 1</text>
+<path d="M458.9 174.0 C458.9 210.5 395.8 210.5 395.8 245.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M569.5 174.0 C569.5 210.5 612.2 210.5 612.2 245.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M395.8 329.0 C395.8 365.5 452.2 365.5 452.2 400.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M612.2 329.0 C612.2 365.5 576.2 365.5 576.2 400.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M402.6 484.0 C402.6 533.5 138.6 533.5 138.6 581.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M477.0 484.0 C477.0 533.5 392.4 533.5 392.4 581.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M551.4 484.0 C551.4 533.5 653.0 533.5 653.0 581.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M625.8 484.0 C625.8 533.5 903.4 533.5 903.4 581.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M138.6 665.0 C138.6 708.0 390.6 708.0 390.6 749.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M392.4 665.0 C392.4 708.0 473.0 708.0 473.0 749.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M653.0 665.0 C653.0 708.0 555.4 708.0 555.4 749.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M903.4 665.0 C903.4 708.0 637.8 708.0 637.8 749.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M514.2 833.0 C514.2 934.5 514.2 934.5 514.2 1034.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M514.2 1118.0 C514.2 1167.5 514.2 1167.5 514.2 1215.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M514.2 1299.0 C514.2 1329.0 514.2 1329.0 514.2 1357.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M514.2 1441.0 C514.2 1497.0 514.2 1497.0 514.2 1551.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M514.2 1635.0 C514.2 1665.0 514.2 1665.0 514.2 1693.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M680.2 133.0 L1018.4 133.0 L1018.4 443.0 L702.2 443.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M676.2 1077.0 L1036.4 1077.0 L1036.4 1400.0 L742.2 1400.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<rect x="348.2" y="92.0" width="332.0" height="82" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="514.2" y="123.0" font-size="13" font-weight="bold" fill="#0C447C" text-anchor="middle">AOI + archived ROIs + monthly question</text>
+<text x="514.2" y="141.0" font-size="11" fill="#185FA5" text-anchor="middle">input artifacts</text>
+<text x="514.2" y="156.0" font-size="11" font-style="italic" fill="#185FA5" text-anchor="middle">declared</text>
+<rect x="315.8" y="247.0" width="160.0" height="82" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="395.8" y="270.5" font-size="13" font-weight="bold" fill="#085041" text-anchor="middle">audit-01</text>
+<text x="395.8" y="288.5" font-size="11" fill="#0F6E56" text-anchor="middle">codex</text>
+<text x="395.8" y="303.5" font-size="11" fill="#0F6E56" text-anchor="middle">pipeline-audit</text>
+<text x="395.8" y="318.5" font-size="11" font-style="italic" fill="#0F6E56" text-anchor="middle">planned · loop ≤2</text>
+<rect x="511.8" y="247.0" width="200.8" height="82" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="612.2" y="270.5" font-size="13" font-weight="bold" fill="#085041" text-anchor="middle">discovery-01</text>
+<text x="612.2" y="288.5" font-size="11" fill="#0F6E56" text-anchor="middle">chatgpt · manual hand-off</text>
+<text x="612.2" y="303.5" font-size="11" fill="#0F6E56" text-anchor="middle">dataset-and-tool-discovery</text>
+<text x="612.2" y="318.5" font-size="11" font-style="italic" fill="#0F6E56" text-anchor="middle">planned · loop ≤2</text>
+<rect x="328.2" y="402.0" width="372.0" height="82" rx="22" fill="#FAEEDA" stroke="#854F0B" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="514.2" y="433.0" font-size="13" font-weight="bold" fill="#633806" text-anchor="middle">Human: freeze ROIs, periods and data access</text>
+<text x="514.2" y="451.0" font-size="11" fill="#854F0B" text-anchor="middle">human approval gate</text>
+<text x="514.2" y="466.0" font-size="11" font-style="italic" fill="#854F0B" text-anchor="middle">pending</text>
+<rect x="28.0" y="583.0" width="221.2" height="82" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="138.6" y="606.5" font-size="13" font-weight="bold" fill="#085041" text-anchor="middle">eo-01</text>
+<text x="138.6" y="624.5" font-size="11" fill="#0F6E56" text-anchor="middle">codex</text>
+<text x="138.6" y="639.5" font-size="11" fill="#0F6E56" text-anchor="middle">remote-sensing-quantification</text>
+<text x="138.6" y="654.5" font-size="11" font-style="italic" fill="#0F6E56" text-anchor="middle">planned · loop ≤3</text>
+<rect x="285.2" y="583.0" width="214.4" height="82" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="392.4" y="606.5" font-size="13" font-weight="bold" fill="#085041" text-anchor="middle">geo-01</text>
+<text x="392.4" y="624.5" font-size="11" fill="#0F6E56" text-anchor="middle">claude-code</text>
+<text x="392.4" y="639.5" font-size="11" fill="#0F6E56" text-anchor="middle">national-geospatial-evidence</text>
+<text x="392.4" y="654.5" font-size="11" font-style="italic" fill="#0F6E56" text-anchor="middle">planned · loop ≤2</text>
+<rect x="535.6" y="583.0" width="234.8" height="82" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="653.0" y="606.5" font-size="13" font-weight="bold" fill="#085041" text-anchor="middle">works-01</text>
+<text x="653.0" y="624.5" font-size="11" fill="#0F6E56" text-anchor="middle">claude · manual hand-off</text>
+<text x="653.0" y="639.5" font-size="11" fill="#0F6E56" text-anchor="middle">official-infrastructure-records</text>
+<text x="653.0" y="654.5" font-size="11" font-style="italic" fill="#0F6E56" text-anchor="middle">planned · loop ≤2</text>
+<rect x="806.4" y="583.0" width="194.0" height="82" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="903.4" y="606.5" font-size="13" font-weight="bold" fill="#085041" text-anchor="middle">literature-01</text>
+<text x="903.4" y="624.5" font-size="11" fill="#0F6E56" text-anchor="middle">chatgpt · manual hand-off</text>
+<text x="903.4" y="639.5" font-size="11" fill="#0F6E56" text-anchor="middle">literature-and-media</text>
+<text x="903.4" y="654.5" font-size="11" font-style="italic" fill="#0F6E56" text-anchor="middle">planned · loop ≤2</text>
+<rect x="308.2" y="751.0" width="412.0" height="82" rx="22" fill="#FAEEDA" stroke="#854F0B" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="514.2" y="782.0" font-size="13" font-weight="bold" fill="#633806" text-anchor="middle">Human: accept evidence from independent branches</text>
+<text x="514.2" y="800.0" font-size="11" fill="#854F0B" text-anchor="middle">human approval gate</text>
+<text x="514.2" y="815.0" font-size="11" font-style="italic" fill="#854F0B" text-anchor="middle">pending</text>
+<rect x="352.2" y="1036.0" width="324.0" height="82" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="514.2" y="1067.0" font-size="13" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Deterministic claim and lineage merge</text>
+<text x="514.2" y="1085.0" font-size="11" fill="#5F5E5A" text-anchor="middle">deterministic script</text>
+<text x="514.2" y="1100.0" font-size="11" font-style="italic" fill="#5F5E5A" text-anchor="middle">planned (no record)</text>
+<rect x="420.6" y="1217.0" width="187.2" height="82" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="514.2" y="1240.5" font-size="13" font-weight="bold" fill="#085041" text-anchor="middle">challenge-01</text>
+<text x="514.2" y="1258.5" font-size="11" fill="#0F6E56" text-anchor="middle">claude · manual hand-off</text>
+<text x="514.2" y="1273.5" font-size="11" fill="#0F6E56" text-anchor="middle">independent-challenge</text>
+<text x="514.2" y="1288.5" font-size="11" font-style="italic" fill="#0F6E56" text-anchor="middle">planned · loop ≤2</text>
+<rect x="288.2" y="1359.0" width="452.0" height="82" rx="22" fill="#FAEEDA" stroke="#854F0B" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="514.2" y="1390.0" font-size="13" font-weight="bold" fill="#633806" text-anchor="middle">Human: assess falsification and publication candidate</text>
+<text x="514.2" y="1408.0" font-size="11" fill="#854F0B" text-anchor="middle">human approval gate</text>
+<text x="514.2" y="1423.0" font-size="11" font-style="italic" fill="#854F0B" text-anchor="middle">pending</text>
+<rect x="372.2" y="1553.0" width="284.0" height="82" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="514.2" y="1584.0" font-size="13" font-weight="bold" fill="#2C2C2A" text-anchor="middle">Assemble offline evidence bundle</text>
+<text x="514.2" y="1602.0" font-size="11" fill="#5F5E5A" text-anchor="middle">deterministic script</text>
+<text x="514.2" y="1617.0" font-size="11" font-style="italic" fill="#5F5E5A" text-anchor="middle">planned (no record)</text>
+<rect x="324.2" y="1695.0" width="380.0" height="82" rx="22" fill="#FAEEDA" stroke="#854F0B" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="514.2" y="1726.0" font-size="13" font-weight="bold" fill="#633806" text-anchor="middle">Human: approve public/private bundle release</text>
+<text x="514.2" y="1744.0" font-size="11" fill="#854F0B" text-anchor="middle">human approval gate</text>
+<text x="514.2" y="1759.0" font-size="11" font-style="italic" fill="#854F0B" text-anchor="middle">pending</text>
+<rect x="336.0" y="197.0" width="119.6" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="395.8" y="207.0" font-size="10" fill="#444441" text-anchor="middle">aoi.geojson</text>
+<text x="395.8" y="220.0" font-size="10" fill="#444441" text-anchor="middle">prior_rois.geojson</text>
+<text x="395.8" y="233.0" font-size="10" fill="#444441" text-anchor="middle">window_spec.yaml</text>
+<rect x="558.6" y="210.0" width="107.2" height="30.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="612.2" y="220.0" font-size="10" fill="#444441" text-anchor="middle">aoi.geojson</text>
+<text x="612.2" y="233.0" font-size="10" fill="#444441" text-anchor="middle">window_spec.yaml</text>
+<rect x="305.0" y="335.0" width="181.6" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="395.8" y="345.0" font-size="10" fill="#444441" text-anchor="middle">audit_report.md</text>
+<text x="395.8" y="358.0" font-size="10" fill="#444441" text-anchor="middle">roi_review.geojson</text>
+<text x="395.8" y="371.0" font-size="10" fill="#444441" text-anchor="middle">audit_evidence_manifest.json</text>
+<rect x="549.3" y="335.0" width="125.8" height="17.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="612.2" y="345.0" font-size="10" fill="#444441" text-anchor="middle">dataset_options.csv</text>
+<rect x="75.7" y="507.0" width="125.8" height="69.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="138.6" y="517.0" font-size="10" fill="#444441" text-anchor="middle">aoi.geojson</text>
+<text x="138.6" y="530.0" font-size="10" fill="#444441" text-anchor="middle">window_spec.yaml</text>
+<text x="138.6" y="543.0" font-size="10" fill="#444441" text-anchor="middle">roi_review.geojson</text>
+<text x="138.6" y="556.0" font-size="10" fill="#444441" text-anchor="middle">audit_report.md</text>
+<text x="138.6" y="569.0" font-size="10" fill="#444441" text-anchor="middle">dataset_options.csv</text>
+<rect x="329.5" y="533.0" width="125.8" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="392.4" y="543.0" font-size="10" fill="#444441" text-anchor="middle">roi_review.geojson</text>
+<text x="392.4" y="556.0" font-size="10" fill="#444441" text-anchor="middle">window_spec.yaml</text>
+<text x="392.4" y="569.0" font-size="10" fill="#444441" text-anchor="middle">dataset_options.csv</text>
+<rect x="590.1" y="533.0" width="125.8" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="653.0" y="543.0" font-size="10" fill="#444441" text-anchor="middle">roi_review.geojson</text>
+<text x="653.0" y="556.0" font-size="10" fill="#444441" text-anchor="middle">window_spec.yaml</text>
+<text x="653.0" y="569.0" font-size="10" fill="#444441" text-anchor="middle">dataset_options.csv</text>
+<rect x="840.5" y="546.0" width="125.8" height="30.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="903.4" y="556.0" font-size="10" fill="#444441" text-anchor="middle">window_spec.yaml</text>
+<text x="903.4" y="569.0" font-size="10" fill="#444441" text-anchor="middle">dataset_options.csv</text>
+<rect x="60.2" y="671.0" width="156.8" height="56.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="138.6" y="681.0" font-size="10" fill="#444441" text-anchor="middle">eo_measurements.csv</text>
+<text x="138.6" y="694.0" font-size="10" fill="#444441" text-anchor="middle">eo_claims.csv</text>
+<text x="138.6" y="707.0" font-size="10" fill="#444441" text-anchor="middle">map_manifest.json</text>
+<text x="138.6" y="720.0" font-size="10" fill="#444441" text-anchor="middle">eo_primary_evidence.json</text>
+<rect x="310.9" y="671.0" width="163.0" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="392.4" y="681.0" font-size="10" fill="#444441" text-anchor="middle">geo_sources.csv</text>
+<text x="392.4" y="694.0" font-size="10" fill="#444441" text-anchor="middle">geo_claims.csv</text>
+<text x="392.4" y="707.0" font-size="10" fill="#444441" text-anchor="middle">geo_primary_evidence.json</text>
+<rect x="565.3" y="671.0" width="175.4" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="653.0" y="681.0" font-size="10" fill="#444441" text-anchor="middle">works_ledger.csv</text>
+<text x="653.0" y="694.0" font-size="10" fill="#444441" text-anchor="middle">works_claims.csv</text>
+<text x="653.0" y="707.0" font-size="10" fill="#444441" text-anchor="middle">works_primary_evidence.json</text>
+<rect x="800.2" y="671.0" width="206.4" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="903.4" y="681.0" font-size="10" fill="#444441" text-anchor="middle">literature_ledger.csv</text>
+<text x="903.4" y="694.0" font-size="10" fill="#444441" text-anchor="middle">literature_claims.csv</text>
+<text x="903.4" y="707.0" font-size="10" fill="#444441" text-anchor="middle">literature_primary_evidence.json</text>
+<rect x="411.0" y="839.0" width="206.4" height="173.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="514.2" y="849.0" font-size="10" fill="#444441" text-anchor="middle">eo_measurements.csv</text>
+<text x="514.2" y="862.0" font-size="10" fill="#444441" text-anchor="middle">eo_claims.csv</text>
+<text x="514.2" y="875.0" font-size="10" fill="#444441" text-anchor="middle">map_manifest.json</text>
+<text x="514.2" y="888.0" font-size="10" fill="#444441" text-anchor="middle">eo_primary_evidence.json</text>
+<text x="514.2" y="901.0" font-size="10" fill="#444441" text-anchor="middle">geo_sources.csv</text>
+<text x="514.2" y="914.0" font-size="10" fill="#444441" text-anchor="middle">geo_claims.csv</text>
+<text x="514.2" y="927.0" font-size="10" fill="#444441" text-anchor="middle">geo_primary_evidence.json</text>
+<text x="514.2" y="940.0" font-size="10" fill="#444441" text-anchor="middle">works_ledger.csv</text>
+<text x="514.2" y="953.0" font-size="10" fill="#444441" text-anchor="middle">works_claims.csv</text>
+<text x="514.2" y="966.0" font-size="10" fill="#444441" text-anchor="middle">works_primary_evidence.json</text>
+<text x="514.2" y="979.0" font-size="10" fill="#444441" text-anchor="middle">literature_ledger.csv</text>
+<text x="514.2" y="992.0" font-size="10" fill="#444441" text-anchor="middle">literature_claims.csv</text>
+<text x="514.2" y="1005.0" font-size="10" fill="#444441" text-anchor="middle">literature_primary_evidence.json</text>
+<rect x="426.5" y="1124.0" width="175.4" height="69.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="514.2" y="1134.0" font-size="10" fill="#444441" text-anchor="middle">claim_matrix.csv</text>
+<text x="514.2" y="1147.0" font-size="10" fill="#444441" text-anchor="middle">disagreements.csv</text>
+<text x="514.2" y="1160.0" font-size="10" fill="#444441" text-anchor="middle">reconciliation_notes.md</text>
+<text x="514.2" y="1173.0" font-size="10" fill="#444441" text-anchor="middle">primary_evidence_index.json</text>
+<text x="514.2" y="1186.0" font-size="10" fill="#444441" text-anchor="middle">map_manifest.json</text>
+<rect x="448.2" y="1305.0" width="132.0" height="30.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="514.2" y="1315.0" font-size="10" fill="#444441" text-anchor="middle">challenge_report.md</text>
+<text x="514.2" y="1328.0" font-size="10" fill="#444441" text-anchor="middle">challenge_claims.csv</text>
+<rect x="426.5" y="1447.0" width="175.4" height="82.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="514.2" y="1457.0" font-size="10" fill="#444441" text-anchor="middle">claim_matrix.csv</text>
+<text x="514.2" y="1470.0" font-size="10" fill="#444441" text-anchor="middle">disagreements.csv</text>
+<text x="514.2" y="1483.0" font-size="10" fill="#444441" text-anchor="middle">challenge_report.md</text>
+<text x="514.2" y="1496.0" font-size="10" fill="#444441" text-anchor="middle">challenge_claims.csv</text>
+<text x="514.2" y="1509.0" font-size="10" fill="#444441" text-anchor="middle">primary_evidence_index.json</text>
+<text x="514.2" y="1522.0" font-size="10" fill="#444441" text-anchor="middle">map_manifest.json</text>
+<rect x="426.5" y="1641.0" width="175.4" height="30.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="514.2" y="1651.0" font-size="10" fill="#444441" text-anchor="middle">bundle/index.html</text>
+<text x="514.2" y="1664.0" font-size="10" fill="#444441" text-anchor="middle">bundle/bundle_manifest.json</text>
+<rect x="1022.4" y="265.0" width="119.6" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="1026.4" y="275.0" font-size="10" fill="#444441" text-anchor="start">aoi.geojson</text>
+<text x="1026.4" y="288.0" font-size="10" fill="#444441" text-anchor="start">prior_rois.geojson</text>
+<text x="1026.4" y="301.0" font-size="10" fill="#444441" text-anchor="start">window_spec.yaml</text>
+<rect x="1040.4" y="1202.5" width="175.4" height="69.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="1044.4" y="1212.5" font-size="10" fill="#444441" text-anchor="start">claim_matrix.csv</text>
+<text x="1044.4" y="1225.5" font-size="10" fill="#444441" text-anchor="start">disagreements.csv</text>
+<text x="1044.4" y="1238.5" font-size="10" fill="#444441" text-anchor="start">reconciliation_notes.md</text>
+<text x="1044.4" y="1251.5" font-size="10" fill="#444441" text-anchor="start">primary_evidence_index.json</text>
+<text x="1044.4" y="1264.5" font-size="10" fill="#444441" text-anchor="start">map_manifest.json</text>
+<rect x="28" y="1818" width="14" height="12" rx="2" fill="#E6F1FB" stroke="#185FA5"/>
+<text x="48" y="1828" font-size="11" fill="#444441">input</text>
+<rect x="96.0" y="1818" width="14" height="12" rx="2" fill="#E1F5EE" stroke="#0F6E56"/>
+<text x="116.0" y="1828" font-size="11" fill="#444441">agent</text>
+<rect x="164.0" y="1818" width="14" height="12" rx="2" fill="#F1EFE8" stroke="#5F5E5A"/>
+<text x="184.0" y="1828" font-size="11" fill="#444441">script</text>
+<rect x="238.8" y="1818" width="14" height="12" rx="2" fill="#FAEEDA" stroke="#854F0B"/>
+<text x="258.8" y="1828" font-size="11" fill="#444441">human gate</text>
+<rect x="340.8" y="1818" width="14" height="12" rx="2" fill="none" stroke="#7F77DD" stroke-dasharray="3 2"/>
+<text x="360.8" y="1828" font-size="11" fill="#444441">independence group</text>
+<text x="503.2" y="1828" font-size="11" fill="#444441">dashed border = not yet done · solid = completed/approved · red = failed/blocked/rejected</text>
+<text x="28" y="1848" font-size="11" fill="#444441">Arrows are labelled with the artifacts they carry. No path may link members of an independence group. Manual hand-off hosts (chatgpt, claude) are not invoked programmatically.</text>
+<text x="28" y="1866" font-size="11" font-weight="bold" fill="#633806">Planned graph: no execution recorded. Generated by agent_harness/scripts/render_round_graph.py; do not edit.</text>
+</svg>

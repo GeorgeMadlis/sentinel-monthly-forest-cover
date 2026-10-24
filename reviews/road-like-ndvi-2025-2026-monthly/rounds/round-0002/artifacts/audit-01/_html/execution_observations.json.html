@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>execution_observations.json</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>execution_observations.json</h1><p class="muted">execution_observations.json · <a href="../execution_observations.json">raw file</a> · <a href="index.html">folder</a></p><pre>{
+  &quot;host&quot;: &quot;codex&quot;,
+  &quot;delegation_mode&quot;: &quot;sequential_role&quot;,
+  &quot;native_subagent&quot;: false,
+  &quot;context&quot;: &quot;inherited planning conversation&quot;,
+  &quot;client_version&quot;: null,
+  &quot;serving_model&quot;: null,
+  &quot;model_configuration&quot;: {},
+  &quot;remote_access_used&quot;: false,
+  &quot;external_paid_services_used&quot;: false,
+  &quot;billing_limitation&quot;: &quot;Existing hosted model-session billing is not visible; no claim that this session is free.&quot;,
+  &quot;budget&quot;: {
+    &quot;tool_call_limit&quot;: 80,
+    &quot;elapsed_seconds_limit&quot;: 1800,
+    &quot;tracking&quot;: &quot;Manual count; preflight and orchestrator calls counted conservatively. No runtime-enforced counter available.&quot;
+  },
+  &quot;elapsed_seconds_at_integrity_check&quot;: 1011.405719,
+  &quot;originals_unchanged&quot;: 1514,
+  &quot;visual_review&quot;: [
+    &quot;ROI-01 raw/outline pair&quot;,
+    &quot;ROI-02 raw/outline pair&quot;,
+    &quot;both controls&quot;,
+    &quot;four reproduced decision variants in mask contact sheet&quot;
+  ],
+  &quot;browser_test&quot;: &quot;not_performed_in_this_audit; supported local image tools used and static HTML links checked&quot;,
+  &quot;limitations&quot;: [
+    &quot;Exact serving model/client/private instructions are not captured.&quot;,
+    &quot;Exploratory preflight reads have no complete retained shell transcript; executed scripts and main command logs are captured.&quot;
+  ]
+}</pre></main></body></html>

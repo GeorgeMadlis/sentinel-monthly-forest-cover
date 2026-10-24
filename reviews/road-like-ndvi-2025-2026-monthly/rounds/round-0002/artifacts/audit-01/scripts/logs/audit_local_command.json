@@ -1,0 +1,12 @@
+{
+  "argv": [
+    ".venv/bin/python",
+    "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/audit-01/scripts/audit_local.py"
+  ],
+  "cwd": "sentinel checkout",
+  "started_utc": "2026-10-24T06:45:47.270728+00:00",
+  "ended_utc": "2026-10-24T06:46:02.656565+00:00",
+  "exit_code": 0,
+  "stdout_stderr": "scripts/logs/audit_local.log",
+  "network": "No provider or HTTP code invoked; explicit local paths only; PROJ_NETWORK=OFF"
+}

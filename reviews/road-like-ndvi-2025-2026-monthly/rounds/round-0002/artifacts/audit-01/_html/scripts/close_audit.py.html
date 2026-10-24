@@ -1,0 +1,119 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>scripts/close_audit.py</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../index.html">Review home</a> · <a href="../index.html">All files</a></nav><h1>close_audit.py</h1><p class="muted">scripts/close_audit.py · <a href="../../scripts/close_audit.py">raw file</a> · <a href="index.html">folder</a></p><pre>&quot;&quot;&quot;Finalize this observed sequential-role attempt; leave every later approval pending.&quot;&quot;&quot;
+from datetime import datetime,timezone
+import hashlib
+import json
+from pathlib import Path
+import subprocess
+import sys
+import yaml
+
+OUT=Path(__file__).resolve().parents[1];ROOT=OUT.parents[5];RD=OUT.parents[1];LAB=ROOT.parent/&#x27;forest-cover-lab&#x27;
+PYTHON=str(ROOT/&#x27;.venv/bin/python&#x27;)
+def sha(p):
+    h=hashlib.sha256()
+    with p.open(&#x27;rb&#x27;) as f:
+        for b in iter(lambda:f.read(1024*1024),b&#x27;&#x27;):h.update(b)
+    return h.hexdigest()
+def load(p):return json.loads(p.read_text())
+def dump(p,d):p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+&#x27;\n&#x27;)
+
+before=load(OUT/&#x27;originals_before.json&#x27;)
+changed=[name for name,expected in before.items() if sha(ROOT/name)!=expected]
+assert not changed,&#x27;Original evidence changed&#x27;
+elapsed=(datetime.now(timezone.utc)-datetime.fromisoformat(&#x27;2026-10-24T06:40:17+00:00&#x27;)).total_seconds()
+assert elapsed&lt;1800,&#x27;Stop: audit wall-time budget exhausted&#x27;
+dump(OUT/&#x27;execution_observations.json&#x27;,{
+    &#x27;host&#x27;:&#x27;codex&#x27;,&#x27;delegation_mode&#x27;:&#x27;sequential_role&#x27;,&#x27;native_subagent&#x27;:False,
+    &#x27;context&#x27;:&#x27;inherited planning conversation&#x27;,&#x27;client_version&#x27;:None,&#x27;serving_model&#x27;:None,
+    &#x27;model_configuration&#x27;:{},&#x27;remote_access_used&#x27;:False,&#x27;external_paid_services_used&#x27;:False,
+    &#x27;billing_limitation&#x27;:&#x27;Existing hosted model-session billing is not visible; no claim that this session is free.&#x27;,
+    &#x27;budget&#x27;:{&#x27;tool_call_limit&#x27;:80,&#x27;elapsed_seconds_limit&#x27;:1800,&#x27;tracking&#x27;:&#x27;Manual count; preflight and orchestrator calls counted conservatively. No runtime-enforced counter available.&#x27;},
+    &#x27;elapsed_seconds_at_integrity_check&#x27;:elapsed,&#x27;originals_unchanged&#x27;:len(before),
+    &#x27;visual_review&#x27;:[&#x27;ROI-01 raw/outline pair&#x27;,&#x27;ROI-02 raw/outline pair&#x27;,&#x27;both controls&#x27;,&#x27;four reproduced decision variants in mask contact sheet&#x27;],
+    &#x27;browser_test&#x27;:&#x27;not_performed_in_this_audit; supported local image tools used and static HTML links checked&#x27;,
+    &#x27;limitations&#x27;:[&#x27;Exact serving model/client/private instructions are not captured.&#x27;,&#x27;Exploratory preflight reads have no complete retained shell transcript; executed scripts and main command logs are captured.&#x27;]})
+
+def inventory():
+    manifest=load(OUT/&#x27;audit_evidence_manifest.json&#x27;);manifest[&#x27;files&#x27;]=[]
+    for p in sorted(OUT.rglob(&#x27;*&#x27;)):
+        if p.is_file() and &#x27;_html&#x27; not in p.parts and p.name not in [&#x27;audit_evidence_manifest.json&#x27;,&#x27;index.html&#x27;]:
+            manifest[&#x27;files&#x27;].append({&#x27;path&#x27;:p.relative_to(OUT).as_posix(),&#x27;size_bytes&#x27;:p.stat().st_size,&#x27;sha256&#x27;:sha(p)})
+    dump(OUT/&#x27;audit_evidence_manifest.json&#x27;,manifest)
+
+argv=[PYTHON,str(ROOT/&#x27;scripts/build_review_site.py&#x27;),str(OUT),&#x27;--strict&#x27;]
+inventory();start=datetime.now(timezone.utc).isoformat()
+p=subprocess.run(argv,cwd=ROOT,text=True,capture_output=True)
+assert p.returncode==0,p.stdout+p.stderr
+dump(OUT/&#x27;review_site_check.json&#x27;,{&#x27;argv&#x27;:argv,&#x27;started_utc&#x27;:start,&#x27;ended_utc&#x27;:datetime.now(timezone.utc).isoformat(),
+    &#x27;exit_code&#x27;:p.returncode,&#x27;stdout&#x27;:p.stdout,&#x27;stderr&#x27;:p.stderr,&#x27;scope&#x27;:&#x27;HTML/Markdown/local paths, not science&#x27;})
+inventory()
+# Second build includes the observed check record and its final manifest hash.
+p=subprocess.run(argv,cwd=ROOT,text=True,capture_output=True)
+assert p.returncode==0,p.stdout+p.stderr
+print(p.stdout.strip(),flush=True)
+
+d=yaml.safe_load((RD/&#x27;round.yaml&#x27;).read_text());instance=next(i for i in d[&#x27;instances&#x27;] if i[&#x27;id&#x27;]==&#x27;audit-01&#x27;)
+attempt=instance[&#x27;actual_executions&#x27;][-1]
+assert attempt[&#x27;status&#x27;]==&#x27;running&#x27;
+existing={(r[&#x27;source&#x27;],r[&#x27;path_or_identifier&#x27;]) for r in attempt[&#x27;loaded_harness&#x27;]}
+for ref in load(OUT/&#x27;additional_loaded_files.json&#x27;):
+    if (ref[&#x27;source&#x27;],ref[&#x27;path_or_identifier&#x27;]) not in existing:attempt[&#x27;loaded_harness&#x27;].append(ref)
+for file in sorted((OUT/&#x27;scripts&#x27;).glob(&#x27;*.py&#x27;)):
+    attempt[&#x27;loaded_harness&#x27;].append({&#x27;source&#x27;:&#x27;round&#x27;,&#x27;path_or_identifier&#x27;:file.relative_to(RD).as_posix(),
+        &#x27;revision&#x27;:None,&#x27;sha256&#x27;:sha(file),&#x27;capture_status&#x27;:&#x27;captured&#x27;})
+source_assets=load(OUT/&#x27;authenticated_inputs.json&#x27;)[&#x27;assets&#x27;]
+source_refs=sorted({a[&#x27;source&#x27;] for a in source_assets})
+source_refs+=[&#x27;sentinel-local:reviews/20261006T174722Z-sentinel-road-investigation/rois.geojson&#x27;,
+              &#x27;artifacts/audit-01/operator_approval.txt&#x27;,&#x27;artifacts/audit-01/source_dates.json&#x27;]
+attempt[&#x27;source_refs&#x27;]=source_refs;attempt[&#x27;independence&#x27;][&#x27;evidence_inspected&#x27;]=source_refs
+attempt[&#x27;handoffs&#x27;]=[{&#x27;source&#x27;:&#x27;archived-review&#x27;,&#x27;path_or_identifier&#x27;:&#x27;reviews/20261006T174722Z-sentinel-road-investigation/rois.geojson&#x27;,
+    &#x27;revision&#x27;:None,&#x27;sha256&#x27;:sha(OUT/&#x27;roi_review.geojson&#x27;),&#x27;capture_status&#x27;:&#x27;captured&#x27;},
+    {&#x27;source&#x27;:&#x27;round&#x27;,&#x27;path_or_identifier&#x27;:&#x27;artifacts/audit-01/operator_approval.txt&#x27;,&#x27;revision&#x27;:None,
+     &#x27;sha256&#x27;:sha(OUT/&#x27;operator_approval.txt&#x27;),&#x27;capture_status&#x27;:&#x27;captured&#x27;}]
+attempt[&#x27;coordination_events&#x27;].append({&#x27;kind&#x27;:&#x27;reconciliation&#x27;,
+    &#x27;detail&#x27;:&#x27;Preserved 13 historical mismatches, authenticated raw caches, reproduced production decisions, checked historical manifests at their own local Git graph pins; no scientific promotion.&#x27;,
+    &#x27;artifact&#x27;:{&#x27;source&#x27;:&#x27;round&#x27;,&#x27;path_or_identifier&#x27;:&#x27;artifacts/audit-01/cache_authentication.json&#x27;,
+                &#x27;revision&#x27;:None,&#x27;sha256&#x27;:sha(OUT/&#x27;cache_authentication.json&#x27;),&#x27;capture_status&#x27;:&#x27;captured&#x27;}})
+files=[p for p in sorted(OUT.rglob(&#x27;*&#x27;)) if p.is_file() and &#x27;__pycache__&#x27; not in p.parts]
+attempt[&#x27;output_refs&#x27;]=[p.relative_to(RD).as_posix() for p in files]
+attempt[&#x27;output_hashes&#x27;]={p.relative_to(RD).as_posix():sha(p) for p in files}
+attempt[&#x27;checks&#x27;]=[&#x27;79 raw source assets original-manifest authenticated; 59/59 optical and 213/226 sigma-run output hashes match.&#x27;,
+    &#x27;301/301 historical-original hashes and 910/910 historical artifact hashes match.&#x27;,
+    &#x27;1514/1514 original run/review files unchanged before/after audit.&#x27;,
+    &#x27;11 continuous raster/count comparisons &lt;=2e-6 and zero validity disagreements; all four production masks exactly reproduced.&#x27;,
+    &#x27;Four valid unchanged ROI/control polygons inside AOI; two optical integer-shift landmark checks prefer zero.&#x27;,
+    &#x27;Historical semantic provenance passes against historical locally available graph; new audit run schema/current semantic provenance pass.&#x27;,
+    &#x27;Portable review site --strict passes with zero link problems; no browser runtime test in this audit.&#x27;,
+    &#x27;Audit acceptance is limited to source/code/geometry/reproduction QA; human output acceptance pending.&#x27;]
+attempt[&#x27;limitations&#x27;]+=[&#x27;Hansen 2024 product choice is not an approved measured 2024 canopy mask; no baseline consumed.&#x27;,
+    &#x27;Orthophoto flight-to-pixel dates remain unresolved under either interpretation of the July boundary.&#x27;,
+    &#x27;No surveyed road-edge, subpixel/full-corridor or radar-registration certification; controls have no independent stability label.&#x27;,
+    &#x27;No monthly June pair, dedup/dilation implementation, later role execution, download, publication or promotion.&#x27;,
+    &#x27;Approval file is a normalized transcription of the user message; original transport timestamp/format not exposed.&#x27;]
+attempt[&#x27;ended_utc&#x27;]=datetime.now(timezone.utc).isoformat();attempt[&#x27;status&#x27;]=&#x27;completed&#x27;;instance[&#x27;selection_status&#x27;]=&#x27;completed&#x27;
+assert (datetime.fromisoformat(attempt[&#x27;ended_utc&#x27;])-datetime.fromisoformat(&#x27;2026-10-24T06:40:17+00:00&#x27;)).total_seconds()&lt;1800
+assert all(not i[&#x27;actual_executions&#x27;] for i in d[&#x27;instances&#x27;] if i[&#x27;id&#x27;]!=&#x27;audit-01&#x27;)
+(RD/&#x27;round.yaml&#x27;).write_text(yaml.safe_dump(d,sort_keys=False,allow_unicode=True))
+for args in [[PYTHON,str(LAB/&#x27;agent_harness/scripts/validate_round.py&#x27;),str(RD/&#x27;round.yaml&#x27;),&#x27;--lab&#x27;,str(LAB)],
+             [PYTHON,str(LAB/&#x27;agent_harness/scripts/render_round_graph.py&#x27;),str(RD/&#x27;round.yaml&#x27;),&#x27;--lab&#x27;,str(LAB)],
+             [PYTHON,str(LAB/&#x27;agent_harness/scripts/render_round_graph.py&#x27;),str(RD/&#x27;round.yaml&#x27;),&#x27;--lab&#x27;,str(LAB),&#x27;--check&#x27;]]:
+    p=subprocess.run(args,cwd=ROOT,text=True,capture_output=True)
+    print(p.stdout.strip(),flush=True)
+    if p.returncode:raise RuntimeError(p.stderr+p.stdout)
+print(&#x27;AUDIT COMPLETED; later steps/gates remain pending; elapsed seconds including preflight&#x27;,round((datetime.now(timezone.utc)-datetime.fromisoformat(&#x27;2026-10-24T06:40:17+00:00&#x27;)).total_seconds(),1))
+</pre></main></body></html>

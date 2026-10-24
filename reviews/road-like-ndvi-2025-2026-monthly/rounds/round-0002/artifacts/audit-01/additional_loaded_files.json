@@ -1,0 +1,149 @@
+[
+  {
+    "source": "sentinel-monthly-forest-cover",
+    "path_or_identifier": "README.md",
+    "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+    "sha256": "52eb6151bfa3799d5fc6e0b6985faf1e22f3ac76f0a3f0fa5b82718058b0dff4",
+    "capture_status": "captured"
+  },
+  {
+    "source": "sentinel-monthly-forest-cover",
+    "path_or_identifier": "docs/architecture.md",
+    "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+    "sha256": "abc063861182fe37892b2cd0d5651307d615a599e0994bf38732377ffa4e71b5",
+    "capture_status": "captured"
+  },
+  {
+    "source": "sentinel-monthly-forest-cover",
+    "path_or_identifier": "workflow.yaml",
+    "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+    "sha256": "57a80a6dc3cf2cb98e99901ded215eac9340016c37e7fd33113c04eb8959805b",
+    "capture_status": "captured"
+  },
+  {
+    "source": "sentinel-monthly-forest-cover",
+    "path_or_identifier": "specs/monthly_forest_loss_spec.md",
+    "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+    "sha256": "41d7bbb7048f941de8b6bc6cfbaf2e1e7c65dfae2efb7cb92ff0fa1e824bc6dd",
+    "capture_status": "captured"
+  },
+  {
+    "source": "sentinel-monthly-forest-cover",
+    "path_or_identifier": "forest_change/sigma_sar_map.py",
+    "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+    "sha256": "0824507d996be53bd0027ff1235d3c36bfb2a21ea48269ab66759d6a429d265d",
+    "capture_status": "captured"
+  },
+  {
+    "source": "sentinel-monthly-forest-cover",
+    "path_or_identifier": "forest_change/semantics.py",
+    "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+    "sha256": "80a318f5ef34f67b8bb5af7a49f90d21b84409726dcbcd94c46be2bb70a8b23a",
+    "capture_status": "captured"
+  },
+  {
+    "source": "sentinel-monthly-forest-cover",
+    "path_or_identifier": "scripts/build_review_site.py",
+    "revision": "2f512fec185d1290ab5203c8892231f2d5c219be",
+    "sha256": "21f989c48475ed73fdf7d915f3f410f7a92dc1baac20b6e6865aa9e1292b7d16",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "graph/build.py",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "b5ae1fd08adfe3211d624000a3db2c829beacb7fc5618dac376b1d1cc6dd9f16",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "graph/README.md",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "cc3dd16f9cf374ee83a056d48b926ed2263557f5065afe33e8c46a497c8ddecf",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "graph/ontology.yaml",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "12f0f8be4f41ca11d28e6a26de3edcb37c10d03d2171e94873a1a271bd36c94b",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "graph/relation_types.yaml",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "2efbdac64f87f48dfa3064e872ea1f77278d55c1aff4abb8ab182d3cc09337d2",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "graph/schemas/concept.schema.json",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "9028ab81cc12ad2c0325b41872640fe63334170abe9ecfc1823a93e26f375f37",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "graph/schemas/downstream.schema.json",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "c895639fa6dafb0c2ca22c49c19493403697e8f5be75e79eb9289f5083f9d2e7",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "validate/run_manifest.schema.json",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "5d43d3ce1c7e9ba3e7adf67fb1e859728435f29dafc5084f07d834e9ad7c9ec5",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "knowledge/datasets/DS-0001.md",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "8fa5e36bfa7d89c26a19333a3bd25f4111e8aae17e892c682c6a6a61325406eb",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "knowledge/methods/method-ndvi-anomaly.md",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "4d691908361c67d9aac3b6f39bd9f7848600453ce261afd1359d332b5d0d21c4",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "knowledge/methods/method-s1-backscatter-confirmation.md",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "24f33ab464b08ba30e12582ac0f46756cb7891f054e4608434908977559a6a71",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "knowledge/measurements/measurement-ndvi.md",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "b5c1235baa3a98d93794f34f3b53f690f47db422ef25204528e8c3d3f3be5c3b",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "knowledge/workflows/workflow-sentinel-monthly-forest-cover.md",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "768a984aefbfd9dddffdd3779040df35c61ee06782ca0ee61a845199d1315789",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "configs/v1_defaults.yaml",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "2419263cf0f73a05337433b02e1a5cf528ef3da746279be0a22b2d6a3f59e111",
+    "capture_status": "captured"
+  },
+  {
+    "source": "forest-cover-lab",
+    "path_or_identifier": "specs/v1_forest_baseline.md",
+    "revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sha256": "c1abdf986b9627ce5542b3715fbbed1ac4be4048bf578affeec653e6127fa03d",
+    "capture_status": "captured"
+  }
+]

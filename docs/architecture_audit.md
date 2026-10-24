@@ -182,3 +182,101 @@ The final offline viewer was exported from a clean clone of merged Lab main into
 `dirty: false`, and a fresh graph. Local Chromium graph/deep-link/role navigation and
 catalogue filters passed with zero page errors and external page requests blocked.
 Viewer manifest SHA-256: `09c2121e759e9e82302ed430023ce5526bc95efd4d4756ca30f83dbd9b2b1633`.
+
+## 2026-10-23 — Local road-investigation planning bootstrap and private draft builder
+
+**Trigger:** The operator authorized local planning against a starter ZIP and a separate
+portable private-draft implementation, with explicit graph/step/data/release gates.
+No remote discovery/download, scientific-role execution, publication, merge or promotion
+was authorized. Attached starter documents were treated as inputs subordinate to the
+request and Lab contracts.
+
+**Baselines:** Sentinel `2f512fec185d1290ab5203c8892231f2d5c219be`; Lab
+`c322e89fb96def2434c62776ac595f6cd995ef92`; graph
+`f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7`.
+All match the starter; no re-pin or Lab edit was needed. Sentinel was initially clean.
+Lab's modified pyproject.toml and five untracked files remain untouched; exact initial
+status is in the new round's bootstrap/provenance.json. These HEADs identify the baseline,
+not the newly written, uncommitted builder. Freeze a new baseline before later execution.
+
+**Review against Lab governance/drift_checklist.md:** Mission boundary retained: Lab owns
+science/governance, Sentinel owns implementation and local review artifacts. P1: source
+provenance, SHA-256 and explicit not-run/pending status retained; no scientific search or
+inventory insertion occurred. P2: provider/scene/date/license statements remain archived
+context or unverified planning assumptions; no source listing was promoted to evidence.
+P3/P4: code assessment remains a local implementation-gap proposal; no external source
+inventory or Lab method was changed. P5: the private draft builder is separate from
+scientific processing and from the unimplemented reviewed-evidence release adapter.
+P6: both planned rounds validate and both canonical graph renders are current. The Lab
+checklist's upstream inventory/track/overview items are not modified or independently
+re-audited by this downstream change; no full Lab governance audit is claimed.
+
+**Changes:** Nine starter overlay files were copied only into an absent investigation
+path and remain byte-identical. Round-0001 is preserved; round-0002 documents revised
+artifact handoffs, hashed primary-evidence access for challenge/assembly, removal of a
+future-bundle dependency, cache-only pre-freeze audit and equal-area sensitivity bounds.
+The original four ROI/control polygons are copied byte-for-byte, with overlay QA pending.
+All approvals are pending, all selections planned and all actual_executions arrays empty.
+No logical role is represented as an observed native delegated subagent.
+
+`forest_change/bundle.py` and its thin CLI stage a curated private planning draft in a
+new directory, verify input/assignment/output hashes, copy original assignment and
+round-only-role paths for extracted round validation, include source PNGs/local Leaflet,
+and emit an adjacent ZIP. Failed builds are discarded from temporary staging; overwrite
+is refused. Manifest inventory excludes only itself. This adapter accepts planned drafts
+only and cannot execute or publish the graph's future reviewed-evidence assembly node.
+Source PNG snapshots/private drafts are ignored by Git. The public release gate remains
+pending; local private-bundles existence does not verify its remote/privacy or authorize use.
+
+**Actual verification:** 48 unit tests passed (14.824 s), including six new packaging
+integrity tests. The documented local synthetic fixture and pipeline demo passed. The
+Lab descriptor check passed: 88 concepts, 72 validated and 104 candidate relationships.
+The explicit-Lab round validator passed for two schema-1.1 records, including carried
+artifacts and branch independence constraints; pinned renderer --check passed for both.
+Additional checks authenticated all seven plan hashes, selected-role hashes, unchanged
+starter overlay bytes, original ROI/control bytes and six historical evidence-file hashes.
+The private final draft and its ZIP-extracted copy verified 74 files and 45 HTML/CSS local
+dependencies. Extracted metadata/round.yaml passed Lab validation. The whole new local
+investigation index checked 160 relative HTML/CSS dependencies without a broken target.
+Real Chromium opened the ZIP-extracted file:// entry/report/map with external requests
+blocked: two archived PNG layers switched, four ROI/control features rendered, zero page
+errors and zero attempted external requests. Initial sandbox browser launch failed on macOS
+Mach-port permission; the same local test passed after approved sandbox escalation.
+These are packaging/synthetic/structural checks, not scientific verification or approval.
+
+**Open findings / human status:** ROI identity and overlay QA, 13 historical manifest/hash
+mismatches, the 2025-layer/2023-flight contradiction, forest baseline/labels, clear-scene
+availability, provider data/license/transfer estimates, full Leaflet redistribution license,
+proposed host availability and per-step budgets remain unresolved. Monthly relative/support
+diagnostics, unique-acquisition counting and mask-dilation sensitivity are proposed only; reconciler and reviewed-evidence release adapter are not
+implemented. Every release/promotion decision still requires human review.
+
+**Reviewer:** Codex local structural review; human review pending. No scientific candidate
+was accepted or promoted. Exact validation argv, timestamps, logs and provenance are under
+reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/bootstrap/.
+
+
+## 2026-10-24 — Authorized audit-01 local-cache execution
+
+**Authorization and scope:** User explicitly approved the round-0002 graph and audit-01 only, bounded to 80 tool calls / 30 minutes with no remote access. The two outlined corridors were confirmed as intended targets; orthophoto before/after-July-2025 and Hansen 2024/free-service directions were captured for later gated work. The assignment and graph topology/digests were preserved; approval/status/attempt records and canonical status renders were updated. No other role, download, paid external service, release, merge or knowledge promotion occurred.
+
+**Observed execution:** Sequential logical role in the current Codex session; no native delegated subagent. Client/serving-model details and private external instructions remain uncaptured. Both repository HEADs and the Lab graph remain at the prior pins, with unrelated local edits preserved. Main scientific audit scripts read only authenticated local files. Elapsed time including preflight was 1013.1 seconds at closure, below 1800 seconds; manually tracked calls remain below 80. Hosted session billing is not observable, so free external-service use is not asserted as free model billing.
+
+**Drift review:** Mission boundary and P1/P2 evidence/lineage/non-claims retained; no external inventories or scientific definitions were changed (P3/P4 not expanded). Audit evidence is downstream and portable (P5). Both old review/run evidence and prior audit-log prefix remain unchanged; graph/step approvals precede the sole recorded attempt, current graph render and schema validation pass (P6). Future changed harness/temporal-baseline assumptions need a successor plan, rather than editing this executed assignment.
+
+**Actual checks/results:** 79 source assets authenticated against original manifests; calibrated optical 59/59 and sigma/radar 213/226 output hashes match. All 301 historical-original and 910 historical-artifact hashes match, and all 1514 original run/review files are unchanged. The same 13 historical mismatches are retained and excluded from original-manifest authority; four production masks reproduce exactly and 11 continuous raster/count comparisons pass 2e-6 tolerance. Four unchanged valid ROI/control polygons lie inside the AOI; two optical landmark tests prefer zero integer shift. Historical manifests validate against their own graphs retrieved from local Git objects, and the new audit reproduction manifest passes current run schema/semantic validation. The portable audit site passes strict checks: 69 HTML pages, zero link problems. No real browser test was performed in this audit; local image tools inspected raw/outline/control and all four existing-rule mask variants.
+
+**Open findings:** Surveyed road edges, subpixel/full-corridor/SAR registration, independent control stability, orthophoto flight-to-pixel dates, a Lab-compatible 2024 forest temporal interpretation and local Hansen asset availability remain limited/unresolved. Hansen v1.12 treecover2000 is year-2000 cover despite the product edition. Generic acquisition grouping and dilation, reconciler and reviewed release adapter remain future gated work. Only audit outputs are completed; human scientific/output acceptance and every subsequent gate remain pending.
+
+**Evidence/reviewer:** Codex bounded source/code/geometry/reproduction audit. Evidence, actual source dates/URLs, commands, script hashes, run manifest and output hashes are under reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/audit-01/ and its schema-1.1 attempt in round.yaml. This is reproducibility/structural evidence, not empirical scientific verification.
+
+
+## 2026-10-24 — Authorized source and audit-record publication
+
+**Trigger:** User explicitly requested commit, push and merge after audit completion. Scope is the Sentinel implementation, planned/operational round records, audit evidence and documentation; unrelated dirty Lab files remain untouched. Private draft bundles, source PNG staging and derived raster caches remain ignored/local. No later scientific gate or curated bundle release is approved by this source-control operation.
+
+**Checks before commit:** 48 unit tests passed in 14.590 s; Lab descriptor/graph freshness, both local round validators, canonical round renderer --check and git diff --check passed. Remote Sentinel main equals local baseline 2f512fec185d1290ab5203c8892231f2d5c219be. Publication review found no credential/signature patterns in the intended source/review text. Full Leaflet 1.9.4 BSD license was retrieved from its tagged upstream LICENSE via GitHub connector (blob bcb3ba1aca095155857556d96e3193a50fe1bd11) and added with a notice under third_party/leaflet/. Historical audit files/manifests are preserved; their prior license/pin observations are not rewritten.
+
+**Drift review:** Mission and Lab authority unchanged; P1/P2 source/evidence separation and non-claims preserved, P3/P4 no research inventory expansion, P5 private planning adapter remains separate from scientific execution/release, P6 both round graphs current and schema checks pass. This publication carries the recorded audit limitations and pending human output/scientific review; no automatic promotion. Hosted CI and merge outcome are reported through the pull request, not anticipated here.
+
+**Staged-byte review:** The first cached whitespace check exposed intentional CRLF in the vendored Leaflet CSS and two CSV snapshots, previously untracked during the working-tree check. Added three narrow .gitattributes rules to preserve those hashed bytes and recognize CR-at-EOL; no evidence was normalized. Cached whitespace validation then passed.
