@@ -1,0 +1,30 @@
+{
+  "host": "codex",
+  "delegation_mode": "sequential_role",
+  "native_subagent": false,
+  "context": "inherited planning conversation",
+  "client_version": null,
+  "serving_model": null,
+  "model_configuration": {},
+  "remote_access_used": false,
+  "external_paid_services_used": false,
+  "billing_limitation": "Existing hosted model-session billing is not visible; no claim that this session is free.",
+  "budget": {
+    "tool_call_limit": 80,
+    "elapsed_seconds_limit": 1800,
+    "tracking": "Manual count; preflight and orchestrator calls counted conservatively. No runtime-enforced counter available."
+  },
+  "elapsed_seconds_at_integrity_check": 1011.405719,
+  "originals_unchanged": 1514,
+  "visual_review": [
+    "ROI-01 raw/outline pair",
+    "ROI-02 raw/outline pair",
+    "both controls",
+    "four reproduced decision variants in mask contact sheet"
+  ],
+  "browser_test": "not_performed_in_this_audit; supported local image tools used and static HTML links checked",
+  "limitations": [
+    "Exact serving model/client/private instructions are not captured.",
+    "Exploratory preflight reads have no complete retained shell transcript; executed scripts and main command logs are captured."
+  ]
+}

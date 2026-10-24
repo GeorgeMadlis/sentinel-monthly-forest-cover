@@ -1,0 +1,9 @@
+{
+  "argv": [
+    ".venv/bin/python",
+    "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/audit-01/scripts/write_audit_report.py"
+  ],
+  "started_utc": "2026-10-24T06:53:20.702392+00:00",
+  "ended_utc": "2026-10-24T06:53:20.991693+00:00",
+  "exit_code": 0
+}

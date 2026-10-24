@@ -1,0 +1,6 @@
+{
+  "requested_rule": "photos taken before July 2025 versus after July 2025; pre-only if no post imagery available",
+  "exact_july_boundary": "not frozen by the user; on/after-July-01 used in initial metadata audit is a provisional interpretation, not a human-approved flight-date boundary",
+  "conservative_later_grouping": "pre: acquisition <2025-07-01; strictly post-July: acquisition >=2025-08-01; July acquisitions remain boundary-period unless otherwise frozen",
+  "effect_on_audit": "none: all candidate imagery lacks verified flight-to-pixel linkage, so no photo is assigned to either side under either interpretation"
+}

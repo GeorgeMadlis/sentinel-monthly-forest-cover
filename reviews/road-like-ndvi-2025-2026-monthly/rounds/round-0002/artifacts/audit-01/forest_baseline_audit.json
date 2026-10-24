@@ -1,0 +1,12 @@
+{
+  "operator_selected": "Hansen GFC 2024 edition",
+  "registered_dataset": "DS-0001: Hansen GFC v1.12",
+  "local_candidates_by_filename": [],
+  "search_scope": [
+    "runs/",
+    "data/ if present",
+    "configs/"
+  ],
+  "contract_read": "Lab configs/v1_defaults.yaml and specs/v1_forest_baseline.md",
+  "limitation": "treecover2000 in the 2024 edition is year-2000 canopy cover, not measured 2024 canopy coverage. Existing Lab v1 defaults declare year_2000_baseline_extent. A 2024 remaining-cover proxy using annual loss requires an explicit reviewed temporal transformation, does not capture all regrowth, and cannot be invented in this audit. No baseline ingestion/download or forest-gated estimates executed."
+}

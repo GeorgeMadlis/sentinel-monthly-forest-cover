@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>scripts/finish_visual_qa.py</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../index.html">Review home</a> · <a href="../index.html">All files</a></nav><h1>finish_visual_qa.py</h1><p class="muted">scripts/finish_visual_qa.py · <a href="../../scripts/finish_visual_qa.py">raw file</a> · <a href="index.html">folder</a></p><pre>&quot;&quot;&quot;Render already-reproduced cached decisions on exact prior sampling windows.&quot;&quot;&quot;
+from pathlib import Path
+import hashlib
+import html
+import json
+import shutil
+import sys
+import numpy as np
+import rasterio
+from rasterio.windows import Window
+from PIL import Image, ImageDraw
+
+OUT=Path(__file__).resolve().parents[1]
+ROOT=OUT.parents[5]
+sys.path.insert(0,str(ROOT))
+from forest_change.bundle import page
+
+qa=json.loads((OUT/&#x27;geometry_qa.json&#x27;).read_text())
+payload={}
+for f in qa[&#x27;features&#x27;]:
+    rid=f[&#x27;roi_id&#x27;];folder=OUT/&#x27;inspect/crops&#x27;;images=[]
+    for role in [&#x27;reference&#x27;,&#x27;target&#x27;]:
+        for variant in [&#x27;raw&#x27;,&#x27;outline&#x27;]:
+            images.append(Image.open(folder/f&#x27;{rid}-{role}-{variant}.png&#x27;).convert(&#x27;RGB&#x27;))
+    cw=max(i.width for i in images)+20;ch=max(i.height for i in images)+35
+    sheet=Image.new(&#x27;RGB&#x27;,(2*cw,2*ch),&#x27;white&#x27;);draw=ImageDraw.Draw(sheet)
+    for j,img in enumerate(images):
+        x=j%2*cw;y=j//2*ch;sheet.paste(img,(x+8,y+28))
+        draw.text((x+8,y+8),rid+&#x27; &#x27;+[&#x27;2025 raw&#x27;,&#x27;2025 outline&#x27;,&#x27;2026 raw&#x27;,&#x27;2026 outline&#x27;][j],fill=&#x27;black&#x27;)
+    sheet.save(OUT/&#x27;inspect&#x27;/f&#x27;{rid}-compact.png&#x27;)
+    window=Window(*f[&#x27;sampling_window_pixels&#x27;])
+    raw=Image.open(folder/f&#x27;{rid}-target-raw.png&#x27;).convert(&#x27;RGBA&#x27;)
+    layers={name:&#x27;crops/&#x27;+rid+&#x27;-target-&#x27;+name+&#x27;.png&#x27; for name in [&#x27;raw&#x27;,&#x27;outline&#x27;]}
+    for n in [&#x27;fixed&#x27;,&#x27;fixed_and_radar&#x27;,&#x27;sigma&#x27;,&#x27;sigma_and_radar&#x27;]:
+        with rasterio.open(OUT/&#x27;recomputed&#x27;/f&#x27;{n}.tif&#x27;) as src:
+            a=src.read(1,window=window,masked=True).filled(np.nan)
+        rgba=np.zeros((*a.shape,4),dtype=&#x27;uint8&#x27;);rgba[a==1]=[255,0,0,210];rgba[~np.isfinite(a)]=[90,90,90,190]
+        mask=Image.fromarray(rgba).resize(raw.size,Image.Resampling.NEAREST)
+        dest=folder/f&#x27;{rid}-{n}.png&#x27;;Image.alpha_composite(raw,mask).save(dest)
+        layers[n]=&#x27;crops/&#x27;+dest.name
+    payload[rid]=layers
+data=json.dumps(payload).replace(&#x27;&lt;&#x27;,&#x27;\\u003c&#x27;)
+body=&#x27;&#x27;&#x27;&lt;h1&gt;Audit of archived signal and sampling polygons&lt;/h1&gt;
+&lt;p&gt;Only cached observations: 15 June 2025 and 20 June 2026 RGB. No monthly mean or forest baseline.
+Yellow/blue outlines are archived sampling polygons, not measured road edges. Red denotes a reproduced candidate;
+gray indicates unavailable decision evidence. These are the original rules, not new thresholds.&lt;/p&gt;
+&lt;label&gt;ROI &lt;select id=&quot;roi&quot;&gt;&#x27;&#x27;&#x27;+&#x27;&#x27;.join(&#x27;&lt;option&gt;&#x27;+rid+&#x27;&lt;/option&gt;&#x27; for rid in payload)+&#x27;&#x27;&#x27;&lt;/select&gt;&lt;/label&gt;
+&lt;label&gt;View &lt;select id=&quot;layer&quot;&gt;&lt;option value=&quot;raw&quot;&gt;2026 raw RGB&lt;/option&gt;&lt;option value=&quot;outline&quot;&gt;2026 sampling outline&lt;/option&gt;
+&lt;option value=&quot;fixed&quot;&gt;Fixed optical&lt;/option&gt;&lt;option value=&quot;fixed_and_radar&quot;&gt;Fixed optical AND radar&lt;/option&gt;
+&lt;option value=&quot;sigma&quot;&gt;Sigma optical&lt;/option&gt;&lt;option value=&quot;sigma_and_radar&quot;&gt;Sigma optical AND radar&lt;/option&gt;&lt;/select&gt;&lt;/label&gt;
+&lt;p&gt;&lt;img id=&quot;evidence&quot; alt=&quot;Selected cached audit view&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Compare fixed vs fixed AND radar, and sigma vs sigma AND radar. Sigma uses eight summer 2025 dates,
+not the single RGB reference date. Radar uses summer medians on ascending relative orbit 160.&lt;/p&gt;
+&lt;script&gt;const data=&#x27;&#x27;&#x27;+data+&#x27;&#x27;&#x27;;const roi=document.getElementById(&#x27;roi&#x27;),layer=document.getElementById(&#x27;layer&#x27;);
+function show(){document.getElementById(&#x27;evidence&#x27;).src=data[roi.value][layer.value];}
+roi.onchange=show;layer.onchange=show;show();&lt;/script&gt;&#x27;&#x27;&#x27;
+(OUT/&#x27;inspect/comparison.html&#x27;).write_text(page(&#x27;Local-only audit comparison&#x27;,body))
+# Source/retrieval dates and actual URLs are read from archived local records only.
+assets=json.loads((OUT/&#x27;authenticated_inputs.json&#x27;).read_text())[&#x27;assets&#x27;];dates=[]
+for a in assets:
+    p=ROOT/a[&#x27;source&#x27;].removeprefix(&#x27;sentinel-local:&#x27;);sidecar=p.with_suffix(&#x27;.json&#x27;)
+    m=json.loads(sidecar.read_text()) if sidecar.exists() else {}
+    dates.append({&#x27;item_id&#x27;:a[&#x27;item_id&#x27;],&#x27;band&#x27;:a[&#x27;band&#x27;],&#x27;acquisition_utc&#x27;:a[&#x27;acquisition_utc&#x27;],
+        &#x27;historical_retrieval_utc&#x27;:m.get(&#x27;acquired_at&#x27;,&#x27;not_exposed_in_this_sidecar&#x27;),
+        &#x27;source_url&#x27;:a[&#x27;source_url&#x27;],&#x27;source_sha256&#x27;:a[&#x27;sha256&#x27;],&#x27;lineage&#x27;:a[&#x27;lineage&#x27;]})
+(OUT/&#x27;source_dates.json&#x27;).write_text(json.dumps(dates,indent=2)+&#x27;\n&#x27;)
+print(&#x27;Rendered compact figures, per-ROI reproduced overlays and offline comparison; no source imagery fetched&#x27;)
+</pre></main></body></html>

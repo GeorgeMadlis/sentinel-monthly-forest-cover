@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>source_context/forest-cover-lab/governance/knowledge_promotion.md</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../../../index.html">Review home</a> · <a href="../../../index.html">All files</a></nav><h1>knowledge_promotion.md</h1><p class="muted">source_context/forest-cover-lab/governance/knowledge_promotion.md · <a href="../../../../source_context/forest-cover-lab/governance/knowledge_promotion.md">raw file</a> · <a href="index.html">folder</a></p><div class="md"><h1 id="knowledge-promotion-and-ai-extraction">Knowledge promotion and AI extraction</h1>
+<p>Source / paper / experiment → contextual OKF-oriented record → candidate relation → deterministic checks plus scientific validation and human review → authoritative relation.</p>
+<p>AI extraction always starts with <code>status: candidate</code> on concepts and relationships. Keep source identity, limitations and explanatory context. An extraction or a single workflow run cannot silently mutate canonical concepts, validated edges, thresholds or claims. Runtime planning records and evidence are downstream artifacts, never automatic graph edits.</p>
+<p>Promotion is a reviewed repository change. Reviewers check the original evidence, scientific meaning, temporal/geographic applicability, confounders, dataset roles and non-claims. Any performance or threshold claim needs a documented validation artifact with uncertainty. Deterministic checks establish syntax and referential integrity; they cannot establish scientific correctness. A human scientific reviewer records <code>review.by</code>, <code>review.date</code> and <code>review.basis</code> with sources supporting the exact assertion before changing a candidate edge to validated. Endpoints must be active; unsupported edges stay candidates or are removed. Run graph generation, tests and drift review; pin the resulting commit and graph hash.</p>
+<p>The initial validated edges explicitly use <code>repository-contract-transcription</code> as their review attribution: they reproduce existing contract requirements or documented API capabilities, not experimental outcomes or purported human endorsement. The new seasonal and intended downstream mappings remain candidates. Any expansion beyond those source meanings must go through the promotion process above.</p>
+<p>A deprecated concept is retained for stable reference but cannot have new validated edges. Review deadlines trigger assessment; they never cause automatic promotion. Maintainers control canonical updates through version control and review. Downstream descriptors cannot change canonical semantics by declaring a divergence.</p></div></main></body></html>

@@ -1,0 +1,249 @@
+{
+  "aoi_id": "example-aoi",
+  "geometry_hash": "aa53b6ecf9faa0e6f54bae4092d03bbc68af2243438248b583ada0ea619e40ce",
+  "exchange_crs": "EPSG:4326",
+  "area_method": {
+    "crs": "EPSG:6933",
+    "pixel_ha": 0.04,
+    "type": "equal-area",
+    "unit": "hectares"
+  },
+  "forest_definition": {
+    "baseline_dataset": "none",
+    "forest_threshold_value": "not-applied",
+    "forest_threshold_variable": "not-applied",
+    "minimum_mapping_area_ha": 0.04,
+    "name": "ungated anomaly screening; no forest definition applied",
+    "nodata_policy": "exclude",
+    "temporal_interpretation": "not-applied"
+  },
+  "parameters": {
+    "aoi_id": "example-aoi",
+    "application": "application:seasonal-forest-change-monitoring",
+    "calibration_requirements": {
+      "earthsearch:boa_offset_applied": true
+    },
+    "execution": {
+      "backend": "local-python",
+      "crs": "EPSG:6933",
+      "max_observations_per_window": 1000,
+      "resolution": 20,
+      "tile_size": 512
+    },
+    "forest_mask": null,
+    "fusion": {
+      "mode": "optical_and_sar"
+    },
+    "observations": {
+      "optical": {
+        "dataset": "DS-0002",
+        "features": [
+          "NDVI"
+        ],
+        "quality": {
+          "mode": "scl",
+          "valid_classes": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "version": "Earth Search sentinel-2-l2a harmonized COG DN; gain 0.0001, no second BOA offset; item processing baseline archived"
+      },
+      "sar": {
+        "aggregation": "median",
+        "dataset": "DS-0003",
+        "features": [
+          "VV",
+          "VH"
+        ],
+        "preprocessing": {
+          "instrument_mode": "IW",
+          "orbit_direction": "ascending",
+          "relative_orbit": 160,
+          "speckle_treatment": "temporal median in dB; no spatial filter",
+          "terrain_flattening": "provider radiometric terrain correction"
+        },
+        "thresholds": {
+          "VH": -1,
+          "VV": -1.5
+        },
+        "units": "linear",
+        "version": "Planetary Computer sentinel-1-rtc; item provenance archived"
+      }
+    },
+    "output": {
+      "export_quicklooks": true,
+      "prefix": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-s1-jja-2025-2026-sigma"
+    },
+    "providers": {
+      "optical": {
+        "collection": "archived-calibrated-s2",
+        "inventory": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-s1-jja-2025-2026-sigma/optical_inventory.json",
+        "type": "local"
+      },
+      "sar": {
+        "collection": "planetary-computer-sentinel-1-rtc",
+        "inventory": "/Users/server/projects/sentinel-monthly-forest-cover/runs/aoi-s2-s1-jja-2025-2026-sigma/radar_inventory.json",
+        "type": "local"
+      }
+    },
+    "run_id": "aoi-s2-s1-jja-2025-2026-sigma",
+    "schema_version": "2.0",
+    "temporal": {
+      "aggregation": "median",
+      "alignment": "calendar-date",
+      "mode": "matched-season",
+      "reference_periods": [
+        {
+          "end": "2025-08-31",
+          "start": "2025-06-01"
+        }
+      ],
+      "reference_statistic": "pooled-observations",
+      "target": {
+        "end": "2026-08-31",
+        "start": "2026-06-01"
+      }
+    },
+    "threshold": {
+      "k": 2,
+      "min_component_pixels": 1,
+      "min_valid_pixel_ratio": 0,
+      "mode": "sigma"
+    },
+    "audit_scope": "Existing fixed/sigma/radar rules reproduced from local authenticated input assets only."
+  },
+  "run_id": "road-like-ndvi-round-0002-audit-01-cache-reproduction",
+  "algorithm": {
+    "name": "Local reproduction of existing Sentinel screening decisions for audit",
+    "version": "audit-01-attempt-0001",
+    "not_new_scientific_method": true,
+    "not_full_production_pipeline_run": true
+  },
+  "limitations": [
+    "All-land-cover screening; no forest baseline was consumed, despite later Hansen product selection.",
+    "Not monthly June generation, construction attribution, legality, held-out accuracy or causal validation.",
+    "The original 13 derived artifact hash mismatches remain preserved; original-manifest-matching source caches are required.",
+    "NumPy implements aggregation under the already-declared workflow divergence; no new Lab tool registration.",
+    "Private external instructions and exact serving model/client details are not captured."
+  ],
+  "data_provenance": [
+    {
+      "dataset_name": "Sentinel-2 L2A cached reflectance",
+      "inventory_id": "DS-0002",
+      "dataset_version": "archived Earth Search harmonized COGs",
+      "source": "authenticated_inputs.json",
+      "evidence_role": "core estimation input",
+      "access_time_utc": "2026-10-24T06:53:20.965386+00:00",
+      "notes": "Local reread; original URLs, scene acquisition and historical retrieval times remain in source_dates.json."
+    },
+    {
+      "dataset_name": "Sentinel-1 RTC cached linear intensity",
+      "inventory_id": "DS-0003",
+      "dataset_version": "archived Planetary Computer RTC",
+      "source": "authenticated_inputs.json",
+      "evidence_role": "core estimation input",
+      "access_time_utc": "2026-10-24T06:53:20.965456+00:00",
+      "notes": "Local reread; original URLs, scene acquisition and historical retrieval times remain in source_dates.json."
+    }
+  ],
+  "semantic_provenance": {
+    "ai_planner_involved": true,
+    "concept_ids": [
+      "application:seasonal-forest-change-monitoring",
+      "claim:monthly-non-truth",
+      "observation:forest-baseline",
+      "observation:forest-cover-change",
+      "observation:optical-vegetation-state",
+      "observation:sar-backscatter-state",
+      "validation:forest-evidence"
+    ],
+    "dataset_ids": [
+      "DS-0002",
+      "DS-0003"
+    ],
+    "knowledge_snapshot": {
+      "forest_cover_lab_revision": "c322e89fb96def2434c62776ac595f6cd995ef92",
+      "graph_revision": "f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7"
+    },
+    "methods": [
+      {
+        "id": "method:matched-season-interannual-comparison",
+        "version": "1.0"
+      },
+      {
+        "id": "method:ndvi-anomaly",
+        "version": "1.0"
+      },
+      {
+        "id": "method:s1-backscatter-confirmation",
+        "version": "1.0"
+      }
+    ],
+    "schema_version": "1.0",
+    "tools": [
+      {
+        "id": "tool:rasterio",
+        "version": "1.4.4"
+      },
+      {
+        "id": "tool:pyproj",
+        "version": "3.7.2"
+      },
+      {
+        "id": "tool:shapely",
+        "version": "2.1.2"
+      }
+    ],
+    "workflow": {
+      "id": "workflow:sentinel-monthly-forest-cover",
+      "version": "2.0.0"
+    },
+    "planning_record_id": "road-like-ndvi-2025-2026-monthly-round-0002/graph"
+  },
+  "observation_inventory": {
+    "reference": "authenticated_inputs.json",
+    "sha256": "2f39dbc87da613fd9c6746415d7c7f11c5c9d9d0dcbe2064c7bd4086dccfd75f"
+  },
+  "source_code_sha256": {
+    "scripts/finish_visual_qa.py": "9b9984bac65e700dd19517f33b3475e8419734b9cc202cf4371f7a99f019999c",
+    "scripts/montage_masks.py": "1b6086a2f7831d1d20469c1739c654b1061ed9eb1fdefd8b14f1cc07f712e83c",
+    "scripts/audit_local.py": "cc9fea38a45c3cb023bd49e8a4f3928528ae1207fd927d77f27105bbd5de4800",
+    "scripts/write_audit_report.py": "bc7dd074914621ba9d25e9b9bec1ed5a7ffa3e84ebff3ae0fc0dc13627c7d088"
+  },
+  "upstream_commits": {
+    "forest_cover_lab": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sentinel_monthly_forest_cover": "2f512fec185d1290ab5203c8892231f2d5c219be",
+    "lab_graph_revision": "f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7"
+  },
+  "numpy_version": "2.4.4",
+  "outputs": [
+    {
+      "path": "recomputed/fixed.tif",
+      "artifact_type": "audit_reproduction",
+      "sha256": "e92f38a188a5ee829f13f68d67bf9566e16d5b72863476141c123992e8cb5532"
+    },
+    {
+      "path": "recomputed/fixed_and_radar.tif",
+      "artifact_type": "audit_reproduction",
+      "sha256": "d3f18c69229dff082fa7e9c36e492cf66ca449474e68a88fc2fa4301053c54a7"
+    },
+    {
+      "path": "recomputed/radar.tif",
+      "artifact_type": "audit_reproduction",
+      "sha256": "5fc24bafdb6f3560f02474908e9514493786a5c67dda1b174306a44e44868156"
+    },
+    {
+      "path": "recomputed/sigma.tif",
+      "artifact_type": "audit_reproduction",
+      "sha256": "e84aa8d62d4cb794321577c4fd942f308a1d2fc04a87bd12c1c074ba1adf9ef2"
+    },
+    {
+      "path": "recomputed/sigma_and_radar.tif",
+      "artifact_type": "audit_reproduction",
+      "sha256": "6f642245bfde8a131e4cf50a90e98d9c3c3cd0f78acfa54da5cdbde0a5a161fb"
+    }
+  ]
+}

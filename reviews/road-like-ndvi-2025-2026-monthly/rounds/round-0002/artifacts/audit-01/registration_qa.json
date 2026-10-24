@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "landmark": "Pärnu urban crossing",
+      "window": [
+        300,
+        610,
+        40,
+        40
+      ],
+      "best_integer_shift_pixels": [
+        0,
+        0
+      ],
+      "correlation": 0.9420274456542702,
+      "zero_shift_correlation": 0.9420274456542702
+    },
+    {
+      "landmark": "existing road junction",
+      "window": [
+        1830,
+        420,
+        40,
+        40
+      ],
+      "best_integer_shift_pixels": [
+        0,
+        0
+      ],
+      "correlation": 0.7856362709960444,
+      "zero_shift_correlation": 0.7856362709960444
+    }
+  ],
+  "action": "no shift applied",
+  "limit": "Two local optical integer shifts only; no subpixel, full-corridor, surveyed or SAR certification."
+}

@@ -1,0 +1,1304 @@
+schema_version: '1.1'
+round_id: road-like-ndvi-2025-2026-monthly-round-0002
+kind: comparison
+status: active
+created_utc: '2026-10-23T10:32:17.342790+00:00'
+question: Do two road-like year-over-year NDVI anomalies indicate new construction,
+  maintenance, adjacent vegetation change, or sensor/seasonal artifacts in monthly
+  2025 vs 2026 data?
+frame:
+  aoi_ref: 'inputs/aoi.geojson; unchanged configs/aoi.example.geojson at Sentinel
+    2f512fec185d1290ab5203c8892231f2d5c219be; ROIs: inputs/prior_rois.geojson copied
+    unchanged from historical review, overlay QA pending'
+  period: Baseline June [2025-06-01,2025-07-01) UTC; target June [2026-06-01,2026-07-01)
+    UTC; July/August and prior years sensitivity only
+  measurement: Per-pixel month-mean NDVI on common valid grid (median as sensitivity);
+    absolute and masked relative change, road interior vs adjacent vegetation, forest
+    mask only when a separately approved baseline is available; candidate hectares
+    are not validated forest loss
+  competing_hypotheses:
+  - Pre-existing road and phenological/roadside vegetation difference
+  - Pre-existing road widened or maintained in 2025-2026
+  - New connecting alignment or adjacent clearing
+  - Railway/utility/forestry track misidentified as road
+  - Atmospheric/cloud/BRDF/calibration/registration or compositing artifact
+  - Actual forest disturbance outside pre-existing road footprint
+repos:
+  forest_cover_lab: c322e89fb96def2434c62776ac595f6cd995ef92
+  sentinel_monthly_forest_cover: 2f512fec185d1290ab5203c8892231f2d5c219be
+  lab_graph_revision: f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7
+instances:
+- id: audit-01
+  role: roles/pipeline-audit.md
+  role_scope: round_only
+  host_planned: codex
+  selection_status: completed
+  assignment: assignments/audit-01.md
+  delegation:
+    mode: sequential_role
+    parent_instance_id: null
+    question: Check previous outputs, exact NDVI formulas, imagery dates, calibration,
+      geo-registration and reference ROI coordinates. Keep 2026-10-06 evidence unchanged.
+    output_contract: audit_report.md, roi_review.geojson, audit_evidence_manifest.json
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/audit-01/
+    budget:
+      tool_call_limit: 80
+      elapsed_seconds_limit: 1800
+      cost_usd_limit: null
+  harness_sources:
+  - source: round
+    path_or_identifier: roles/pipeline-audit.md
+    revision: null
+    sha256: 36d262bf3a08340be662bc16b8a61bcb639354e156aed4fe13b1094a8f4ea504
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/audit-01.md
+    revision: null
+    sha256: d94ff95e0c4fd75f87341faf01a7d9187cc1c08b13ab66a32fb8cf2bb4ad57d7
+    capture_status: selected
+  actual_executions:
+  - attempt_id: audit-01-attempt-0001
+    host: codex
+    started_utc: '2026-10-24T06:41:45.407797+00:00'
+    ended_utc: '2026-10-24T06:57:09.651170+00:00'
+    status: completed
+    model_if_known: null
+    loaded_harness:
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: AGENTS.md
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: f8d8c9a7ff59417777732e98a9c4cfb8339a22284c6f0bc0e9705ebacdbb29e5
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: docs/agent_harness.md
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: 720850e1cb28f817428ee6697b2ea97e18b9cd7f158c6db1edbe5d91bf0aadcb
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: .codex/skills/inspect-sentinel-change/SKILL.md
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: 9e0b704996dab429cccb77bf8592adb7f42b0f5ad96591b968c85b3ce8616a28
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: .codex/skills/inspect-sentinel-change/references/investigation-contract.md
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: b3ac5b236fc313c7ff8c3b5f914232161913511e7a87c391e2539e10ffc4a372
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: .codex/skills/inspect-sentinel-change/references/threshold-protocol.md
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: 66f694c7a1f8d3e857b8463f789d199dd397d62d2f1578dcaa273fb9e2e1534e
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: docs/sigma_sar_comparison.md
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: ab7431663de28700fdc95b1a60f5a81c924190f7e3f5a0edb0ebb81eea51e5b7
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: forest_change/algorithms.py
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: d548131a9ccf616573dff800aba38a496ac4d43ed8c5382bb0e60683300fa291
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: forest_change/raster.py
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: dd4eb8b500c6098e312aad81bf95cbea27d9f792d1479c0c48b51c0e8e4df4f8
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: AGENTS.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 6cf2a9e0c6fec2e2b7a2a59a28d2e479f2ba05c99c3817b0d7328661f244098a
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: docs/agents.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: bc98c873e5f52aaaf6236d21c976c87f81115d1cead52f3d1f237bf40531481f
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: agent_harness/README.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 2f92d8823bdb7e499baaf16df43d3bcc24efeb1ea1db624d617bda6121908f55
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: agent_harness/schemas/round.schema.json
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 1c9b9981c9517a823d5f1546257f24b66869b4eac4b56e4734365f82a5b4f1dd
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: knowledge/README.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 731bdb8d08727d5f3edb1c1a25483addc2dd2b9d71e68f7f61b03887c26bab85
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: governance/knowledge_promotion.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: e7320143280412d6fb3ba0b92a9fd088311b49c253150984b11fe3ddc3052e16
+      capture_status: captured
+    - source: round
+      path_or_identifier: assignments/audit-01.md
+      revision: null
+      sha256: d94ff95e0c4fd75f87341faf01a7d9187cc1c08b13ab66a32fb8cf2bb4ad57d7
+      capture_status: captured
+    - source: round
+      path_or_identifier: roles/pipeline-audit.md
+      revision: null
+      sha256: 36d262bf3a08340be662bc16b8a61bcb639354e156aed4fe13b1094a8f4ea504
+      capture_status: captured
+    - source: external-private
+      path_or_identifier: session-system-developer-runtime-instructions
+      revision: null
+      sha256: null
+      capture_status: not_captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: README.md
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: 52eb6151bfa3799d5fc6e0b6985faf1e22f3ac76f0a3f0fa5b82718058b0dff4
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: docs/architecture.md
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: abc063861182fe37892b2cd0d5651307d615a599e0994bf38732377ffa4e71b5
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: workflow.yaml
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: 57a80a6dc3cf2cb98e99901ded215eac9340016c37e7fd33113c04eb8959805b
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: specs/monthly_forest_loss_spec.md
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: 41d7bbb7048f941de8b6bc6cfbaf2e1e7c65dfae2efb7cb92ff0fa1e824bc6dd
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: forest_change/sigma_sar_map.py
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: 0824507d996be53bd0027ff1235d3c36bfb2a21ea48269ab66759d6a429d265d
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: forest_change/semantics.py
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: 80a318f5ef34f67b8bb5af7a49f90d21b84409726dcbcd94c46be2bb70a8b23a
+      capture_status: captured
+    - source: sentinel-monthly-forest-cover
+      path_or_identifier: scripts/build_review_site.py
+      revision: 2f512fec185d1290ab5203c8892231f2d5c219be
+      sha256: 21f989c48475ed73fdf7d915f3f410f7a92dc1baac20b6e6865aa9e1292b7d16
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: graph/build.py
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: b5ae1fd08adfe3211d624000a3db2c829beacb7fc5618dac376b1d1cc6dd9f16
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: graph/README.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: cc3dd16f9cf374ee83a056d48b926ed2263557f5065afe33e8c46a497c8ddecf
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: graph/ontology.yaml
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 12f0f8be4f41ca11d28e6a26de3edcb37c10d03d2171e94873a1a271bd36c94b
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: graph/relation_types.yaml
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 2efbdac64f87f48dfa3064e872ea1f77278d55c1aff4abb8ab182d3cc09337d2
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: graph/schemas/concept.schema.json
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 9028ab81cc12ad2c0325b41872640fe63334170abe9ecfc1823a93e26f375f37
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: graph/schemas/downstream.schema.json
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: c895639fa6dafb0c2ca22c49c19493403697e8f5be75e79eb9289f5083f9d2e7
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: validate/run_manifest.schema.json
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 5d43d3ce1c7e9ba3e7adf67fb1e859728435f29dafc5084f07d834e9ad7c9ec5
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: knowledge/datasets/DS-0001.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 8fa5e36bfa7d89c26a19333a3bd25f4111e8aae17e892c682c6a6a61325406eb
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: knowledge/methods/method-ndvi-anomaly.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 4d691908361c67d9aac3b6f39bd9f7848600453ce261afd1359d332b5d0d21c4
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: knowledge/methods/method-s1-backscatter-confirmation.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 24f33ab464b08ba30e12582ac0f46756cb7891f054e4608434908977559a6a71
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: knowledge/measurements/measurement-ndvi.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: b5c1235baa3a98d93794f34f3b53f690f47db422ef25204528e8c3d3f3be5c3b
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: knowledge/workflows/workflow-sentinel-monthly-forest-cover.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 768a984aefbfd9dddffdd3779040df35c61ee06782ca0ee61a845199d1315789
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: configs/v1_defaults.yaml
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: 2419263cf0f73a05337433b02e1a5cf528ef3da746279be0a22b2d6a3f59e111
+      capture_status: captured
+    - source: forest-cover-lab
+      path_or_identifier: specs/v1_forest_baseline.md
+      revision: c322e89fb96def2434c62776ac595f6cd995ef92
+      sha256: c1abdf986b9627ce5542b3715fbbed1ac4be4048bf578affeec653e6127fa03d
+      capture_status: captured
+    - source: round
+      path_or_identifier: artifacts/audit-01/scripts/audit_local.py
+      revision: null
+      sha256: cc9fea38a45c3cb023bd49e8a4f3928528ae1207fd927d77f27105bbd5de4800
+      capture_status: captured
+    - source: round
+      path_or_identifier: artifacts/audit-01/scripts/close_audit.py
+      revision: null
+      sha256: 7821e2d828cf9e628b71a54b76a6399722f69eda80bd3607be4b2b8419fb02fd
+      capture_status: captured
+    - source: round
+      path_or_identifier: artifacts/audit-01/scripts/finish_visual_qa.py
+      revision: null
+      sha256: 9b9984bac65e700dd19517f33b3475e8419734b9cc202cf4371f7a99f019999c
+      capture_status: captured
+    - source: round
+      path_or_identifier: artifacts/audit-01/scripts/montage_masks.py
+      revision: null
+      sha256: 1b6086a2f7831d1d20469c1739c654b1061ed9eb1fdefd8b14f1cc07f712e83c
+      capture_status: captured
+    - source: round
+      path_or_identifier: artifacts/audit-01/scripts/write_audit_report.py
+      revision: null
+      sha256: bc7dd074914621ba9d25e9b9bec1ed5a7ffa3e84ebff3ae0fc0dc13627c7d088
+      capture_status: captured
+    prompt_ref: artifacts/audit-01/operator_approval.txt
+    tool_access:
+    - local shell/Python; explicit local-file Rasterio reads
+    - local image viewing
+    - no network/provider discovery/download; no paid external services
+    - sequential_role in existing Codex context; no native subagent
+    source_refs: &id001
+    - sentinel-local:runs/aoi-s2-jja-2025-2026-calibrated/source_windows/reference/blue.tif
+    - sentinel-local:runs/aoi-s2-jja-2025-2026-calibrated/source_windows/reference/green.tif
+    - sentinel-local:runs/aoi-s2-jja-2025-2026-calibrated/source_windows/reference/nir.tif
+    - sentinel-local:runs/aoi-s2-jja-2025-2026-calibrated/source_windows/reference/red.tif
+    - sentinel-local:runs/aoi-s2-jja-2025-2026-calibrated/source_windows/reference/scl.tif
+    - sentinel-local:runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/blue.tif
+    - sentinel-local:runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/green.tif
+    - sentinel-local:runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/nir.tif
+    - sentinel-local:runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/red.tif
+    - sentinel-local:runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/scl.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250608T155634_20250608T155659_059557_0764DC_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250608T155634_20250608T155659_059557_0764DC_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250620T155633_20250620T155658_059732_076AE3_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250620T155633_20250620T155658_059732_076AE3_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250702T155633_20250702T155658_059907_0770FE_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250702T155633_20250702T155658_059907_0770FE_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250714T155632_20250714T155657_060082_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250714T155632_20250714T155657_060082_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250807T155632_20250807T155657_060432_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250807T155632_20250807T155657_060432_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250831T155632_20250831T155657_060782_0790EC_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20250831T155632_20250831T155657_060782_0790EC_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20260603T155622_20260603T155647_064807_082A6D_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20260603T155622_20260603T155647_064807_082A6D_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20260627T155621_20260627T155646_065157_0836A8_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1A_IW_GRDH_1SDV_20260627T155621_20260627T155646_065157_0836A8_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250602T155525_20250602T155550_002606_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250602T155525_20250602T155550_002606_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250626T155527_20250626T155552_002956_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250626T155527_20250626T155552_002956_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250720T155528_20250720T155553_003306_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250720T155528_20250720T155553_003306_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250801T155529_20250801T155554_003481_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250801T155529_20250801T155554_003481_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250813T155529_20250813T155554_003656_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250813T155529_20250813T155554_003656_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250825T155530_20250825T155555_003831_007A43_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20250825T155530_20250825T155555_003831_007A43_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20260628T155529_20260628T155554_008308_0106FE_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20260628T155529_20260628T155554_008308_0106FE_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20260710T155529_20260710T155554_008483_010CAD_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20260710T155529_20260710T155554_008483_010CAD_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20260803T155531_20260803T155556_008833_011856_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20260803T155531_20260803T155556_008833_011856_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20260827T155532_20260827T155557_009183_0123E7_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1C_IW_GRDH_1SDV_20260827T155532_20260827T155557_009183_0123E7_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260610T155541_20260610T155606_003176_005874_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260610T155541_20260610T155606_003176_005874_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260622T155542_20260622T155607_003351_005E29_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260622T155542_20260622T155607_003351_005E29_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260716T155537_20260716T155602_003701_0069F4_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260716T155537_20260716T155602_003701_0069F4_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260728T155538_20260728T155603_003876_006FF1_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260728T155538_20260728T155603_003876_006FF1_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260809T155538_20260809T155603_004051_007606_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260809T155538_20260809T155603_004051_007606_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260821T155539_20260821T155604_004226_007C1F_rtc/VH.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S1D_IW_GRDH_1SDV_20260821T155539_20260821T155604_004226_007C1F_rtc/VV.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2A_35VLE_20250614_1_L2A/nir.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2A_35VLE_20250614_1_L2A/red.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2A_35VLE_20250614_1_L2A/scl.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2A_35VLE_20250704_1_L2A/nir.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2A_35VLE_20250704_1_L2A/red.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2A_35VLE_20250704_1_L2A/scl.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2A_35VLE_20250826_1_L2A/nir.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2A_35VLE_20250826_1_L2A/red.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2A_35VLE_20250826_1_L2A/scl.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2B_35VLE_20250630_0_L2A/nir.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2B_35VLE_20250630_0_L2A/red.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2B_35VLE_20250630_0_L2A/scl.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2C_35VLE_20250725_0_L2A/nir.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2C_35VLE_20250725_0_L2A/red.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2C_35VLE_20250725_0_L2A/scl.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2C_35VLE_20250804_0_L2A/nir.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2C_35VLE_20250804_0_L2A/red.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2C_35VLE_20250804_0_L2A/scl.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2C_35VLE_20250814_0_L2A/nir.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2C_35VLE_20250814_0_L2A/red.tif
+    - sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/source_windows/S2C_35VLE_20250814_0_L2A/scl.tif
+    - sentinel-local:reviews/20261006T174722Z-sentinel-road-investigation/rois.geojson
+    - artifacts/audit-01/operator_approval.txt
+    - artifacts/audit-01/source_dates.json
+    output_refs:
+    - artifacts/audit-01/.gitignore
+    - artifacts/audit-01/_html/additional_loaded_files.json.html
+    - artifacts/audit-01/_html/audit_evidence_manifest.json.html
+    - artifacts/audit-01/_html/audit_report.md.html
+    - artifacts/audit-01/_html/audit_run_checks.json.html
+    - artifacts/audit-01/_html/authenticated_inputs.json.html
+    - artifacts/audit-01/_html/cache_authentication.json.html
+    - artifacts/audit-01/_html/cache_grid_qa.json.html
+    - artifacts/audit-01/_html/execution_observations.json.html
+    - artifacts/audit-01/_html/execution_start.json.html
+    - artifacts/audit-01/_html/files.html
+    - artifacts/audit-01/_html/files.json
+    - artifacts/audit-01/_html/findings.json.html
+    - artifacts/audit-01/_html/forest_baseline_audit.json.html
+    - artifacts/audit-01/_html/geometry_qa.json.html
+    - artifacts/audit-01/_html/historical_provenance_checks.json.html
+    - artifacts/audit-01/_html/index.html
+    - artifacts/audit-01/_html/inspect/crops/index.html
+    - artifacts/audit-01/_html/inspect/index.html
+    - artifacts/audit-01/_html/investigation.json.html
+    - artifacts/audit-01/_html/link_check.html
+    - artifacts/audit-01/_html/link_check.json
+    - artifacts/audit-01/_html/next_step_proposal.md.html
+    - artifacts/audit-01/_html/observation_dates.json.html
+    - artifacts/audit-01/_html/operator_approval.txt.html
+    - artifacts/audit-01/_html/operator_directions.json.html
+    - artifacts/audit-01/_html/original_integrity.json.html
+    - artifacts/audit-01/_html/originals_after.json.html
+    - artifacts/audit-01/_html/originals_before.json.html
+    - artifacts/audit-01/_html/orthophoto_boundary_note.json.html
+    - artifacts/audit-01/_html/orthophoto_date_audit.json.html
+    - artifacts/audit-01/_html/provenance_checks.json.html
+    - artifacts/audit-01/_html/recomputed/index.html
+    - artifacts/audit-01/_html/registration_qa.json.html
+    - artifacts/audit-01/_html/report/index.html
+    - artifacts/audit-01/_html/reproduction.json.html
+    - artifacts/audit-01/_html/review_site_check.json.html
+    - artifacts/audit-01/_html/roi_review.geojson.html
+    - artifacts/audit-01/_html/round_before_approval.yaml.html
+    - artifacts/audit-01/_html/run_manifest.json.html
+    - artifacts/audit-01/_html/scripts/audit_local.py.html
+    - artifacts/audit-01/_html/scripts/close_audit.py.html
+    - artifacts/audit-01/_html/scripts/finish_visual_qa.py.html
+    - artifacts/audit-01/_html/scripts/index.html
+    - artifacts/audit-01/_html/scripts/logs/audit_local.log.html
+    - artifacts/audit-01/_html/scripts/logs/audit_local_command.json.html
+    - artifacts/audit-01/_html/scripts/logs/index.html
+    - artifacts/audit-01/_html/scripts/logs/report.log.html
+    - artifacts/audit-01/_html/scripts/logs/report_command.json.html
+    - artifacts/audit-01/_html/scripts/logs/visual_qa.log.html
+    - artifacts/audit-01/_html/scripts/logs/visual_qa_command.json.html
+    - artifacts/audit-01/_html/scripts/montage_masks.py.html
+    - artifacts/audit-01/_html/scripts/write_audit_report.py.html
+    - artifacts/audit-01/_html/semantic_trace.json.html
+    - artifacts/audit-01/_html/source_context/forest-cover-lab/configs/index.html
+    - artifacts/audit-01/_html/source_context/forest-cover-lab/configs/v1_defaults.yaml.html
+    - artifacts/audit-01/_html/source_context/forest-cover-lab/governance/index.html
+    - artifacts/audit-01/_html/source_context/forest-cover-lab/governance/knowledge_promotion.md.html
+    - artifacts/audit-01/_html/source_context/forest-cover-lab/index.html
+    - artifacts/audit-01/_html/source_context/forest-cover-lab/knowledge/datasets/DS-0001.md.html
+    - artifacts/audit-01/_html/source_context/forest-cover-lab/knowledge/datasets/index.html
+    - artifacts/audit-01/_html/source_context/forest-cover-lab/knowledge/index.html
+    - artifacts/audit-01/_html/source_context/forest-cover-lab/specs/index.html
+    - artifacts/audit-01/_html/source_context/forest-cover-lab/specs/v1_forest_baseline.md.html
+    - artifacts/audit-01/_html/source_context/index.html
+    - artifacts/audit-01/_html/source_context/sentinel-monthly-forest-cover/index.html
+    - artifacts/audit-01/_html/source_context/sentinel-monthly-forest-cover/specs/index.html
+    - artifacts/audit-01/_html/source_context/sentinel-monthly-forest-cover/specs/monthly_forest_loss_spec.md.html
+    - artifacts/audit-01/_html/source_dates.json.html
+    - artifacts/audit-01/additional_loaded_files.json
+    - artifacts/audit-01/audit_evidence_manifest.json
+    - artifacts/audit-01/audit_report.md
+    - artifacts/audit-01/audit_run_checks.json
+    - artifacts/audit-01/authenticated_inputs.json
+    - artifacts/audit-01/cache_authentication.json
+    - artifacts/audit-01/cache_grid_qa.json
+    - artifacts/audit-01/execution_observations.json
+    - artifacts/audit-01/execution_start.json
+    - artifacts/audit-01/findings.json
+    - artifacts/audit-01/forest_baseline_audit.json
+    - artifacts/audit-01/geometry_qa.json
+    - artifacts/audit-01/historical_provenance_checks.json
+    - artifacts/audit-01/index.html
+    - artifacts/audit-01/inspect/CONTROL-01-compact.png
+    - artifacts/audit-01/inspect/CONTROL-01-qa.png
+    - artifacts/audit-01/inspect/CONTROL-02-compact.png
+    - artifacts/audit-01/inspect/CONTROL-02-qa.png
+    - artifacts/audit-01/inspect/ROI-01-compact.png
+    - artifacts/audit-01/inspect/ROI-01-qa.png
+    - artifacts/audit-01/inspect/ROI-02-compact.png
+    - artifacts/audit-01/inspect/ROI-02-qa.png
+    - artifacts/audit-01/inspect/comparison.html
+    - artifacts/audit-01/inspect/crops/CONTROL-01-fixed.png
+    - artifacts/audit-01/inspect/crops/CONTROL-01-fixed_and_radar.png
+    - artifacts/audit-01/inspect/crops/CONTROL-01-reference-outline.png
+    - artifacts/audit-01/inspect/crops/CONTROL-01-reference-raw.png
+    - artifacts/audit-01/inspect/crops/CONTROL-01-sigma.png
+    - artifacts/audit-01/inspect/crops/CONTROL-01-sigma_and_radar.png
+    - artifacts/audit-01/inspect/crops/CONTROL-01-target-outline.png
+    - artifacts/audit-01/inspect/crops/CONTROL-01-target-raw.png
+    - artifacts/audit-01/inspect/crops/CONTROL-02-fixed.png
+    - artifacts/audit-01/inspect/crops/CONTROL-02-fixed_and_radar.png
+    - artifacts/audit-01/inspect/crops/CONTROL-02-reference-outline.png
+    - artifacts/audit-01/inspect/crops/CONTROL-02-reference-raw.png
+    - artifacts/audit-01/inspect/crops/CONTROL-02-sigma.png
+    - artifacts/audit-01/inspect/crops/CONTROL-02-sigma_and_radar.png
+    - artifacts/audit-01/inspect/crops/CONTROL-02-target-outline.png
+    - artifacts/audit-01/inspect/crops/CONTROL-02-target-raw.png
+    - artifacts/audit-01/inspect/crops/ROI-01-fixed.png
+    - artifacts/audit-01/inspect/crops/ROI-01-fixed_and_radar.png
+    - artifacts/audit-01/inspect/crops/ROI-01-reference-outline.png
+    - artifacts/audit-01/inspect/crops/ROI-01-reference-raw.png
+    - artifacts/audit-01/inspect/crops/ROI-01-sigma.png
+    - artifacts/audit-01/inspect/crops/ROI-01-sigma_and_radar.png
+    - artifacts/audit-01/inspect/crops/ROI-01-target-outline.png
+    - artifacts/audit-01/inspect/crops/ROI-01-target-raw.png
+    - artifacts/audit-01/inspect/crops/ROI-02-fixed.png
+    - artifacts/audit-01/inspect/crops/ROI-02-fixed_and_radar.png
+    - artifacts/audit-01/inspect/crops/ROI-02-reference-outline.png
+    - artifacts/audit-01/inspect/crops/ROI-02-reference-raw.png
+    - artifacts/audit-01/inspect/crops/ROI-02-sigma.png
+    - artifacts/audit-01/inspect/crops/ROI-02-sigma_and_radar.png
+    - artifacts/audit-01/inspect/crops/ROI-02-target-outline.png
+    - artifacts/audit-01/inspect/crops/ROI-02-target-raw.png
+    - artifacts/audit-01/inspect/mask_contact_sheet.png
+    - artifacts/audit-01/investigation.json
+    - artifacts/audit-01/next_step_proposal.md
+    - artifacts/audit-01/observation_dates.json
+    - artifacts/audit-01/operator_approval.txt
+    - artifacts/audit-01/operator_directions.json
+    - artifacts/audit-01/original_integrity.json
+    - artifacts/audit-01/originals_after.json
+    - artifacts/audit-01/originals_before.json
+    - artifacts/audit-01/orthophoto_boundary_note.json
+    - artifacts/audit-01/orthophoto_date_audit.json
+    - artifacts/audit-01/provenance_checks.json
+    - artifacts/audit-01/recomputed/fixed.tif
+    - artifacts/audit-01/recomputed/fixed_and_radar.tif
+    - artifacts/audit-01/recomputed/radar.tif
+    - artifacts/audit-01/recomputed/sigma.tif
+    - artifacts/audit-01/recomputed/sigma_and_radar.tif
+    - artifacts/audit-01/registration_qa.json
+    - artifacts/audit-01/report/report.html
+    - artifacts/audit-01/reproduction.json
+    - artifacts/audit-01/review_site_check.json
+    - artifacts/audit-01/roi_review.geojson
+    - artifacts/audit-01/round_before_approval.yaml
+    - artifacts/audit-01/run_manifest.json
+    - artifacts/audit-01/scripts/audit_local.py
+    - artifacts/audit-01/scripts/close_audit.py
+    - artifacts/audit-01/scripts/finish_visual_qa.py
+    - artifacts/audit-01/scripts/logs/audit_local.log
+    - artifacts/audit-01/scripts/logs/audit_local_command.json
+    - artifacts/audit-01/scripts/logs/report.log
+    - artifacts/audit-01/scripts/logs/report_command.json
+    - artifacts/audit-01/scripts/logs/visual_qa.log
+    - artifacts/audit-01/scripts/logs/visual_qa_command.json
+    - artifacts/audit-01/scripts/montage_masks.py
+    - artifacts/audit-01/scripts/write_audit_report.py
+    - artifacts/audit-01/semantic_trace.json
+    - artifacts/audit-01/source_context/forest-cover-lab/configs/v1_defaults.yaml
+    - artifacts/audit-01/source_context/forest-cover-lab/governance/knowledge_promotion.md
+    - artifacts/audit-01/source_context/forest-cover-lab/knowledge/datasets/DS-0001.md
+    - artifacts/audit-01/source_context/forest-cover-lab/specs/v1_forest_baseline.md
+    - artifacts/audit-01/source_context/sentinel-monthly-forest-cover/specs/monthly_forest_loss_spec.md
+    - artifacts/audit-01/source_dates.json
+    checks:
+    - 79 raw source assets original-manifest authenticated; 59/59 optical and 213/226
+      sigma-run output hashes match.
+    - 301/301 historical-original hashes and 910/910 historical artifact hashes match.
+    - 1514/1514 original run/review files unchanged before/after audit.
+    - 11 continuous raster/count comparisons <=2e-6 and zero validity disagreements;
+      all four production masks exactly reproduced.
+    - Four valid unchanged ROI/control polygons inside AOI; two optical integer-shift
+      landmark checks prefer zero.
+    - Historical semantic provenance passes against historical locally available graph;
+      new audit run schema/current semantic provenance pass.
+    - Portable review site --strict passes with zero link problems; no browser runtime
+      test in this audit.
+    - Audit acceptance is limited to source/code/geometry/reproduction QA; human output
+      acceptance pending.
+    limitations:
+    - Exact client version and serving model/settings are not exposed; model_configuration
+      is empty. Private external instructions are not captured.
+    - Context includes prior planning conclusions; this is not a blinded independent
+      investigation.
+    - Initial preflight shell reads precede this recorded scientific audit attempt;
+      no recomputation preceded approvals. Their complete shell transcript is not
+      retained.
+    - User budget bounds are tracked manually; preflight tool calls count against
+      the 80-call cap. No external service charge incurred; hosted model session billing
+      is not observable.
+    - Hansen 2024 product choice is not an approved measured 2024 canopy mask; no
+      baseline consumed.
+    - Orthophoto flight-to-pixel dates remain unresolved under either interpretation
+      of the July boundary.
+    - No surveyed road-edge, subpixel/full-corridor or radar-registration certification;
+      controls have no independent stability label.
+    - No monthly June pair, dedup/dilation implementation, later role execution, download,
+      publication or promotion.
+    - Approval file is a normalized transcription of the user message; original transport
+      timestamp/format not exposed.
+    output_hashes:
+      artifacts/audit-01/.gitignore: 740d753d5dc625a976ab9fe2c56853832e1234f7f8abb82769e53ef644fbd1ca
+      artifacts/audit-01/_html/additional_loaded_files.json.html: 1347bf6f37a000a03493acfa0f1ad6a8c51ee8d4d29c7762c3596f4b62068891
+      artifacts/audit-01/_html/audit_evidence_manifest.json.html: 0c91050f04cdac5ee21a14ac47d94065b81aec5d68e1d66a79cd0a707a460ab5
+      artifacts/audit-01/_html/audit_report.md.html: a4f39ba9a566f254882196bcd0e2d02ddc252e7fdec1655721f48de8b3454734
+      artifacts/audit-01/_html/audit_run_checks.json.html: 996db6ec12480567b41201fe63de96c0eb5e87e38ce0925c463e2fe5ece0be8b
+      artifacts/audit-01/_html/authenticated_inputs.json.html: 949cf3fff339e680af1bf8f5c97c91b416c8388edeab6293206131e336f2b3cc
+      artifacts/audit-01/_html/cache_authentication.json.html: 42f9f3c829c11c34481ddbcd844ec7e59ffff45a2fdff09db65f31f4cd11f03d
+      artifacts/audit-01/_html/cache_grid_qa.json.html: f340192707b4efb296bd45a24f1af1da5b2a2ae8bff6df97bbf7656aa8d8d067
+      artifacts/audit-01/_html/execution_observations.json.html: 5e2f98b506ceb463dabff37f1c4e3a6fe4741d015b5c510e0a3c51738385ad38
+      artifacts/audit-01/_html/execution_start.json.html: c911e7ccfe33c387cb0b06c974dc331f055864646c634ed921e6035de85df24f
+      artifacts/audit-01/_html/files.html: 74613f95c6ce21d75af02456feffe5c4d31f7c8bd2d8293cf09fee015ec2624b
+      artifacts/audit-01/_html/files.json: b6015659824c667828d1e00a2e255b59d071619a5c589b19838ee3456eed91b4
+      artifacts/audit-01/_html/findings.json.html: 9c8d4011c8ed25dfb94b930d473545bc8b241c94de2f996718fa1eae7bd90fa0
+      artifacts/audit-01/_html/forest_baseline_audit.json.html: 75a50aad4df1b147c62872257779b1359d2cb7008068487133b4e7d538b7438a
+      artifacts/audit-01/_html/geometry_qa.json.html: 396dbeb7c0127ede520c7f4b5fe2cdb11c7599e35f21b485906b7b8976d4424d
+      artifacts/audit-01/_html/historical_provenance_checks.json.html: a6048a38597cd80a8d25f8d02a1e7cbf96df369211855f5376cadb6c41288fe0
+      artifacts/audit-01/_html/index.html: 082c9146dd693712ec95fe248fc724444b68763cf8ff0dfbf292dbec6ba4066b
+      artifacts/audit-01/_html/inspect/crops/index.html: 78c4e06a970371b8dc5dbf2d1235846cd2ea07d8320fd7cb297d719cabc52996
+      artifacts/audit-01/_html/inspect/index.html: 18a8003b1deeac8ddbab489133780d3199c3881a951fc58a27f5ea58770e7bdb
+      artifacts/audit-01/_html/investigation.json.html: ffc9aff25bb508d3f52313b7f8f85da699f26675ad9e4ce5cab5c98f41761c01
+      artifacts/audit-01/_html/link_check.html: d6f1858de9b030682c5a9fab2eeaeb612ef60925d6b03c66fa1d8057bc609361
+      artifacts/audit-01/_html/link_check.json: 925f3a54211b5c804e615102844e0d8e106746beaa743625df8924efb00657cf
+      artifacts/audit-01/_html/next_step_proposal.md.html: 21aa701a9b4f717803aff648b3d9488e196e983eb85ad5949082d35449ed0626
+      artifacts/audit-01/_html/observation_dates.json.html: 341b838c98daf437f9946c6df8264ff54c19dd01a264a8c57281eb9e6d1ed9cd
+      artifacts/audit-01/_html/operator_approval.txt.html: b1a1bfbeb004b6e4f5e3dcba961e06dd51d3c6f340303c1a288f0932f5721003
+      artifacts/audit-01/_html/operator_directions.json.html: fed27e3ca14534c7f106a868746342ac0f694d30577c90771efa1c520b646a5f
+      artifacts/audit-01/_html/original_integrity.json.html: 783eac2ef041d57e57e5a1773b132fae7de5768789a01ab37c34bd29ea5e3701
+      artifacts/audit-01/_html/originals_after.json.html: 0c61e983cb8cb464c144521927e7c40887fa785ff5c1d183c5bf405e096ec4d1
+      artifacts/audit-01/_html/originals_before.json.html: 781a962086bbf859828eee5a92d37cd34193d1ba42b20ccb8ace08cde4b6da05
+      artifacts/audit-01/_html/orthophoto_boundary_note.json.html: 501222c60ac388d4b99bc8f8d9384acbc011415bbfae92a966dcac0696aab80b
+      artifacts/audit-01/_html/orthophoto_date_audit.json.html: fce6db40e1a4aa09f4029bb5f7b9dbfc0f6e2851867bc5a69fb6077f7f9e9b51
+      artifacts/audit-01/_html/provenance_checks.json.html: c3c4f39238000853883a8e708e7b0d17a1dd880add6dab3e1fb0b178a0646253
+      artifacts/audit-01/_html/recomputed/index.html: b5d1f959fb18998e793796c653892a43c0b03c54540348b4a258a666043427ae
+      artifacts/audit-01/_html/registration_qa.json.html: ead26c580e5e2c63452f6eb2fbb11848dd48ed4c327019cb8c917bf6951fe14d
+      artifacts/audit-01/_html/report/index.html: 7483b2e44d0853188e5b47e382b26ea9d5a8c55b501a88b0f340b49e417ae0d7
+      artifacts/audit-01/_html/reproduction.json.html: 7b1337c699f92c18c78b1b7255383e7aa3f3d419251bbc36ced72904fa6655ee
+      artifacts/audit-01/_html/review_site_check.json.html: 48baac5528ad7e0e34485773a7013b23e56262c21aa64ba4f5a34b99e02db654
+      artifacts/audit-01/_html/roi_review.geojson.html: d753f678276720ba2052400f02c2a9d5615e1835c189eba3742bc363ae9c52ee
+      artifacts/audit-01/_html/round_before_approval.yaml.html: f0604c9825f3bedc2abfd2059dac6d26ff3089740563b3f24cefac6f9cd350dd
+      artifacts/audit-01/_html/run_manifest.json.html: 651959363f244972be25ae37ddbe76c3eae30c1854f3540f5303aea139de61d3
+      artifacts/audit-01/_html/scripts/audit_local.py.html: 61f88a7b9e31a484060e020bdba4fc430436681d8386dac74297f74ff7c95322
+      artifacts/audit-01/_html/scripts/close_audit.py.html: 7f1461840f63918b4e3f32620f446d17ac9ab2f35680095cb969966af51f247c
+      artifacts/audit-01/_html/scripts/finish_visual_qa.py.html: 00a43d91645c364a3a76420ce6e76f377b8bae3721f3c66e1e9c875e0ed6d5e0
+      artifacts/audit-01/_html/scripts/index.html: 7700f440e5aca687282be6e8ec47560baa64705d45f743e3f77f8554918e6003
+      artifacts/audit-01/_html/scripts/logs/audit_local.log.html: 8f2d486513dfbde331a32572d1600ec2fe643302fb6340685856b6b7513b56d2
+      artifacts/audit-01/_html/scripts/logs/audit_local_command.json.html: 82d4e0c14bbf901d5a48df78f946bcd58b00ec90000f450a3a0b7f489803d0e6
+      artifacts/audit-01/_html/scripts/logs/index.html: 29fa33def3d849d9b4258a8dea782c941d53afbf270b2307e23771cdf0d9fb12
+      artifacts/audit-01/_html/scripts/logs/report.log.html: 3035a57661e587d5ca6561d1d8b6686ab656bab2f152bbc55ad5f00eb69a0e04
+      artifacts/audit-01/_html/scripts/logs/report_command.json.html: adb1e66218ff5749c822ea030a66c6d0bbd46b9447f0df2ba5e052252e7f62a1
+      artifacts/audit-01/_html/scripts/logs/visual_qa.log.html: 4ba803cd0e3410fbe910eed942f775620f0982b164520b72bf6aabcf695af70e
+      artifacts/audit-01/_html/scripts/logs/visual_qa_command.json.html: dd11ad151e63245e1d85df0d9d81e66505d8c01c740cc80a3eac1edfedebbe77
+      artifacts/audit-01/_html/scripts/montage_masks.py.html: ab03ec0d5a6a49ef8e8eaf0b24853f02ba75851e81aeb5a5575753a9c66af175
+      artifacts/audit-01/_html/scripts/write_audit_report.py.html: b862b4be9ac8220b0d8862fb839437fb325a8c853b96395ac893e8a939ee4fab
+      artifacts/audit-01/_html/semantic_trace.json.html: 0f4c8a448d9d964cd33ea6e880f9aa76cabe9c61a8abcdf5203df505bf19d376
+      artifacts/audit-01/_html/source_context/forest-cover-lab/configs/index.html: 7ab24c9d417fa88baa66ab2573426e28c4c18928b3d0c8aa80472460f2962b76
+      artifacts/audit-01/_html/source_context/forest-cover-lab/configs/v1_defaults.yaml.html: 6a9ec613df868cc1be3f5658f861c3dcf2351392f0284785c7ce844fa2076164
+      artifacts/audit-01/_html/source_context/forest-cover-lab/governance/index.html: 3ae0f0ae0b56ab786097000d611d579d261d9f7db4db88b39e4c18b4f3f70f8a
+      artifacts/audit-01/_html/source_context/forest-cover-lab/governance/knowledge_promotion.md.html: 7aa7c0a07c3efaefbd738d9b5f360387196235b2ada236d5e2353b5ac5e6d6ae
+      artifacts/audit-01/_html/source_context/forest-cover-lab/index.html: 874123dc3f5d1af98a383f153da0afeb4e14e008aa7304bc7679131303bc7345
+      artifacts/audit-01/_html/source_context/forest-cover-lab/knowledge/datasets/DS-0001.md.html: af617329dce2adf3022310897454cba4fe602d1ac35d7279e6737569a3e4d8d0
+      artifacts/audit-01/_html/source_context/forest-cover-lab/knowledge/datasets/index.html: 3fdaaf0387085cfe78235740eefa4e41b61b9c838c3a3bdcb4c61efe4dcd7d6b
+      artifacts/audit-01/_html/source_context/forest-cover-lab/knowledge/index.html: 50aa3cb20808a33dad6ec9968b57af70643b79d6bf5b179a6096d47d4d3f5581
+      artifacts/audit-01/_html/source_context/forest-cover-lab/specs/index.html: e6e1ec3143cc409eac5ba101acb36b8b11352cab6b7717625b56075d3a3a9576
+      artifacts/audit-01/_html/source_context/forest-cover-lab/specs/v1_forest_baseline.md.html: 43e35c66ecc86e2940a3dd37b9fd304c81f2c820996715653096b76422d0c712
+      artifacts/audit-01/_html/source_context/index.html: 9c1c01c9dc462eefc030a8988132999f1d75599ecf4e88bc47d54522eba36530
+      artifacts/audit-01/_html/source_context/sentinel-monthly-forest-cover/index.html: 9d89a43b8963117aa17c947120075bc995f7e96579f068cd2fffc782e72d41dc
+      artifacts/audit-01/_html/source_context/sentinel-monthly-forest-cover/specs/index.html: 170083c685a028a38bb6c0489b1573c7a27d651cff626af321119928a6551258
+      artifacts/audit-01/_html/source_context/sentinel-monthly-forest-cover/specs/monthly_forest_loss_spec.md.html: 35dab22a7ca8d8421d8c4c01489c55db2597dbcfb58a7e2f1831f52755cc56c7
+      artifacts/audit-01/_html/source_dates.json.html: f7ed208e935a8af3804e9baf25d309268208d7e87e25a3daa44be9cda036332e
+      artifacts/audit-01/additional_loaded_files.json: e80e1de58d0e97ffee99def0bcc1da82c6c1406717844ef7f5af51b06a9ebf02
+      artifacts/audit-01/audit_evidence_manifest.json: 222ca0e9502c88684968e6d171190246178b7d79e85df2eb375f1e0b25ea3f83
+      artifacts/audit-01/audit_report.md: 94b834c27d22d94d2e6f932d4d0a7654be20236e300dacd24463ef6abae79431
+      artifacts/audit-01/audit_run_checks.json: e0efe210b9c0b23e997d4732cc5a345ae5a4ace9e5a16b61cb9032fc3a1c524d
+      artifacts/audit-01/authenticated_inputs.json: 2f39dbc87da613fd9c6746415d7c7f11c5c9d9d0dcbe2064c7bd4086dccfd75f
+      artifacts/audit-01/cache_authentication.json: a133203eb645b85a06b8b535d5a85991d4733a6d65725695ba705daab2d754e3
+      artifacts/audit-01/cache_grid_qa.json: fd7160bab2e6a75640794d5c7ef414b65e6c37d90d334fac4ca54c657ad78d81
+      artifacts/audit-01/execution_observations.json: b17c63b69958fb27c82a9264c510543bd17029f5e96d3e6755a10549f2a470f4
+      artifacts/audit-01/execution_start.json: 45d9746e85f03d7ebd0ef6c7c5c62bf251188f346d13d3bf95f2b42ffa025ed3
+      artifacts/audit-01/findings.json: 2ec049da60ac19603616762cf09235b738aeee4d80a3ac661bc95e1dc610670c
+      artifacts/audit-01/forest_baseline_audit.json: 2848809fd4f93b4f42811bab94c0899043d3eb876c354484376622472e843550
+      artifacts/audit-01/geometry_qa.json: 0875d64f53aadeb4d658389a37423e07508fa04271ab645ad738bb78b163acf4
+      artifacts/audit-01/historical_provenance_checks.json: 84a31572143b9d8d3f39fff8efbbdeea675bba3661ba8e7f7673e7a15303c6c6
+      artifacts/audit-01/index.html: 42e496e393d9d09a45548b977274a7cbe357f739e8a3201cafbd13918be7be0d
+      artifacts/audit-01/inspect/CONTROL-01-compact.png: 80a71c6aecff81703e18b3da35338c859918a2db7a29241d6cdcd9060bf725e9
+      artifacts/audit-01/inspect/CONTROL-01-qa.png: e0e0933f8682c1d591a69feeef34080e82ef4d04b6d40decbfc0c58b499928b3
+      artifacts/audit-01/inspect/CONTROL-02-compact.png: 5ac180516bd9a74f2a57e2c40a8b98be7dc38e743364684a1e5de9ac9dd21bed
+      artifacts/audit-01/inspect/CONTROL-02-qa.png: 87a6e40b199c89b806c53db666b67f0c2472a544efec9087fb7da7155ccb037e
+      artifacts/audit-01/inspect/ROI-01-compact.png: 01192394db2b95a606a9d9196988cc72b13fe400fd4a5f88390d663d34fb69c8
+      artifacts/audit-01/inspect/ROI-01-qa.png: 719f04696e48094ef6849bc2ceeb7103260512f49145e6524b6dac16f2b06225
+      artifacts/audit-01/inspect/ROI-02-compact.png: 01d2bc6884d163bb3678004b056ef61958d38df1ea2bb6c6df739b2fe28434af
+      artifacts/audit-01/inspect/ROI-02-qa.png: 50d6b83c53fb7b8a467b8fd2243ab0015cce8c76d6c2d0d629f090b3931fd4b3
+      artifacts/audit-01/inspect/comparison.html: 73c30c05c54496d38c5a7b8501584397ff83a4370b4a014219dc464090ce05b8
+      artifacts/audit-01/inspect/crops/CONTROL-01-fixed.png: 4597ff067f49fccbd2e7d17d05584fcfff7829db4ad7bd4d6a02676914cf4a24
+      artifacts/audit-01/inspect/crops/CONTROL-01-fixed_and_radar.png: 4597ff067f49fccbd2e7d17d05584fcfff7829db4ad7bd4d6a02676914cf4a24
+      artifacts/audit-01/inspect/crops/CONTROL-01-reference-outline.png: 28dcf92581841c11a9d1e21dd19936dcb041d61f36c5ed3dfa63a2bceaa05ca5
+      artifacts/audit-01/inspect/crops/CONTROL-01-reference-raw.png: 2e9209f422a22ff26ef33df8e1590abfb6c0faa225f5fe35620a32187b843483
+      artifacts/audit-01/inspect/crops/CONTROL-01-sigma.png: 4597ff067f49fccbd2e7d17d05584fcfff7829db4ad7bd4d6a02676914cf4a24
+      artifacts/audit-01/inspect/crops/CONTROL-01-sigma_and_radar.png: 4597ff067f49fccbd2e7d17d05584fcfff7829db4ad7bd4d6a02676914cf4a24
+      artifacts/audit-01/inspect/crops/CONTROL-01-target-outline.png: 249d385bef913ac27f644582aa0cc20c4607e4e7e7a58078d33fa067a7e92b78
+      artifacts/audit-01/inspect/crops/CONTROL-01-target-raw.png: ee11cbec09b4b4a63cc726add8bb9c3d9030d652eeaa49a7447b37b05350d994
+      artifacts/audit-01/inspect/crops/CONTROL-02-fixed.png: 41f4c514ce77d770baaaa42b8d42a24c2e1d653614de2b0ea4493f34a5051518
+      artifacts/audit-01/inspect/crops/CONTROL-02-fixed_and_radar.png: 41f4c514ce77d770baaaa42b8d42a24c2e1d653614de2b0ea4493f34a5051518
+      artifacts/audit-01/inspect/crops/CONTROL-02-reference-outline.png: 6e857f17f9824608d64f4b83a3cfedfec7b586f1b39395cf2000df86efe2ca60
+      artifacts/audit-01/inspect/crops/CONTROL-02-reference-raw.png: 31242436c881400c415e3a9b14af44d055d64457877dd368f8bb8c33cd62a86a
+      artifacts/audit-01/inspect/crops/CONTROL-02-sigma.png: 41f4c514ce77d770baaaa42b8d42a24c2e1d653614de2b0ea4493f34a5051518
+      artifacts/audit-01/inspect/crops/CONTROL-02-sigma_and_radar.png: 41f4c514ce77d770baaaa42b8d42a24c2e1d653614de2b0ea4493f34a5051518
+      artifacts/audit-01/inspect/crops/CONTROL-02-target-outline.png: 44e5bc22919e4d84ba19dc091efa18169fe177385621257a9922371b97837c74
+      artifacts/audit-01/inspect/crops/CONTROL-02-target-raw.png: 020dbee2d5c3309df70b21685547f7bd2df1a985459382b82f89ca34bef296e1
+      artifacts/audit-01/inspect/crops/ROI-01-fixed.png: ed5d9c21b0fe7f0cf40f1327a686fd817c2aad5ffa345c2b2b2a764f2ef2000f
+      artifacts/audit-01/inspect/crops/ROI-01-fixed_and_radar.png: 00f9e99690a9071277f74261277faad468b2f134d67c4531199813eefd9d044a
+      artifacts/audit-01/inspect/crops/ROI-01-reference-outline.png: 9b8cbddc0116bbd8a83f35a29ef1aee766bf804e92ed38006e71f85a6c6cfc53
+      artifacts/audit-01/inspect/crops/ROI-01-reference-raw.png: 910943cacb9e48776952e6aa9697aa67bbd5efdb8ad2b43feecaad6cc609252d
+      artifacts/audit-01/inspect/crops/ROI-01-sigma.png: bf7f15c020e9b4c4dafde943ce0de72cf68d198b9b654f417d3c5bc6c00ea88f
+      artifacts/audit-01/inspect/crops/ROI-01-sigma_and_radar.png: 85511057161bcfba0f2539ab5a82e2d39e0728a44775f8333bdfbdbc96c80520
+      artifacts/audit-01/inspect/crops/ROI-01-target-outline.png: 52c404fdf03fe40814a531d7e84910c0667966129cff402231e576a172e6bc10
+      artifacts/audit-01/inspect/crops/ROI-01-target-raw.png: d45f334fcea5608de33aa2bc3af0dcf7b2ec13a160d58ac1b2b0b08a5764d4f7
+      artifacts/audit-01/inspect/crops/ROI-02-fixed.png: c5d5a83aa0df6e7c9754e3dd4a9a198f59ebdb273d93c9906bbd9ecfcb0a52dc
+      artifacts/audit-01/inspect/crops/ROI-02-fixed_and_radar.png: 6e6dfb89b04ea580d262b8ad840ea0102db25669c1c842838ee0627e4d788647
+      artifacts/audit-01/inspect/crops/ROI-02-reference-outline.png: b90c2c247645774cd8ea43b1f6bfeee76a512a93b1423c05178fe9ec8937866d
+      artifacts/audit-01/inspect/crops/ROI-02-reference-raw.png: 18f0abc65eebfeeefcb433bd61ff7d4e6937c16f1de28e2ec096df91262de47b
+      artifacts/audit-01/inspect/crops/ROI-02-sigma.png: 7d135a908dfd2376d932390e4ae347679e9ba4558b7fe4ff39f926978eea4196
+      artifacts/audit-01/inspect/crops/ROI-02-sigma_and_radar.png: 0cf3249fd1ae97508acdba099fe552f603700d697f13368cb9f1aa7eb54c7b4d
+      artifacts/audit-01/inspect/crops/ROI-02-target-outline.png: 14ec40e5fdb134755df1f8ed6597419abd553dd82824ba8d170d3cc5e32316fe
+      artifacts/audit-01/inspect/crops/ROI-02-target-raw.png: 30f7a8ef3a80dacfaf865c2e65f7ce50194a896b9399e35561c56cc20a908c0c
+      artifacts/audit-01/inspect/mask_contact_sheet.png: e27dca5730bf51d53a73b6260b79f1d068aea2234e267b40776dcaf09cdd7d21
+      artifacts/audit-01/investigation.json: 4e05dc3e38999026aa8c355ff0f2ab519316809a798474ad5c5a6e5e120d4d98
+      artifacts/audit-01/next_step_proposal.md: f7a0d2418978b49b2e5c83a4b249eeee987597a6aacfca712bd4fc7905e535fd
+      artifacts/audit-01/observation_dates.json: 7bf3fd76303c195da56f3ded34b6073ada3783a7b58ba80693cbce05844ce1ae
+      artifacts/audit-01/operator_approval.txt: f3d12134b86d1366d39c13ef2961ea062c39b96522a3917e797f8b57158dcd4e
+      artifacts/audit-01/operator_directions.json: 766ed3aab5824e8d5af2044d1a5a989e07adc1a0c8bb69320939d9ee1538ba8c
+      artifacts/audit-01/original_integrity.json: 8d1fa11e21ddbb19e1b004d86d86aa3651462886383b0a5165a10eaef41a39c5
+      artifacts/audit-01/originals_after.json: 1f0595ea595878e13a6da6a4316e344d17c523b80ba5ef0bd597f163652d0a85
+      artifacts/audit-01/originals_before.json: 1f0595ea595878e13a6da6a4316e344d17c523b80ba5ef0bd597f163652d0a85
+      artifacts/audit-01/orthophoto_boundary_note.json: 35b764c0c45bc144116beb79c4ff24705a89f3b1ceb218807f7670b10d58d64b
+      artifacts/audit-01/orthophoto_date_audit.json: 8e8ea84d7348df75ca841cd8507d5e60df1cdc97d57b5512daca6ec99fcd4741
+      artifacts/audit-01/provenance_checks.json: 7ecd0a79bad16eca4f7773c62b9781abcc9f5ae88bbd5dda0e2ecaff3b38871e
+      artifacts/audit-01/recomputed/fixed.tif: e92f38a188a5ee829f13f68d67bf9566e16d5b72863476141c123992e8cb5532
+      artifacts/audit-01/recomputed/fixed_and_radar.tif: d3f18c69229dff082fa7e9c36e492cf66ca449474e68a88fc2fa4301053c54a7
+      artifacts/audit-01/recomputed/radar.tif: 5fc24bafdb6f3560f02474908e9514493786a5c67dda1b174306a44e44868156
+      artifacts/audit-01/recomputed/sigma.tif: e84aa8d62d4cb794321577c4fd942f308a1d2fc04a87bd12c1c074ba1adf9ef2
+      artifacts/audit-01/recomputed/sigma_and_radar.tif: 6f642245bfde8a131e4cf50a90e98d9c3c3cd0f78acfa54da5cdbde0a5a161fb
+      artifacts/audit-01/registration_qa.json: 9d9a2d4d471849fbc46f15cb258056ce22b096a1d76f19e6a685beb010abada0
+      artifacts/audit-01/report/report.html: 480ff48d5b10ab43b8fb15d57a9f727a97f17394e026c580f5af9f40e954b92b
+      artifacts/audit-01/reproduction.json: 4bc8050bb267217afb57df4c1a0635c79554d117680de9d6d72e3bedfa598aea
+      artifacts/audit-01/review_site_check.json: 890e0070bb00214a09f0c083ef843ef89824ef2aa4807e7160eeb0b8f547a865
+      artifacts/audit-01/roi_review.geojson: b079d3dbff8a473daf6e3d33cdfdaedffc29de470425b8fe9a212f796a862125
+      artifacts/audit-01/round_before_approval.yaml: 21f22322c7aabe4405cf0667c2417b39f17c1c24d086338deda72af65d78e106
+      artifacts/audit-01/run_manifest.json: 92a837bc16f16e34f7a8a7c89ffee4d18488521183045061c5cf7e5847099233
+      artifacts/audit-01/scripts/audit_local.py: cc9fea38a45c3cb023bd49e8a4f3928528ae1207fd927d77f27105bbd5de4800
+      artifacts/audit-01/scripts/close_audit.py: 7821e2d828cf9e628b71a54b76a6399722f69eda80bd3607be4b2b8419fb02fd
+      artifacts/audit-01/scripts/finish_visual_qa.py: 9b9984bac65e700dd19517f33b3475e8419734b9cc202cf4371f7a99f019999c
+      artifacts/audit-01/scripts/logs/audit_local.log: 86f202d6239aa9d1f8edcc42406b1e6370e9d764979d6ef9d149c9aff7ff5ab5
+      artifacts/audit-01/scripts/logs/audit_local_command.json: 10dfc2552f8a8b7bb2c1d116f515ba1a8cba00979efbabde745e5411849361af
+      artifacts/audit-01/scripts/logs/report.log: 4cf4d6364622d877d4dff4e2b7f40a021691234f2f5ced4071adc76df7775797
+      artifacts/audit-01/scripts/logs/report_command.json: 18ef1dd0bbdb093eb7c4616591b55324b4e020ebed8e99010230913985d515aa
+      artifacts/audit-01/scripts/logs/visual_qa.log: c11c6ec7e6963bbf222b75cf7aa2a951efa625362564de24e6998bcc981db5fa
+      artifacts/audit-01/scripts/logs/visual_qa_command.json: 1c7ad683abdbd9ae9428a96363d6e2941c456be71e82845eb55af05fb7b7342c
+      artifacts/audit-01/scripts/montage_masks.py: 1b6086a2f7831d1d20469c1739c654b1061ed9eb1fdefd8b14f1cc07f712e83c
+      artifacts/audit-01/scripts/write_audit_report.py: bc7dd074914621ba9d25e9b9bec1ed5a7ffa3e84ebff3ae0fc0dc13627c7d088
+      artifacts/audit-01/semantic_trace.json: af201c562740010b12029d17cb27b144231ca45a47f808ad6388d0da40b9edb0
+      artifacts/audit-01/source_context/forest-cover-lab/configs/v1_defaults.yaml: 2419263cf0f73a05337433b02e1a5cf528ef3da746279be0a22b2d6a3f59e111
+      artifacts/audit-01/source_context/forest-cover-lab/governance/knowledge_promotion.md: e7320143280412d6fb3ba0b92a9fd088311b49c253150984b11fe3ddc3052e16
+      artifacts/audit-01/source_context/forest-cover-lab/knowledge/datasets/DS-0001.md: 8fa5e36bfa7d89c26a19333a3bd25f4111e8aae17e892c682c6a6a61325406eb
+      artifacts/audit-01/source_context/forest-cover-lab/specs/v1_forest_baseline.md: c1abdf986b9627ce5542b3715fbbed1ac4be4048bf578affeec653e6127fa03d
+      artifacts/audit-01/source_context/sentinel-monthly-forest-cover/specs/monthly_forest_loss_spec.md: 41d7bbb7048f941de8b6bc6cfbaf2e1e7c65dfae2efb7cb92ff0fa1e824bc6dd
+      artifacts/audit-01/source_dates.json: 061827061e6e34d5446adbbb0be8d7f5508e5de9d177526ab91a512558e06b52
+    runtime:
+      client_version: null
+      model_configuration: {}
+      context_mode: inherited
+      workspace_mode: shared
+      permission_summary: 80 tool calls / 1800 seconds; local authenticated caches
+        only; no remote access or paid external service; permitted writes audit artifacts
+        plus operational round/status/render metadata
+    handoffs:
+    - source: archived-review
+      path_or_identifier: reviews/20261006T174722Z-sentinel-road-investigation/rois.geojson
+      revision: null
+      sha256: b079d3dbff8a473daf6e3d33cdfdaedffc29de470425b8fe9a212f796a862125
+      capture_status: captured
+    - source: round
+      path_or_identifier: artifacts/audit-01/operator_approval.txt
+      revision: null
+      sha256: f3d12134b86d1366d39c13ef2961ea062c39b96522a3917e797f8b57158dcd4e
+      capture_status: captured
+    independence:
+      source_lineage_groups:
+      - archived Sentinel/Copernicus optical
+      - archived Planetary Computer Sentinel-1 RTC
+      - archived Estonian WMS metadata
+      conclusion_exposure: received
+      evidence_inspected: *id001
+      limitations:
+      - Prior review conclusions were present in context; providers/sensors are not
+        established independent causal evidence.
+    coordination_events:
+    - kind: reconciliation
+      detail: Preserved 13 historical mismatches, authenticated raw caches, reproduced
+        production decisions, checked historical manifests at their own local Git
+        graph pins; no scientific promotion.
+      artifact:
+        source: round
+        path_or_identifier: artifacts/audit-01/cache_authentication.json
+        revision: null
+        sha256: a133203eb645b85a06b8b535d5a85991d4733a6d65725695ba705daab2d754e3
+        capture_status: captured
+- id: discovery-01
+  role: agent_harness/roles/dataset-and-tool-discovery.md
+  role_scope: standing
+  host_planned: chatgpt
+  selection_status: planned
+  assignment: assignments/discovery-01.md
+  delegation:
+    mode: separate_session
+    parent_instance_id: null
+    question: Find viable dated Sentinel scenes, aerial orthophotos, ETAK roads and
+      official road/rail geometry with license/availability. Do not treat source listing
+      as acquired evidence.
+    output_contract: dataset_options.csv
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/discovery-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/dataset-and-tool-discovery.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: 259b6d41a8d3962087b31ce49fb1994855d3d3554c55bd367e8adf55ccb82ac1
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/discovery-01.md
+    revision: null
+    sha256: a884061d6f6fc075cde8cca59c21e14c2497a4a38b03c7359e0d37a76b016f16
+    capture_status: selected
+  actual_executions: []
+- id: eo-01
+  role: agent_harness/roles/remote-sensing-quantification.md
+  role_scope: standing
+  host_planned: codex
+  selection_status: planned
+  assignment: assignments/eo-01.md
+  delegation:
+    mode: sequential_role
+    parent_instance_id: null
+    question: Compute true calendar-month S2 NDVI means for 2025/2026 (with median
+      sensitivity), absolute and safely defined relative changes, SAR ancillary evidence
+      and sensitivity with identical support.
+    output_contract: eo_measurements.csv, eo_claims.csv, map_manifest.json, eo_primary_evidence.json
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/eo-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/remote-sensing-quantification.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: 645a06490784a0a4e4f8fc4b0366971756e5da95768f9938df314a9e2d5b79e8
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/eo-01.md
+    revision: null
+    sha256: ee54173b4674a8929c0911567f2e28c8b102d752cf74202cd6e8e0d18dab40fc
+    capture_status: selected
+  actual_executions: []
+- id: geo-01
+  role: agent_harness/roles/national-geospatial-evidence.md
+  role_scope: standing
+  host_planned: claude-code
+  selection_status: planned
+  assignment: assignments/geo-01.md
+  delegation:
+    mode: sequential_role
+    parent_instance_id: null
+    question: Inspect pinned ROI geometries against dated authoritative orthophotos,
+      ETAK mapping and metadata; do not use EO conclusions to guide interpretation.
+    output_contract: geo_sources.csv, geo_claims.csv, geo_primary_evidence.json
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/national-geospatial-evidence.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: 146f230a7f80ca5f56659db0a8c66409fbf12931295571b94e7294b80b7533a8
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/geo-01.md
+    revision: null
+    sha256: f756bc4925800ff82ff0fb56dde544a89cc8167a24cbcd7ff163c62524128d64
+    capture_status: selected
+  actual_executions: []
+- id: works-01
+  role: agent_harness/roles/official-infrastructure-records.md
+  role_scope: standing
+  host_planned: claude
+  selection_status: planned
+  assignment: assignments/works-01.md
+  delegation:
+    mode: separate_session
+    parent_instance_id: null
+    question: Test identity and construction/maintenance intervals for ROI-01/02 with
+      spatially matched official records; never infer Rail Baltica just from proximity.
+    output_contract: works_ledger.csv, works_claims.csv, works_primary_evidence.json
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/works-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/official-infrastructure-records.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: a826ed59a4a7cdb9bae2bead34681a58715d1b26da380eaee11807cf3a19b3ce
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/works-01.md
+    revision: null
+    sha256: dd682c9abb4fd96b5baa4d64821ba0cf978f1f543005d27699f757cfa9c0b637
+    capture_status: selected
+  actual_executions: []
+- id: literature-01
+  role: agent_harness/roles/literature-and-media.md
+  role_scope: standing
+  host_planned: chatgpt
+  selection_status: planned
+  assignment: assignments/literature-01.md
+  delegation:
+    mode: separate_session
+    parent_instance_id: null
+    question: Assess mechanisms for month-year NDVI artifacts, mixed road edges, phenology,
+      radar disagreements, structural road change and independent tests.
+    output_contract: literature_ledger.csv, literature_claims.csv, literature_primary_evidence.json
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/literature-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/literature-and-media.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: cbd5a201f7a8bba503c3ac2f4b3e175dfcca4ca3f4d253e5243e11bdbd804bf3
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/literature-01.md
+    revision: null
+    sha256: 566cc389811450bc578fbe5ca8b315235b35b1e8f14e89f89725209c9aa8e62a
+    capture_status: selected
+  actual_executions: []
+- id: challenge-01
+  role: agent_harness/roles/independent-challenge.md
+  role_scope: standing
+  host_planned: claude
+  selection_status: planned
+  assignment: assignments/challenge-01.md
+  delegation:
+    mode: separate_session
+    parent_instance_id: null
+    question: Inspect primary rasters and records and challenge time attribution,
+      prior-road presence, classifier thresholds, forest definition, apparent source
+      independence and conclusions.
+    output_contract: challenge_report.md, challenge_claims.csv
+    permitted_writes:
+    - reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/challenge-01/
+    budget:
+      tool_call_limit: null
+      elapsed_seconds_limit: null
+      cost_usd_limit: null
+  harness_sources:
+  - source: forest-cover-lab
+    path_or_identifier: agent_harness/roles/independent-challenge.md
+    revision: c322e89fb96def2434c62776ac595f6cd995ef92
+    sha256: 67a4e382cc888045d420e1a5973da718851772f62958d4cbc87824494d330fa5
+    capture_status: selected
+  - source: round
+    path_or_identifier: assignments/challenge-01.md
+    revision: null
+    sha256: d52ea3954a903cdf513cb5c7f0a44a5b5c67810c5fcafbf2c68814d145cdf8b7
+    capture_status: selected
+  actual_executions: []
+graph:
+  mode: stepwise
+  approval:
+    proposed_by: Codex local planning revision, 2026-10-23; predecessor round-0001
+      retained
+    planning_record_id: road-like-ndvi-2025-2026-monthly-round-0002/graph
+    status: approved
+    approver: human operator (user in this conversation)
+    decided_utc: '2026-10-24T06:41:45.285199+00:00'
+    basis: User explicitly approved graph and audit-01 only, 80 tool calls / 30 minutes,
+      local authenticated caches, no remote access. See artifacts/audit-01/operator_approval.txt;
+      timestamp is approval recording time, not original message timestamp.
+  nodes:
+  - id: inputs
+    kind: input
+    label: AOI + archived ROIs + monthly question
+    outputs:
+    - aoi.geojson
+    - prior_rois.geojson
+    - window_spec.yaml
+  - id: audit-01
+    kind: agent
+    instance: audit-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - audit_report.md
+    - roi_review.geojson
+    - audit_evidence_manifest.json
+    step_plan:
+      plan_ref: assignments/audit-01.md
+      plan_sha256: d94ff95e0c4fd75f87341faf01a7d9187cc1c08b13ab66a32fb8cf2bb4ad57d7
+      approval:
+        status: approved
+        approver: human operator (user in this conversation)
+        decided_utc: '2026-10-24T06:41:45.285199+00:00'
+        basis: User explicitly approved graph and audit-01 only, 80 tool calls / 30
+          minutes, local authenticated caches, no remote access. See artifacts/audit-01/operator_approval.txt;
+          timestamp is approval recording time, not original message timestamp.
+  - id: discovery-01
+    kind: agent
+    instance: discovery-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - dataset_options.csv
+    step_plan:
+      plan_ref: assignments/discovery-01.md
+      plan_sha256: a884061d6f6fc075cde8cca59c21e14c2497a4a38b03c7359e0d37a76b016f16
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: freeze-gate
+    kind: gate
+    label: 'Human: freeze ROIs, periods and data access'
+    approver: human
+    approval:
+      status: pending
+      approver: null
+      decided_utc: null
+      basis: null
+  - id: eo-01
+    kind: agent
+    instance: eo-01
+    loop:
+      max_iterations: 3
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - eo_measurements.csv
+    - eo_claims.csv
+    - map_manifest.json
+    - eo_primary_evidence.json
+    step_plan:
+      plan_ref: assignments/eo-01.md
+      plan_sha256: ee54173b4674a8929c0911567f2e28c8b102d752cf74202cd6e8e0d18dab40fc
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: geo-01
+    kind: agent
+    instance: geo-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - geo_sources.csv
+    - geo_claims.csv
+    - geo_primary_evidence.json
+    step_plan:
+      plan_ref: assignments/geo-01.md
+      plan_sha256: f756bc4925800ff82ff0fb56dde544a89cc8167a24cbcd7ff163c62524128d64
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: works-01
+    kind: agent
+    instance: works-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - works_ledger.csv
+    - works_claims.csv
+    - works_primary_evidence.json
+    step_plan:
+      plan_ref: assignments/works-01.md
+      plan_sha256: dd682c9abb4fd96b5baa4d64821ba0cf978f1f543005d27699f757cfa9c0b637
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: literature-01
+    kind: agent
+    instance: literature-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - literature_ledger.csv
+    - literature_claims.csv
+    - literature_primary_evidence.json
+    step_plan:
+      plan_ref: assignments/literature-01.md
+      plan_sha256: 566cc389811450bc578fbe5ca8b315235b35b1e8f14e89f89725209c9aa8e62a
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: branch-gate
+    kind: gate
+    label: 'Human: accept evidence from independent branches'
+    approver: human
+    approval:
+      status: pending
+      approver: null
+      decided_utc: null
+      basis: null
+  - id: reconcile
+    kind: script
+    label: Deterministic claim and lineage merge
+    command: 'PLANNED: implement scripts/reconcile_claims.py preserving hashed primary
+      evidence references and map_manifest.json; not executed'
+    outputs:
+    - claim_matrix.csv
+    - disagreements.csv
+    - reconciliation_notes.md
+    - primary_evidence_index.json
+    - map_manifest.json
+  - id: challenge-01
+    kind: agent
+    instance: challenge-01
+    loop:
+      max_iterations: 2
+      until: Acceptance checks pass or blocking evidence is recorded
+    outputs:
+    - challenge_report.md
+    - challenge_claims.csv
+    step_plan:
+      plan_ref: assignments/challenge-01.md
+      plan_sha256: d52ea3954a903cdf513cb5c7f0a44a5b5c67810c5fcafbf2c68814d145cdf8b7
+      approval:
+        status: pending
+        approver: null
+        decided_utc: null
+        basis: null
+  - id: decision-gate
+    kind: gate
+    label: 'Human: assess falsification and publication candidate'
+    approver: human
+    approval:
+      status: pending
+      approver: null
+      decided_utc: null
+      basis: null
+  - id: assemble
+    kind: script
+    label: Assemble offline evidence bundle
+    command: 'PLANNED: reviewed-evidence release adapter required after decision-gate;
+      existing scripts/build_bundle.py supports private planning drafts only'
+    outputs:
+    - bundle/index.html
+    - bundle/bundle_manifest.json
+  - id: release-gate
+    kind: gate
+    label: 'Human: approve public/private bundle release'
+    approver: human
+    approval:
+      status: pending
+      approver: null
+      decided_utc: null
+      basis: null
+  edges:
+  - from: inputs
+    to: audit-01
+    carries:
+    - aoi.geojson
+    - prior_rois.geojson
+    - window_spec.yaml
+  - from: inputs
+    to: discovery-01
+    carries:
+    - aoi.geojson
+    - window_spec.yaml
+  - from: inputs
+    to: freeze-gate
+    carries:
+    - aoi.geojson
+    - prior_rois.geojson
+    - window_spec.yaml
+  - from: audit-01
+    to: freeze-gate
+    carries:
+    - audit_report.md
+    - roi_review.geojson
+    - audit_evidence_manifest.json
+  - from: discovery-01
+    to: freeze-gate
+    carries:
+    - dataset_options.csv
+  - from: freeze-gate
+    to: eo-01
+    carries:
+    - aoi.geojson
+    - window_spec.yaml
+    - roi_review.geojson
+    - audit_report.md
+    - dataset_options.csv
+  - from: freeze-gate
+    to: geo-01
+    carries:
+    - roi_review.geojson
+    - window_spec.yaml
+    - dataset_options.csv
+  - from: freeze-gate
+    to: works-01
+    carries:
+    - roi_review.geojson
+    - window_spec.yaml
+    - dataset_options.csv
+  - from: freeze-gate
+    to: literature-01
+    carries:
+    - window_spec.yaml
+    - dataset_options.csv
+  - from: eo-01
+    to: branch-gate
+    carries:
+    - eo_measurements.csv
+    - eo_claims.csv
+    - map_manifest.json
+    - eo_primary_evidence.json
+  - from: geo-01
+    to: branch-gate
+    carries:
+    - geo_sources.csv
+    - geo_claims.csv
+    - geo_primary_evidence.json
+  - from: works-01
+    to: branch-gate
+    carries:
+    - works_ledger.csv
+    - works_claims.csv
+    - works_primary_evidence.json
+  - from: literature-01
+    to: branch-gate
+    carries:
+    - literature_ledger.csv
+    - literature_claims.csv
+    - literature_primary_evidence.json
+  - from: branch-gate
+    to: reconcile
+    carries:
+    - eo_measurements.csv
+    - eo_claims.csv
+    - map_manifest.json
+    - eo_primary_evidence.json
+    - geo_sources.csv
+    - geo_claims.csv
+    - geo_primary_evidence.json
+    - works_ledger.csv
+    - works_claims.csv
+    - works_primary_evidence.json
+    - literature_ledger.csv
+    - literature_claims.csv
+    - literature_primary_evidence.json
+  - from: reconcile
+    to: challenge-01
+    carries:
+    - claim_matrix.csv
+    - disagreements.csv
+    - reconciliation_notes.md
+    - primary_evidence_index.json
+    - map_manifest.json
+  - from: reconcile
+    to: decision-gate
+    carries:
+    - claim_matrix.csv
+    - disagreements.csv
+    - reconciliation_notes.md
+    - primary_evidence_index.json
+    - map_manifest.json
+  - from: challenge-01
+    to: decision-gate
+    carries:
+    - challenge_report.md
+    - challenge_claims.csv
+  - from: decision-gate
+    to: assemble
+    carries:
+    - claim_matrix.csv
+    - disagreements.csv
+    - challenge_report.md
+    - challenge_claims.csv
+    - primary_evidence_index.json
+    - map_manifest.json
+  - from: assemble
+    to: release-gate
+    carries:
+    - bundle/index.html
+    - bundle/bundle_manifest.json
+  independence_groups:
+  - - eo-01
+    - geo-01
+    - works-01
+    - literature-01
+human_review:
+  status: pending
+  reviewer: null
+  decision: null
+  basis: null

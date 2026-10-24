@@ -1,0 +1,20 @@
+[
+  {
+    "source": "sentinel-local:runs/aoi-s2-jja-2025-2026-calibrated/run_manifest.json",
+    "source_sha256": "7c9f22be32fff8e9fcbb875a62328a2f4a3d2c83662e49290b30003d152e647f",
+    "result": {
+      "status": "FAIL",
+      "error": "Run manifest has a different graph revision"
+    },
+    "note": "Historical manifest remains at historical pins; this does not re-pin or scientifically validate the run."
+  },
+  {
+    "source": "sentinel-local:runs/aoi-s2-s1-jja-2025-2026-sigma/run_manifest.json",
+    "source_sha256": "77ebad298960b33dbe86b6b61310677727265ecca7795da5d355249365443860",
+    "result": {
+      "status": "FAIL",
+      "error": "Run manifest has a different graph revision"
+    },
+    "note": "Historical manifest remains at historical pins; this does not re-pin or scientifically validate the run."
+  }
+]

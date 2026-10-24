@@ -1,0 +1,18 @@
+[
+  {
+    "run": "aoi-s2-jja-2025-2026-calibrated",
+    "historical_lab_commit": "f3895e46fe3a5109e8bf0e3e01328e942b1e98c5",
+    "graph_revision": "ef90b703ae150c09cc7cac6fd324d7b5ecd8305a5a0d5130ec0deb61ed291e49",
+    "graph_blob_sha256": "df62f0dab985b283875c508dd98ba981a26d1a1649b187f7ecaa9caa0781e784",
+    "source": "local Git object, no checkout/fetch",
+    "result": "PASS against its own historical graph; deliberately not re-pinned to current graph"
+  },
+  {
+    "run": "aoi-s2-s1-jja-2025-2026-sigma",
+    "historical_lab_commit": "f3895e46fe3a5109e8bf0e3e01328e942b1e98c5",
+    "graph_revision": "ef90b703ae150c09cc7cac6fd324d7b5ecd8305a5a0d5130ec0deb61ed291e49",
+    "graph_blob_sha256": "df62f0dab985b283875c508dd98ba981a26d1a1649b187f7ecaa9caa0781e784",
+    "source": "local Git object, no checkout/fetch",
+    "result": "PASS against its own historical graph; deliberately not re-pinned to current graph"
+  }
+]

@@ -1,0 +1,204 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>findings.json</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>findings.json</h1><p class="muted">findings.json · <a href="../findings.json">raw file</a> · <a href="index.html">folder</a></p><pre>{
+  &quot;schema_version&quot;: &quot;1.0&quot;,
+  &quot;summary&quot;: &quot;Local authentication/reproduction audit passed within its scope; scientific branch outputs and human acceptance remain pending.&quot;,
+  &quot;claims&quot;: [
+    {
+      &quot;id&quot;: &quot;AUD-01&quot;,
+      &quot;claim_id&quot;: &quot;AUD-01&quot;,
+      &quot;exact_proposition&quot;: &quot;User identifies the two outlined corridors as the intended targets.&quot;,
+      &quot;roi_id&quot;: &quot;ROI-01,ROI-02&quot;,
+      &quot;period&quot;: &quot;archived acquisitions / audit on 2026-10-24&quot;,
+      &quot;status&quot;: &quot;supported&quot;,
+      &quot;evidence_ids&quot;: [
+        <a href="operator_approval.txt.html">&quot;operator_approval.txt&quot;</a>,
+        <a href="geometry_qa.json.html">&quot;geometry_qa.json&quot;</a>
+      ],
+      &quot;source_lineage&quot;: [
+        &quot;local archived Sentinel/Copernicus&quot;,
+        &quot;operator directions where stated&quot;
+      ],
+      &quot;limitations&quot;: [
+        &quot;User identification does not certify surveyed road edges or construction date.&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;AUD-02&quot;,
+      &quot;claim_id&quot;: &quot;AUD-02&quot;,
+      &quot;exact_proposition&quot;: &quot;Archived ROI/control coordinates are unchanged, valid and inside the AOI.&quot;,
+      &quot;roi_id&quot;: &quot;all&quot;,
+      &quot;period&quot;: &quot;archived acquisitions / audit on 2026-10-24&quot;,
+      &quot;status&quot;: &quot;supported&quot;,
+      &quot;evidence_ids&quot;: [
+        <a href="roi_review.geojson.html">&quot;roi_review.geojson&quot;</a>,
+        <a href="geometry_qa.json.html">&quot;geometry_qa.json&quot;</a>,
+        <a href="../inspect/ROI-01-compact.png">&quot;inspect/ROI-01-compact.png&quot;</a>,
+        <a href="../inspect/ROI-02-compact.png">&quot;inspect/ROI-02-compact.png&quot;</a>
+      ],
+      &quot;source_lineage&quot;: [
+        &quot;local archived Sentinel/Copernicus&quot;,
+        &quot;operator directions where stated&quot;
+      ],
+      &quot;limitations&quot;: [
+        &quot;40 m sampling tolerance is not a measured registration error; controls remain visually selected.&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;AUD-03&quot;,
+      &quot;claim_id&quot;: &quot;AUD-03&quot;,
+      &quot;exact_proposition&quot;: &quot;79 consumed raw assets match original run-manifest hashes.&quot;,
+      &quot;roi_id&quot;: &quot;all&quot;,
+      &quot;period&quot;: &quot;archived acquisitions / audit on 2026-10-24&quot;,
+      &quot;status&quot;: &quot;supported&quot;,
+      &quot;evidence_ids&quot;: [
+        <a href="authenticated_inputs.json.html">&quot;authenticated_inputs.json&quot;</a>,
+        <a href="cache_authentication.json.html">&quot;cache_authentication.json&quot;</a>
+      ],
+      &quot;source_lineage&quot;: [
+        &quot;local archived Sentinel/Copernicus&quot;,
+        &quot;operator directions where stated&quot;
+      ],
+      &quot;limitations&quot;: [
+        &quot;Byte authenticity is limited to the local archived chain, not independent provider certification.&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;AUD-04&quot;,
+      &quot;claim_id&quot;: &quot;AUD-04&quot;,
+      &quot;exact_proposition&quot;: &quot;Thirteen original output-manifest mismatches are historical and remain excluded from original-manifest authority.&quot;,
+      &quot;roi_id&quot;: &quot;all&quot;,
+      &quot;period&quot;: &quot;archived acquisitions / audit on 2026-10-24&quot;,
+      &quot;status&quot;: &quot;supported&quot;,
+      &quot;evidence_ids&quot;: [
+        <a href="cache_authentication.json.html">&quot;cache_authentication.json&quot;</a>,
+        <a href="original_integrity.json.html">&quot;original_integrity.json&quot;</a>,
+        <a href="reproduction.json.html">&quot;reproduction.json&quot;</a>
+      ],
+      &quot;source_lineage&quot;: [
+        &quot;local archived Sentinel/Copernicus&quot;,
+        &quot;operator directions where stated&quot;
+      ],
+      &quot;limitations&quot;: [
+        &quot;Original expected bytes have not been restored; the immutable originals are not repaired.&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;AUD-05&quot;,
+      &quot;claim_id&quot;: &quot;AUD-05&quot;,
+      &quot;exact_proposition&quot;: &quot;Existing production decisions reproduce exactly; optical change is absolute NDVI difference, not relative percent.&quot;,
+      &quot;roi_id&quot;: &quot;all&quot;,
+      &quot;period&quot;: &quot;archived acquisitions / audit on 2026-10-24&quot;,
+      &quot;status&quot;: &quot;supported&quot;,
+      &quot;evidence_ids&quot;: [
+        <a href="reproduction.json.html">&quot;reproduction.json&quot;</a>,
+        <a href="run_manifest.json.html">&quot;run_manifest.json&quot;</a>
+      ],
+      &quot;source_lineage&quot;: [
+        &quot;local archived Sentinel/Copernicus&quot;,
+        &quot;operator directions where stated&quot;
+      ],
+      &quot;limitations&quot;: [
+        &quot;No threshold accuracy, cause or legal/forest claim follows.&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;AUD-06&quot;,
+      &quot;claim_id&quot;: &quot;AUD-06&quot;,
+      &quot;exact_proposition&quot;: &quot;Two optical patches prefer zero integer shift; no correction applied.&quot;,
+      &quot;roi_id&quot;: &quot;all&quot;,
+      &quot;period&quot;: &quot;archived acquisitions / audit on 2026-10-24&quot;,
+      &quot;status&quot;: &quot;supported&quot;,
+      &quot;evidence_ids&quot;: [
+        <a href="registration_qa.json.html">&quot;registration_qa.json&quot;</a>
+      ],
+      &quot;source_lineage&quot;: [
+        &quot;local archived Sentinel/Copernicus&quot;,
+        &quot;operator directions where stated&quot;
+      ],
+      &quot;limitations&quot;: [
+        &quot;Subpixel, full-corridor and radar registration remain unverified.&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;AUD-07&quot;,
+      &quot;claim_id&quot;: &quot;AUD-07&quot;,
+      &quot;exact_proposition&quot;: &quot;A verified before/after July-2025 orthophoto pair is available in the checked cache.&quot;,
+      &quot;roi_id&quot;: &quot;all&quot;,
+      &quot;period&quot;: &quot;archived acquisitions / audit on 2026-10-24&quot;,
+      &quot;status&quot;: &quot;unresolved&quot;,
+      &quot;evidence_ids&quot;: [
+        <a href="orthophoto_date_audit.json.html">&quot;orthophoto_date_audit.json&quot;</a>
+      ],
+      &quot;source_lineage&quot;: [
+        &quot;local archived Sentinel/Copernicus&quot;,
+        &quot;operator directions where stated&quot;
+      ],
+      &quot;limitations&quot;: [
+        &quot;No linked flight date authenticates either side of the cutoff; no global availability search performed.&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;AUD-08&quot;,
+      &quot;claim_id&quot;: &quot;AUD-08&quot;,
+      &quot;exact_proposition&quot;: &quot;An approved measured 2024 Hansen forest mask has been consumed.&quot;,
+      &quot;roi_id&quot;: &quot;all&quot;,
+      &quot;period&quot;: &quot;archived acquisitions / audit on 2026-10-24&quot;,
+      &quot;status&quot;: &quot;not_tested&quot;,
+      &quot;evidence_ids&quot;: [
+        <a href="forest_baseline_audit.json.html">&quot;forest_baseline_audit.json&quot;</a>
+      ],
+      &quot;source_lineage&quot;: [
+        &quot;local archived Sentinel/Copernicus&quot;,
+        &quot;operator directions where stated&quot;
+      ],
+      &quot;limitations&quot;: [
+        &quot;Product selection recorded; no local mask found/ingested. The 2024 edition is not itself measured 2024 canopy cover.&quot;
+      ]
+    },
+    {
+      &quot;id&quot;: &quot;AUD-09&quot;,
+      &quot;claim_id&quot;: &quot;AUD-09&quot;,
+      &quot;exact_proposition&quot;: &quot;Calendar-month June NDVI pairs and causal new-road conclusions are established.&quot;,
+      &quot;roi_id&quot;: &quot;all&quot;,
+      &quot;period&quot;: &quot;archived acquisitions / audit on 2026-10-24&quot;,
+      &quot;status&quot;: &quot;not_tested&quot;,
+      &quot;evidence_ids&quot;: [
+        <a href="observation_dates.json.html">&quot;observation_dates.json&quot;</a>
+      ],
+      &quot;source_lineage&quot;: [
+        &quot;local archived Sentinel/Copernicus&quot;,
+        &quot;operator directions where stated&quot;
+      ],
+      &quot;limitations&quot;: [
+        &quot;Only historical single-scene/summer decisions audited; monthly/causal analysis not authorized.&quot;
+      ]
+    }
+  ],
+  &quot;stage_status&quot;: {
+    &quot;inspect&quot;: &quot;audit-only complete with limitations&quot;,
+    &quot;research&quot;: &quot;not_run&quot;,
+    &quot;corroborate&quot;: &quot;not_run&quot;,
+    &quot;report&quot;: &quot;audit report only&quot;
+  },
+  &quot;limitations&quot;: [
+    &quot;All-land-cover screening; no forest baseline was consumed, despite later Hansen product selection.&quot;,
+    &quot;Not monthly June generation, construction attribution, legality, held-out accuracy or causal validation.&quot;,
+    &quot;The original 13 derived artifact hash mismatches remain preserved; original-manifest-matching source caches are required.&quot;,
+    &quot;NumPy implements aggregation under the already-declared workflow divergence; no new Lab tool registration.&quot;,
+    &quot;Private external instructions and exact serving model/client details are not captured.&quot;
+  ]
+}</pre></main></body></html>

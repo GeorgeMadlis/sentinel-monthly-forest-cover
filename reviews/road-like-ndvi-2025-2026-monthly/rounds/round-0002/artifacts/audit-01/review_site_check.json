@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+    "/Users/server/projects/sentinel-monthly-forest-cover/scripts/build_review_site.py",
+    "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/audit-01",
+    "--strict"
+  ],
+  "started_utc": "2026-10-24T06:57:08.429090+00:00",
+  "ended_utc": "2026-10-24T06:57:09.034876+00:00",
+  "exit_code": 0,
+  "stdout": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/audit-01/index.html: 68 HTML pages checked, 0 link problems\n",
+  "stderr": "",
+  "scope": "HTML/Markdown/local paths, not science"
+}

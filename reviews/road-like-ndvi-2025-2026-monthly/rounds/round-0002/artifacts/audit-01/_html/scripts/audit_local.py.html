@@ -1,0 +1,338 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>scripts/audit_local.py</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../../index.html">Review home</a> · <a href="../index.html">All files</a></nav><h1>audit_local.py</h1><p class="muted">scripts/audit_local.py · <a href="../../scripts/audit_local.py">raw file</a> · <a href="index.html">folder</a></p><pre>&quot;&quot;&quot;Read-only cache authentication and reproduction of existing decisions. No discovery.&quot;&quot;&quot;
+import csv
+from contextlib import ExitStack
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import sys
+import warnings
+
+os.environ[&#x27;PROJ_NETWORK&#x27;] = &#x27;OFF&#x27;
+os.environ[&#x27;GDAL_DISABLE_READDIR_ON_OPEN&#x27;] = &#x27;EMPTY_DIR&#x27;
+OUT = Path(__file__).resolve().parents[1]
+ROOT = OUT.parents[5]
+sys.path.insert(0, str(ROOT))
+import numpy as np
+import rasterio
+from rasterio.features import geometry_mask, geometry_window
+from rasterio.warp import transform_geom
+from rasterio.windows import Window
+from shapely.geometry import shape
+from PIL import Image, ImageDraw
+from scipy.ndimage import binary_erosion
+from forest_change.algorithms import feature, aggregate
+from forest_change.raster import Grid, tiles, inside, write_window
+
+RUN = ROOT / &#x27;runs/aoi-s2-s1-jja-2025-2026-sigma&#x27;
+BASE = ROOT / &#x27;runs/aoi-s2-jja-2025-2026-calibrated&#x27;
+OLD = ROOT / &#x27;reviews/20261006T174722Z-sentinel-road-investigation&#x27;
+
+
+def dump(name, value):
+    p = OUT / name
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(value, indent=2, ensure_ascii=False) + &#x27;\n&#x27;)
+
+
+def load(p):
+    return json.loads(p.read_text())
+
+
+def sha(p):
+    h = hashlib.sha256()
+    with p.open(&#x27;rb&#x27;) as f:
+        for b in iter(lambda: f.read(1024 * 1024), b&#x27;&#x27;):
+            h.update(b)
+    return h.hexdigest()
+
+
+def identifier(p):
+    return &#x27;sentinel-local:&#x27; + p.relative_to(ROOT).as_posix()
+
+
+def local(ref):
+    if &#x27;://&#x27; in str(ref) or str(ref).startswith(&#x27;/vsi&#x27;):
+        raise ValueError(&#x27;Network/virtual asset forbidden&#x27;)
+    p = Path(ref).resolve()
+    if not p.is_relative_to(ROOT) or not p.is_file():
+        raise ValueError(&#x27;Missing/out-of-scope local cache&#x27;)
+    return p
+
+
+def inventory():
+    before = {}
+    for folder in (BASE, RUN, OLD):
+        for p in sorted(folder.rglob(&#x27;*&#x27;)):
+            if p.is_file():
+                before[p.relative_to(ROOT).as_posix()] = sha(p)
+    dump(&#x27;originals_before.json&#x27;, before)
+    manifests = []
+    authenticated = set()
+    for folder in (BASE, RUN):
+        m = load(folder / &#x27;run_manifest.json&#x27;)
+        rows = []
+        for entry in m[&#x27;outputs&#x27;]:
+            p = local(folder / entry[&#x27;path&#x27;])
+            actual = before[p.relative_to(ROOT).as_posix()]
+            match = actual == entry.get(&#x27;sha256&#x27;)
+            rows.append({&#x27;source&#x27;: identifier(p), &#x27;expected_sha256&#x27;: entry.get(&#x27;sha256&#x27;),
+                         &#x27;actual_sha256&#x27;: actual, &#x27;matches&#x27;: match})
+            if match:
+                authenticated.add(p)
+        manifests.append({&#x27;manifest&#x27;: identifier(folder / &#x27;run_manifest.json&#x27;), &#x27;files&#x27;: rows,
+                          &#x27;matches&#x27;: sum(r[&#x27;matches&#x27;] for r in rows),
+                          &#x27;mismatches&#x27;: [r for r in rows if not r[&#x27;matches&#x27;]]})
+    historical = load(OLD / &#x27;original_hashes_before.json&#x27;)
+    historical_rows = []
+    for path, expected in historical.items():
+        p = local(path)
+        actual = before[p.relative_to(ROOT).as_posix()]
+        historical_rows.append({&#x27;source&#x27;: identifier(p), &#x27;expected_sha256&#x27;: expected,
+                                &#x27;actual_sha256&#x27;: actual, &#x27;matches&#x27;: actual == expected})
+    artifact_rows = []
+    for path, expected in load(OLD / &#x27;artifact_manifest.json&#x27;)[&#x27;artifacts&#x27;].items():
+        p = OLD / path
+        actual = before.get(p.relative_to(ROOT).as_posix())
+        artifact_rows.append({&#x27;source&#x27;: identifier(p), &#x27;expected_sha256&#x27;: expected,
+                             &#x27;actual_sha256&#x27;: actual, &#x27;matches&#x27;: expected == actual})
+    dump(&#x27;cache_authentication.json&#x27;, {&#x27;run_manifests&#x27;: manifests,
+        &#x27;historical_original_hashes&#x27;: historical_rows, &#x27;historical_artifact_hashes&#x27;: artifact_rows,
+        &#x27;policy&#x27;: &#x27;Only original-manifest-matching local raw inputs are consumed for reproduction. Historical derived mismatches are excluded as an original-manifest authority; current bytes and historical hashes retained without rewriting.&#x27;,
+        &#x27;limitation&#x27;: &#x27;Hashes authenticate local byte identity, not provider authenticity or scientific validity.&#x27;})
+    # Authenticated original-manifest inputs are mandatory, not merely new hashes.
+    inv = load(RUN / &#x27;optical_inventory.json&#x27;)[&#x27;items&#x27;]
+    radar = load(RUN / &#x27;radar_inventory.json&#x27;)[&#x27;items&#x27;]
+    for p in [RUN / &#x27;optical_inventory.json&#x27;, RUN / &#x27;radar_inventory.json&#x27;, BASE / &#x27;selected_observations.json&#x27;]:
+        assert p in authenticated, &#x27;Unverified inventory &#x27; + str(p)
+    records = []
+    for sensor, items in [(&#x27;optical&#x27;, inv), (&#x27;radar&#x27;, radar)]:
+        for item in items:
+            for band, asset in item[&#x27;assets&#x27;].items():
+                p = local(asset[&#x27;href&#x27;])
+                assert p in authenticated, &#x27;Raw cache not original-manifest authenticated: &#x27; + str(p)
+                records.append({&#x27;sensor&#x27;: sensor, &#x27;item_id&#x27;: item[&#x27;id&#x27;], &#x27;acquisition_utc&#x27;: item[&#x27;datetime&#x27;],
+                    &#x27;band&#x27;: band, &#x27;source&#x27;: identifier(p), &#x27;sha256&#x27;: sha(p),
+                    &#x27;source_url&#x27;: asset.get(&#x27;source_url&#x27;, asset.get(&#x27;source_asset&#x27;, {}).get(&#x27;href&#x27;)),
+                    &#x27;calibration_scale&#x27;: asset.get(&#x27;scale&#x27;, 1), &#x27;calibration_offset&#x27;: asset.get(&#x27;offset&#x27;, 0),
+                    &#x27;lineage&#x27;: &#x27;Sentinel/Copernicus optical&#x27; if sensor == &#x27;optical&#x27; else &#x27;Planetary Computer Sentinel-1 RTC&#x27;})
+    assert all(&#x27;?&#x27; not in (r[&#x27;source_url&#x27;] or &#x27;&#x27;) for r in records), &#x27;Do not retain signed source URLs&#x27;
+    dump(&#x27;authenticated_inputs.json&#x27;, {&#x27;assets&#x27;: records, &#x27;all_original_manifest_match&#x27;: True})
+    print(&#x27;AUTHENTICATED&#x27;, len(records), &#x27;local source assets; originals fingerprinted&#x27;, len(before), flush=True)
+    return inv, radar, before
+
+
+def reproduce(optical, radar):
+    geometry = load(ROOT / &#x27;configs/aoi.example.geojson&#x27;)[&#x27;features&#x27;][0][&#x27;geometry&#x27;]
+    with rasterio.open(RUN / &#x27;w0000/NDVI_current.tif&#x27;) as s:
+        grid = Grid(str(s.crs), s.transform, s.width, s.height)
+    assert grid.crs == &#x27;EPSG:6933&#x27; and grid.pixel_ha == .04
+    projected = transform_geom(&#x27;EPSG:4326&#x27;, grid.crs, geometry)
+    refs = [i for i in optical if i[&#x27;datetime&#x27;].startswith(&#x27;2025&#x27;)]
+    target = next(i for i in optical if i[&#x27;datetime&#x27;].startswith(&#x27;2026&#x27;))
+    single_id = load(BASE / &#x27;selected_observations.json&#x27;)[&#x27;reference&#x27;][&#x27;item&#x27;][&#x27;id&#x27;]
+    assert len({i[&#x27;datetime&#x27;][:10] for i in refs}) == len(refs) == 8
+    names = [&#x27;NDVI_current&#x27;, &#x27;NDVI_reference&#x27;, &#x27;NDVI_reference_std&#x27;, &#x27;NDVI_reference_count&#x27;,
+             &#x27;NDVI_change&#x27;, &#x27;VV_current&#x27;, &#x27;VV_reference&#x27;, &#x27;VH_current&#x27;, &#x27;VH_reference&#x27;, &#x27;VV_change&#x27;, &#x27;VH_change&#x27;]
+    comparisons = {n: {&#x27;compared_finite_pixels&#x27;: 0, &#x27;max_absolute_error&#x27;: 0., &#x27;validity_disagreements&#x27;: 0} for n in names}
+    masks = {&#x27;fixed&#x27;: BASE / &#x27;w0000/disturbance.tif&#x27;, &#x27;sigma&#x27;: RUN / &#x27;w0000/optical_candidate.tif&#x27;,
+             &#x27;radar&#x27;: RUN / &#x27;w0000/sar_candidate.tif&#x27;, &#x27;sigma_and_radar&#x27;: RUN / &#x27;w0000/disturbance.tif&#x27;}
+    mask_stats = {n: {&#x27;recomputed_candidates&#x27;: 0, &#x27;archived_candidates&#x27;: 0,
+                     &#x27;value_disagreements_common_support&#x27;: 0, &#x27;validity_disagreements&#x27;: 0} for n in masks}
+    # Never compare revised presentation masks as if they matched the original manifest.
+    display_masks = {&#x27;sigma&#x27;: RUN / &#x27;maps_ndvi_sigma_mask.tif&#x27;, &#x27;fixed_and_radar&#x27;: RUN / &#x27;maps_fixed_sar_mask.tif&#x27;,
+                     &#x27;sigma_and_radar&#x27;: RUN / &#x27;maps_mask.tif&#x27;}
+    display_stats = {n: {&#x27;current_display_candidates&#x27;: 0, &#x27;recomputed_candidates&#x27;: 0,
+                        &#x27;value_disagreements_common_support&#x27;: 0, &#x27;validity_disagreements&#x27;: 0} for n in display_masks}
+    cache_metadata = []
+    with ExitStack() as stack:
+        assets = {}
+        for item in optical + radar:
+            for key, asset in item[&#x27;assets&#x27;].items():
+                p = local(asset[&#x27;href&#x27;]);src = stack.enter_context(rasterio.open(p))
+                assert (src.crs, src.transform, src.width, src.height) == (rasterio.crs.CRS.from_string(grid.crs), grid.transform, grid.width, grid.height)
+                assets[(item[&#x27;id&#x27;], key)] = src
+                cache_metadata.append({&#x27;item&#x27;: item[&#x27;id&#x27;], &#x27;band&#x27;: key, &#x27;grid_crs&#x27;: str(src.crs),
+                    &#x27;resolution&#x27;: list(src.res), &#x27;nodata&#x27;: src.nodata, &#x27;dtype&#x27;: src.dtypes[0]})
+        old = {n: stack.enter_context(rasterio.open(RUN / &#x27;w0000&#x27; / (n + &#x27;.tif&#x27;))) for n in names}
+        old_masks = {n: stack.enter_context(rasterio.open(p)) for n, p in masks.items()}
+        display = {n: stack.enter_context(rasterio.open(p)) for n,p in display_masks.items()}
+        (OUT / &#x27;recomputed&#x27;).mkdir(exist_ok=True)
+        writers = {n: stack.enter_context(rasterio.open(OUT / &#x27;recomputed&#x27; / (n + &#x27;.tif&#x27;), &#x27;w&#x27;, **grid.profile))
+                   for n in [&#x27;fixed&#x27;, &#x27;sigma&#x27;, &#x27;radar&#x27;, &#x27;fixed_and_radar&#x27;, &#x27;sigma_and_radar&#x27;]}
+        def read(item, key, w):
+            asset = item[&#x27;assets&#x27;][key]
+            a = assets[(item[&#x27;id&#x27;], key)].read(1, window=w, masked=True).filled(np.nan)
+            return a if key == &#x27;scl&#x27; else a * asset.get(&#x27;scale&#x27;, 1) + asset.get(&#x27;offset&#x27;, 0)
+        def ndvi(item,w):
+            a = feature(&#x27;NDVI&#x27;, {b: read(item,b,w) for b in [&#x27;nir&#x27;,&#x27;red&#x27;]})
+            return np.where(np.isin(read(item,&#x27;scl&#x27;,w), [4,5,6,7]), a, np.nan)
+        for w in tiles(grid, 512):
+            gate = inside(projected, grid, w)
+            refstack = np.stack([ndvi(i,w) for i in refs])
+            cur = np.where(gate,ndvi(target,w),np.nan)
+            count = np.sum(np.isfinite(refstack),axis=0)
+            mean = np.where(gate &amp; (count &gt;= 1),aggregate(refstack,&#x27;mean&#x27;),np.nan)
+            std = np.where(gate &amp; (count &gt;= 2),aggregate(refstack,&#x27;std&#x27;),np.nan)
+            std = np.where(std &gt; 0, std, np.nan)
+            count = np.where(gate,count,np.nan)
+            delta = cur-mean
+            values = {&#x27;NDVI_current&#x27;:cur,&#x27;NDVI_reference&#x27;:mean,&#x27;NDVI_reference_std&#x27;:std,
+                      &#x27;NDVI_reference_count&#x27;:count,&#x27;NDVI_change&#x27;:delta}
+            for b in [&#x27;VV&#x27;,&#x27;VH&#x27;]:
+                for role, year in [(&#x27;current&#x27;,&#x27;2026&#x27;),(&#x27;reference&#x27;,&#x27;2025&#x27;)]:
+                    observations = [feature(b,{b:read(i,b,w)},units=&#x27;linear&#x27;) for i in radar if i[&#x27;datetime&#x27;].startswith(year)]
+                    values[b+&#x27;_&#x27;+role] = np.where(gate,aggregate(np.stack(observations),&#x27;median&#x27;),np.nan)
+                values[b+&#x27;_change&#x27;] = values[b+&#x27;_current&#x27;]-values[b+&#x27;_reference&#x27;]
+            # Production code masks reference_std also where target is missing.
+            sigma_valid = np.isfinite(cur)&amp;np.isfinite(mean)&amp;np.isfinite(std)&amp;(std&gt;0)&amp;(count&gt;=2)
+            values[&#x27;NDVI_reference_std&#x27;] = np.where(sigma_valid,std,np.nan)
+            fixed_delta = cur-ndvi(next(i for i in refs if i[&#x27;id&#x27;]==single_id),w)
+            decisions = {&#x27;fixed&#x27;:np.where(np.isfinite(fixed_delta),fixed_delta&lt;-.2,np.nan),
+                         &#x27;sigma&#x27;:np.where(sigma_valid,delta &lt; -2*std,np.nan)}
+            vv,vh=values[&#x27;VV_change&#x27;],values[&#x27;VH_change&#x27;];valid=np.isfinite(vv)&amp;np.isfinite(vh)
+            decisions[&#x27;radar&#x27;]=np.where(valid,(vv &lt; -1.5)&amp;(vh &lt; -1),np.nan)
+            for n in [&#x27;fixed&#x27;,&#x27;sigma&#x27;]:
+                valid=np.isfinite(decisions[n])&amp;np.isfinite(decisions[&#x27;radar&#x27;])
+                decisions[n+&#x27;_and_radar&#x27;]=np.where(valid,(decisions[n]==1)&amp;(decisions[&#x27;radar&#x27;]==1),np.nan)
+            for n,a in values.items():
+                b=old[n].read(1,window=w,masked=True).filled(np.nan);v=np.isfinite(a)&amp;np.isfinite(b);c=comparisons[n]
+                c[&#x27;compared_finite_pixels&#x27;]+=int(v.sum());c[&#x27;validity_disagreements&#x27;]+=int((np.isfinite(a)!=np.isfinite(b)).sum())
+                if v.any():c[&#x27;max_absolute_error&#x27;]=max(c[&#x27;max_absolute_error&#x27;],float(np.max(np.abs(a[v]-b[v]))))
+            for n,a in decisions.items():
+                write_window(writers[n],a,w)
+                if n in old_masks:
+                    b=old_masks[n].read(1,window=w,masked=True).filled(np.nan);c=mask_stats[n];v=np.isfinite(a)&amp;np.isfinite(b)
+                    c[&#x27;recomputed_candidates&#x27;]+=int((a==1).sum());c[&#x27;archived_candidates&#x27;]+=int((b==1).sum())
+                    c[&#x27;value_disagreements_common_support&#x27;]+=int((a[v]!=b[v]).sum());c[&#x27;validity_disagreements&#x27;]+=int((np.isfinite(a)!=np.isfinite(b)).sum())
+                if n in display:
+                    b=display[n].read(1,window=w,masked=True).filled(np.nan);c=display_stats[n];v=np.isfinite(a)&amp;np.isfinite(b)
+                    c[&#x27;recomputed_candidates&#x27;]+=int((a==1).sum());c[&#x27;current_display_candidates&#x27;]+=int((b==1).sum())
+                    c[&#x27;value_disagreements_common_support&#x27;]+=int((a[v]!=b[v]).sum());c[&#x27;validity_disagreements&#x27;]+=int((np.isfinite(a)!=np.isfinite(b)).sum())
+    passed=all(c[&#x27;max_absolute_error&#x27;]&lt;=2e-6 and c[&#x27;validity_disagreements&#x27;]==0 for c in comparisons.values())
+    mask_passed=all(c[&#x27;value_disagreements_common_support&#x27;]==0 and c[&#x27;validity_disagreements&#x27;]==0 for c in mask_stats.values())
+    dump(&#x27;reproduction.json&#x27;,{&#x27;continuous_rasters&#x27;:comparisons,&#x27;production_masks&#x27;:mask_stats,
+        &#x27;unauthenticated_presentation_masks_comparison_only&#x27;:display_stats,&#x27;continuous_tolerance&#x27;:2e-6,
+        &#x27;continuous_reproduction_pass&#x27;:passed,&#x27;production_mask_reproduction_pass&#x27;:mask_passed,
+        &#x27;formula&#x27;:&#x27;absolute current-minus-reference NDVI, not relative percentage; sigma compares absolute delta to -2 population SD; radar medians in dB&#x27;,
+        &#x27;interpretation&#x27;:&#x27;Agreement is a reproducibility result, not road/forest/causal validation.&#x27;})
+    dump(&#x27;cache_grid_qa.json&#x27;,{&#x27;assets&#x27;:cache_metadata,&#x27;resampling&#x27;:&#x27;Original materialization: bilinear continuous, nearest SCL; this audit uses exact aligned cached pixels, no further warp.&#x27;,
+        &#x27;scl_classes&#x27;:[4,5,6,7],&#x27;mask_dilation&#x27;:&#x27;not applied&#x27;,&#x27;source_resolution_limit&#x27;:&#x27;Local analysis caches are 20 m. A 10 m source URL does not make a 20 m derived raster native-resolution evidence.&#x27;})
+    print(&#x27;REPRODUCTION&#x27;,passed,mask_passed,json.dumps(mask_stats),flush=True)
+
+
+def geometry_and_figures():
+    raw=(OLD/&#x27;rois.geojson&#x27;).read_bytes();(OUT/&#x27;roi_review.geojson&#x27;).write_bytes(raw)
+    aoi=shape(load(ROOT/&#x27;configs/aoi.example.geojson&#x27;)[&#x27;features&#x27;][0][&#x27;geometry&#x27;])
+    features=load(OUT/&#x27;roi_review.geojson&#x27;)[&#x27;features&#x27;];qa=[]
+    (OUT/&#x27;inspect/crops&#x27;).mkdir(parents=True,exist_ok=True)
+    with rasterio.open(BASE/&#x27;source_windows/target/red.tif&#x27;) as src:
+        grid=Grid(str(src.crs),src.transform,src.width,src.height)
+        for f in features:
+            g=shape(f[&#x27;geometry&#x27;]);projected=transform_geom(&#x27;EPSG:4326&#x27;,grid.crs,f[&#x27;geometry&#x27;])
+            w=geometry_window(src,[projected],pad_x=5,pad_y=5).round_offsets().round_lengths()
+            qa.append({&#x27;roi_id&#x27;:f[&#x27;properties&#x27;][&#x27;id&#x27;],&#x27;role&#x27;:f[&#x27;properties&#x27;][&#x27;role&#x27;],&#x27;bounds_wgs84&#x27;:list(g.bounds),
+                &#x27;valid&#x27;:g.is_valid,&#x27;within_aoi&#x27;:aoi.covers(g),&#x27;sampling_window_pixels&#x27;:[int(w.col_off),int(w.row_off),int(w.width),int(w.height)],
+                &#x27;user_identity_confirmation&#x27;:f[&#x27;properties&#x27;][&#x27;id&#x27;].startswith(&#x27;ROI&#x27;),
+                &#x27;uncertainty&#x27;:f[&#x27;properties&#x27;][&#x27;uncertainty&#x27;]})
+            panes=[]
+            for role in [&#x27;reference&#x27;,&#x27;target&#x27;]:
+                arrays=[]
+                for band in [&#x27;red&#x27;,&#x27;green&#x27;,&#x27;blue&#x27;]:
+                    with rasterio.open(BASE/&#x27;source_windows&#x27;/role/(band+&#x27;.tif&#x27;)) as s:
+                        arrays.append(s.read(1,window=w,masked=True).filled(np.nan))
+                rgb=np.stack(arrays,axis=-1);valid=np.all(np.isfinite(rgb),axis=-1)
+                pixels=(255*np.power(np.clip(np.nan_to_num(rgb)/.3,0,1),1/2.2)).astype(&#x27;uint8&#x27;)
+                pixels[~valid]=[100,100,100]
+                mask=geometry_mask([projected],out_shape=valid.shape,transform=rasterio.windows.transform(w,grid.transform),invert=True)
+                edge=mask&amp;~binary_erosion(mask)
+                for overlay in [False,True]:
+                    out=pixels.copy()
+                    if overlay:out[edge]=[255,220,0] if f[&#x27;properties&#x27;][&#x27;id&#x27;].startswith(&#x27;ROI&#x27;) else [0,190,255]
+                    img=Image.fromarray(out);img.thumbnail((750,600));panes.append(img)
+                    img.save(OUT/&#x27;inspect/crops&#x27;/f&quot;{f[&#x27;properties&#x27;][&#x27;id&#x27;]}-{role}-{&#x27;outline&#x27; if overlay else &#x27;raw&#x27;}.png&quot;)
+            sheet=Image.new(&#x27;RGB&#x27;,(1540,1280),&#x27;white&#x27;);draw=ImageDraw.Draw(sheet)
+            labels=[&#x27;2025-06-15 raw&#x27;,&#x27;2025-06-15 sampling outline&#x27;,&#x27;2026-06-20 raw&#x27;,&#x27;2026-06-20 sampling outline&#x27;]
+            for j,img in enumerate(panes):
+                x=(j%2)*770;y=(j//2)*640;draw.text((x+8,y+8),f[&#x27;properties&#x27;][&#x27;id&#x27;]+&#x27; &#x27;+labels[j],fill=&#x27;black&#x27;);sheet.paste(img,(x+8,y+30))
+            sheet.save(OUT/&#x27;inspect&#x27;/f&quot;{f[&#x27;properties&#x27;][&#x27;id&#x27;]}-qa.png&quot;)
+    dump(&#x27;geometry_qa.json&#x27;,{&#x27;source_sha256&#x27;:sha(OLD/&#x27;rois.geojson&#x27;),&#x27;export_sha256&#x27;:sha(OUT/&#x27;roi_review.geojson&#x27;),
+        &#x27;features&#x27;:qa,&#x27;coordinates_unchanged&#x27;:True,&#x27;centreline_status&#x27;:&#x27;No authoritative centreline file recovered; sampling polygons copied, not reverse-engineered.&#x27;,
+        &#x27;limitations&#x27;:[&#x27;User identifies the two outlined corridors; this is not surveyed alignment/width or independently confirmed stability of controls.&#x27;,&#x27;Visual QA uses 20 m analytical caches.&#x27;]})
+    reg=[]
+    for name,col,row in [(&#x27;Pärnu urban crossing&#x27;,300,610),(&#x27;existing road junction&#x27;,1830,420)]:
+        images=[];w=Window(col,row,40,40)
+        for role in [&#x27;reference&#x27;,&#x27;target&#x27;]:
+            arr=[]
+            for band in [&#x27;red&#x27;,&#x27;green&#x27;,&#x27;blue&#x27;]:
+                with rasterio.open(BASE/&#x27;source_windows&#x27;/role/(band+&#x27;.tif&#x27;)) as s:arr.append(s.read(1,window=w,masked=True).filled(np.nan))
+            images.append(np.nanmean(np.stack(arr),axis=0))
+        a,b=images;scores=[]
+        for dy in range(-2,3):
+            for dx in range(-2,3):
+                x=a[3:-3,3:-3];y=b[3+dy:37+dy,3+dx:37+dx];v=np.isfinite(x)&amp;np.isfinite(y)
+                if v.sum()&gt;30:scores.append((float(np.corrcoef(x[v],y[v])[0,1]),dx,dy))
+        best=max(scores);reg.append({&#x27;landmark&#x27;:name,&#x27;window&#x27;:[col,row,40,40],&#x27;best_integer_shift_pixels&#x27;:[best[1],best[2]],
+            &#x27;correlation&#x27;:best[0],&#x27;zero_shift_correlation&#x27;:next(x[0] for x in scores if x[1:]==(0,0))})
+    dump(&#x27;registration_qa.json&#x27;,{&#x27;checks&#x27;:reg,&#x27;action&#x27;:&#x27;no shift applied&#x27;,&#x27;limit&#x27;:&#x27;Two local optical integer shifts only; no subpixel, full-corridor, surveyed or SAR certification.&#x27;})
+
+
+def metadata(optical,radar):
+    periods={}
+    for name,items in [(&#x27;optical&#x27;,optical),(&#x27;radar&#x27;,radar)]:
+        periods[name]={&#x27;dates&#x27;:[i[&#x27;datetime&#x27;] for i in items], &#x27;unique_days&#x27;:len({i[&#x27;datetime&#x27;][:10] for i in items}),
+            &#x27;june_2025_items&#x27;:sum(i[&#x27;datetime&#x27;].startswith(&#x27;2025-06&#x27;) for i in items),
+            &#x27;june_2026_items&#x27;:sum(i[&#x27;datetime&#x27;].startswith(&#x27;2026-06&#x27;) for i in items)}
+    periods[&#x27;optical&#x27;][&#x27;calibration&#x27;]=&#x27;Original source scale 0.0001, offset 0 because earthsearch:boa_offset_applied true; cached reflectance scale 1 offset 0. No second -0.1. Processing baselines 05.11 vs 05.12 for selected reference/target.&#x27;
+    periods[&#x27;radar&#x27;][&#x27;track&#x27;]=load(RUN/&#x27;radar_selection.json&#x27;)[&#x27;track&#x27;]
+    periods[&#x27;june_readiness&#x27;]=&#x27;Full-AOI selected optical cache has only one June-2026 target. Historical additional June targets are small persistence windows, not full-corridor support. This audit does not generate monthly pairs.&#x27;
+    dump(&#x27;observation_dates.json&#x27;,periods)
+    records=[]
+    for r in load(OLD/&#x27;independent_map_evidence.json&#x27;)[&#x27;records&#x27;]:
+        if &#x27;layer_year&#x27; not in r:continue
+        records.append({&#x27;id&#x27;:r[&#x27;id&#x27;],&#x27;layer_year&#x27;:r[&#x27;layer_year&#x27;],&#x27;metadata_date&#x27;:r.get(&#x27;metadata_date&#x27;),
+            &#x27;verified_observation_date&#x27;:r.get(&#x27;observation_date&#x27;),&#x27;accessibility&#x27;:r.get(&#x27;accessibility&#x27;),
+            &#x27;comparison_side&#x27;:&#x27;unassigned: flight-to-image linkage unresolved&#x27; if not r.get(&#x27;observation_date&#x27;) else (&#x27;pre-July-2025&#x27; if r[&#x27;observation_date&#x27;]&lt;&#x27;2025-07-01&#x27; else &#x27;post-July-2025&#x27;),
+            &#x27;date_conflict&#x27;:r.get(&#x27;date_conflict&#x27;),&#x27;source_url&#x27;:r.get(&#x27;source_url&#x27;),&#x27;historical_retrieved_at&#x27;:r.get(&#x27;retrieved_at&#x27;)})
+    dump(&#x27;orthophoto_date_audit.json&#x27;,{&#x27;cutoff&#x27;:&#x27;2025-07-01&#x27;,&#x27;records&#x27;:records,
+        &#x27;local_post_cutoff_verified&#x27;:False,&#x27;global_post_cutoff_availability&#x27;:&#x27;not_checked_no_remote_access&#x27;,
+        &#x27;conclusion&#x27;:&#x27;Relaxed cutoff does not authenticate ambiguous flight dates. Available 2025-layer images may be viewed as undated physical context; no verified before/after timing assertion.&#x27;})
+    candidates=[]
+    for folder in [ROOT/&#x27;runs&#x27;,ROOT/&#x27;data&#x27;,ROOT/&#x27;configs&#x27;]:
+        if folder.exists():
+            candidates += [identifier(p) for p in folder.rglob(&#x27;*&#x27;) if p.is_file() and any(k in p.name.lower() for k in [&#x27;hansen&#x27;,&#x27;treecover&#x27;,&#x27;lossyear&#x27;,&#x27;forest_mask&#x27;])]
+    dump(&#x27;forest_baseline_audit.json&#x27;,{&#x27;operator_selected&#x27;:&#x27;Hansen GFC 2024 edition&#x27;,&#x27;registered_dataset&#x27;:&#x27;DS-0001: Hansen GFC v1.12&#x27;,
+        &#x27;local_candidates_by_filename&#x27;:candidates,&#x27;search_scope&#x27;:[&#x27;runs/&#x27;,&#x27;data/ if present&#x27;,&#x27;configs/&#x27;],
+        &#x27;contract_read&#x27;:&#x27;Lab configs/v1_defaults.yaml and specs/v1_forest_baseline.md&#x27;,
+        &#x27;limitation&#x27;:&#x27;treecover2000 in the 2024 edition is year-2000 canopy cover, not measured 2024 canopy coverage. Existing Lab v1 defaults declare year_2000_baseline_extent. A 2024 remaining-cover proxy using annual loss requires an explicit reviewed temporal transformation, does not capture all regrowth, and cannot be invented in this audit. No baseline ingestion/download or forest-gated estimates executed.&#x27;})
+
+
+if __name__==&#x27;__main__&#x27;:
+    warnings.filterwarnings(&#x27;ignore&#x27;,message=&#x27;Mean of empty slice&#x27;)
+    optical,radar,before=inventory()
+    reproduce(optical,radar)
+    geometry_and_figures()
+    metadata(optical,radar)
+    after={p:sha(ROOT/p) for p in before}
+    changed=[p for p in before if before[p]!=after[p]]
+    dump(&#x27;originals_after.json&#x27;,after)
+    dump(&#x27;original_integrity.json&#x27;,{&#x27;files_checked&#x27;:len(before),&#x27;changed&#x27;:changed,&#x27;unchanged&#x27;:not changed})
+    assert not changed,&#x27;Original evidence was modified&#x27;
+    print(&#x27;ORIGINALS UNCHANGED&#x27;,len(before),flush=True)
+</pre></main></body></html>

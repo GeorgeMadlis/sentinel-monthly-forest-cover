@@ -1,0 +1,92 @@
+[
+  {
+    "name": "extracted_round",
+    "argv": [
+      "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+      "/Users/server/projects/forest-cover-lab/agent_harness/scripts/validate_round.py",
+      "/var/folders/_y/yj6hdhbs057c4bnyg_ff8xt80000gn/T/forest-road-final-extracted-lnk5a_3t/metadata/round.yaml",
+      "--lab",
+      "/Users/server/projects/forest-cover-lab"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:40:58.377080+00:00",
+    "ended_utc": "2026-10-23T10:40:58.462992+00:00",
+    "exit_code": 0,
+    "output": "extracted_round.log"
+  },
+  {
+    "name": "browser_final",
+    "argv": [
+      "node",
+      "/Users/server/projects/sentinel-monthly-forest-cover/tests/check_bundle_browser.cjs",
+      "/Users/server/.npm/_npx/55158e48eb5c59f7/node_modules/puppeteer-core",
+      "/Users/server/Library/Caches/ms-playwright/chromium_headless_shell-1208/chrome-headless-shell-mac-arm64/chrome-headless-shell",
+      "/var/folders/_y/yj6hdhbs057c4bnyg_ff8xt80000gn/T/forest-road-final-extracted-lnk5a_3t",
+      "/tmp/forest-road-private-draft-final-map.png"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:40:58.463502+00:00",
+    "ended_utc": "2026-10-23T10:40:59.453276+00:00",
+    "exit_code": 0,
+    "output": "browser_final.log"
+  },
+  {
+    "name": "planning_final",
+    "argv": [
+      "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+      "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/bootstrap/check_plan.py",
+      "/Users/server/projects/forest-cover-lab"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:40:59.453632+00:00",
+    "ended_utc": "2026-10-23T10:40:59.617693+00:00",
+    "exit_code": 0,
+    "output": "planning_final.log"
+  },
+  {
+    "name": "graphs_final",
+    "argv": [
+      "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+      "/Users/server/projects/forest-cover-lab/agent_harness/scripts/render_round_graph.py",
+      "--root",
+      "/Users/server/projects/sentinel-monthly-forest-cover",
+      "--lab",
+      "/Users/server/projects/forest-cover-lab",
+      "--check"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:40:59.618049+00:00",
+    "ended_utc": "2026-10-23T10:40:59.753470+00:00",
+    "exit_code": 0,
+    "output": "graphs_final.log"
+  },
+  {
+    "name": "whitespace_final",
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:40:59.753763+00:00",
+    "ended_utc": "2026-10-23T10:40:59.762031+00:00",
+    "exit_code": 0,
+    "output": "whitespace_final.log"
+  },
+  {
+    "name": "historical_tracked_unchanged",
+    "argv": [
+      "git",
+      "diff",
+      "--exit-code",
+      "HEAD",
+      "--",
+      "reviews/20261006T174722Z-sentinel-road-investigation"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:40:59.762183+00:00",
+    "ended_utc": "2026-10-23T10:40:59.767533+00:00",
+    "exit_code": 0,
+    "output": "historical_tracked_unchanged.log"
+  }
+]

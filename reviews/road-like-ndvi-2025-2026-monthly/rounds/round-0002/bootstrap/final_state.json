@@ -1,0 +1,36 @@
+{
+  "observed_at_utc": "2026-10-23T10:42:35.295863+00:00",
+  "commits": {
+    "forest_cover_lab": "c322e89fb96def2434c62776ac595f6cd995ef92",
+    "sentinel_monthly_forest_cover": "2f512fec185d1290ab5203c8892231f2d5c219be",
+    "lab_graph_revision": "f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7"
+  },
+  "worktree_status": {
+    "sentinel-monthly-forest-cover": " M .gitignore\n M docs/architecture_audit.md\n?? docs/portable_bundle.md\n?? forest_change/bundle.py\n?? reviews/road-like-ndvi-2025-2026-monthly/\n?? scripts/build_bundle.py\n?? tests/check_bundle_browser.cjs\n?? tests/test_bundle.py\n",
+    "forest-cover-lab": " M pyproject.toml\n?? research/code_sources/analysis/foreto_24_reverse_engineering.md\n?? research/data_sources/foreto_24_satellite_sources_2026_verification.md\n?? research/publications/forest-cover-lab.code-workspace\n?? research/publications/sentinel_disturbance_literature_scan_2026.md\n?? sentinel-monthly-forest-cover.code-workspace\n"
+  },
+  "assignment_sha256": {
+    "audit-01": "d94ff95e0c4fd75f87341faf01a7d9187cc1c08b13ab66a32fb8cf2bb4ad57d7",
+    "discovery-01": "a884061d6f6fc075cde8cca59c21e14c2497a4a38b03c7359e0d37a76b016f16",
+    "eo-01": "ee54173b4674a8929c0911567f2e28c8b102d752cf74202cd6e8e0d18dab40fc",
+    "geo-01": "f756bc4925800ff82ff0fb56dde544a89cc8167a24cbcd7ff163c62524128d64",
+    "works-01": "dd682c9abb4fd96b5baa4d64821ba0cf978f1f543005d27699f757cfa9c0b637",
+    "literature-01": "566cc389811450bc578fbe5ca8b315235b35b1e8f14e89f89725209c9aa8e62a",
+    "challenge-01": "d52ea3954a903cdf513cb5c7f0a44a5b5c67810c5fcafbf2c68814d145cdf8b7"
+  },
+  "actual_executions_total": 0,
+  "approvals": "all_pending",
+  "human_review": "pending",
+  "scientific_verification": false,
+  "unit_tests": {
+    "count": 48,
+    "result": "PASS",
+    "elapsed_seconds": 14.824
+  },
+  "private_draft": "reviews/road-like-ndvi-2025-2026-monthly/private-drafts/build-0003/bundles/forest-road-ndvi-aoi-example-2025-2026/round-0002/index.html",
+  "limitations": [
+    "Local packet includes monthly_pair_addendum.md beyond the immutable private draft proposal snapshot. This is a private planning draft, not a release candidate.",
+    "No complete shell transcript for initial exploration was retained; validation argv/output/timestamps and preparer source are captured.",
+    "No claimed native delegation, provider discovery, remote downloads, public repository creation, promotion or publication."
+  ]
+}

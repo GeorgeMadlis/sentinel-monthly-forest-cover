@@ -1,0 +1,144 @@
+[
+  {
+    "name": "unit_tests",
+    "argv": [
+      "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+      "-m",
+      "unittest",
+      "discover",
+      "-v"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:36:21.313359+00:00",
+    "ended_utc": "2026-10-23T10:36:36.591646+00:00",
+    "exit_code": 0,
+    "output": "unit_tests.log",
+    "scope": "local synthetic/structural/packaging check, not scientific verification"
+  },
+  {
+    "name": "round_schema_graph",
+    "argv": [
+      "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+      "/Users/server/projects/sentinel-monthly-forest-cover/scripts/validate_agent_rounds.py",
+      "--lab",
+      "/Users/server/projects/forest-cover-lab"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:36:21.313494+00:00",
+    "ended_utc": "2026-10-23T10:36:21.424505+00:00",
+    "exit_code": 0,
+    "output": "round_schema_graph.log",
+    "scope": "local synthetic/structural/packaging check, not scientific verification"
+  },
+  {
+    "name": "graph_freshness",
+    "argv": [
+      "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+      "/Users/server/projects/forest-cover-lab/agent_harness/scripts/render_round_graph.py",
+      "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0001/round.yaml",
+      "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/round.yaml",
+      "--lab",
+      "/Users/server/projects/forest-cover-lab",
+      "--check"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:36:21.313568+00:00",
+    "ended_utc": "2026-10-23T10:36:21.468601+00:00",
+    "exit_code": 0,
+    "output": "graph_freshness.log",
+    "scope": "local synthetic/structural/packaging check, not scientific verification"
+  },
+  {
+    "name": "descriptor",
+    "argv": [
+      "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+      "/Users/server/projects/forest-cover-lab/graph/build.py",
+      "--check",
+      "--descriptor",
+      "/Users/server/projects/sentinel-monthly-forest-cover/workflow.yaml"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:36:21.316631+00:00",
+    "ended_utc": "2026-10-23T10:36:21.482914+00:00",
+    "exit_code": 0,
+    "output": "descriptor.log",
+    "scope": "local synthetic/structural/packaging check, not scientific verification"
+  },
+  {
+    "name": "planning_integrity",
+    "argv": [
+      "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+      "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/bootstrap/check_plan.py",
+      "/Users/server/projects/forest-cover-lab"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:36:21.424746+00:00",
+    "ended_utc": "2026-10-23T10:36:21.601831+00:00",
+    "exit_code": 0,
+    "output": "planning_integrity.log",
+    "scope": "local synthetic/structural/packaging check, not scientific verification"
+  },
+  {
+    "name": "bundle_inventory",
+    "argv": [
+      "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+      "/Users/server/projects/sentinel-monthly-forest-cover/scripts/build_bundle.py",
+      "--verify",
+      "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/private-drafts/build-0002/bundles/forest-road-ndvi-aoi-example-2025-2026/round-0002"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:36:21.468876+00:00",
+    "ended_utc": "2026-10-23T10:36:21.528506+00:00",
+    "exit_code": 0,
+    "output": "bundle_inventory.log",
+    "scope": "local synthetic/structural/packaging check, not scientific verification"
+  },
+  {
+    "name": "whitespace",
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:36:21.483202+00:00",
+    "ended_utc": "2026-10-23T10:36:21.492943+00:00",
+    "exit_code": 0,
+    "output": "whitespace.log",
+    "scope": "local synthetic/structural/packaging check, not scientific verification"
+  },
+  {
+    "name": "synthetic_fixture",
+    "argv": [
+      "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+      "/Users/server/projects/sentinel-monthly-forest-cover/scripts/create_synthetic_fixture.py",
+      "--directory",
+      "/var/folders/_y/yj6hdhbs057c4bnyg_ff8xt80000gn/T/forest-road-synthetic-v31vq0fg"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:36:36.593305+00:00",
+    "ended_utc": "2026-10-23T10:36:36.715562+00:00",
+    "exit_code": 0,
+    "output": "synthetic_fixture.log",
+    "scope": "local synthetic/structural/packaging check, not scientific verification"
+  },
+  {
+    "name": "synthetic_pipeline",
+    "argv": [
+      "/Users/server/projects/sentinel-monthly-forest-cover/.venv/bin/python",
+      "/Users/server/projects/sentinel-monthly-forest-cover/scripts/run_pipeline.py",
+      "--manifest",
+      "/var/folders/_y/yj6hdhbs057c4bnyg_ff8xt80000gn/T/forest-road-synthetic-v31vq0fg/workflow.yaml",
+      "--forest-def",
+      "/var/folders/_y/yj6hdhbs057c4bnyg_ff8xt80000gn/T/forest-road-synthetic-v31vq0fg/forest.yaml",
+      "--aoi-geojson",
+      "/var/folders/_y/yj6hdhbs057c4bnyg_ff8xt80000gn/T/forest-road-synthetic-v31vq0fg/aoi.geojson"
+    ],
+    "cwd": "/Users/server/projects/sentinel-monthly-forest-cover",
+    "started_utc": "2026-10-23T10:36:36.715867+00:00",
+    "ended_utc": "2026-10-23T10:36:37.304350+00:00",
+    "exit_code": 0,
+    "output": "synthetic_pipeline.log",
+    "scope": "local synthetic/structural/packaging check, not scientific verification"
+  }
+]

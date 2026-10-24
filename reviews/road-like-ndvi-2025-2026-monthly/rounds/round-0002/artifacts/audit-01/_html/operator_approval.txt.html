@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>operator_approval.txt</title><style>
+:root{--bg:#fff;--fg:#1d2228;--muted:#5d6670;--line:#d9dee3;--link:#0b5cad;--code:#f4f6f8;--bad:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#15181c;--fg:#e4e7ea;--muted:#9aa3ad;--line:#333a42;--link:#79b8ff;--code:#1f242a;--bad:#ff8a80}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:16px}
+a{color:var(--link)}nav{font-size:13px;color:var(--muted);margin-bottom:12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0 16px}
+th,td{border:1px solid var(--line);padding:4px 8px;text-align:left;vertical-align:top}
+pre,code{background:var(--code);font:12px/1.45 ui-monospace,Menlo,monospace}
+pre{padding:12px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.muted{color:var(--muted)}.broken{color:var(--bad);text-decoration:line-through}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.grid figure{margin:0;border:1px solid var(--line);padding:6px}.grid img{width:100%;height:160px;object-fit:contain}
+.grid figcaption{font-size:12px;word-break:break-all}
+.md img{max-width:100%}.wrap{overflow-x:auto}
+</style></head><body><main><nav><a href="../index.html">Review home</a> · <a href="index.html">All files</a></nav><h1>operator_approval.txt</h1><p class="muted">operator_approval.txt · <a href="../operator_approval.txt">raw file</a> · <a href="index.html">folder</a></p><pre>Yes, I approve the round-0002 graph and authorize only `audit-01` using authenticated local caches, bounded to 80 tool calls/30 minutes, with no remote access
+
+Material blockers:
+1. ROI identity/overlay QA - not clear. If you mean the two roads you have outlined then I agree.
+2. historical hash mismatches - solution is up to you
+3. conflicting orthophoto dates - for purpose of comparison, you could relax the time window by basically using respectively the orthophotos taken before July 2025 and after July 2025. If the photos taken after July 2025 do not exist, use only the existing ones taken before July 2025
+4. absent forest baseline - use Hansen 2024 forest coverage
+5. host/budget availability - use only free services
+6. acquisition deduplication, mask-dilation sensitivity, and the unimplemented reconciler/release adapter. Structural success is not scientific verification - solutions are up to you
+</pre></main></body></html>

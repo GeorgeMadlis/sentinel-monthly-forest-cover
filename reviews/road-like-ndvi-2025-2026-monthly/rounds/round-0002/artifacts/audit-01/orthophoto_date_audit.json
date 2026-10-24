@@ -1,0 +1,74 @@
+{
+  "cutoff": "2025-07-01",
+  "records": [
+    {
+      "id": "ROI-01-2024",
+      "layer_year": 2024,
+      "metadata_date": "2023-06-09",
+      "verified_observation_date": null,
+      "accessibility": "no coverage",
+      "comparison_side": "unassigned: flight-to-image linkage unresolved",
+      "date_conflict": "2025 imagery layer versus generic metainfo latest-flight 09.06.2023; not resolved",
+      "source_url": "https://kaart.maaamet.ee/wms/ajalooline",
+      "historical_retrieved_at": "2026-10-06T18:00:12.351244+00:00"
+    },
+    {
+      "id": "ROI-01-2025",
+      "layer_year": 2025,
+      "metadata_date": "2023-06-09",
+      "verified_observation_date": null,
+      "accessibility": "available",
+      "comparison_side": "unassigned: flight-to-image linkage unresolved",
+      "date_conflict": "2025 imagery layer versus generic metainfo latest-flight 09.06.2023; not resolved",
+      "source_url": "https://kaart.maaamet.ee/wms/ajalooline",
+      "historical_retrieved_at": "2026-10-06T18:00:12.614344+00:00"
+    },
+    {
+      "id": "ROI-02-2024",
+      "layer_year": 2024,
+      "metadata_date": "2023-06-09",
+      "verified_observation_date": null,
+      "accessibility": "no coverage",
+      "comparison_side": "unassigned: flight-to-image linkage unresolved",
+      "date_conflict": "2025 imagery layer versus generic metainfo latest-flight 09.06.2023; not resolved",
+      "source_url": "https://kaart.maaamet.ee/wms/ajalooline",
+      "historical_retrieved_at": "2026-10-06T18:00:13.347121+00:00"
+    },
+    {
+      "id": "ROI-02-2025",
+      "layer_year": 2025,
+      "metadata_date": "2023-06-09",
+      "verified_observation_date": null,
+      "accessibility": "available",
+      "comparison_side": "unassigned: flight-to-image linkage unresolved",
+      "date_conflict": "2025 imagery layer versus generic metainfo latest-flight 09.06.2023; not resolved",
+      "source_url": "https://kaart.maaamet.ee/wms/ajalooline",
+      "historical_retrieved_at": "2026-10-06T18:00:13.531019+00:00"
+    },
+    {
+      "id": "ROI-01-2023",
+      "layer_year": 2023,
+      "metadata_date": null,
+      "verified_observation_date": null,
+      "accessibility": "no imagery coverage",
+      "comparison_side": "unassigned: flight-to-image linkage unresolved",
+      "date_conflict": null,
+      "source_url": null,
+      "historical_retrieved_at": null
+    },
+    {
+      "id": "ROI-02-2023",
+      "layer_year": 2023,
+      "metadata_date": null,
+      "verified_observation_date": null,
+      "accessibility": "no imagery coverage",
+      "comparison_side": "unassigned: flight-to-image linkage unresolved",
+      "date_conflict": null,
+      "source_url": null,
+      "historical_retrieved_at": null
+    }
+  ],
+  "local_post_cutoff_verified": false,
+  "global_post_cutoff_availability": "not_checked_no_remote_access",
+  "conclusion": "Relaxed cutoff does not authenticate ambiguous flight dates. Available 2025-layer images may be viewed as undated physical context; no verified before/after timing assertion."
+}

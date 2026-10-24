@@ -1,0 +1,350 @@
+{
+  "status": "private_planned_draft",
+  "metadata": {
+    "forest_definition_status": "not_approved",
+    "forest_mask_status": "absent",
+    "available_labels": [],
+    "license_status": "pending_source_verification_no_public_release",
+    "evidence_status": "planned_only_with_archived_single_scene_context",
+    "source_date_status": "scene dates from archived inventory; orthophoto date contradiction unresolved"
+  },
+  "report_markdown": "# Road-like NDVI: private planned-only draft\n\nNo scientific role has run. All approvals remain pending. This draft validates packaging only.\n\nPrimary comparison proposed: [2025-06-01,2025-07-01) vs [2026-06-01,2026-07-01) UTC. June must be explicitly approved. Mean per-observation NDVI; N>=3 in both months; median and N=2/5 sensitivity. Relative domain baseline>=0.2, epsilon=0.1, run-specific configuration.\n\nThe two images are archived single acquisitions on 15 June 2025 and 20 June 2026 selected from summer windows, NOT full-month composites. The viewer overlays the exact prior polygons and controls. ROI identities, surveyed centrelines and overlay QA remain unresolved. The archive reports pre-existing hash mismatches and an unresolved 2025-layer/2023-flight orthophoto conflict; no new conclusion is inferred. Missing layers, baseline mask and measured temporal support remain absent.\n\nRead the seven per-role plans, canonical graph, planning_changes, monthly_pair_proposal and data_license_estimate. Reconciliation and release adapter implementation remain future work. No forest-specific or construction-date claim is made. Public release and knowledge promotion require separate human reviews.\n\nROI bounds (WGS84 longitude,latitude; extracted mechanically, not surveyed):\n\nROI-01: [24.59601409568563, 58.42645019226389, 24.814699942029094, 58.5428504650451]; manual coarse centreline; 40 m sampling buffer is declared tolerance, not measured registration error\n\nROI-02: [24.508871554760752, 58.51182098617653, 24.542557164225435, 58.58533014576505]; manual coarse centreline; 40 m sampling buffer is declared tolerance, not measured registration error\n\nCONTROL-01: [24.684056018864492, 58.57527657220925, 24.687372552564078, 58.58004112960793]; stable-looking forest; no independent stability label\n\nCONTROL-02: [24.80548459029306, 58.315466746319395, 24.808801123992648, 58.320196503915795]; stable-looking forest; no independent stability label\n",
+  "map_layers": [
+    {
+      "file": "figures/archived-reference.png",
+      "label": "Archived single scene 2025-06-15 (summer-ranked, NOT monthly mean)",
+      "bounds": [
+        [
+          58.199999999999996,
+          24.399999999999995
+        ],
+        [
+          58.599999999999994,
+          24.9
+        ]
+      ]
+    },
+    {
+      "file": "figures/archived-target.png",
+      "label": "Archived single scene 2026-06-20 (summer-ranked, NOT monthly mean)",
+      "bounds": [
+        [
+          58.199999999999996,
+          24.399999999999995
+        ],
+        [
+          58.599999999999994,
+          24.9
+        ]
+      ]
+    }
+  ],
+  "unavailable_layers": [
+    "2025/2026 June monthly means",
+    "absolute and relative monthly NDVI",
+    "monthly candidate masks",
+    "verified road/rail geometries",
+    "independently dated orthophoto pair",
+    "approved forest baseline"
+  ],
+  "files": [
+    {
+      "path": "curated/metadata/aoi.geojson",
+      "destination": "metadata/aoi.geojson",
+      "sha256": "0c3778286c27a55d6962687b80edd4be324f7ea0c4c21a466193f5ec583cb85e",
+      "label": "Pinned AOI",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/inputs/aoi.geojson",
+      "license": "not_verified_for_public_release",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/metadata/rois.geojson",
+      "destination": "metadata/rois.geojson",
+      "sha256": "b079d3dbff8a473daf6e3d33cdfdaedffc29de470425b8fe9a212f796a862125",
+      "label": "Archived polygons and controls unchanged",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/inputs/prior_rois.geojson",
+      "license": "not_verified_for_public_release",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/inquiry/planning_changes.md",
+      "destination": "inquiry/planning_changes.md",
+      "sha256": "a601a01d1f00f41d3b0f7127e3ac658d809e4a0bbaa124b6350605b51b44b3e6",
+      "label": "planning_changes.md",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/planning_changes.md",
+      "license": "not_verified_for_public_release",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/inquiry/monthly_pair_proposal.md",
+      "destination": "inquiry/monthly_pair_proposal.md",
+      "sha256": "656785f49da8a734011745d5a55a5ad4a2a183dca4ae748c7b8f44d5a7d17d83",
+      "label": "monthly_pair_proposal.md",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/monthly_pair_proposal.md",
+      "license": "not_verified_for_public_release",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/inquiry/data_license_estimate.md",
+      "destination": "inquiry/data_license_estimate.md",
+      "sha256": "064782b604881441651f35b31e8dc733168ae78da5b64f9cb91a58c08c7a7af6",
+      "label": "data_license_estimate.md",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/data_license_estimate.md",
+      "license": "not_verified_for_public_release",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/inquiry/round-0002.md",
+      "destination": "inquiry/round-0002.md",
+      "sha256": "a601a01d1f00f41d3b0f7127e3ac658d809e4a0bbaa124b6350605b51b44b3e6",
+      "label": "Pending decisions and unresolved evidence",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/planning_changes.md",
+      "license": "not_verified_for_public_release",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/metadata/SCIENTIFIC_PROTOCOL.md",
+      "destination": "metadata/SCIENTIFIC_PROTOCOL.md",
+      "sha256": "09d34d4725503c311fe7ce8380193510f355568a9bc0c34e47ce2c2e57576e70",
+      "label": "Starter document; subordinate to request and Lab contracts",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/starter/docs/SCIENTIFIC_PROTOCOL.md",
+      "license": "not_verified_for_public_release",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/metadata/BUNDLE_ARCHITECTURE.md",
+      "destination": "metadata/BUNDLE_ARCHITECTURE.md",
+      "sha256": "9b6e89a7d34d66dc9c2fe34d94585a923a6c317a4d805ce8dae79a2d966bca06",
+      "label": "Starter document; subordinate to request and Lab contracts",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/starter/docs/BUNDLE_ARCHITECTURE.md",
+      "license": "not_verified_for_public_release",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/metadata/claim_matrix.csv",
+      "destination": "metadata/claim_matrix.csv",
+      "sha256": "ee6e4fb61a82746b50898971d2a978332e17ad8fe37e457813f6dd0ea97f001c",
+      "label": "Empty planned table; no findings",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/planning_tables/claim_matrix.csv",
+      "license": "not_verified_for_public_release",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/metadata/disagreements.csv",
+      "destination": "metadata/disagreements.csv",
+      "sha256": "7399c87aa1130b16b722fc52b265e12d236270c183e70b7439e2a1ca6d161c41",
+      "label": "Empty planned table; no findings",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/planning_tables/disagreements.csv",
+      "license": "not_verified_for_public_release",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/metadata/sources.csv",
+      "destination": "metadata/sources.csv",
+      "sha256": "f2c580c02b3a8de7b322c23b2bb16c56359ad8149b79f83cb2713d9f122d65cd",
+      "label": "Archived source context; acquisition dates copied from historical inventory",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/planning_tables/sources.csv",
+      "license": "not_verified_for_public_release",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/figures/archived-reference.png",
+      "destination": "figures/archived-reference.png",
+      "sha256": "bdd2f49a84762eaac8a337ee6d31fdbe4bf4265f07d772e854d15eaebb000133",
+      "label": "Archived single scene 2025-06-15 (summer-ranked, NOT monthly mean)",
+      "provenance": "runs/aoi-s2-jja-2025-2026-calibrated/maps/reference.png",
+      "license": "original attribution retained; redistribution terms pending verification",
+      "evidence_status": "archived_context_or_planning",
+      "scene_id": "S2C_35VLE_20250615_0_L2A",
+      "acquisition_date": "2025-06-15T09:54:39.645000Z",
+      "retrieval_date": "not_captured_in_bootstrap",
+      "provider": "Copernicus Sentinel-2 / Earth Search Element 84",
+      "lineage": "archived-calibrated-summer-scene"
+    },
+    {
+      "path": "curated/figures/archived-target.png",
+      "destination": "figures/archived-target.png",
+      "sha256": "883a2a9af63b5f4fc4eabb0c177a7d6dc396ea11170ae639a0f166b95c8173d8",
+      "label": "Archived single scene 2026-06-20 (summer-ranked, NOT monthly mean)",
+      "provenance": "runs/aoi-s2-jja-2025-2026-calibrated/maps/target.png",
+      "license": "original attribution retained; redistribution terms pending verification",
+      "evidence_status": "archived_context_or_planning",
+      "scene_id": "S2C_35VLE_20260620_0_L2A",
+      "acquisition_date": "2026-06-20T09:54:20.028000Z",
+      "retrieval_date": "not_captured_in_bootstrap",
+      "provider": "Copernicus Sentinel-2 / Earth Search Element 84",
+      "lineage": "archived-calibrated-summer-scene"
+    },
+    {
+      "path": "curated/maps/leaflet.js",
+      "destination": "maps/leaflet.js",
+      "sha256": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "label": "Locally cached Leaflet 1.9.4 vendor asset",
+      "provenance": "runs/aoi-s2-jja-2025-2026-calibrated/maps/leaflet.js",
+      "license": "copyright header retained; full distribution license verification pending",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/maps/leaflet.css",
+      "destination": "maps/leaflet.css",
+      "sha256": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "label": "Locally cached Leaflet 1.9.4 vendor asset",
+      "provenance": "runs/aoi-s2-jja-2025-2026-calibrated/maps/leaflet.css",
+      "license": "copyright header retained; full distribution license verification pending",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/maps/images/layers.png",
+      "destination": "maps/images/layers.png",
+      "sha256": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "label": "Locally cached Leaflet 1.9.4 vendor asset",
+      "provenance": "runs/aoi-s2-jja-2025-2026-calibrated/maps/images/layers.png",
+      "license": "copyright header retained; full distribution license verification pending",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/maps/images/layers-2x.png",
+      "destination": "maps/images/layers-2x.png",
+      "sha256": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "label": "Locally cached Leaflet 1.9.4 vendor asset",
+      "provenance": "runs/aoi-s2-jja-2025-2026-calibrated/maps/images/layers-2x.png",
+      "license": "copyright header retained; full distribution license verification pending",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/maps/images/marker-icon.png",
+      "destination": "maps/images/marker-icon.png",
+      "sha256": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "label": "Locally cached Leaflet 1.9.4 vendor asset",
+      "provenance": "runs/aoi-s2-jja-2025-2026-calibrated/maps/images/marker-icon.png",
+      "license": "copyright header retained; full distribution license verification pending",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/maps/images/marker-icon-2x.png",
+      "destination": "maps/images/marker-icon-2x.png",
+      "sha256": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "label": "Locally cached Leaflet 1.9.4 vendor asset",
+      "provenance": "runs/aoi-s2-jja-2025-2026-calibrated/maps/images/marker-icon-2x.png",
+      "license": "copyright header retained; full distribution license verification pending",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/maps/images/marker-shadow.png",
+      "destination": "maps/images/marker-shadow.png",
+      "sha256": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "label": "Locally cached Leaflet 1.9.4 vendor asset",
+      "provenance": "runs/aoi-s2-jja-2025-2026-calibrated/maps/images/marker-shadow.png",
+      "license": "copyright header retained; full distribution license verification pending",
+      "evidence_status": "archived_context_or_planning"
+    },
+    {
+      "path": "curated/metadata/graph.svg",
+      "destination": "metadata/graph.svg",
+      "sha256": "41d12fb347bdebbc0d21d9a0ce0e53324cd5cb40cbb8d4e7c33c1d95d8cdb3f2",
+      "label": "Canonical pinned Lab renderer output",
+      "provenance": "graph.svg",
+      "license": "repository planning artifact",
+      "evidence_status": "planned_only"
+    },
+    {
+      "path": "curated/metadata/graph.mmd",
+      "destination": "metadata/graph.mmd",
+      "sha256": "cf43b5a5360c97d4961cb1d8bbc1941b1f6b0c778532817921c115b2596142a8",
+      "label": "Canonical pinned Lab renderer output",
+      "provenance": "graph.mmd",
+      "license": "repository planning artifact",
+      "evidence_status": "planned_only"
+    },
+    {
+      "path": "curated/metadata/inputs/prior_rois.geojson",
+      "destination": "metadata/inputs/prior_rois.geojson",
+      "sha256": "b079d3dbff8a473daf6e3d33cdfdaedffc29de470425b8fe9a212f796a862125",
+      "label": "Frozen local planning contract/input",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/inputs/prior_rois.geojson",
+      "license": "repository planning contract; public release pending review",
+      "evidence_status": "planning_only_not_scientific_observation"
+    },
+    {
+      "path": "curated/metadata/inputs/window_spec.yaml",
+      "destination": "metadata/inputs/window_spec.yaml",
+      "sha256": "c3fe2b5b1080525dcf8283562a7f96472eac1b27a172944ccc7230ffead811dd",
+      "label": "Frozen local planning contract/input",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/inputs/window_spec.yaml",
+      "license": "repository planning contract; public release pending review",
+      "evidence_status": "planning_only_not_scientific_observation"
+    },
+    {
+      "path": "curated/metadata/inputs/roi_locations.json",
+      "destination": "metadata/inputs/roi_locations.json",
+      "sha256": "e274d701c5e2b8c448089ee28c8ff651512d96c872e2810136b6addd6b6712b7",
+      "label": "Frozen local planning contract/input",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/inputs/roi_locations.json",
+      "license": "repository planning contract; public release pending review",
+      "evidence_status": "planning_only_not_scientific_observation"
+    },
+    {
+      "path": "curated/metadata/inputs/aoi.geojson",
+      "destination": "metadata/inputs/aoi.geojson",
+      "sha256": "0c3778286c27a55d6962687b80edd4be324f7ea0c4c21a466193f5ec583cb85e",
+      "label": "Frozen local planning contract/input",
+      "provenance": "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/inputs/aoi.geojson",
+      "license": "repository planning contract; public release pending review",
+      "evidence_status": "planning_only_not_scientific_observation"
+    },
+    {
+      "path": "curated/metadata/standing_roles/official-infrastructure-records.md",
+      "destination": "metadata/standing_roles/official-infrastructure-records.md",
+      "sha256": "a826ed59a4a7cdb9bae2bead34681a58715d1b26da380eaee11807cf3a19b3ce",
+      "label": "Frozen local planning contract/input",
+      "provenance": "forest-cover-lab@c322e89fb96def2434c62776ac595f6cd995ef92:agent_harness/roles/official-infrastructure-records.md",
+      "license": "repository planning contract; public release pending review",
+      "evidence_status": "planning_only_not_scientific_observation"
+    },
+    {
+      "path": "curated/metadata/standing_roles/remote-sensing-quantification.md",
+      "destination": "metadata/standing_roles/remote-sensing-quantification.md",
+      "sha256": "645a06490784a0a4e4f8fc4b0366971756e5da95768f9938df314a9e2d5b79e8",
+      "label": "Frozen local planning contract/input",
+      "provenance": "forest-cover-lab@c322e89fb96def2434c62776ac595f6cd995ef92:agent_harness/roles/remote-sensing-quantification.md",
+      "license": "repository planning contract; public release pending review",
+      "evidence_status": "planning_only_not_scientific_observation"
+    },
+    {
+      "path": "curated/metadata/standing_roles/independent-challenge.md",
+      "destination": "metadata/standing_roles/independent-challenge.md",
+      "sha256": "67a4e382cc888045d420e1a5973da718851772f62958d4cbc87824494d330fa5",
+      "label": "Frozen local planning contract/input",
+      "provenance": "forest-cover-lab@c322e89fb96def2434c62776ac595f6cd995ef92:agent_harness/roles/independent-challenge.md",
+      "license": "repository planning contract; public release pending review",
+      "evidence_status": "planning_only_not_scientific_observation"
+    },
+    {
+      "path": "curated/metadata/standing_roles/dataset-and-tool-discovery.md",
+      "destination": "metadata/standing_roles/dataset-and-tool-discovery.md",
+      "sha256": "259b6d41a8d3962087b31ce49fb1994855d3d3554c55bd367e8adf55ccb82ac1",
+      "label": "Frozen local planning contract/input",
+      "provenance": "forest-cover-lab@c322e89fb96def2434c62776ac595f6cd995ef92:agent_harness/roles/dataset-and-tool-discovery.md",
+      "license": "repository planning contract; public release pending review",
+      "evidence_status": "planning_only_not_scientific_observation"
+    },
+    {
+      "path": "curated/metadata/standing_roles/literature-and-media.md",
+      "destination": "metadata/standing_roles/literature-and-media.md",
+      "sha256": "cbd5a201f7a8bba503c3ac2f4b3e175dfcca4ca3f4d253e5243e11bdbd804bf3",
+      "label": "Frozen local planning contract/input",
+      "provenance": "forest-cover-lab@c322e89fb96def2434c62776ac595f6cd995ef92:agent_harness/roles/literature-and-media.md",
+      "license": "repository planning contract; public release pending review",
+      "evidence_status": "planning_only_not_scientific_observation"
+    },
+    {
+      "path": "curated/metadata/standing_roles/national-geospatial-evidence.md",
+      "destination": "metadata/standing_roles/national-geospatial-evidence.md",
+      "sha256": "146f230a7f80ca5f56659db0a8c66409fbf12931295571b94e7294b80b7533a8",
+      "label": "Frozen local planning contract/input",
+      "provenance": "forest-cover-lab@c322e89fb96def2434c62776ac595f6cd995ef92:agent_harness/roles/national-geospatial-evidence.md",
+      "license": "repository planning contract; public release pending review",
+      "evidence_status": "planning_only_not_scientific_observation"
+    }
+  ]
+}
