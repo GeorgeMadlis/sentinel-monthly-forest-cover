@@ -1,0 +1,1277 @@
+{
+ "ROI-01": {
+  "simplified_length_m": 18305,
+  "samples": [
+   {
+    "s_m": 0,
+    "lonlat": [
+     24.59668,
+     58.42719
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 323,
+    "nearest": [
+     [
+      1491,
+      "road 19214 Jänesselja-Urge tee"
+     ],
+     [
+      2982,
+      "ETAK rail 4076351"
+     ],
+     [
+      3126,
+      "road 19274 Urge-Kuiaru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 500,
+    "lonlat": [
+     24.6007,
+     58.43042
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 287,
+    "nearest": [
+     [
+      1062,
+      "road 19214 Jänesselja-Urge tee"
+     ],
+     [
+      2955,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      3054,
+      "ETAK rail 4076351"
+     ]
+    ]
+   },
+   {
+    "s_m": 1000,
+    "lonlat": [
+     24.60537,
+     58.43418
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 244,
+    "nearest": [
+     [
+      562,
+      "road 19214 Jänesselja-Urge tee"
+     ],
+     [
+      2825,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      3041,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 1500,
+    "lonlat": [
+     24.61004,
+     58.43794
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 208,
+    "nearest": [
+     [
+      62,
+      "road 19214 Jänesselja-Urge tee"
+     ],
+     [
+      2716,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      2748,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 2000,
+    "lonlat": [
+     24.61472,
+     58.4417
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 193,
+    "nearest": [
+     [
+      428,
+      "road 19214 Jänesselja-Urge tee"
+     ],
+     [
+      2511,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2685,
+      "road 19274 Urge-Kuiaru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 2500,
+    "lonlat": [
+     24.6194,
+     58.44546
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 203,
+    "nearest": [
+     [
+      872,
+      "road 19214 Jänesselja-Urge tee"
+     ],
+     [
+      2286,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2704,
+      "road 19274 Urge-Kuiaru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 3000,
+    "lonlat": [
+     24.62407,
+     58.44922
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 220,
+    "nearest": [
+     [
+      1347,
+      "road 19214 Jänesselja-Urge tee"
+     ],
+     [
+      2097,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2627,
+      "road 19274 Urge-Kuiaru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 3500,
+    "lonlat": [
+     24.62875,
+     58.45298
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 237,
+    "nearest": [
+     [
+      1834,
+      "road 19214 Jänesselja-Urge tee"
+     ],
+     [
+      2013,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2457,
+      "road 19274 Urge-Kuiaru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 4000,
+    "lonlat": [
+     24.63341,
+     58.45675
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 256,
+    "nearest": [
+     [
+      2048,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2221,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      2327,
+      "road 19214 Jänesselja-Urge tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 4500,
+    "lonlat": [
+     24.63806,
+     58.46052
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 275,
+    "nearest": [
+     [
+      2008,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      2099,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2822,
+      "road 19214 Jänesselja-Urge tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 5000,
+    "lonlat": [
+     24.64327,
+     58.46405
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 252,
+    "nearest": [
+     [
+      1857,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      2124,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      3160,
+      "ETAK rail 4076351"
+     ]
+    ]
+   },
+   {
+    "s_m": 5500,
+    "lonlat": [
+     24.64943,
+     58.46717
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 166,
+    "nearest": [
+     [
+      1737,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      2191,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2960,
+      "ETAK rail 4076351"
+     ]
+    ]
+   },
+   {
+    "s_m": 6000,
+    "lonlat": [
+     24.6556,
+     58.47029
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 96,
+    "nearest": [
+     [
+      1659,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      2210,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2760,
+      "ETAK rail 4076351"
+     ]
+    ]
+   },
+   {
+    "s_m": 6500,
+    "lonlat": [
+     24.66176,
+     58.47341
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 46,
+    "nearest": [
+     [
+      1576,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      2209,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2519,
+      "ETAK rail 4076351"
+     ]
+    ]
+   },
+   {
+    "s_m": 7000,
+    "lonlat": [
+     24.66792,
+     58.47653
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 15,
+    "nearest": [
+     [
+      1501,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      2209,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2260,
+      "ETAK rail 4076351"
+     ]
+    ]
+   },
+   {
+    "s_m": 7500,
+    "lonlat": [
+     24.67409,
+     58.47964
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 6,
+    "nearest": [
+     [
+      1570,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      2062,
+      "ETAK rail 4076351"
+     ],
+     [
+      2209,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 8000,
+    "lonlat": [
+     24.68026,
+     58.48276
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 17,
+    "nearest": [
+     [
+      1776,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      1937,
+      "ETAK rail 4076351"
+     ],
+     [
+      2209,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 8500,
+    "lonlat": [
+     24.68643,
+     58.48588
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 45,
+    "nearest": [
+     [
+      1888,
+      "ETAK rail 4076351"
+     ],
+     [
+      2046,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      2208,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 9000,
+    "lonlat": [
+     24.69259,
+     58.489
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 79,
+    "nearest": [
+     [
+      1860,
+      "ETAK rail 4076351"
+     ],
+     [
+      2122,
+      "road 19274 Urge-Kuiaru tee"
+     ],
+     [
+      2128,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 9500,
+    "lonlat": [
+     24.69949,
+     58.49166
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 48,
+    "nearest": [
+     [
+      1767,
+      "ETAK rail 4076351"
+     ],
+     [
+      2017,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2163,
+      "road 19274 Urge-Kuiaru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 10000,
+    "lonlat": [
+     24.7064,
+     58.49432
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 15,
+    "nearest": [
+     [
+      1671,
+      "ETAK rail 4076351"
+     ],
+     [
+      2013,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ],
+     [
+      2241,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 10500,
+    "lonlat": [
+     24.71332,
+     58.49697
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      1576,
+      "ETAK rail 4076351"
+     ],
+     [
+      1794,
+      "road 19203 Are-Suigu tee"
+     ],
+     [
+      2125,
+      "road 19210 Uduvere-Suigu-Nurme tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 11000,
+    "lonlat": [
+     24.72024,
+     58.49962
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      1302,
+      "road 19203 Are-Suigu tee"
+     ],
+     [
+      1480,
+      "ETAK rail 4076351"
+     ],
+     [
+      2169,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 11500,
+    "lonlat": [
+     24.72716,
+     58.50227
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      818,
+      "road 19203 Are-Suigu tee"
+     ],
+     [
+      1385,
+      "ETAK rail 4076351"
+     ],
+     [
+      2132,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 12000,
+    "lonlat": [
+     24.73408,
+     58.50493
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      364,
+      "road 19203 Are-Suigu tee"
+     ],
+     [
+      1292,
+      "ETAK rail 4076351"
+     ],
+     [
+      2087,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 12500,
+    "lonlat": [
+     24.741,
+     58.50758
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      16,
+      "road 19203 Are-Suigu tee"
+     ],
+     [
+      1272,
+      "ETAK rail 4076351"
+     ],
+     [
+      2042,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 13000,
+    "lonlat": [
+     24.74793,
+     58.51023
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      361,
+      "road 19203 Are-Suigu tee"
+     ],
+     [
+      1361,
+      "ETAK rail 4076351"
+     ],
+     [
+      2022,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 13500,
+    "lonlat": [
+     24.75485,
+     58.51288
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      839,
+      "road 19203 Are-Suigu tee"
+     ],
+     [
+      1519,
+      "ETAK rail 4076351"
+     ],
+     [
+      2000,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 14000,
+    "lonlat": [
+     24.76127,
+     58.51584
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      1335,
+      "road 19203 Are-Suigu tee"
+     ],
+     [
+      1723,
+      "ETAK rail 4076351"
+     ],
+     [
+      2049,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 14500,
+    "lonlat": [
+     24.76746,
+     58.51895
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      1834,
+      "road 19203 Are-Suigu tee"
+     ],
+     [
+      1907,
+      "ETAK rail 4076351"
+     ],
+     [
+      2174,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 15000,
+    "lonlat": [
+     24.77365,
+     58.52206
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      1727,
+      "ETAK rail 4076351"
+     ],
+     [
+      2274,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ],
+     [
+      2284,
+      "road 59 Pärnu-Tori tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 15500,
+    "lonlat": [
+     24.77984,
+     58.52517
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      1453,
+      "ETAK rail 4076351"
+     ],
+     [
+      2238,
+      "road 19270 Suigu-Tootsi tee"
+     ],
+     [
+      2338,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 16000,
+    "lonlat": [
+     24.78603,
+     58.52828
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      1180,
+      "ETAK rail 4076351"
+     ],
+     [
+      2079,
+      "road 19270 Suigu-Tootsi tee"
+     ],
+     [
+      2253,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 16500,
+    "lonlat": [
+     24.79223,
+     58.53138
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      906,
+      "ETAK rail 4076351"
+     ],
+     [
+      1986,
+      "road 19270 Suigu-Tootsi tee"
+     ],
+     [
+      2190,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 17000,
+    "lonlat": [
+     24.79842,
+     58.53449
+    ],
+    "in_rb_corridor": true,
+    "dist_rb_corridor_m": 0,
+    "nearest": [
+     [
+      632,
+      "ETAK rail 4076351"
+     ],
+     [
+      2011,
+      "road 19270 Suigu-Tootsi tee"
+     ],
+     [
+      2239,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 17500,
+    "lonlat": [
+     24.80463,
+     58.5376
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 32,
+    "nearest": [
+     [
+      358,
+      "ETAK rail 4076351"
+     ],
+     [
+      2155,
+      "road 19270 Suigu-Tootsi tee"
+     ],
+     [
+      2394,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 18000,
+    "lonlat": [
+     24.81084,
+     58.54069
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 224,
+    "nearest": [
+     [
+      65,
+      "ETAK rail 4076351"
+     ],
+     [
+      2397,
+      "road 19270 Suigu-Tootsi tee"
+     ],
+     [
+      2635,
+      "road 5 Pärnu-Rakvere-Sõmeru tee"
+     ]
+    ]
+   }
+  ]
+ },
+ "ROI-02": {
+  "simplified_length_m": 8618,
+  "samples": [
+   {
+    "s_m": 0,
+    "lonlat": [
+     24.51132,
+     58.56672
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 13569,
+    "nearest": [
+     [
+      164,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      5007,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      6526,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 500,
+    "lonlat": [
+     24.51132,
+     58.56672
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 13569,
+    "nearest": [
+     [
+      164,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      5007,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      6526,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 1000,
+    "lonlat": [
+     24.51132,
+     58.56672
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 13569,
+    "nearest": [
+     [
+      164,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      5007,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      6526,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 1500,
+    "lonlat": [
+     24.51132,
+     58.56672
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 13569,
+    "nearest": [
+     [
+      164,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      5007,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      6526,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 2000,
+    "lonlat": [
+     24.51132,
+     58.56672
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 13569,
+    "nearest": [
+     [
+      164,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      5007,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      6526,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 2500,
+    "lonlat": [
+     24.51534,
+     58.56354
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 13152,
+    "nearest": [
+     [
+      63,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      4607,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      6116,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 3000,
+    "lonlat": [
+     24.52008,
+     58.5598
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 12661,
+    "nearest": [
+     [
+      92,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      4140,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      5634,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 3500,
+    "lonlat": [
+     24.52481,
+     58.55605
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 12171,
+    "nearest": [
+     [
+      123,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      3674,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      5156,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 4000,
+    "lonlat": [
+     24.52954,
+     58.55231
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 11682,
+    "nearest": [
+     [
+      126,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      3203,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      4682,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 4500,
+    "lonlat": [
+     24.53191,
+     58.55039
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 11434,
+    "nearest": [
+     [
+      128,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      2963,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      4445,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 5000,
+    "lonlat": [
+     24.53191,
+     58.55039
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 11434,
+    "nearest": [
+     [
+      128,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      2963,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      4445,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 5500,
+    "lonlat": [
+     24.53191,
+     58.55039
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 11434,
+    "nearest": [
+     [
+      128,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      2963,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      4445,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 6000,
+    "lonlat": [
+     24.53191,
+     58.55039
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 11434,
+    "nearest": [
+     [
+      128,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      2963,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      4445,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 6500,
+    "lonlat": [
+     24.53191,
+     58.55039
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 11434,
+    "nearest": [
+     [
+      128,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      2963,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      4445,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 7000,
+    "lonlat": [
+     24.53191,
+     58.55039
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 11434,
+    "nearest": [
+     [
+      128,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      2963,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      4445,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 7500,
+    "lonlat": [
+     24.53191,
+     58.55039
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 11434,
+    "nearest": [
+     [
+      128,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      2963,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      4445,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 8000,
+    "lonlat": [
+     24.53191,
+     58.55039
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 11434,
+    "nearest": [
+     [
+      128,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      2963,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      4445,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   },
+   {
+    "s_m": 8500,
+    "lonlat": [
+     24.53191,
+     58.55039
+    ],
+    "in_rb_corridor": false,
+    "dist_rb_corridor_m": 11434,
+    "nearest": [
+     [
+      128,
+      "road 4 Tallinna-Pärnu-Ikla tee"
+     ],
+     [
+      2963,
+      "road 19219 Are-Elbu tee"
+     ],
+     [
+      4445,
+      "road 19203 Are-Suigu tee"
+     ]
+    ]
+   }
+  ]
+ }
+}

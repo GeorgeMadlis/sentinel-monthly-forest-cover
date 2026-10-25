@@ -1,0 +1,17 @@
+{
+ "geo-roi01-s0-2023-2024-2025.jpg": "round-0002/artifacts/geo-01/images/ROI-01-S0_composite_2023-2024-2025.png",
+ "geo-roi01-s1.jpg": "round-0002/artifacts/geo-01/images/ROI-01-S1_composite_2023-2025-maps.png",
+ "geo-roi01-s2.jpg": "round-0002/artifacts/geo-01/images/ROI-01-S2_composite_2023-2025-maps.png",
+ "geo-roi01-s3.jpg": "round-0002/artifacts/geo-01/images/ROI-01-S3_composite_2023-2025-maps.png",
+ "geo-roi02-s1.jpg": "round-0002/artifacts/geo-01/images/ROI-02-S1_composite_2023-2025-maps.png",
+ "geo-roi02-s2.jpg": "round-0002/artifacts/geo-01/images/ROI-02-S2_composite_2023-2025-maps.png",
+ "works-map-roi01.png": "round-0002/artifacts/works-01/images/map_roi01.png",
+ "works-map-roi02.png": "round-0002/artifacts/works-01/images/map_roi02.png",
+ "s2-roi-01-west.jpg": "round-0003/artifacts/synthesis-01/analysis/ROI-01-west_s2_2025_vs_2026.png",
+ "s2-roi-01-middle.jpg": "round-0003/artifacts/synthesis-01/analysis/ROI-01-middle_s2_2025_vs_2026.png",
+ "s2-roi-01-east.jpg": "round-0003/artifacts/synthesis-01/analysis/ROI-01-east_s2_2025_vs_2026.png",
+ "s2-roi-02-north.jpg": "round-0003/artifacts/synthesis-01/analysis/ROI-02-north_s2_2025_vs_2026.png",
+ "s2-roi-02-south.jpg": "round-0003/artifacts/synthesis-01/analysis/ROI-02-south_s2_2025_vs_2026.png",
+ "ndvi-profiles-roi01.png": "round-0003/artifacts/synthesis-01/analysis/ROI-01_ndvi_cross_profiles.png",
+ "ndvi-profiles-roi02.png": "round-0003/artifacts/synthesis-01/analysis/ROI-02_ndvi_cross_profiles.png"
+}

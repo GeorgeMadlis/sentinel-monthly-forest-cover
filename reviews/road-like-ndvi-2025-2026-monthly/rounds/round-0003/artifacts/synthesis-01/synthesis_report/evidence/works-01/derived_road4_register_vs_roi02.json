@@ -1,0 +1,327 @@
+{
+ "sections": [
+  {
+   "soidutee": 1,
+   "teeosa": 21,
+   "m_from": 100560,
+   "m_to": 111315,
+   "kasitlus": "arvestuslik",
+   "suund": "M\u00f5lemasuunaline",
+   "modified": 1756080000000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 24
+  },
+  {
+   "soidutee": 1,
+   "teeosa": 22,
+   "m_from": 111315,
+   "m_to": 120596,
+   "kasitlus": "arvestuslik",
+   "suund": "M\u00f5lemasuunaline",
+   "modified": 1756080000000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 637
+  },
+  {
+   "soidutee": 2,
+   "teeosa": 20,
+   "m_from": 92126,
+   "m_to": 100560,
+   "kasitlus": "muu",
+   "suund": "m\u00e4\u00e4ramata",
+   "modified": 1757635200000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 3214
+  },
+  {
+   "soidutee": 2,
+   "teeosa": 16,
+   "m_from": 82479,
+   "m_to": 92126,
+   "kasitlus": "muu",
+   "suund": "m\u00e4\u00e4ramata",
+   "modified": 1777593600000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 11097
+  },
+  {
+   "soidutee": 1,
+   "teeosa": 20,
+   "m_from": 92126,
+   "m_to": 100560,
+   "kasitlus": "arvestuslik",
+   "suund": "M\u00f5lemasuunaline",
+   "modified": 1787788800000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 3214
+  },
+  {
+   "soidutee": 1,
+   "teeosa": 23,
+   "m_from": 120596,
+   "m_to": 130370,
+   "kasitlus": "arvestuslik",
+   "suund": "P\u00e4risuund",
+   "modified": 1787788800000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 7444
+  },
+  {
+   "soidutee": 2,
+   "teeosa": 21,
+   "m_from": 100560,
+   "m_to": 111315,
+   "kasitlus": "muu",
+   "suund": "m\u00e4\u00e4ramata",
+   "modified": 1787788800000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 24
+  },
+  {
+   "soidutee": 2,
+   "teeosa": 22,
+   "m_from": 111315,
+   "m_to": 120596,
+   "kasitlus": "muu",
+   "suund": "m\u00e4\u00e4ramata",
+   "modified": 1787788800000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 637
+  },
+  {
+   "soidutee": 1,
+   "teeosa": 26,
+   "m_from": 130370,
+   "m_to": 132547,
+   "kasitlus": "arvestuslik",
+   "suund": "M\u00f5lemasuunaline",
+   "modified": 1756080000000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 14813
+  },
+  {
+   "soidutee": 1,
+   "teeosa": 16,
+   "m_from": 82479,
+   "m_to": 92126,
+   "kasitlus": "arvestuslik",
+   "suund": "M\u00f5lemasuunaline",
+   "modified": 1756080000000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 11097
+  },
+  {
+   "soidutee": 2,
+   "teeosa": 26,
+   "m_from": 130330,
+   "m_to": 132547,
+   "kasitlus": "muu",
+   "suund": "m\u00e4\u00e4ramata",
+   "modified": 1777766400000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 14813
+  },
+  {
+   "soidutee": 2,
+   "teeosa": 23,
+   "m_from": 120596,
+   "m_to": 130330,
+   "kasitlus": "arvestuslik",
+   "suund": "Vastassuund",
+   "modified": 1777766400000,
+   "length_in_roi_m": 0,
+   "min_dist_to_roi_m": 7444
+  }
+ ],
+ "km_points_lonlat": {
+  "100": [
+   24.5113,
+   58.61908,
+   3761
+  ],
+  "101": [
+   24.51248,
+   58.61018,
+   2774
+  ],
+  "102": [
+   24.51217,
+   58.60121,
+   1777
+  ],
+  "103": [
+   24.51223,
+   58.59223,
+   787
+  ],
+  "104": [
+   24.51227,
+   58.58326,
+   141
+  ],
+  "105": [
+   24.51236,
+   58.57428,
+   94
+  ],
+  "106": [
+   24.51477,
+   58.56541,
+   49
+  ],
+  "107": [
+   24.52457,
+   58.55807,
+   71
+  ],
+  "108": [
+   24.53421,
+   58.55064,
+   99
+  ],
+  "109": [
+   24.54225,
+   58.54271,
+   362
+  ],
+  "110": [
+   24.55002,
+   58.53471,
+   609
+  ],
+  "111": [
+   24.55778,
+   58.5267,
+   887
+  ],
+  "112": [
+   24.55659,
+   58.51811,
+   913
+  ],
+  "113": [
+   24.54998,
+   58.50988,
+   650
+  ],
+  "114": [
+   24.54087,
+   58.50227,
+   1067
+  ],
+  "115": [
+   24.53256,
+   58.49445,
+   1974
+  ],
+  "116": [
+   24.52814,
+   58.48581,
+   2968
+  ],
+  "117": [
+   24.52776,
+   58.47684,
+   3954
+  ],
+  "118": [
+   24.52247,
+   58.46837,
+   4938
+  ]
+ },
+ "bands": {
+  "north_58.550-58.585": {
+   "roi_area_m2": 289687,
+   "carriageway1_len_in_roi_m": 0,
+   "carriageway2_len_in_roi_m": 0,
+   "dist_vertices_to_cw1_m_min_med_max": [
+    82,
+    177,
+    203
+   ],
+   "dist_vertices_to_cw2_m_min_med_max": [
+    82,
+    177,
+    203
+   ],
+   "nearest_km_points": [
+    106,
+    107
+   ],
+   "y_range_3301": [
+    6490062,
+    6494104
+   ]
+  },
+  "middle_58.528-58.550": {
+   "roi_area_m2": 149967,
+   "carriageway1_len_in_roi_m": 0,
+   "carriageway2_len_in_roi_m": 0,
+   "dist_vertices_to_cw1_m_min_med_max": [
+    82,
+    85,
+    810
+   ],
+   "dist_vertices_to_cw2_m_min_med_max": [
+    82,
+    85,
+    810
+   ],
+   "nearest_km_points": [
+    108,
+    109
+   ],
+   "y_range_3301": [
+    6487612,
+    6490205
+   ]
+  },
+  "south_58.513-58.528": {
+   "roi_area_m2": 92268,
+   "carriageway1_len_in_roi_m": 0,
+   "carriageway2_len_in_roi_m": 0,
+   "dist_vertices_to_cw1_m_min_med_max": [
+    660,
+    769,
+    827
+   ],
+   "dist_vertices_to_cw2_m_min_med_max": [
+    660,
+    769,
+    827
+   ],
+   "nearest_km_points": [
+    113,
+    110
+   ],
+   "y_range_3301": [
+    6485941,
+    6487755
+   ]
+  }
+ },
+ "project_km": {
+  "103.5": {
+   "lon": 24.51225,
+   "lat": 58.58774,
+   "x": 529791,
+   "y": 6494311,
+   "dist_to_roi02_m": 318
+  },
+  "108.5": {
+   "lon": 24.53823,
+   "lat": 58.54668,
+   "x": 531338,
+   "y": 6489749,
+   "dist_to_roi02_m": 231
+  },
+  "115.8": {
+   "lon": 24.52902,
+   "lat": 58.48754,
+   "x": 530854,
+   "y": 6483158,
+   "dist_to_roi02_m": 2770
+  }
+ }
+}

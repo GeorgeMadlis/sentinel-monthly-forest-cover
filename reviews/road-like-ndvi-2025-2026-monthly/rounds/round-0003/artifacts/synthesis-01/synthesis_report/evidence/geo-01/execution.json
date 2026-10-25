@@ -1,0 +1,102 @@
+{
+ "instance_id": "geo-01",
+ "role": "national-geospatial-evidence",
+ "assignment_addendum": "assignments/geo-01-retask-0001.md",
+ "host": "claude-code (subagent spawned by synthesis-01)",
+ "model": "claude-opus-5-5 (Opus 5.5)",
+ "started_utc": "2026-10-24T16:37:40Z",
+ "ended_utc": "2026-10-24T16:51:18Z",
+ "repositories": {
+  "sentinel-monthly-forest-cover": "5b2e30e11d2ea9a990878f4bee643c11864daae3",
+  "forest-cover-lab": "c322e89fb96def2434c62776ac595f6cd995ef92",
+  "lab_graph_revision": "f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7"
+ },
+ "files_loaded": [
+  {
+   "path": "/Users/server/projects/forest-cover-lab/agent_harness/roles/national-geospatial-evidence.md",
+   "sha256": "146f230a7f80ca5f56659db0a8c66409fbf12931295571b94e7294b80b7533a8",
+   "when": "at start"
+  },
+  {
+   "path": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/assignments/geo-01.md",
+   "sha256": "f756bc4925800ff82ff0fb56dde544a89cc8167a24cbcd7ff163c62524128d64",
+   "when": "at start"
+  },
+  {
+   "path": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/assignments/geo-01-retask-0001.md",
+   "sha256": "4608fce55b35e6274a452334cb108f0a83ddd0e5b008f9b389aaaff53f3f19be",
+   "when": "at start"
+  },
+  {
+   "path": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/inputs/prior_rois.geojson",
+   "sha256": "b079d3dbff8a473daf6e3d33cdfdaedffc29de470425b8fe9a212f796a862125",
+   "when": "at start (properties and geometry read)"
+  }
+ ],
+ "loaded_harness": [
+  {
+   "path": "/Users/server/projects/sentinel-monthly-forest-cover/CLAUDE.md",
+   "sha256": "e3cc286b337786d1514550baa25ec66531ee85483175766697cbd587af29b36a",
+   "how": "injected by host as project instructions before start"
+  },
+  {
+   "path": "/Users/server/projects/sentinel-monthly-forest-cover/AGENTS.md",
+   "sha256": "f8d8c9a7ff59417777732e98a9c4cfb8339a22284c6f0bc0e9705ebacdbb29e5",
+   "how": "injected by host as project instructions (imported via CLAUDE.md) before start"
+  },
+  {
+   "path": "/Users/server/projects/CLAUDE.md",
+   "how": "injected by host as parent-directory project instructions before start",
+   "sha256": "c75ba6753dbff3cf45dbf2b9171ade22f254b46ad54a226ae51e8781df7f4243"
+  },
+  {
+   "path": "/Users/server/projects/forest-cover-lab/AGENTS.md",
+   "sha256": "6cf2a9e0c6fec2e2b7a2a59a28d2e479f2ba05c99c3817b0d7328661f244098a",
+   "how": "read on synthesis-01 harness-update request at 2026-10-24T16:39:24Z, AFTER start (about 2 min in; after capabilities/metainfo/first probe requests)"
+  },
+  {
+   "path": "/Users/server/projects/forest-cover-lab/docs/agents.md",
+   "sha256": "bc98c873e5f52aaaf6236d21c976c87f81115d1cead52f3d1f237bf40531481f",
+   "how": "read on synthesis-01 harness-update request at 2026-10-24T16:39:24Z, AFTER start"
+  },
+  {
+   "path": "docs/agent_harness.md (sentinel repo)",
+   "sha256": null,
+   "how": "not read (referenced by CLAUDE.md; not loaded in this execution)"
+  }
+ ],
+ "external_instructions": "subagent prompt from synthesis-01 (not captured verbatim here); harness-update message from synthesis-01 mid-run",
+ "tools_used": [
+  "Bash (curl, python3 -I via .venv with pyproj/shapely/PIL/numpy)",
+  "Read (image inspection, harness files)",
+  "WebSearch (1 query)",
+  "WebFetch (3 pages; 1 redirect)"
+ ],
+ "commands_summary": [
+  "curl WMS GetCapabilities x3 (ajalooline, fotokaart, alus)",
+  "curl GetFeatureInfo metainfo at ROI-01-P2 (4 variants); scripts/sheets.py: 32 metainfo GetFeatureInfo points",
+  "curl geoportaal page 610 + per-sheet listing search; scripts/sheet_dates.py: 22 per-sheet listings (11 sheets x RGB/NGR); 1:2000 listings (7 empty attempts discarded, 5 repeated with UA)",
+  "scripts/fetch_wms.py: 39 GetMap image requests total (8+3 probes, 2 overviews, 20 site windows, 6 S0 windows)",
+  "scripts/etak_wfs.py: 20 ETAK WFS GetFeature requests (4 areas x 5 layers) + capabilities; scripts/etak_summarise.py offline",
+  "scripts/overlay.py, composite.py, composite3.py (offline rendering); scripts/road_width.py (offline transects); scripts/build_evidence.py"
+ ],
+ "image_requests_total": 39,
+ "tool_call_count_estimate": 45,
+ "outputs": {
+  "geo_sources.csv": "ab1aba11beff4fbb41850af504baff255c2e37aa3933c9fc175dbf655b98dacc",
+  "geo_claims.csv": "3918de5b462cb70adffbf6d1cda741271b1d25a05c9a275d693879b70d828078",
+  "geo_primary_evidence.json": "da7c810935bbdad7a0618da2159fb8b495546944309d495a39b7a0e607d3dc06",
+  "README.md": "55a199e6a6048a285d62eb3266fd769ac014789ca1f926d159e042c0aeda4b98"
+ },
+ "limitations": [
+  "No post-2025-04-03 orthophoto exists; post-July-2025 questions unanswerable from orthophotos",
+  "Feature-scale inspection covers ~2.4 km of ROI-01 and ~1.2 km of ROI-02; remainder only at ~10 m overview",
+  "Flight dates from official file names; GeoTIFFs and embedded metadata not downloaded",
+  "Layer-to-flight mapping inferred (listings + phenology + EESTIFOTO equality)",
+  "ETAK current state only; map editions as WMS raster; maps share lineage with orthophotos",
+  "Road width from threshold on JPEG WMS rendering; +-1.5 m",
+  "Controls not inspected in imagery",
+  "Hosted-model reasoning and web searches are not replayable; one background shell command hung and was killed (no effect on outputs)",
+  "No interpretation of EO/Sentinel results; no legal/causal claims"
+ ]
+}

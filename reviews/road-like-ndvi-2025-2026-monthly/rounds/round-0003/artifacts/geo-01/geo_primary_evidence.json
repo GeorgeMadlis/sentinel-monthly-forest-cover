@@ -1,0 +1,1975 @@
+{
+ "schema": "geo-01 primary evidence v1",
+ "generated_utc": "2026-10-24T16:51:18Z",
+ "roi_input": {
+  "path": "inputs/prior_rois.geojson",
+  "sha256": "b079d3dbff8a473daf6e3d33cdfdaedffc29de470425b8fe9a212f796a862125"
+ },
+ "crs": "EPSG:3301 for all WMS/WFS requests (WMS 1.3.0 BBOX axis order northing,easting)",
+ "resolved_flight_dates": [
+  {
+   "sheet": "53733",
+   "type": "ortofoto_eesti_rgb",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53733&andmetyyp=ortofoto_eesti_rgb",
+   "retrieved_utc": "2026-10-24T16:41:02Z",
+   "sha256": "9463d6b392da1a88e2745139ca7b5648af01a3b0abca0ba208f50807473ceb9c",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53733_ortofoto_eesti_rgb.html",
+   "geotiff_flight_dates": [
+    "2025_04_03",
+    "2023_06_09",
+    "2021_04_19",
+    "2020_05_23",
+    "2019_06_03",
+    "2017_05_02",
+    "2015_06_12",
+    "2014_04_26",
+    "2011_06_29",
+    "2010_06_29",
+    "2006_05_29",
+    "2002_08_07-08_10",
+    "1994"
+   ]
+  },
+  {
+   "sheet": "53733",
+   "type": "ortofoto_eesti_ngr",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53733&andmetyyp=ortofoto_eesti_ngr",
+   "retrieved_utc": "2026-10-24T16:41:03Z",
+   "sha256": "f538bf5a1e96716d353cb9df3d19f0e46d63ba78284734a2b01da1701d8c86a0",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53733_ortofoto_eesti_ngr.html",
+   "geotiff_flight_dates": [
+    "2023_06_09",
+    "2019_06_03"
+   ]
+  },
+  {
+   "sheet": "53734",
+   "type": "ortofoto_eesti_rgb",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53734&andmetyyp=ortofoto_eesti_rgb",
+   "retrieved_utc": "2026-10-24T16:41:03Z",
+   "sha256": "31441c6dd9d9d7f0f61c6822e81fbcf5119f039d050b927641f38297218f1ba8",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53734_ortofoto_eesti_rgb.html",
+   "geotiff_flight_dates": [
+    "2025_04_03",
+    "2023_06_09",
+    "2021_04_19",
+    "2019_06_03",
+    "2017_05_02",
+    "2015_06_12",
+    "2014_04_26",
+    "2011_06_29",
+    "2010_06_29",
+    "2006_05_29",
+    "2002_08_07-08_10",
+    "1994"
+   ]
+  },
+  {
+   "sheet": "53734",
+   "type": "ortofoto_eesti_ngr",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53734&andmetyyp=ortofoto_eesti_ngr",
+   "retrieved_utc": "2026-10-24T16:41:04Z",
+   "sha256": "f38fc49b471322bf0a248e06ae68d1d117e4c0c6afe1b6d0382f5a0bfcc920f0",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53734_ortofoto_eesti_ngr.html",
+   "geotiff_flight_dates": [
+    "2023_06_09",
+    "2019_06_03"
+   ]
+  },
+  {
+   "sheet": "53832",
+   "type": "ortofoto_eesti_rgb",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53832&andmetyyp=ortofoto_eesti_rgb",
+   "retrieved_utc": "2026-10-24T16:41:05Z",
+   "sha256": "90416362b7e266d6f1ca1101bf73f123e52b7478e587ec4288fe9a27aba54a80",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53832_ortofoto_eesti_rgb.html",
+   "geotiff_flight_dates": [
+    "2025_04_03",
+    "2023_06_09",
+    "2021_04_19",
+    "2019_06_03-06_06",
+    "2017_05_02",
+    "2015_06_12",
+    "2014_04_26",
+    "2011_06_29",
+    "2010_06_29",
+    "2006_05_29-06_17",
+    "2002_08_07-08_20",
+    "1994"
+   ]
+  },
+  {
+   "sheet": "53832",
+   "type": "ortofoto_eesti_ngr",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53832&andmetyyp=ortofoto_eesti_ngr",
+   "retrieved_utc": "2026-10-24T16:41:05Z",
+   "sha256": "74398d483598c3e77463d00f18786a3b2320d6fa0a096dd8dfa167fa02df8bdd",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53832_ortofoto_eesti_ngr.html",
+   "geotiff_flight_dates": [
+    "2023_06_09",
+    "2019_06_03-06_06"
+   ]
+  },
+  {
+   "sheet": "53841",
+   "type": "ortofoto_eesti_rgb",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53841&andmetyyp=ortofoto_eesti_rgb",
+   "retrieved_utc": "2026-10-24T16:41:05Z",
+   "sha256": "5c983350e2a782a2787f1e5fceb59fb0b263b1241540586163180d12d9894315",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53841_ortofoto_eesti_rgb.html",
+   "geotiff_flight_dates": [
+    "2025_04_03",
+    "2023_06_09",
+    "2021_04_19",
+    "2019_06_03-06_06",
+    "2017_05_02",
+    "2015_06_12",
+    "2014_04_26",
+    "2011_06_29",
+    "2010_06_29",
+    "2005_06_15",
+    "2002_08_07-08_20",
+    "2000"
+   ]
+  },
+  {
+   "sheet": "53841",
+   "type": "ortofoto_eesti_ngr",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53841&andmetyyp=ortofoto_eesti_ngr",
+   "retrieved_utc": "2026-10-24T16:41:05Z",
+   "sha256": "faa9f029d7b592833c2f7961ec3594a790964567fd5bb37093fe34bff9ce9a0c",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53841_ortofoto_eesti_ngr.html",
+   "geotiff_flight_dates": [
+    "2023_06_09",
+    "2019_06_03-06_06"
+   ]
+  },
+  {
+   "sheet": "53843",
+   "type": "ortofoto_eesti_rgb",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53843&andmetyyp=ortofoto_eesti_rgb",
+   "retrieved_utc": "2026-10-24T16:41:06Z",
+   "sha256": "788fb9bf9704292e987368c2ba4d3b26f4c5a75e9ee983eaf1c8220bdb2d8934",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53843_ortofoto_eesti_rgb.html",
+   "geotiff_flight_dates": [
+    "2025_04_03",
+    "2023_06_09",
+    "2021_04_19",
+    "2019_06_06",
+    "2017_05_02",
+    "2015_06_12",
+    "2014_04_26",
+    "2011_06_28-06_29",
+    "2010_05_19-06_29",
+    "2005_06_15",
+    "2002_08_10-08_20",
+    "2000"
+   ]
+  },
+  {
+   "sheet": "53843",
+   "type": "ortofoto_eesti_ngr",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53843&andmetyyp=ortofoto_eesti_ngr",
+   "retrieved_utc": "2026-10-24T16:41:06Z",
+   "sha256": "1263d765eaed3c0d7e78853dd485569cb78942852b22c4a2f5c6cc3c1e8bfed7",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53843_ortofoto_eesti_ngr.html",
+   "geotiff_flight_dates": [
+    "2023_06_09",
+    "2019_06_06"
+   ]
+  },
+  {
+   "sheet": "53844",
+   "type": "ortofoto_eesti_rgb",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53844&andmetyyp=ortofoto_eesti_rgb",
+   "retrieved_utc": "2026-10-24T16:41:06Z",
+   "sha256": "dd7f503650e6c4d69909bf43496b5c9b6c385074efa33ac590c8e7c8be550ab9",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53844_ortofoto_eesti_rgb.html",
+   "geotiff_flight_dates": [
+    "2025_04_03",
+    "2023_06_09",
+    "2021_04_19",
+    "2019_06_06",
+    "2017_05_02",
+    "2015_06_12",
+    "2014_04_26",
+    "2011_06_28-06_29",
+    "2010_05_19-06_29",
+    "2005_06_15",
+    "2000"
+   ]
+  },
+  {
+   "sheet": "53844",
+   "type": "ortofoto_eesti_ngr",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53844&andmetyyp=ortofoto_eesti_ngr",
+   "retrieved_utc": "2026-10-24T16:41:06Z",
+   "sha256": "26b1f6e6993c3cb08169714d191c12ddb23534148f8e602f813cfded0bebeb53",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53844_ortofoto_eesti_ngr.html",
+   "geotiff_flight_dates": [
+    "2023_06_09",
+    "2019_06_06"
+   ]
+  },
+  {
+   "sheet": "53922",
+   "type": "ortofoto_eesti_rgb",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53922&andmetyyp=ortofoto_eesti_rgb",
+   "retrieved_utc": "2026-10-24T16:41:07Z",
+   "sha256": "11b455f192a06244ac536b054d1d6dc803b5fa41fb8bd818913ef15256a3dd4b",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53922_ortofoto_eesti_rgb.html",
+   "geotiff_flight_dates": [
+    "2025_04_03",
+    "2023_06_09",
+    "2021_04_19",
+    "2019_06_06",
+    "2017_05_02-05_03",
+    "2015_06_12",
+    "2014_04_25-04_26",
+    "2011_06_28",
+    "2010_05_19-06_05",
+    "2006_06_17",
+    "2002_08_10",
+    "1994"
+   ]
+  },
+  {
+   "sheet": "53922",
+   "type": "ortofoto_eesti_ngr",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53922&andmetyyp=ortofoto_eesti_ngr",
+   "retrieved_utc": "2026-10-24T16:41:07Z",
+   "sha256": "9bf703cc46bb65f4dc8b4aed28d49f2abddbeba065be504d5f00de9184d48350",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53922_ortofoto_eesti_ngr.html",
+   "geotiff_flight_dates": [
+    "2023_06_09",
+    "2019_06_06"
+   ]
+  },
+  {
+   "sheet": "53931",
+   "type": "ortofoto_eesti_rgb",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53931&andmetyyp=ortofoto_eesti_rgb",
+   "retrieved_utc": "2026-10-24T16:41:07Z",
+   "sha256": "78bb99a561dd4f75053b1b9c397e0d5a256e4f05f4194de19c3e159cc8c5a457",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53931_ortofoto_eesti_rgb.html",
+   "geotiff_flight_dates": [
+    "2025_04_03",
+    "2023_06_09",
+    "2021_04_19",
+    "2019_06_06",
+    "2017_05_02",
+    "2015_06_12-06_29",
+    "2014_04_25-04_26",
+    "2011_06_28",
+    "2010_05_19-06_05",
+    "2006_06_17",
+    "2002_08_10",
+    "1994"
+   ]
+  },
+  {
+   "sheet": "53931",
+   "type": "ortofoto_eesti_ngr",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53931&andmetyyp=ortofoto_eesti_ngr",
+   "retrieved_utc": "2026-10-24T16:41:07Z",
+   "sha256": "1d3c3026efa314f8af922429417aee9799adc445c8b6113be215fc23abb79eb8",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53931_ortofoto_eesti_ngr.html",
+   "geotiff_flight_dates": [
+    "2023_06_09",
+    "2019_06_06"
+   ]
+  },
+  {
+   "sheet": "53833",
+   "type": "ortofoto_eesti_rgb",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53833&andmetyyp=ortofoto_eesti_rgb",
+   "retrieved_utc": "2026-10-24T16:41:08Z",
+   "sha256": "dc040edf187bbe05fd328bd192572122ef2a7a02d304625318d52cd64f11b518",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53833_ortofoto_eesti_rgb.html",
+   "geotiff_flight_dates": [
+    "2025_04_03",
+    "2023_06_09",
+    "2021_04_19",
+    "2019_06_06",
+    "2017_05_02",
+    "2015_06_12-06_29",
+    "2014_04_26",
+    "2011_06_28-06_29",
+    "2010_05_19-06_29",
+    "2006_06_10-06_17",
+    "2002_08_10-08_20",
+    "1994"
+   ]
+  },
+  {
+   "sheet": "53833",
+   "type": "ortofoto_eesti_ngr",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53833&andmetyyp=ortofoto_eesti_ngr",
+   "retrieved_utc": "2026-10-24T16:41:08Z",
+   "sha256": "7668bc7102e5b7d3755e415ec066ddfc3d5088cf30797b77cc49e09ec4d439ae",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53833_ortofoto_eesti_ngr.html",
+   "geotiff_flight_dates": [
+    "2023_06_09",
+    "2019_06_06"
+   ]
+  },
+  {
+   "sheet": "53932",
+   "type": "ortofoto_eesti_rgb",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53932&andmetyyp=ortofoto_eesti_rgb",
+   "retrieved_utc": "2026-10-24T16:41:08Z",
+   "sha256": "0cd2ad16ed3436d7bd277837eeee1dff734022dd14f600d492c99f7ed05a28cc",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53932_ortofoto_eesti_rgb.html",
+   "geotiff_flight_dates": [
+    "2025_04_03",
+    "2023_06_09",
+    "2021_04_19",
+    "2019_06_06",
+    "2017_05_02",
+    "2015_06_12",
+    "2014_04_25-04_26",
+    "2011_06_28",
+    "2010_05_19-06_05",
+    "2006_06_17",
+    "2002_08_10",
+    "1994"
+   ]
+  },
+  {
+   "sheet": "53932",
+   "type": "ortofoto_eesti_ngr",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53932&andmetyyp=ortofoto_eesti_ngr",
+   "retrieved_utc": "2026-10-24T16:41:08Z",
+   "sha256": "72020cb3bc9f27e2a3b7aee72e8cdf14ce92deffa3ef514ab4ae7a04b9b40571",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53932_ortofoto_eesti_ngr.html",
+   "geotiff_flight_dates": [
+    "2023_06_09",
+    "2019_06_06"
+   ]
+  },
+  {
+   "sheet": "53642",
+   "type": "ortofoto_eesti_rgb",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53642&andmetyyp=ortofoto_eesti_rgb",
+   "retrieved_utc": "2026-10-24T16:41:08Z",
+   "sha256": "bfb4278a5caf6ca4849027ffb5064d9e11bae3dd954f3447c1e3ffbef12f99e7",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53642_ortofoto_eesti_rgb.html",
+   "geotiff_flight_dates": [
+    "2025_04_27",
+    "2023_06_09",
+    "2021_04_19-05_04",
+    "2019_06_03",
+    "2017_05_01",
+    "2015_06_16",
+    "2015_04_11",
+    "2011_08_25",
+    "2011_05_07",
+    "2005_07_03",
+    "2000"
+   ]
+  },
+  {
+   "sheet": "53642",
+   "type": "ortofoto_eesti_ngr",
+   "url": "https://geoportaal.maaamet.ee/index.php?lang_id=1&plugin_act=otsing&page_id=610&kaardiruut=53642&andmetyyp=ortofoto_eesti_ngr",
+   "retrieved_utc": "2026-10-24T16:41:09Z",
+   "sha256": "4b0681c02366a94312fd829a800d7e827e5268ede729fa7941cb796ea082a6cf",
+   "file": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/artifacts/geo-01/raw/sheets/sheet_53642_ortofoto_eesti_ngr.html",
+   "geotiff_flight_dates": [
+    "2023_06_09",
+    "2019_06_03"
+   ]
+  }
+ ],
+ "missing_inputs": [
+  {
+   "item": "orthophoto acquired after 2025-04-03 (post-July-2025) for ROI sheets",
+   "status": "unavailable",
+   "checked": "per-sheet listings GS-05/GS-06, WMS capabilities (no of2026*), EESTIFOTO equality check"
+  },
+  {
+   "item": "2024 orthophoto for ROI-01 (except SW end) and ROI-02",
+   "status": "unavailable",
+   "checked": "GS-05/GS-06"
+  },
+  {
+   "item": "historical ETAK vector editions (dated snapshots)",
+   "status": "not_retrieved",
+   "note": "pk_vr2024/pk_vr2026 raster editions used instead"
+  },
+  {
+   "item": "orthophoto positional-accuracy statement per flight",
+   "status": "not_retrieved"
+  },
+  {
+   "item": "orthophoto windows for CONTROL-01/02",
+   "status": "not_requested (image budget)"
+  }
+ ],
+ "lineage_note": "All sources are Maa- ja Ruumiamet products. Orthophoto flights of different dates are separate acquisitions but share producer and processing chain; ETAK/basic maps are partly derived from these orthophotos, so map and image evidence are not independent lineages.",
+ "artifacts": [
+  {
+   "path": "README.md",
+   "sha256": "55a199e6a6048a285d62eb3266fd769ac014789ca1f926d159e042c0aeda4b98",
+   "bytes": 5555,
+   "kind": "output_table_or_doc"
+  },
+  {
+   "path": "geo_claims.csv",
+   "sha256": "3918de5b462cb70adffbf6d1cda741271b1d25a05c9a275d693879b70d828078",
+   "bytes": 6594,
+   "kind": "output_table_or_doc"
+  },
+  {
+   "path": "geo_sources.csv",
+   "sha256": "ab1aba11beff4fbb41850af504baff255c2e37aa3933c9fc175dbf655b98dacc",
+   "bytes": 6770,
+   "kind": "output_table_or_doc"
+  },
+  {
+   "path": "images/ROI-01-S0_composite_2023-2024-2025.png",
+   "sha256": "ceea4865393b70607ae876515c6431f50f1951d44247d4158ae3f3e10484e2e7",
+   "bytes": 1750262,
+   "kind": "derived_image",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S0_2023-2024-2025.png.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S0_of2023mets_flight-2023-06-09.png",
+   "sha256": "b89857f346876790be3bf3a0f66dd5a0bb41b9bfa9f8a3db82b9c5cc6b6d10bc",
+   "bytes": 2346536,
+   "kind": "derived_image",
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S0_of2023mets.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S0_of2024asulad_flight-2024-05-03.png",
+   "sha256": "050f2cf801154496e41c108bfa06603c3af0f8c4b8d394fa0c6c023452fd42f4",
+   "bytes": 2293095,
+   "kind": "derived_image",
+   "layer": "of2024asulad",
+   "acquisition_date": "2024-05-03 (ROI-01 SW sheets 476534/478535)",
+   "source_lineage": "LG-MARU-ORTHO-2024",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S0_of2024asulad.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S0_of2025aero_flight-2025-04-03.png",
+   "sha256": "ad5ce816e6497f59b51af0af31979ac7b8fcc3fe528e93c6c37804c10a964860",
+   "bytes": 2452100,
+   "kind": "derived_image",
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S0_of2025aero.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S1_composite_2023-2025-maps.png",
+   "sha256": "246c27a7930f88080a0ecc60ff4fec80e29228e84892f978f9c912b2dea1a036",
+   "bytes": 3254477,
+   "kind": "derived_image",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S1_2023-2025-maps.png.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S1_of2023mets_flight-2023-06-09.png",
+   "sha256": "32f686efb0f94536fcb152984dfb22263e090dbfc77085d346647b5e5547fcd7",
+   "bytes": 2558643,
+   "kind": "derived_image",
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S1_of2023mets.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S1_of2025aero_flight-2025-04-03.png",
+   "sha256": "7339783f997ec94a46b1a83d5f3a313bc4938024b25f749bc30e3b6431ea0896",
+   "bytes": 2499182,
+   "kind": "derived_image",
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S1_of2025aero.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S1_pk_vr2024_map-edition-2024.png",
+   "sha256": "293454bf21bda73bac71e4859b1f94be45cf96f9b997c02cbe102a0ff7c620ad",
+   "bytes": 397241,
+   "kind": "derived_image",
+   "layer": "pk_vr2024",
+   "acquisition_date": "n/a (map edition 2024)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S1_pk_vr2024.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S1_pk_vr2026_map-edition-2026.png",
+   "sha256": "73139c8863a7e7b5f48e4dbde07f459656b16af26144385f1b036a1c13e3430e",
+   "bytes": 397664,
+   "kind": "derived_image",
+   "layer": "pk_vr2026",
+   "acquisition_date": "n/a (map edition 2026)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S1_pk_vr2026.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S2_composite_2023-2025-maps.png",
+   "sha256": "7af2f016587ffa302d35cb458479b7c40865ab5d01aef3b9fc2f13401e48e1fd",
+   "bytes": 3135411,
+   "kind": "derived_image",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S2_2023-2025-maps.png.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S2_of2023mets_flight-2023-06-09.png",
+   "sha256": "2d228f6d1897de62d178fb0782688e4c45c0fe5ac3ad951b4515d6bc5ad7acba",
+   "bytes": 2482677,
+   "kind": "derived_image",
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S2_of2023mets.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S2_of2025aero_flight-2025-04-03.png",
+   "sha256": "ed7ee0d7479157d2d2f6368169d0dbb2d34a0f5e8fce88d47650e35dd4d6668e",
+   "bytes": 2303178,
+   "kind": "derived_image",
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S2_of2025aero.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S2_pk_vr2024_map-edition-2024.png",
+   "sha256": "836ef158c2c9894b3b2609f3531e5abf554c6f9e912069ca34a18814a5612586",
+   "bytes": 390873,
+   "kind": "derived_image",
+   "layer": "pk_vr2024",
+   "acquisition_date": "n/a (map edition 2024)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S2_pk_vr2024.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S2_pk_vr2026_map-edition-2026.png",
+   "sha256": "e5e22ced9c7547936b11085c798bbadd905302855639ce593b1cc16005035902",
+   "bytes": 392039,
+   "kind": "derived_image",
+   "layer": "pk_vr2026",
+   "acquisition_date": "n/a (map edition 2026)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S2_pk_vr2026.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S3_composite_2023-2025-maps.png",
+   "sha256": "8fd3a3f74aacdd66d1013d5548ff77bf446bea4c8b50191723be849c21e2fce5",
+   "bytes": 3185974,
+   "kind": "derived_image",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S3_2023-2025-maps.png.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S3_of2023mets_flight-2023-06-09.png",
+   "sha256": "665eb097b09d7ed89228007151b52427a61c4b14d38aa9ca332ac9136cd604ec",
+   "bytes": 2563452,
+   "kind": "derived_image",
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S3_of2023mets.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S3_of2025aero_flight-2025-04-03.png",
+   "sha256": "999d67b652efd7bb965bba9d53c0ab8433a0a830b157fa33d72cc8cedc5e1e10",
+   "bytes": 2359293,
+   "kind": "derived_image",
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S3_of2025aero.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S3_pk_vr2024_map-edition-2024.png",
+   "sha256": "4d103bb78dd74256ab104201e990b6f6967f196bd5a04333dac7868216a651ad",
+   "bytes": 382834,
+   "kind": "derived_image",
+   "layer": "pk_vr2024",
+   "acquisition_date": "n/a (map edition 2024)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S3_pk_vr2024.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-01-S3_pk_vr2026_map-edition-2026.png",
+   "sha256": "c8864ad00529454c69e2ecf3a5afc8eda003d7bc2c2599f16eb3807fcaca6975",
+   "bytes": 383374,
+   "kind": "derived_image",
+   "layer": "pk_vr2026",
+   "acquisition_date": "n/a (map edition 2026)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-01-S3_pk_vr2026.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-02-S1_composite_2023-2025-maps.png",
+   "sha256": "dd946d52b01858c72ad26f782d08bdff0dc6cf06af0378ca4954cf33d29a0f15",
+   "bytes": 2131754,
+   "kind": "derived_image",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-02-S1_2023-2025-maps.png.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-02-S1_of2023mets_flight-2023-06-09.png",
+   "sha256": "a8f5fede777dd67e3880d6d626a0622534a8b17ab359cb8e942956054e3bfacc",
+   "bytes": 1229712,
+   "kind": "derived_image",
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-02-S1_of2023mets.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-02-S1_of2025aero_flight-2025-04-03.png",
+   "sha256": "0e5847afc90b9c3b3df39bb48a9753895ea1ae0b09a1766796f01540e78e7cd9",
+   "bytes": 1216052,
+   "kind": "derived_image",
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-02-S1_of2025aero.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-02-S1_pk_vr2024_map-edition-2024.png",
+   "sha256": "c72ec241cf18a2610c4fd07c31fe9476ed0320ee902a2279236cab1404793557",
+   "bytes": 449622,
+   "kind": "derived_image",
+   "layer": "pk_vr2024",
+   "acquisition_date": "n/a (map edition 2024)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-02-S1_pk_vr2024.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-02-S1_pk_vr2026_map-edition-2026.png",
+   "sha256": "679ee5a1688258eaab6c6ad06a817243e8b56f87c1f21ede0ba468cf00923e83",
+   "bytes": 449555,
+   "kind": "derived_image",
+   "layer": "pk_vr2026",
+   "acquisition_date": "n/a (map edition 2026)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-02-S1_pk_vr2026.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-02-S2_composite_2023-2025-maps.png",
+   "sha256": "f177ff804c14abd6c449664df5420961ebff6133f7603ce9840b72baeaa17ef2",
+   "bytes": 2900617,
+   "kind": "derived_image",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-02-S2_2023-2025-maps.png.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-02-S2_of2023mets_flight-2023-06-09.png",
+   "sha256": "17d8bef33d51617f8afba3f42244e9c20bab6c3c464dd25dd905d5d091c78077",
+   "bytes": 2105022,
+   "kind": "derived_image",
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-02-S2_of2023mets.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-02-S2_of2025aero_flight-2025-04-03.png",
+   "sha256": "0e98787e8809570916f7f12103d755e1da58ecbfaaf5679b3bb486848f88172b",
+   "bytes": 1908743,
+   "kind": "derived_image",
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-02-S2_of2025aero.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-02-S2_pk_vr2024_map-edition-2024.png",
+   "sha256": "b680ad0df603d9e86f25c7f833e8be5fd12246f40a95398a9c59b9688147f1b0",
+   "bytes": 441181,
+   "kind": "derived_image",
+   "layer": "pk_vr2024",
+   "acquisition_date": "n/a (map edition 2024)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-02-S2_pk_vr2024.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "images/ROI-02-S2_pk_vr2026_map-edition-2026.png",
+   "sha256": "d65bba7860a3beb2eb55421f5ca49c8f9279e548bbc5b0449dafb1e81e4d11d6",
+   "bytes": 435259,
+   "kind": "derived_image",
+   "layer": "pk_vr2026",
+   "acquisition_date": "n/a (map edition 2026)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24",
+   "derived_from": "raw/wms/ROI-02-S2_pk_vr2026.*",
+   "processing": "ROI outline (inputs/prior_rois.geojson reprojected to EPSG:3301), caption, 100 m scale bar; composites resized"
+  },
+  {
+   "path": "raw/cap_ajalooline.xml",
+   "sha256": "7e493042d70344dc9160aaef478547cb31a962b046128838c6f53093a18ce133",
+   "bytes": 216059,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/cap_alus.xml",
+   "sha256": "3cefd6bbcfcc8c2a39288133d7c3181ac482207a140dd8956d0b1d93dcb659aa",
+   "bytes": 83777,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/cap_fotokaart.xml",
+   "sha256": "930373f78276ffe0d8ecf1d71289859f8824144d9b709887a7a63382d309ce39",
+   "bytes": 78312,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/CONTROL-01_e_501_tee_a.json",
+   "sha256": "8e621f370161b57587e95a12f306f3d79e7473ebfd8c30d353a9eaafb315635d",
+   "bytes": 147,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/CONTROL-01_e_501_tee_j.json",
+   "sha256": "280b8f03a6ec503181c3538db386acc01de28bb45f2ee44021bd1a469e21dd97",
+   "bytes": 7230,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/CONTROL-01_e_502_roobastee_j.json",
+   "sha256": "affa25879d5dded14f84eb327d1983e41afffe1cb1d3f091df773b8743079d28",
+   "bytes": 147,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/CONTROL-01_e_503_siht_j.json",
+   "sha256": "0ca6a5d801416c12a54273d9923738f46b87a66419ec6cb8e98371ed3cd33cbd",
+   "bytes": 147,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/CONTROL-01_e_601_elektriliin_j.json",
+   "sha256": "ab7fecb1bc62834eeaae0e785926d44aec16755e51ce75b7e092eb51ddfd12e1",
+   "bytes": 147,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/CONTROL-02_e_501_tee_a.json",
+   "sha256": "7af62c1b01570507faa32040a9056fb4459cecc0e6052b4eb59e68d82e0cfa5a",
+   "bytes": 147,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/CONTROL-02_e_501_tee_j.json",
+   "sha256": "2d0b396d88696fb890743bbc2c2bbec820b5244bdb176301c9b5a95d173558a0",
+   "bytes": 1557,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/CONTROL-02_e_502_roobastee_j.json",
+   "sha256": "693a704775152d6c210032a8da22e75a57cc20ece54ec18a444e277431a1ce7b",
+   "bytes": 147,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/CONTROL-02_e_503_siht_j.json",
+   "sha256": "c5f98b4ad3a4c75b5c3ba30501c4a3fe0d59222627a0c4ed429047599f1b1ff2",
+   "bytes": 1633,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/CONTROL-02_e_601_elektriliin_j.json",
+   "sha256": "37ebf0f1d33c4c5ed3aaba9201603fa7f7c109e1422e6ae2c2b2ae99dd7102e8",
+   "bytes": 147,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/ROI-01_e_501_tee_a.json",
+   "sha256": "a48d6398d046e50215ee173cd6e95bfcb0818551f9fb0b8243cf4bcb8141e048",
+   "bytes": 532748,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/ROI-01_e_501_tee_j.json",
+   "sha256": "3440b0924205324d2863925e72b944ba40dd76a75219c1f0a889c5eda2bebd04",
+   "bytes": 2460451,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/ROI-01_e_502_roobastee_j.json",
+   "sha256": "61cbac8be758d4b433b2917d068c6d6c1aa080370129af609a5a49aa4947337d",
+   "bytes": 10508,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/ROI-01_e_503_siht_j.json",
+   "sha256": "55f8df44e7326c233e3e2cf51052966e2ebc8fdc3760a381b7a625d022509586",
+   "bytes": 18627,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/ROI-01_e_601_elektriliin_j.json",
+   "sha256": "a4abc0908acca6d003bdfade2ae3e20c904e9d4c942550c982fcd38b39859a90",
+   "bytes": 69652,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/ROI-02_e_501_tee_a.json",
+   "sha256": "a092bd0b896ff92a32e48ee1424237efac8b03fd31201432e1236cf0b4780991",
+   "bytes": 229899,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/ROI-02_e_501_tee_j.json",
+   "sha256": "a00bcefb4a644234dad79ee9a1d5d7aa230ca540c8ed4678bd0cb0b8e17a7a1b",
+   "bytes": 251336,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/ROI-02_e_502_roobastee_j.json",
+   "sha256": "1200c0b70612e15766f8cb6f5c58976b44e22f54b9eb64e323fc5cc97368ee0a",
+   "bytes": 147,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/ROI-02_e_503_siht_j.json",
+   "sha256": "c7d435cb8b73ca32ee53d1e6bb2596c969d1b67ab98646746f9b1ae1adcff919",
+   "bytes": 2644,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/ROI-02_e_601_elektriliin_j.json",
+   "sha256": "77104545bb11a38c8f0b663250dcf79cf8cbc65c87e2f7166bcb310f70a97c4d",
+   "bytes": 9521,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/etak_fetch_log.json",
+   "sha256": "b1280652520c3464a0b21c2cc15d15582f41629142edde027a92623eb1106d8c",
+   "bytes": 12711,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/etak_in_roi_summary.json",
+   "sha256": "fed9bfa1d3415654146c36ed49ed63492757e9f3cfa24234208ceb55f1a0bb5a",
+   "bytes": 33717,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/etak/wfs_cap.xml",
+   "sha256": "eab3054d41e0784904abe0dbe99fa33b8ad0f641189d39e1c49132d1e1c4f166",
+   "bytes": 147052,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/fetch_log.jsonl",
+   "sha256": "dce1411cfea400370341e916fe4ff681c02951cdf35e99c392e70b20e7e0cebd",
+   "bytes": 26816,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/metainfo_points.json",
+   "sha256": "b83260969f747a3307afb87d615fa23d3dcd3c900c012464b3668557db36c063",
+   "bytes": 16926,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/probe/p2_EESTIFOTO.png",
+   "sha256": "593276d8ba2d4907d1143402e96e124e3f612f5b66dbdbdcd8238f695047be92",
+   "bytes": 39913,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/fotokaart?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=EESTIFOTO&STYLES=&CRS=EPSG%3A3301&BBOX=6483100%2C540113%2C6483900%2C540913&WIDTH=200&HEIGHT=200&FORMAT=image%2Fpng&TRANSPARENT=TRUE",
+   "retrieved_utc": "2026-10-24T16:38:37Z",
+   "bbox_epsg3301": [
+    540113.0,
+    6483100.0,
+    540913.0,
+    6483900.0
+   ],
+   "display_pixel_m": 4.0,
+   "layer": "EESTIFOTO",
+   "acquisition_date": "2025-04-03 (current = of2025aero here)",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/probe/p2_of2023aero.png",
+   "sha256": "6e0daab5a8128f8cb9eae4f67e774ad799d8dd9422b3076e6ef9776d048e3a89",
+   "bytes": 1559,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2023aero&STYLES=&CRS=EPSG%3A3301&BBOX=6483100%2C540113%2C6483900%2C540913&WIDTH=200&HEIGHT=200&FORMAT=image%2Fpng&TRANSPARENT=TRUE",
+   "retrieved_utc": "2026-10-24T16:38:37Z",
+   "bbox_epsg3301": [
+    540113.0,
+    6483100.0,
+    540913.0,
+    6483900.0
+   ],
+   "display_pixel_m": 4.0,
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/probe/p2_of2024aero.png",
+   "sha256": "6e0daab5a8128f8cb9eae4f67e774ad799d8dd9422b3076e6ef9776d048e3a89",
+   "bytes": 1559,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2024aero&STYLES=&CRS=EPSG%3A3301&BBOX=6483100%2C540113%2C6483900%2C540913&WIDTH=200&HEIGHT=200&FORMAT=image%2Fpng&TRANSPARENT=TRUE",
+   "retrieved_utc": "2026-10-24T16:38:37Z",
+   "bbox_epsg3301": [
+    540113.0,
+    6483100.0,
+    540913.0,
+    6483900.0
+   ],
+   "display_pixel_m": 4.0,
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/probe/p2_of2024mets.png",
+   "sha256": "6e0daab5a8128f8cb9eae4f67e774ad799d8dd9422b3076e6ef9776d048e3a89",
+   "bytes": 1559,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2024mets&STYLES=&CRS=EPSG%3A3301&BBOX=6483100%2C540113%2C6483900%2C540913&WIDTH=200&HEIGHT=200&FORMAT=image%2Fpng&TRANSPARENT=TRUE",
+   "retrieved_utc": "2026-10-24T16:38:37Z",
+   "bbox_epsg3301": [
+    540113.0,
+    6483100.0,
+    540913.0,
+    6483900.0
+   ],
+   "display_pixel_m": 4.0,
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/probe/p2_of2025aero.png",
+   "sha256": "bbe387f64aeca2097f07d12a5f7cd36a83774d38fbe02d78d4f64238b53b41d4",
+   "bytes": 39930,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025aero&STYLES=&CRS=EPSG%3A3301&BBOX=6483100%2C540113%2C6483900%2C540913&WIDTH=200&HEIGHT=200&FORMAT=image%2Fpng&TRANSPARENT=TRUE",
+   "retrieved_utc": "2026-10-24T16:38:37Z",
+   "bbox_epsg3301": [
+    540113.0,
+    6483100.0,
+    540913.0,
+    6483900.0
+   ],
+   "display_pixel_m": 4.0,
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/probe/p2_of2025ida.png",
+   "sha256": "6e0daab5a8128f8cb9eae4f67e774ad799d8dd9422b3076e6ef9776d048e3a89",
+   "bytes": 1559,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025ida&STYLES=&CRS=EPSG%3A3301&BBOX=6483100%2C540113%2C6483900%2C540913&WIDTH=200&HEIGHT=200&FORMAT=image%2Fpng&TRANSPARENT=TRUE",
+   "retrieved_utc": "2026-10-24T16:38:37Z",
+   "bbox_epsg3301": [
+    540113.0,
+    6483100.0,
+    540913.0,
+    6483900.0
+   ],
+   "display_pixel_m": 4.0,
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/probe/p2_of2025mets.png",
+   "sha256": "6e0daab5a8128f8cb9eae4f67e774ad799d8dd9422b3076e6ef9776d048e3a89",
+   "bytes": 1559,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025mets&STYLES=&CRS=EPSG%3A3301&BBOX=6483100%2C540113%2C6483900%2C540913&WIDTH=200&HEIGHT=200&FORMAT=image%2Fpng&TRANSPARENT=TRUE",
+   "retrieved_utc": "2026-10-24T16:38:37Z",
+   "bbox_epsg3301": [
+    540113.0,
+    6483100.0,
+    540913.0,
+    6483900.0
+   ],
+   "display_pixel_m": 4.0,
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/probe/p2_of2025pria.png",
+   "sha256": "6e0daab5a8128f8cb9eae4f67e774ad799d8dd9422b3076e6ef9776d048e3a89",
+   "bytes": 1559,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025pria&STYLES=&CRS=EPSG%3A3301&BBOX=6483100%2C540113%2C6483900%2C540913&WIDTH=200&HEIGHT=200&FORMAT=image%2Fpng&TRANSPARENT=TRUE",
+   "retrieved_utc": "2026-10-24T16:38:37Z",
+   "bbox_epsg3301": [
+    540113.0,
+    6483100.0,
+    540913.0,
+    6483900.0
+   ],
+   "display_pixel_m": 4.0,
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/probe/p2b_of2021aero.jpg",
+   "sha256": "1a5d0cb297a7b6d297ea743375dcbe71dd3339500e0f0ebe58a29c9452743663",
+   "bytes": 49202,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2021aero&STYLES=&CRS=EPSG%3A3301&BBOX=6483100%2C540113%2C6483900%2C540913&WIDTH=400&HEIGHT=400&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:41:23Z",
+   "bbox_epsg3301": [
+    540113.0,
+    6483100.0,
+    540913.0,
+    6483900.0
+   ],
+   "display_pixel_m": 2.0,
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/probe/p2b_of2023aero.jpg",
+   "sha256": "5e444c366caa1cc261dd4ace2fcbba9ad94830e74569b134da5a4cf108942d5e",
+   "bytes": 3661,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2023aero&STYLES=&CRS=EPSG%3A3301&BBOX=6483100%2C540113%2C6483900%2C540913&WIDTH=400&HEIGHT=400&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:41:23Z",
+   "bbox_epsg3301": [
+    540113.0,
+    6483100.0,
+    540913.0,
+    6483900.0
+   ],
+   "display_pixel_m": 2.0,
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/probe/p2b_of2023mets.jpg",
+   "sha256": "0014757f936fdd9ca0a4069417e1bd05561a36919f3992b14ab7c45f8f49e35c",
+   "bytes": 54082,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2023mets&STYLES=&CRS=EPSG%3A3301&BBOX=6483100%2C540113%2C6483900%2C540913&WIDTH=400&HEIGHT=400&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:41:23Z",
+   "bbox_epsg3301": [
+    540113.0,
+    6483100.0,
+    540913.0,
+    6483900.0
+   ],
+   "display_pixel_m": 2.0,
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53642_ortofoto_eesti_ngr.html",
+   "sha256": "4b0681c02366a94312fd829a800d7e827e5268ede729fa7941cb796ea082a6cf",
+   "bytes": 1107,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53642_ortofoto_eesti_rgb.html",
+   "sha256": "bfb4278a5caf6ca4849027ffb5064d9e11bae3dd954f3447c1e3ffbef12f99e7",
+   "bytes": 4854,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53733_ortofoto_eesti_ngr.html",
+   "sha256": "f538bf5a1e96716d353cb9df3d19f0e46d63ba78284734a2b01da1701d8c86a0",
+   "bytes": 7669,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53733_ortofoto_eesti_rgb.html",
+   "sha256": "9463d6b392da1a88e2745139ca7b5648af01a3b0abca0ba208f50807473ceb9c",
+   "bytes": 12089,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53734_ortofoto_eesti_ngr.html",
+   "sha256": "f38fc49b471322bf0a248e06ae68d1d117e4c0c6afe1b6d0382f5a0bfcc920f0",
+   "bytes": 6657,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53734_ortofoto_eesti_rgb.html",
+   "sha256": "31441c6dd9d9d7f0f61c6822e81fbcf5119f039d050b927641f38297218f1ba8",
+   "bytes": 10733,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53832_ortofoto_eesti_ngr.html",
+   "sha256": "74398d483598c3e77463d00f18786a3b2320d6fa0a096dd8dfa167fa02df8bdd",
+   "bytes": 1117,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53832_ortofoto_eesti_rgb.html",
+   "sha256": "90416362b7e266d6f1ca1101bf73f123e52b7478e587ec4288fe9a27aba54a80",
+   "bytes": 5205,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53833_ortofoto_eesti_ngr.html",
+   "sha256": "7668bc7102e5b7d3755e415ec066ddfc3d5088cf30797b77cc49e09ec4d439ae",
+   "bytes": 6402,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53833_ortofoto_eesti_rgb.html",
+   "sha256": "dc040edf187bbe05fd328bd192572122ef2a7a02d304625318d52cd64f11b518",
+   "bytes": 10530,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53841_ortofoto_eesti_ngr.html",
+   "sha256": "faa9f029d7b592833c2f7961ec3594a790964567fd5bb37093fe34bff9ce9a0c",
+   "bytes": 2115,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53841_ortofoto_eesti_rgb.html",
+   "sha256": "5c983350e2a782a2787f1e5fceb59fb0b263b1241540586163180d12d9894315",
+   "bytes": 6198,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53843_ortofoto_eesti_ngr.html",
+   "sha256": "1263d765eaed3c0d7e78853dd485569cb78942852b22c4a2f5c6cc3c1e8bfed7",
+   "bytes": 1107,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53843_ortofoto_eesti_rgb.html",
+   "sha256": "788fb9bf9704292e987368c2ba4d3b26f4c5a75e9ee983eaf1c8220bdb2d8934",
+   "bytes": 5210,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53844_ortofoto_eesti_ngr.html",
+   "sha256": "26b1f6e6993c3cb08169714d191c12ddb23534148f8e602f813cfded0bebeb53",
+   "bytes": 1107,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53844_ortofoto_eesti_rgb.html",
+   "sha256": "dd7f503650e6c4d69909bf43496b5c9b6c385074efa33ac590c8e7c8be550ab9",
+   "bytes": 4856,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53922_ortofoto_eesti_ngr.html",
+   "sha256": "9bf703cc46bb65f4dc8b4aed28d49f2abddbeba065be504d5f00de9184d48350",
+   "bytes": 2356,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53922_ortofoto_eesti_rgb.html",
+   "sha256": "11b455f192a06244ac536b054d1d6dc803b5fa41fb8bd818913ef15256a3dd4b",
+   "bytes": 6458,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53931_ortofoto_eesti_ngr.html",
+   "sha256": "1d3c3026efa314f8af922429417aee9799adc445c8b6113be215fc23abb79eb8",
+   "bytes": 2356,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53931_ortofoto_eesti_rgb.html",
+   "sha256": "78bb99a561dd4f75053b1b9c397e0d5a256e4f05f4194de19c3e159cc8c5a457",
+   "bytes": 6464,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53932_ortofoto_eesti_ngr.html",
+   "sha256": "72020cb3bc9f27e2a3b7aee72e8cdf14ce92deffa3ef514ab4ae7a04b9b40571",
+   "bytes": 1107,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_53932_ortofoto_eesti_rgb.html",
+   "sha256": "0cd2ad16ed3436d7bd277837eeee1dff734022dd14f600d492c99f7ed05a28cc",
+   "bytes": 5197,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets/sheet_dates_summary.json",
+   "sha256": "b62d5bb2b8755d0895f7ce0f47372352b3e518d5613301874561aae23ca941d0",
+   "bytes": 14585,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets2k/sheet_476534_asulad_rgb.html",
+   "sha256": "c24e984f3470b679143746a11205c4d986777faa0e772c3da7b7b0632b74e10f",
+   "bytes": 4000,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets2k/sheet_478535_asulad_rgb.html",
+   "sha256": "ce79a2cc700ca1bf28324a265a77ebdc72a512143dc54780080fb5a167f1a33a",
+   "bytes": 3656,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets2k/sheet_485531_asulad_rgb.html",
+   "sha256": "a670b5b1c4160ca67a0a8b80a60b0be8a6474120d092e28138940ea70153d3a1",
+   "bytes": 1594,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets2k/sheet_487531_asulad_rgb.html",
+   "sha256": "a1d78ce6bbcf52400f62d1ccf9c7aeea98a225739ed7156be0cb820894b54e18",
+   "bytes": 1596,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets2k/sheet_494529_asulad_rgb.html",
+   "sha256": "cf645afe0596a2b4c04607533406e734669665925a8096ad8243023ff6a84fe1",
+   "bytes": 1939,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/sheets2k/summary.txt",
+   "sha256": "593cf215d0b0f8bd7595ccf6e1300e2dde7a8581b9b6e08b7eea5de3da96be6d",
+   "bytes": 2076,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/web/page610.html",
+   "sha256": "e611e84c17bc8d9288677bf1c3be895233b6cf3ef7587727364b10f1e600c01f",
+   "bytes": 59538,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/web/search_53841.html",
+   "sha256": "1a2fb6926ce2cb9e5cf1c1d72ec0e02047a860e7a0acab0134c94dd2029c4c14",
+   "bytes": 164,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/web/search_53841_rgb.html",
+   "sha256": "88c92f1eaa82d862676822fdfa0c5a283dfc9dca7c290145d162281bc9e99bb7",
+   "bytes": 6198,
+   "kind": "source_download",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S0_of2023mets.jpg",
+   "sha256": "97e61982c2e55234ca3cc922e1bdc7d691a3dbe74ca16b0afbdcb4db5be7653b",
+   "bytes": 334999,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2023mets&STYLES=&CRS=EPSG%3A3301&BBOX=6476400%2C534700%2C6477000%2C535300&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:47:55Z",
+   "bbox_epsg3301": [
+    534700.0,
+    6476400.0,
+    535300.0,
+    6477000.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S0_of2024asulad.jpg",
+   "sha256": "4f9385f0bc69b726578fcd6f4519a6786d28de1b41a40c2ca96c4d9b99cced77",
+   "bytes": 319536,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2024asulad&STYLES=&CRS=EPSG%3A3301&BBOX=6476400%2C534700%2C6477000%2C535300&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:47:55Z",
+   "bbox_epsg3301": [
+    534700.0,
+    6476400.0,
+    535300.0,
+    6477000.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2024asulad",
+   "acquisition_date": "2024-05-03 (ROI-01 SW sheets 476534/478535)",
+   "source_lineage": "LG-MARU-ORTHO-2024",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S0_of2025aero.jpg",
+   "sha256": "7265c454a4b6e3963ebd79d28f80198653250c35e455ef81990b5ac052e8db06",
+   "bytes": 386029,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025aero&STYLES=&CRS=EPSG%3A3301&BBOX=6476400%2C534700%2C6477000%2C535300&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:47:55Z",
+   "bbox_epsg3301": [
+    534700.0,
+    6476400.0,
+    535300.0,
+    6477000.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S1_of2023mets.jpg",
+   "sha256": "5c1ca57910691f0c18efb919c748d8e73826d8cfac3ed0ee1554df80c19900dc",
+   "bytes": 386392,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2023mets&STYLES=&CRS=EPSG%3A3301&BBOX=6478422%2C536003%2C6479022%2C536603&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:35Z",
+   "bbox_epsg3301": [
+    536003.0,
+    6478422.0,
+    536603.0,
+    6479022.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S1_of2025aero.jpg",
+   "sha256": "016764556afa0f3d53044f2732873b3754a9c6c1c22c5f6c0e4ba7fadad062a8",
+   "bytes": 380632,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025aero&STYLES=&CRS=EPSG%3A3301&BBOX=6478422%2C536003%2C6479022%2C536603&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:36Z",
+   "bbox_epsg3301": [
+    536003.0,
+    6478422.0,
+    536603.0,
+    6479022.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S1_pk_vr2024.png",
+   "sha256": "91e43138f3fef95244de986b35fec57b8c3658b11319dd18b7f0bfed8d072c43",
+   "bytes": 203247,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=pk_vr2024&STYLES=&CRS=EPSG%3A3301&BBOX=6478422%2C536003%2C6479022%2C536603&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:37Z",
+   "bbox_epsg3301": [
+    536003.0,
+    6478422.0,
+    536603.0,
+    6479022.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "pk_vr2024",
+   "acquisition_date": "n/a (map edition 2024)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S1_pk_vr2026.png",
+   "sha256": "aef57248048e35e76f8befc34e602cae6fc1b1c0a57bacce87bdcdf52924b587",
+   "bytes": 203063,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=pk_vr2026&STYLES=&CRS=EPSG%3A3301&BBOX=6478422%2C536003%2C6479022%2C536603&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:37Z",
+   "bbox_epsg3301": [
+    536003.0,
+    6478422.0,
+    536603.0,
+    6479022.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "pk_vr2026",
+   "acquisition_date": "n/a (map edition 2026)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S2_of2023mets.jpg",
+   "sha256": "9121f37695c689672389a441cc56fd1ac614c76d54696c114377b9b689d0e914",
+   "bytes": 376634,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2023mets&STYLES=&CRS=EPSG%3A3301&BBOX=6483200%2C540213%2C6483800%2C540813&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:37Z",
+   "bbox_epsg3301": [
+    540213.0,
+    6483200.0,
+    540813.0,
+    6483800.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S2_of2025aero.jpg",
+   "sha256": "574aeeb7fb8ea720d3e9a075829620758be6406559d1ea71cea6d9a6a61108a4",
+   "bytes": 352898,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025aero&STYLES=&CRS=EPSG%3A3301&BBOX=6483200%2C540213%2C6483800%2C540813&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:38Z",
+   "bbox_epsg3301": [
+    540213.0,
+    6483200.0,
+    540813.0,
+    6483800.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S2_pk_vr2024.png",
+   "sha256": "31e28d2c13b395ca8a076e9f6113253a70142d7593eba7ea22331753af5fb415",
+   "bytes": 195915,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=pk_vr2024&STYLES=&CRS=EPSG%3A3301&BBOX=6483200%2C540213%2C6483800%2C540813&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:38Z",
+   "bbox_epsg3301": [
+    540213.0,
+    6483200.0,
+    540813.0,
+    6483800.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "pk_vr2024",
+   "acquisition_date": "n/a (map edition 2024)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S2_pk_vr2026.png",
+   "sha256": "75b5bf3085e74681e0a7179523fbd492f50b0913315afb7e978fe230a986fca2",
+   "bytes": 196886,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=pk_vr2026&STYLES=&CRS=EPSG%3A3301&BBOX=6483200%2C540213%2C6483800%2C540813&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:38Z",
+   "bbox_epsg3301": [
+    540213.0,
+    6483200.0,
+    540813.0,
+    6483800.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "pk_vr2026",
+   "acquisition_date": "n/a (map edition 2026)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S3_of2023mets.jpg",
+   "sha256": "002d42d2a3389124bc6f8dcc136f49e0a74722d5d63d27d41ab05cf7b62d9028",
+   "bytes": 398872,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2023mets&STYLES=&CRS=EPSG%3A3301&BBOX=6487233%2C545175%2C6487833%2C545775&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:39Z",
+   "bbox_epsg3301": [
+    545175.0,
+    6487233.0,
+    545775.0,
+    6487833.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S3_of2025aero.jpg",
+   "sha256": "9ab0fad04b668a3e74c7bbc7600b7c79c993931ff1997bcc1cc206d1a4b2dc4e",
+   "bytes": 373302,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025aero&STYLES=&CRS=EPSG%3A3301&BBOX=6487233%2C545175%2C6487833%2C545775&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:39Z",
+   "bbox_epsg3301": [
+    545175.0,
+    6487233.0,
+    545775.0,
+    6487833.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S3_pk_vr2024.png",
+   "sha256": "041265e8d20f66b862d0c8d4f16b46d3b070b3507b849d7e942111fb06ba3b08",
+   "bytes": 192619,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=pk_vr2024&STYLES=&CRS=EPSG%3A3301&BBOX=6487233%2C545175%2C6487833%2C545775&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:40Z",
+   "bbox_epsg3301": [
+    545175.0,
+    6487233.0,
+    545775.0,
+    6487833.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "pk_vr2024",
+   "acquisition_date": "n/a (map edition 2024)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01-S3_pk_vr2026.png",
+   "sha256": "df00252f306651a999822ca5f7681a43e61fab95d3a83b5c197f77dbdd7b7ca6",
+   "bytes": 192618,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=pk_vr2026&STYLES=&CRS=EPSG%3A3301&BBOX=6487233%2C545175%2C6487833%2C545775&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:40Z",
+   "bbox_epsg3301": [
+    545175.0,
+    6487233.0,
+    545775.0,
+    6487833.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "pk_vr2026",
+   "acquisition_date": "n/a (map edition 2026)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-01_overview_of2025aero.jpg",
+   "sha256": "4a036b7577ef093f30b011b0aa945b91292e06ab00d4d64e471b7b79cbe248f5",
+   "bytes": 500704,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025aero&STYLES=&CRS=EPSG%3A3301&BBOX=6476126%2C534334%2C6489726%2C547934&WIDTH=1360&HEIGHT=1360&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:41:22Z",
+   "bbox_epsg3301": [
+    534334.0,
+    6476126.0,
+    547934.0,
+    6489726.0
+   ],
+   "display_pixel_m": 10.0,
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02-S0_of2023mets.jpg",
+   "sha256": "cfa2675534ab7b54a264ae9562f7e567f95889afb118c4ce013b8d5583322346",
+   "bytes": 229063,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2023mets&STYLES=&CRS=EPSG%3A3301&BBOX=6493950%2C529350%2C6494550%2C529950&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:47:56Z",
+   "bbox_epsg3301": [
+    529350.0,
+    6493950.0,
+    529950.0,
+    6494550.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02-S0_of2024asulad.jpg",
+   "sha256": "08c316e298b5e729b2f821f606bf8bf3dba28bc230f2c378abe02b844e2f2d83",
+   "bytes": 21051,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2024asulad&STYLES=&CRS=EPSG%3A3301&BBOX=6493950%2C529350%2C6494550%2C529950&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:47:56Z",
+   "bbox_epsg3301": [
+    529350.0,
+    6493950.0,
+    529950.0,
+    6494550.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2024asulad",
+   "acquisition_date": "2024-05-03 (ROI-01 SW sheets 476534/478535)",
+   "source_lineage": "LG-MARU-ORTHO-2024",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02-S0_of2025aero.jpg",
+   "sha256": "c0bd0cd9ac66a2525d4f2c5bf77236c639ed77fe7664adb5f45afc0cc36bccb9",
+   "bytes": 212045,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025aero&STYLES=&CRS=EPSG%3A3301&BBOX=6493950%2C529350%2C6494550%2C529950&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:47:57Z",
+   "bbox_epsg3301": [
+    529350.0,
+    6493950.0,
+    529950.0,
+    6494550.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02-S1_of2023mets.jpg",
+   "sha256": "f695d516e392c77b67e394723e343490493d622f2e37215edfeef307f0f16091",
+   "bytes": 141274,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2023mets&STYLES=&CRS=EPSG%3A3301&BBOX=6491603%2C529498%2C6492203%2C530098&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:41Z",
+   "bbox_epsg3301": [
+    529498.0,
+    6491603.0,
+    530098.0,
+    6492203.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02-S1_of2025aero.jpg",
+   "sha256": "5674cbeda93e6b6bf2f6971a7e469b947d8cec1ccddb3912384ddeb8eed099fe",
+   "bytes": 165896,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025aero&STYLES=&CRS=EPSG%3A3301&BBOX=6491603%2C529498%2C6492203%2C530098&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:41Z",
+   "bbox_epsg3301": [
+    529498.0,
+    6491603.0,
+    530098.0,
+    6492203.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02-S1_pk_vr2024.png",
+   "sha256": "8cd98dcac965d29b9c3c0d0650ebd5b820074d534a4efd169f05918335db88d1",
+   "bytes": 228443,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=pk_vr2024&STYLES=&CRS=EPSG%3A3301&BBOX=6491603%2C529498%2C6492203%2C530098&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:41Z",
+   "bbox_epsg3301": [
+    529498.0,
+    6491603.0,
+    530098.0,
+    6492203.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "pk_vr2024",
+   "acquisition_date": "n/a (map edition 2024)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02-S1_pk_vr2026.png",
+   "sha256": "2a938f3ab283f1937c8a944cfea53431216fc9ede2a0e1871ab149bcece0a5b6",
+   "bytes": 228260,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=pk_vr2026&STYLES=&CRS=EPSG%3A3301&BBOX=6491603%2C529498%2C6492203%2C530098&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:42Z",
+   "bbox_epsg3301": [
+    529498.0,
+    6491603.0,
+    530098.0,
+    6492203.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "pk_vr2026",
+   "acquisition_date": "n/a (map edition 2026)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02-S2_of2023mets.jpg",
+   "sha256": "1e9561c2a6258b75f00f13fed3ba927404a194ab3769746bca1c3f7447a7a9b0",
+   "bytes": 276665,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2023mets&STYLES=&CRS=EPSG%3A3301&BBOX=6487712%2C531176%2C6488312%2C531776&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:42Z",
+   "bbox_epsg3301": [
+    531176.0,
+    6487712.0,
+    531776.0,
+    6488312.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2023mets",
+   "acquisition_date": "2023-06-09",
+   "source_lineage": "LG-MARU-ORTHO-2023",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02-S2_of2025aero.jpg",
+   "sha256": "1d10bc8d53aefe92f31856ea17b29cb07e9a1e840acdaa974c566d4d7778070e",
+   "bytes": 287352,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025aero&STYLES=&CRS=EPSG%3A3301&BBOX=6487712%2C531176%2C6488312%2C531776&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:43Z",
+   "bbox_epsg3301": [
+    531176.0,
+    6487712.0,
+    531776.0,
+    6488312.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02-S2_pk_vr2024.png",
+   "sha256": "55458f944dd17fca33ed1ef5bb528d0e02f911b5c613292c165870700ba9a664",
+   "bytes": 230668,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=pk_vr2024&STYLES=&CRS=EPSG%3A3301&BBOX=6487712%2C531176%2C6488312%2C531776&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:43Z",
+   "bbox_epsg3301": [
+    531176.0,
+    6487712.0,
+    531776.0,
+    6488312.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "pk_vr2024",
+   "acquisition_date": "n/a (map edition 2024)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02-S2_pk_vr2026.png",
+   "sha256": "8d3d18cb3f94fa4f8ab01a096c70dc8e2b7f68cc488c1fd053baf81b7d7e96a1",
+   "bytes": 228983,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=pk_vr2026&STYLES=&CRS=EPSG%3A3301&BBOX=6487712%2C531176%2C6488312%2C531776&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:44:43Z",
+   "bbox_epsg3301": [
+    531176.0,
+    6487712.0,
+    531776.0,
+    6488312.0
+   ],
+   "display_pixel_m": 0.6,
+   "layer": "pk_vr2026",
+   "acquisition_date": "n/a (map edition 2026)",
+   "source_lineage": "LG-MARU-ETAK",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "raw/wms/ROI-02_overview_of2025aero.jpg",
+   "sha256": "16e6091db3219dfa3730eba30e1862dd2f0323a526af5231b9bde20a9f15232a",
+   "bytes": 178915,
+   "kind": "source_download",
+   "url": "https://kaart.maaamet.ee/wms/ajalooline?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=of2025aero&STYLES=&CRS=EPSG%3A3301&BBOX=6485555%2C526218%2C6494355%2C535018&WIDTH=880&HEIGHT=880&FORMAT=image%2Fjpeg&TRANSPARENT=FALSE",
+   "retrieved_utc": "2026-10-24T16:41:23Z",
+   "bbox_epsg3301": [
+    526218.0,
+    6485555.0,
+    535018.0,
+    6494355.0
+   ],
+   "display_pixel_m": 10.0,
+   "layer": "of2025aero",
+   "acquisition_date": "2025-04-03",
+   "source_lineage": "LG-MARU-ORTHO-2025",
+   "license": "Maa- ja Ruumiamet open data licence (https://geoportaal.maaruum.ee/avaandmete-litsents); attribution: Maa- ja Ruumiamet, retrieved 2026-10-24"
+  },
+  {
+   "path": "scripts/build_evidence.py",
+   "sha256": "0e1f5377fe899b43d476301f1c6e971c658c3ff0cec2a035f3fe19797cd0d732",
+   "bytes": 3508,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/composite.py",
+   "sha256": "d8484cfe4d38de0db48a43826b0a09e9a1fb9f16a5e788c56d84e65575f30069",
+   "bytes": 2061,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/composite3.py",
+   "sha256": "b0dea4522880a901c7dbf96b70d11420862ffa965cfa4e7428633796893da857",
+   "bytes": 1497,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/coverage.py",
+   "sha256": "9b1c2c6994026bf6cf6d5d76d608483d5e6c54eaecbe97569e9880336035b742",
+   "bytes": 446,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/etak_summarise.py",
+   "sha256": "b839f7b5cff384a143a67b41cfdf2ea3a00920d8835616cad8ed05a2a42d24f6",
+   "bytes": 1916,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/etak_wfs.py",
+   "sha256": "4fbe02d302a2393673c65bd9276099ad19a221b1ff943b88619bb6efd3254857",
+   "bytes": 2957,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/fetch_wms.py",
+   "sha256": "96528c0cae47ae0034f677054e395be7fdd2edf1710e2eef30b336f7b6304781",
+   "bytes": 1358,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/overlay.py",
+   "sha256": "d26b6700e8584db593c94829dca19bf11d59624acc24bb11edeecd3f699b78e7",
+   "bytes": 1210,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/points.py",
+   "sha256": "caf0d60b7c8312f4f1682a9b37f23bd8fa2809cfb0ad22c2e13ff1e42795f5e7",
+   "bytes": 912,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/points_out.json.txt",
+   "sha256": "9df1432d413e5d8fab9d5db50dd1f93b0fe13937756154c6603787611ad0aaa7",
+   "bytes": 328,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/road_width.py",
+   "sha256": "b7dc565278852551f422f50d3ce35daabcf38f6e1ab5e5d06be0a8cab64fdbe9",
+   "bytes": 1127,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/sheet_dates.py",
+   "sha256": "d61142dfcc1c90eb69b288ea170b9f5238e138d25669b31ad1dd82a0e3763fb6",
+   "bytes": 1225,
+   "kind": "helper_script"
+  },
+  {
+   "path": "scripts/sheets.py",
+   "sha256": "034e22c4ffda7cf99cbdf69ac42307f2725abaaa8f6f79deacba452805f07d9b",
+   "bytes": 1661,
+   "kind": "helper_script"
+  }
+ ]
+}

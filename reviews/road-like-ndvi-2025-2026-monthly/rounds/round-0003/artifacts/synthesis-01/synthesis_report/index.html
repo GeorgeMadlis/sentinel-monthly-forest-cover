@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ROI-01 and ROI-02 Road Evidence</title>
+<style>
+:root{--bg:#fbfbf9;--fg:#1d2329;--muted:#5b6670;--line:#d9dde1;--card:#ffffff;--accent:#1f5f8b;--yes:#1d7a46;--no:#a33b2b;--ind:#8a6d10;--code:#f1f3f4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15191d;--fg:#e4e8eb;--muted:#9aa6b0;--line:#33404a;--card:#1c2228;--accent:#79b8e3;--yes:#5cc58a;--no:#ef8a78;--ind:#e0c060;--code:#232b32}}
+:root[data-theme="dark"]{--bg:#15191d;--fg:#e4e8eb;--muted:#9aa6b0;--line:#33404a;--card:#1c2228;--accent:#79b8e3;--yes:#5cc58a;--no:#ef8a78;--ind:#e0c060;--code:#232b32}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:980px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:1.75rem;line-height:1.25;margin:.2em 0 .3em}
+h2{font-size:1.3rem;margin:2.2em 0 .6em;padding-top:.6em;border-top:1px solid var(--line)}
+h3{font-size:1.08rem;margin:1.6em 0 .4em}
+p,li{max-width:72ch}
+a{color:var(--accent)}
+.meta{color:var(--muted);font-size:.92rem}
+.note{border-left:4px solid var(--ind);background:var(--card);padding:10px 14px;margin:1em 0}
+table{border-collapse:collapse;width:100%;margin:.8em 0 1.2em;font-size:.93rem;background:var(--card)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--code)}
+.tw{overflow-x:auto}
+.s-yes{color:var(--yes);font-weight:600}.s-no{color:var(--no);font-weight:600}.s-ind{color:var(--ind);font-weight:600}
+figure{margin:1.2em 0;background:var(--card);border:1px solid var(--line);padding:8px}
+figure img{width:100%;height:auto;display:block}
+figcaption{font-size:.88rem;color:var(--muted);margin-top:6px}
+code{background:var(--code);padding:0 4px;border-radius:3px;font-size:.9em}
+nav ol{columns:2;column-gap:32px;padding-left:1.2em}
+@media (max-width:640px){nav ol{columns:1}}
+.answer{background:var(--card);border:1px solid var(--line);padding:12px 16px;margin:1em 0}
+</style>
+</head>
+<body>
+<main>
+<p class="meta">Investigation <code>road-like-ndvi-2025-2026-monthly</code> · round-0003 · instance <code>synthesis-01</code> (evidence synthesis) · written 2026-10-24 · status: for human review, not approved</p>
+<h1>ROI-01 and ROI-02: did the outlined roads exist in 2025, and were they widened?</h1>
+<p>This report collects the results of the investigation agents and our own analysis. It answers three questions for the two outlined corridors ROI-01 and ROI-02. The text follows the ASD-STE100 style where practicable. Names of datasets, places and projects are not changed.</p>
+
+<nav aria-label="Contents"><ol>
+<li><a href="#summary">Summary of answers</a></li>
+<li><a href="#scope">Questions and scope</a></li>
+<li><a href="#rois">The outlined areas</a></li>
+<li><a href="#sources">Information sources and methods</a></li>
+<li><a href="#roi01">Findings for ROI-01</a></li>
+<li><a href="#roi02">Findings for ROI-02</a></li>
+<li><a href="#official">Information from Maa- ja Ruumiamet and Transpordiamet</a></li>
+<li><a href="#limits">Conflicts, limits and open items</a></li>
+<li><a href="#next">Recommended next steps</a></li>
+<li><a href="#refs">Source list</a></li>
+<li><a href="#bundle">Bundle contents</a></li>
+</ol></nav>
+
+<h2 id="summary">1. Summary of answers</h2>
+<div class="tw"><table>
+<thead><tr><th>Question</th><th>ROI-01 (about 18 km, Tori parish)</th><th>ROI-02 (about 8.6 km, Tarva to Kurena)</th></tr></thead>
+<tbody>
+<tr><td>1. Did the outlined road exist in 2025?</td>
+<td><span class="s-no">No.</span> No road, track or rail ran along ROI-01 on 3 April 2025 (aerial photo) or on 15 June 2025 (Sentinel-2). The corridor is the planned Rail Baltica railway, not a road.</td>
+<td><span class="s-ind">Partly.</span> The north part of the outline is 80–200 m west of the existing national road 4 (Tallinn–Pärnu–Ikla). Road 4 existed in 2025, but no road was on the outline itself. The middle and south parts (about 4 km) follow the new road-4 alignment (Are bypass). This alignment did not exist in 2025.</td></tr>
+<tr><td>2. If it existed, are there signs of artificial widening?</td>
+<td>Not applicable. A new linear clearing appeared between 15 June 2025 and 20 June 2026 inside the Rail Baltica corridor. This is new construction preparation, not widening of a road.</td>
+<td><span class="s-yes">Yes, after July 2025, on road 4.</span> Before July 2025 the road-4 carriageway did not change (about 10 m wide in 2023 and in April 2025). On 20 June 2026 a bare corridor (median about 90 m of low NDVI) covers the road-4 line next to the north part. This agrees with the Halinga–Kangru 2+2 widening (contract 2025-11-07). The south part shows new earthworks and a new junction.</td></tr>
+<tr><td>3. Do Maa- ja Ruumiamet and Transpordiamet records help?</td>
+<td>Yes. The Rail Baltic county-plan corridor (2018), Rail Baltica land parcels (registered mostly 2025) and 37 forest clearing notices (approved July 2025 – September 2026) match the corridor.</td>
+<td>Yes. The Transpordiamet road register places the north part in the Halinga–Kangru project (km 103.5–108.5) and the south part in the Are bypass (km 108.5–115.8). New road-4 parcels (from May 2025) and clearing notices (December 2025 – July 2026) match both projects.</td></tr>
+</tbody></table></div>
+<p>Confidence is high for the 2025 state of both corridors. Confidence is medium for project identity, because no official design or as-built geometry is public. No national aerial photograph after 3 April 2025 exists for these areas. Therefore the after-July-2025 evidence comes from Sentinel-2 satellite images at 10–20 m resolution and from official permits and news reports.</p>
+<p class="note">A disturbance candidate is not legal deforestation, not a confirmed forest state and not a cause label. Hansen annual loss is not monthly ground truth. Agreement between sensors or agents does not establish cause.</p>
+
+<h2 id="scope">2. Questions and scope</h2>
+<p>The operator asked these questions on 2026-10-24:</p>
+<ol>
+<li>Did the outlined roads exist in 2025?</li>
+<li>If they existed in 2025, were there signs of artificial widening?</li>
+<li>Use information from Maa-amet (now Maa- ja Ruumiamet), Teeamet (now Transpordiamet) or similar sites if it helps to answer questions 1 and 2.</li>
+</ol>
+<p>We use these periods. "Before July 2025" means acquisitions before 2025-07-01. "After July 2025" means acquisitions from 2025-07-01 to the newest data (2026-10-24). The operator gave this rule to audit-01. We did not change it.</p>
+<p>The operator allowed online access to public, free sources. We used no credentials, no paid services and no bulk image downloads.</p>
+
+<h2 id="rois">3. The outlined areas</h2>
+<p>The outlines are manual sampling corridors from the review of 2026-10-06. They are not surveyed road edges. audit-01 confirmed the polygons byte for byte (SHA-256 <code>b079d3db…</code>). The operator confirmed that these two corridors are the intended targets.</p>
+<div class="tw"><table>
+<thead><tr><th>ID</th><th>Start and end (longitude, latitude)</th><th>Ground length (EPSG:3301)</th><th>Stored length</th><th>Places</th></tr></thead>
+<tbody>
+<tr><td>ROI-01</td><td>24.596, 58.427 (SW) to 24.815, 58.543 (NE)</td><td>18.3 km</td><td>22.5 km</td><td>Kilksama, Rütavere, Võlla, Suigu, Kuiaru, Selja, Murru, Muti (Tori parish)</td></tr>
+<tr><td>ROI-02</td><td>24.539, 58.512 (S) to 24.509, 58.585 (N)</td><td>8.6 km</td><td>6.4 km</td><td>Tarva, Kangru (Põhja-Pärnumaa parish); Parisselja, Elbu, Kurena (Tori parish)</td></tr>
+</tbody></table></div>
+<h3>Geometry finding from our own analysis</h3>
+<p>The stored lengths and the "40 m" buffer were calculated in the EPSG:6933 equal-area grid. This grid keeps area but not shape. At latitude 58.5° N, one 20 m grid cell is about 12 m east–west and about 33 m north–south on the ground. Thus the true lengths are 18.3 km and 8.6 km. The buffer is about 24 m wide east–west and about 65 m north–south on the ground. The hectare values in the earlier reports stay correct, because the grid keeps area. Use EPSG:3301 for distances and widths.</p>
+<p>The manual centrelines do not follow the real features exactly. In ROI-01 the new clearing is up to about 300 m south-east of the outline in the SW half. In ROI-02 the outline is 80–200 m west of road 4 in the north part. Thus the analyses below examine a ±250 m band around each outline.</p>
+
+<h2 id="sources">4. Information sources and methods</h2>
+<p>The round has these agents. Only the agents in the first three rows produced evidence for this report.</p>
+<div class="tw"><table>
+<thead><tr><th>Agent</th><th>Task</th><th>Status</th><th>Main outputs used</th></tr></thead>
+<tbody>
+<tr><td>audit-01 (round-0002)</td><td>Audit of the earlier Sentinel-1/2 run: formulas, dates, hashes, ROI geometry</td><td>Completed 2026-10-24, before this round</td><td><a href="evidence/audit-01/audit_report.md">audit_report.md</a></td></tr>
+<tr><td>geo-01 (retask 0001)</td><td>Maa- ja Ruumiamet orthophotos, flight dates, basic maps, ETAK</td><td>Completed 2026-10-24</td><td><a href="evidence/geo-01/README.md">README</a>, <a href="evidence/geo-01/geo_claims.csv">geo_claims.csv</a>, <a href="evidence/geo-01/geo_sources.csv">geo_sources.csv</a></td></tr>
+<tr><td>works-01 (retasks 0001 and 0002)</td><td>Official road and rail records: ETAK, plans, cadastre, forest register, Transpordiamet, Rail Baltica</td><td>Completed 2026-10-24</td><td><a href="evidence/works-01/README.md">README</a>, <a href="evidence/works-01/works_claims.csv">works_claims.csv</a>, <a href="evidence/works-01/works_ledger.csv">works_ledger.csv</a></td></tr>
+<tr><td>synthesis-01 (this report)</td><td>Scan, analyse and summarise; own Sentinel-2 analysis</td><td>Completed 2026-10-24</td><td><a href="data/synthesis_claims.csv">synthesis_claims.csv</a>, <a href="data/transects.csv">transects.csv</a></td></tr>
+<tr><td>discovery-01, eo-01, literature-01, challenge-01</td><td>Planned in round-0002</td><td>Not run</td><td>None</td></tr>
+</tbody></table></div>
+<figure><img src="assets/img/round-0003-graph.svg" alt="Agent graph of round-0003: operator gate, geo-01 and works-01 in an independence group, synthesis-01, and a pending human review gate"><figcaption>Figure 0. Agent graph of round-0003, drawn with the pinned Forest Cover Lab renderer. synthesis-01 retasked geo-01 and works-01. The final human review gate is pending. The graph shows the record, not proof of what a host did.</figcaption></figure>
+<p>geo-01 and works-01 did not read any Sentinel or audit conclusions. Thus their evidence is independent of the satellite analysis. Their sources share one provider, Maa- ja Ruumiamet, so they count as one data lineage for maps and orthophotos.</p>
+<h3>Our own analysis (synthesis-01)</h3>
+<ol>
+<li>We read the authenticated Sentinel-2 L2A data of the earlier run: scene S2C_35VLE_20250615 (15 June 2025) and the 20 June 2026 target scene. audit-01 confirmed these inputs by hash.</li>
+<li>We calculated NDVI = (NIR − Red) / (NIR + Red) for valid pixels (scene classes 4, 5, 6, 7).</li>
+<li>We made cross-profiles every 250 m along each outline. Each profile is ±250 m long with 10 m steps in EPSG:3301 ground metres.</li>
+<li>For each profile we measured the width of the band with NDVI lower than the profile median minus 0.15. This is a diagnostic setting for this report only. It is not a Lab threshold.</li>
+<li>We made true-colour image pairs of five sections for visual comparison.</li>
+</ol>
+<p>Script: <a href="scripts/transects.py">transects.py</a> and <a href="scripts/section_crops.py">section_crops.py</a>. Results: <a href="data/transect_summary.json">transect_summary.json</a>. The 20 m grid cannot measure a 10 m carriageway. It can show a change from a narrow road to a wide bare corridor.</p>
+
+<h2 id="roi01">5. Findings for ROI-01</h2>
+<div class="answer"><strong>Answer.</strong> The outline is not a 2025 road. No linear feature ran along it before July 2025. Between 15 June 2025 and 20 June 2026 a new linear clearing appeared in the Rail Baltic railway corridor near the outline. Question 2 does not apply.</div>
+<h3>5.1 State before July 2025</h3>
+<ul>
+<li><strong>Aerial photographs.</strong> geo-01 examined Maa- ja Ruumiamet orthophotos of 9 June 2023, 3 May 2024 (SW end only) and 3 April 2025. They show no road, track, rail or cleared line along the axis at four 600 m sites and in a 10 m overview. Only older gravel roads, tracks, ditches and block clear-cuts cross the outline (geo-01 claims GC-01 to GC-03).</li>
+<li><strong>Maps.</strong> The 2024 and 2026 basic-map editions and the current ETAK database show no road or rail along ROI-01. The longest road piece inside the outline is 421 m, and it crosses the outline (works-01 C01, geo-01 GC-05).</li>
+<li><strong>Sentinel-2, 15 June 2025.</strong> Our cross-profiles show no continuous low-NDVI band. The median minimum NDVI in the profiles is 0.82, which is typical of closed vegetation.</li>
+</ul>
+<figure><img src="assets/img/geo-roi01-s2.jpg" alt="Four panels for ROI-01 site S2: orthophotos of 2023 and 2025 above, basic maps of 2024 and 2026 below, with the ROI outline in magenta"><figcaption>Figure 1. ROI-01 site S2 (EPSG:3301 centre 540513, 6483500). Top: orthophotos of 2023-06-09 and 2025-04-03. Bottom: basic map editions 2024 and 2026. Magenta: ROI outline. No linear corridor along the outline. Source: Maa- ja Ruumiamet WMS, retrieved by geo-01 on 2026-10-24.</figcaption></figure>
+<h3>5.2 State after July 2025</h3>
+<ul>
+<li><strong>Sentinel-2, 20 June 2026.</strong> A new linear corridor with low NDVI (about 0.35–0.6) appears along most of the NE 11 km. In 34 of 73 profiles the low-NDVI band became at least 40 m wider. The median band width changed from 0 m to 30 m. In the SW half the new line runs about 300 m south-east of the outline (Figure 3).</li>
+<li><strong>Official permits.</strong> 37 forest clearing notices (raadamine, "RD": clearing for a change of land use) were approved between 2025-07-04 and 2026-09-07. They cover 26.7 ha inside the outline. 21 notices were approved on 2025-09-11 or 2025-09-24 (works-01 C04).</li>
+<li><strong>No aerial photograph exists after 3 April 2025.</strong> Thus the clearing can only be seen in the satellite data.</li>
+</ul>
+<figure><img src="assets/img/s2-roi-01-middle.jpg" alt="Sentinel-2 true colour, ROI-01 middle section, June 2025 and June 2026"><figcaption>Figure 2. ROI-01 middle section, 5 km × 5 km. Left: Sentinel-2 L2A 2025-06-15. Right: 2026-06-20. A new pale linear clearing runs just south of the outline (yellow) in 2026. Own analysis (synthesis-01).</figcaption></figure>
+<figure><img src="assets/img/s2-roi-01-west.jpg" alt="Sentinel-2 true colour, ROI-01 west section, June 2025 and June 2026"><figcaption>Figure 3. ROI-01 west section. The 2026 clearing runs parallel to the outline, about 300 m to the south-east. The outline does not match the new feature here. Own analysis (synthesis-01).</figcaption></figure>
+<figure><img src="assets/img/s2-roi-01-east.jpg" alt="Sentinel-2 true colour, ROI-01 east section, June 2025 and June 2026"><figcaption>Figure 4. ROI-01 east section. The 2026 clearing follows the outline closely. Own analysis (synthesis-01).</figcaption></figure>
+<figure><img src="assets/img/ndvi-profiles-roi01.png" alt="NDVI cross-profile heat maps for ROI-01 in 2025 and 2026"><figcaption>Figure 5. ROI-01 NDVI cross-profiles. Vertical axis: distance from the NE end. Horizontal axis: offset from the outline. A new low-NDVI line (blue-green) appears in 2026 at about 1–12 km. It moves away from the outline towards the SW. Own analysis (synthesis-01).</figcaption></figure>
+<h3>5.3 Identity of the corridor</h3>
+<p>works-01 intersected the outline with official vectors (Figure 6).</p>
+<ul>
+<li>46% of the ROI-01 area is inside the Rail Baltic railway corridor of the county plan "Rail Baltic raudtee trassi koridori asukoha määramine" (legal date 2018-02-14).</li>
+<li>State parcels named "Rapla-Pärnu raudtee NNN" cover 12.8% of the area. Most were registered in 2025, for example 2025-05-16, 2025-06-11 and 2025-11-28.</li>
+<li>The Rail Baltica Tootsi–Pärnu design-and-build alliance contract was signed on 2025-05-16 (about 394 MEUR). Active works are planned for 2026–2030 (ERR news, 2025-05-16 and 2025-06-12).</li>
+</ul>
+<p>The clearing notices continue to the SW end inside the corridor, south-east of the outline (Figure 6). Our satellite clearing line follows the same path. Thus we conclude that the new 2026 linear feature is most probably Rail Baltica corridor clearing. This is a conclusion from consistent geometry and dates. No as-built alignment is public.</p>
+<figure><img src="assets/img/works-map-roi01.png" alt="Map of ROI-01 with Rail Baltic corridor, Rail Baltica parcels and clearing notices"><figcaption>Figure 6. ROI-01 (green) with the Rail Baltic 2018 county-plan corridor (yellow), "Rapla-Pärnu raudtee" parcels (purple) and RD clearing notices (red). Black: national roads. Dashed: ETAK rail. Derived by works-01 from Maa- ja Ruumiamet and Keskkonnaagentuur open data, retrieved 2026-10-24.</figcaption></figure>
+
+<h2 id="roi02">6. Findings for ROI-02</h2>
+<div class="answer"><strong>Answer.</strong> ROI-02 has two parts. The north part runs parallel to national road 4, 80–200 m west of it. Road 4 existed in 2025, but there was no road on the outline itself. Road 4 shows no widening before July 2025 and strong signs of artificial widening after July 2025 (Halinga–Kangru 2+2 project). The middle and south parts follow the new Are bypass alignment. This alignment did not exist in 2025. Construction started in 2026.</div>
+<h3>6.1 State before July 2025</h3>
+<ul>
+<li><strong>Road 4 existed.</strong> The orthophotos of 2023-06-09 and 2025-04-03 show a paved two-lane road with vehicles just east of the outline (Figure 7). ETAK has held its geometry since 2008 (works-01 C09).</li>
+<li><strong>No widening before July 2025.</strong> geo-01 measured the bright paved surface on 11 transects. The width was about 10.6 m in 2023 and about 10.0 m in April 2025 (±1.5 m). There were no new lanes, embankments or wider clearings (geo-01 GC-11).</li>
+<li><strong>The south part was fields and farmyards.</strong> At site S2 the 2023 and 2025 orthophotos show fields, a gravel road crossing and homesteads (Figure 8). Sentinel-2 on 15 June 2025 shows vegetation (NDVI about 0.85) on the full south 1.9 km.</li>
+<li><strong>No clearing permits before December 2025.</strong> The forest register has no RD notices in ROI-02 before 2025-12 (works-01 C14).</li>
+</ul>
+<figure><img src="assets/img/geo-roi02-s1.jpg" alt="Four panels for ROI-02 site S1: orthophotos 2023 and 2025 show a paved road east of the outline"><figcaption>Figure 7. ROI-02 site S1 (north part, EPSG:3301 centre 529798, 6491903). Top: orthophotos of 2023-06-09 and 2025-04-03. Road 4 is the paved road east of the outline (magenta). Bottom: basic maps 2024 and 2026. Source: Maa- ja Ruumiamet WMS, retrieved by geo-01 on 2026-10-24.</figcaption></figure>
+<figure><img src="assets/img/geo-roi02-s2.jpg" alt="Four panels for ROI-02 site S2: fields and a gravel road, no road along the outline"><figcaption>Figure 8. ROI-02 site S2 (south part, EPSG:3301 centre 531476, 6488012). In 2023 and April 2025 there is no road along the outline. Source: Maa- ja Ruumiamet WMS, retrieved by geo-01 on 2026-10-24.</figcaption></figure>
+<h3>6.2 State after July 2025</h3>
+<!-- ROI02-NORTH-START -->
+<p><strong>North part (about 4.4–8.6 km from the south end).</strong> On 20 June 2026 Sentinel-2 shows a bright bare corridor along road 4 (Figure 9). The corridor is on the road line, east of the outline. In the cross-profiles the minimum NDVI fell from about 0.33–0.76 in 2025 to about 0.06–0.29 in 2026. The width of the low-NDVI band increased from 0–90 m (median 30 m) to 50–170 m (median 90 m). The 2025 values show the narrow road as mixed pixels. The 2026 values show clearing, topsoil removal and new embankments on both sides of the carriageway. This is the typical appearance of road widening works.</p>
+<p>Official records agree. Within ±200 m of the north part, 18 RD clearing notices (6.2 ha) were approved between 2025-12-10 and 2026-07-17, most of them on 2026-01-12. Almost all notices lie 11–19 m from the road edge. 25 new road-4 parcels were registered between 2025-08-25 and 2026-10-22, all along the existing road (works-01 C16–C21).</p>
+<!-- ROI02-NORTH-END -->
+<p><strong>South part (0–1.9 km from the south end).</strong> On 20 June 2026 the south part is bare soil with NDVI about 0.04–0.1. A new junction with ramps and a crossing branch is visible (Figure 10). There was no road here in June 2025. This is new construction, not widening.</p>
+<p><strong>Middle part (about 1.9–4.4 km).</strong> Here the outline leaves road 4. Its distance from road 4 increases from 82 m to 810 m. This agrees with the new bypass alignment (works-01 W5). The profiles show bare soil at several stations but no continuous band in June 2026. Possibly, works on this part had not started, or the outline is offset from the new alignment.</p>
+<figure><img src="assets/img/s2-roi-02-north.jpg" alt="Sentinel-2 true colour, ROI-02 north section, June 2025 and June 2026"><figcaption>Figure 9. ROI-02 north section, 3 km × 3 km. Left: 2025-06-15, road 4 is a narrow line. Right: 2026-06-20, a wide bare corridor covers the road-4 line. The outline (yellow) is west of the road in the upper half. Own analysis (synthesis-01).</figcaption></figure>
+<figure><img src="assets/img/s2-roi-02-south.jpg" alt="Sentinel-2 true colour, ROI-02 south section, June 2025 and June 2026"><figcaption>Figure 10. ROI-02 south section. Left: 2025-06-15, fields. Right: 2026-06-20, new road earthworks with a junction along the outline. Own analysis (synthesis-01).</figcaption></figure>
+<figure><img src="assets/img/ndvi-profiles-roi02.png" alt="NDVI cross-profile heat maps for ROI-02 in 2025 and 2026"><figcaption>Figure 11. ROI-02 NDVI cross-profiles. Vertical axis: distance from the south end. The 2025 road is a faint line at about −150 m offset in the north part. In 2026 dark bands (bare soil) appear in the south 2 km and along the north part. Own analysis (synthesis-01).</figcaption></figure>
+<h3>6.3 Identity of the corridor</h3>
+<!-- ROI02-IDENTITY-START -->
+<p>works-01 placed the road-register kilometre points of road 4 (Transpordiamet road register, dated 2026-10-22, accuracy about ±50 m). km 103.5 is at 58.5877 N, 24.5123 E. km 108.5 is at 58.5467 N, 24.5382 E.</p>
+<div class="tw"><table>
+<thead><tr><th>ROI-02 part (latitude)</th><th>Project</th><th>Distance from road 4 in the register</th><th>Assessment</th></tr></thead>
+<tbody>
+<tr><td>North, 58.550–58.585 N</td><td>Road 4 Halinga–Kangru 2+2, km 103.5–108.5, on the existing route</td><td>82–203 m west (median 177 m)</td><td>The outline is next to the widened road, not on it. The changed feature is road 4.</td></tr>
+<tr><td>Middle, 58.528–58.550 N</td><td>End of Halinga–Kangru, then Are bypass</td><td>82 m increasing to 810 m</td><td>Agrees with the new bypass alignment</td></tr>
+<tr><td>South, 58.513–58.528 N</td><td>Road 4 Are bypass 2+2, km 108.5–115.8, new alignment</td><td>660–830 m</td><td>On new road-4 parcels and RD notices. Confidence: medium (no public design map).</td></tr>
+</tbody></table></div>
+<ul>
+<li><strong>Are bypass.</strong> New state parcels "4 Tallinn-Pärnu-Ikla tee" were registered from 2025-05-22. They cover 18–85% of the outline per 500 m in the south part. An RD notice of 2025-12-11 is an 816 m strip, and 83% of it is inside the outline. Contractor: AS TREF Nord, contract signed 2025-11-18, 36.5 MEUR. Construction started on 2026-02-02 with clearing. Earthworks started in March 2026 (works-01 C10–C12).</li>
+<li><strong>Halinga–Kangru.</strong> Contractors: KMG OÜ and Infragreen OÜ, contract signed 2025-11-07, 25.5 MEUR + VAT, 30 months. Transpordiamet states that the project "copies the location of the existing route" ("kopeerib asukoha mõttes olemasolevat trassi"). The first dated physical work is the demolition of the old Halinga railway viaduct on 2026-04-02.</li>
+</ul>
+<!-- ROI02-IDENTITY-END -->
+<figure><img src="assets/img/works-map-roi02.png" alt="Map of ROI-02 with road 4, new road-4 parcels and clearing notices"><figcaption>Figure 12. ROI-02 (green) with road 4 (black), road-4 parcels registered 2025–26 (blue) and RD clearing notices (red). Derived by works-01 from Maa- ja Ruumiamet and Keskkonnaagentuur open data, retrieved 2026-10-24.</figcaption></figure>
+
+<h2 id="official">7. Information from Maa- ja Ruumiamet and Transpordiamet</h2>
+<h3>7.1 Maa- ja Ruumiamet (formerly Maa-amet)</h3>
+<ul>
+<li><strong>Flight dates.</strong> The WMS "metainfo" layer gives a flight date of 09.06.2023 for all requests. This value is out of date. The official per-sheet download lists give the true dates. The 2025 orthophoto ("of2025aero") of all ROI sheets was flown on <strong>2025-04-03</strong> (leaf-off). The earlier flights were 2023-06-09 and 2021-04-19 (geo-01 GC-13). This resolves the date conflict that audit-01 reported.</li>
+<li><strong>No newer photographs.</strong> No orthophoto after 2025-04-03 is published for these sheets. There is no 2026 layer. Thus the "after July 2025" comparison is not possible with national aerial photographs.</li>
+<li><strong>Maps.</strong> ETAK and the basic maps of 2024 and 2026 do not yet show Rail Baltica or the new road-4 alignment. Map absence is weak evidence for recent change, because the update delay is not known.</li>
+<li><strong>Cadastre and plans.</strong> The cadastre shows new Rail Baltica parcels (mostly 2025) and new road-4 parcels (from 2025-05-22). The planning layer shows the 2018 Rail Baltic corridor. These records show land acquisition and plans. They do not show construction.</li>
+</ul>
+<h3>7.2 Keskkonnaagentuur forest register (Metsaregister)</h3>
+<p>The forest register shows clearing permits (RD notices). Approval dates are permit dates, not felling dates. ROI-01: 37 notices, 2025-07-04 to 2026-09-07. ROI-02: 7 notices, 2025-12-11 to 2026-07-17. The Sentinel-2 images of 20 June 2026 show that clearing actually occurred in both corridors.</p>
+<h3>7.3 Transpordiamet (formerly Maanteeamet, "Teeamet") and Rail Baltica</h3>
+<!-- TRANSPORT-START -->
+<ul>
+<li><strong>Transpordiamet project page</strong> "Tallinna–Pärnu–Ikla maantee ehitustööd 2026–2027" (updated 2026-06-09): Halinga–Kangru 2+2 (km 103.5–108.5) is on the existing route. Contract with KMG OÜ and Infragreen OÜ, signed 2025-11-07. Are bypass (km 108.5–115.8, 6.9 km) is mostly on a new route. Contract with AS TREF Nord, signed 2025-11-18.</li>
+<li><strong>Transpordiamet road register</strong> (ArcGIS map service, km points dated 2026-10-22): gives the kilometre positions in section 6.3. The register does not yet contain the new bypass alignment.</li>
+<li><strong>Transpordiamet news</strong> (2026-03-05): announces the largest works on the Tallinn–Pärnu road and the traffic changes.</li>
+<li><strong>Rail Baltica Tootsi–Pärnu section:</strong> alliance contract signed 2025-05-16. Active works are planned for 2026–2030 (ERR, quoting Rail Baltic Estonia).</li>
+</ul>
+<!-- TRANSPORT-END -->
+<p>The Rail Baltica facts and the construction start dates come from ERR news articles that quote Transpordiamet and Rail Baltic Estonia. ERR is a secondary source. The public procurement register was not machine-readable, so no contract numbers are confirmed.</p>
+
+<h2 id="limits">8. Conflicts, limits and open items</h2>
+<ul>
+<li><strong>No aerial photograph after April 2025.</strong> All after-July-2025 physical evidence comes from two Sentinel-2 scenes (2025-06-15 and 2026-06-20) at 20 m. These scenes cannot measure a carriageway width. They show only the change from a narrow road to a wide bare corridor.</li>
+<li><strong>Single scenes.</strong> Each year has one scene. Crop and grass phenology differ between the dates. Bare fields near the outlines can look like works. We used the shape and continuity of the features to separate them.</li>
+<li><strong>Outline offset.</strong> The manual outlines miss the real features by up to about 300 m (ROI-01 SW) and 80–200 m (ROI-02 north). We interpret the ROI-02 north outline as a coarse trace of road 4. The operator must confirm this interpretation. Statistics inside the original buffers dilute the change. Use the ±250 m profiles.</li>
+<li><strong>Stored lengths.</strong> The stored ROI lengths (22.5 km and 6.4 km) are EPSG:6933 lengths. The ground lengths are 18.3 km and 8.6 km. geo-01 and works-01 quoted the stored values in their reports.</li>
+<li><strong>Project identity.</strong> No as-built or design geometry for Rail Baltica or the road-4 projects is public. Identity rests on plans, parcels, permits and news text.</li>
+<li><strong>Secondary sources.</strong> The ERR articles form one source lineage. Two ERR articles name different lead partners for the Rail Baltica alliance.</li>
+<li><strong>Agreement is not independence.</strong> Orthophotos, maps, cadastre and plans come from one agency. Sentinel-2 is the only independent physical source after April 2025.</li>
+<li><strong>Not assessed.</strong> Prior forest state, legal status of any clearing, and control areas (orthophotos not requested).</li>
+</ul>
+
+<h2 id="next">9. Recommended next steps</h2>
+<ol>
+<li>Re-draw ROI-01 and ROI-02 on the real features before any new measurement. Use EPSG:3301 for buffers and lengths.</li>
+<li>Make true calendar-month Sentinel-2 composites (July 2025 to October 2026) to date the start of clearing in each section. This is the planned eo-01 task.</li>
+<li>Check the 2026 national orthophoto when Maa- ja Ruumiamet publishes it. Then repeat the geo-01 width transects.</li>
+<li>Get design drawings from Transpordiamet and Rail Baltic Estonia, and contract numbers from the procurement register.</li>
+<li>A human reviewer must accept or reject these findings at the round gate.</li>
+</ol>
+
+<h2 id="refs">10. Source list</h2>
+<div class="tw"><table>
+<thead><tr><th>ID</th><th>Source</th><th>Date</th><th>Use</th></tr></thead>
+<tbody>
+<!-- REFS -->
+<tr><td>S01</td><td>Maa- ja Ruumiamet: <a href="https://kaart.maaamet.ee/wms/ajalooline">Historical orthophoto WMS (of2023mets, of2024asulad, of2025aero; basic maps pk_vr2024, pk_vr2026)</a><br><small>Agent record: geo-01 GS-07..GS-12</small></td><td>flights 2023-06-09, 2024-05-03, 2025-04-03; retrieved 2026-10-24</td><td>Presence/absence before July 2025; road width 2023 vs 2025</td></tr>
+<tr><td>S02</td><td>Maa- ja Ruumiamet Geoportaal: <a href="https://geoportaal.maaamet.ee/index.php?lang_id=1&amp;page_id=610">Orthophoto download lists per map sheet (flight dates)</a><br><small>Agent record: geo-01 GS-05, GS-06</small></td><td>listing retrieved 2026-10-24</td><td>True flight dates; no flight after 2025-04-03</td></tr>
+<tr><td>S03</td><td>Maa- ja Ruumiamet: <a href="https://kaart.maaamet.ee/wms/fotokaart">Current orthophoto WMS (EESTIFOTO)</a><br><small>Agent record: geo-01 GS-10</small></td><td>current = 2025-04-03 flight; retrieved 2026-10-24</td><td>No newer national imagery</td></tr>
+<tr><td>S04</td><td>Maa- ja Ruumiamet (ETAK) via Keskkonnaagentuur GeoServer: <a href="https://gsavalik.envir.ee/geoserver/etak/wfs">ETAK roads, rail, cutlines, power lines (WFS)</a><br><small>Agent record: geo-01 GS-13; works-01 E01-E03</small></td><td>state 2026-10-24</td><td>No mapped road or rail along the outlines</td></tr>
+<tr><td>S05</td><td>Maa- ja Ruumiamet: <a href="https://gsavalik.envir.ee/geoserver/planeeringud/wfs">Rail Baltic county-plan corridor and planning restriction (WFS)</a><br><small>Agent record: works-01 E04, E05</small></td><td>plan legal date 2018-02-14</td><td>ROI-01 identity</td></tr>
+<tr><td>S06</td><td>Maa- ja Ruumiamet: <a href="https://gsavalik.envir.ee/geoserver/kataster/wfs">Cadastre: &#x27;Rapla-Pärnu raudtee&#x27; and &#x27;4 Tallinn-Pärnu-Ikla tee&#x27; parcels (WFS)</a><br><small>Agent record: works-01 E06-E08</small></td><td>registrations 2020-2026</td><td>Land acquisition for Rail Baltica and road 4</td></tr>
+<tr><td>S07</td><td>Keskkonnaagentuur: <a href="https://gsavalik.envir.ee/geoserver/metsaregister/wfs">Metsaregister forest notices, valid and archived (WFS)</a><br><small>Agent record: works-01 E09, E10</small></td><td>approvals 2016-2026</td><td>Clearing permits (RD) in both corridors</td></tr>
+<tr><td>S08</td><td>Transpordiamet: <a href="https://gis.transpordiamet.ee/arcgis/rest/services/Teeregister/MapServer">Road register (Teeregister) ArcGIS service: road 4 km points and sections</a><br><small>Agent record: works-01 E21, E22</small></td><td>km points 2026-10-22</td><td>Project km positions vs ROI-02</td></tr>
+<tr><td>S09</td><td>Transpordiamet: <a href="https://transpordiamet.ee/tallinna-parnu-ikla-maantee-ehitustood-2026-2027">Tallinna–Pärnu–Ikla maantee ehitustööd 2026–2027 (project page)</a><br><small>Agent record: works-01 E23</small></td><td>updated 2026-06-09</td><td>Halinga–Kangru and Are bypass scope and contracts</td></tr>
+<tr><td>S10</td><td>Transpordiamet: <a href="https://www.transpordiamet.ee/uudised/tallinna-parnu-ikla-maantee-halinga-kangru-22-teeloigu-ehitushankele-esitati-kuus-pakkumust">News: Halinga–Kangru 2+2 tender received six bids</a><br><small>Agent record: works-01 E24</small></td><td>2025-09-26</td><td>Halinga–Kangru procurement</td></tr>
+<tr><td>S11</td><td>Transpordiamet: <a href="https://www.transpordiamet.ee/uudised/transpordiamet-koos-kaitsevaega-varistab-halinga-raudteeviadukti">News: Halinga railway viaduct demolition</a><br><small>Agent record: works-01 E25</small></td><td>2026-03-25</td><td>First dated Halinga–Kangru works</td></tr>
+<tr><td>S12</td><td>Transpordiamet: <a href="https://transpordiamet.ee/en/news/largest-road-construction-works-tallinn-parnu-national-road-will-bring-traffic-changes">News: largest road construction works on the Tallinn–Pärnu road</a><br><small>Agent record: works-01 E18</small></td><td>2026-03-05</td><td>Works on road 4 in 2026</td></tr>
+<tr><td>S13</td><td>ERR: <a href="https://www.err.ee/1609925537/algavad-are-moodasoidu-2-2-teeloigu-ehitustood">Algavad Are möödasõidu 2+2 teelõigu ehitustööd</a><br><small>Agent record: works-01 E16</small></td><td>2026-01-29</td><td>Are bypass works start 2026-02-02</td></tr>
+<tr><td>S14</td><td>ERR: <a href="https://www.err.ee/1609874658/uuel-aastal-algavad-tallinna-parnu-maanteel-uha-suuremad-ehitustood">Uuel aastal algavad Tallinna-Pärnu maanteel üha suuremad ehitustööd</a><br><small>Agent record: works-01 E15</small></td><td>2025-12-04</td><td>Road 4 project overview</td></tr>
+<tr><td>S15</td><td>ERR: <a href="https://www.err.ee/1609737930/are-moodasoidule-tuleb-uus-ehitushange">Are möödasõidule tuleb uus ehitushange</a><br><small>Agent record: works-01 E17</small></td><td>2025-07-04</td><td>Are bypass tender re-run</td></tr>
+<tr><td>S16</td><td>ERR: <a href="https://www.err.ee/1609984282/transpordiamet-ja-kaitsevagi-varistasid-vana-halinga-raudteeviadukti">Transpordiamet ja kaitsevägi varistasid vana Halinga raudteeviadukti</a><br><small>Agent record: works-01 E26</small></td><td>2026-04-02</td><td>Halinga viaduct demolished</td></tr>
+<tr><td>S17</td><td>ERR: <a href="https://www.err.ee/1609696695/rail-baltic-estonia-solmis-suurimad-taristuehituse-lepingud-eesti-ajaloos">Rail Baltic Estonia sõlmis suurimad taristuehituse lepingud Eesti ajaloos</a><br><small>Agent record: works-01 E12</small></td><td>2025-05-16</td><td>Rail Baltica Tootsi–Pärnu contract</td></tr>
+<tr><td>S18</td><td>ERR: <a href="https://www.err.ee/1609720146/rail-balticu-eesti-pohitrassi-votmeloikude-ehitus-algab-jargmisel-aastal">Rail Balticu Eesti põhitrassi võtmelõikude ehitus algab järgmisel aastal</a><br><small>Agent record: works-01 E13</small></td><td>2025-06-12</td><td>Rail Baltica works planned from 2026</td></tr>
+<tr><td>S19</td><td>Copernicus / Element 84 (AWS): <a href="https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/35/V/LE/">Sentinel-2 L2A COGs, scene S2C_35VLE_20250615 and 2026-06-20 target</a><br><small>Agent record: runs/aoi-s2-jja-2025-2026-calibrated; audit-01 authenticated</small></td><td>acquired 2025-06-15 and 2026-06-20</td><td>Physical change after July 2025 (own analysis)</td></tr>
+<tr><td>S20</td><td>synthesis-01 (own analysis): <a href="data/transects.csv">NDVI cross-profiles and true-colour section pairs</a><br><small>Agent record: scripts/transects.py; scripts/section_crops.py</small></td><td>2026-10-24</td><td>Corridor change 2025 vs 2026; ground-length correction</td></tr>
+<tr><td>S21</td><td>audit-01 (round-0002): <a href="evidence/audit-01/audit_report.md">Audit of the earlier Sentinel-1/2 run</a><br><small>Agent record: round-0002/artifacts/audit-01</small></td><td>2026-10-24</td><td>Input authentication; date conflict reported</td></tr>
+<!-- /REFS -->
+</tbody></table></div>
+
+<h2 id="bundle">11. Bundle contents</h2>
+<p>Download this folder with all subfolders. Open <code>index.html</code> in a browser. The page needs no network access. Online links in the source list are optional.</p>
+<ul>
+<li><code>assets/img/</code>: figures (compressed copies; originals are in the agent folders of round-0003).</li>
+<li><code>data/</code>: <a href="data/synthesis_claims.csv">synthesis_claims.csv</a>, <a href="data/synthesis_sources.csv">synthesis_sources.csv</a>, <a href="data/transects.csv">transects.csv</a>, <a href="data/transect_summary.json">transect_summary.json</a>.</li>
+<li><code>evidence/</code>: copies of the audit-01, geo-01 and works-01 reports, claims and ledgers.</li>
+<li><code>scripts/</code>: the synthesis-01 analysis scripts.</li>
+<li><a href="bundle_manifest.json">bundle_manifest.json</a>: SHA-256 of every file in the bundle.</li>
+</ul>
+<p class="meta">Map and photo data: © Maa- ja Ruumiamet, open data licence, retrieved 2026-10-24. Forest register: Keskkonnaagentuur open data, retrieved 2026-10-24. Sentinel-2: Copernicus Sentinel data 2025–2026, from the AWS Sentinel-2 L2A COG archive.</p>
+</main>
+</body>
+</html>

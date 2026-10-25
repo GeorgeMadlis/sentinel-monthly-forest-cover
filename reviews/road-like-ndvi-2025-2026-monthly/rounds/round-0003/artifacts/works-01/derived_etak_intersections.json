@@ -1,0 +1,465 @@
+{
+ "ROI-01": {
+  "roi_area_m2": 1804561,
+  "roi_length_m": 22497.0,
+  "layers": {
+   "e_501_tee_j": [
+    {
+     "feature": "tee=None|None|Muu tee",
+     "length_inside_roi_m": 1062.1,
+     "pct_of_roi_length": 4.7,
+     "n_segments": 12,
+     "attrs": [
+      "laius=3;kate=Kruuskate",
+      "laius=3;kate=Pinnas",
+      "laius=4;kate=Kruuskate",
+      "laius=4;kate=Pinnas"
+     ],
+     "etak_modified(attr/geom)": [
+      "2017-12-22/geom 2016-07-06",
+      "2017-12-27/geom 2008-10-18",
+      "2021-08-23/geom 2021-08-24",
+      "2022-05-24/geom 2022-05-24",
+      "2022-06-01/geom 2022-06-01",
+      "2024-05-29/geom 2020-09-21",
+      "2024-05-29/geom 2020-10-07",
+      "2025-02-28/geom 2025-02-28",
+      "2025-09-18/geom 2022-06-01"
+     ]
+    },
+    {
+     "feature": "tee=None|None|Rada",
+     "length_inside_roi_m": 488.1,
+     "pct_of_roi_length": 2.2,
+     "n_segments": 5,
+     "attrs": [
+      "laius=0;kate=Pinnas"
+     ],
+     "etak_modified(attr/geom)": [
+      "2017-12-22/geom 2016-07-06",
+      "2017-12-27/geom 2016-07-06",
+      "2021-07-08/geom 2021-07-08",
+      "2024-05-24/geom 2021-09-01",
+      "2026-06-12/geom 2026-06-12"
+     ]
+    },
+    {
+     "feature": "tee=8080509|Kõigutse-Oti tee|Muu tee",
+     "length_inside_roi_m": 420.9,
+     "pct_of_roi_length": 1.9,
+     "n_segments": 2,
+     "attrs": [
+      "laius=4;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2017-12-27/geom 2016-07-06",
+      "2026-06-10/geom 2026-06-10"
+     ]
+    },
+    {
+     "feature": "tee=19203|Are-Suigu tee|Kõrvalmaantee",
+     "length_inside_roi_m": 183.1,
+     "pct_of_roi_length": 0.8,
+     "n_segments": 1,
+     "attrs": [
+      "laius=7;kate=Püsikate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2023-12-03/geom 2021-01-05"
+     ]
+    },
+    {
+     "feature": "tee=7300506|Sihi tee|Muu tee",
+     "length_inside_roi_m": 163.5,
+     "pct_of_roi_length": 0.7,
+     "n_segments": 1,
+     "attrs": [
+      "laius=4;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2017-12-22/geom 2008-10-18"
+     ]
+    },
+    {
+     "feature": "tee=7300180|Oti tee|Muu tee",
+     "length_inside_roi_m": 154.7,
+     "pct_of_roi_length": 0.7,
+     "n_segments": 3,
+     "attrs": [
+      "laius=5;kate=Püsikate",
+      "laius=6;kate=Püsikate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2017-12-21/geom 2008-10-18",
+      "2017-12-27/geom 2008-10-18",
+      "2023-01-24/geom 2008-10-18"
+     ]
+    },
+    {
+     "feature": "tee=8080040|Murru tee|Muu tee",
+     "length_inside_roi_m": 144.5,
+     "pct_of_roi_length": 0.6,
+     "n_segments": 2,
+     "attrs": [
+      "laius=4;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2022-06-21/geom 2022-06-21"
+     ]
+    },
+    {
+     "feature": "tee=8080536|Kingu tee|Muu tee",
+     "length_inside_roi_m": 143.5,
+     "pct_of_roi_length": 0.6,
+     "n_segments": 1,
+     "attrs": [
+      "laius=5;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2022-06-01/geom 2022-06-01"
+     ]
+    },
+    {
+     "feature": "tee=8080041|Muti - Tootsi|Muu tee",
+     "length_inside_roi_m": 111.6,
+     "pct_of_roi_length": 0.5,
+     "n_segments": 1,
+     "attrs": [
+      "laius=4;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2017-12-22/geom 2016-07-06"
+     ]
+    },
+    {
+     "feature": "tee=1490910|Kaseküla tee|Muu tee",
+     "length_inside_roi_m": 107.7,
+     "pct_of_roi_length": 0.5,
+     "n_segments": 1,
+     "attrs": [
+      "laius=4;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2022-06-16/geom 2022-06-16"
+     ]
+    },
+    {
+     "feature": "tee=1490291|Kivisilla tee|Muu tee",
+     "length_inside_roi_m": 101.0,
+     "pct_of_roi_length": 0.4,
+     "n_segments": 1,
+     "attrs": [
+      "laius=4;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2023-11-29/geom 2021-04-10"
+     ]
+    },
+    {
+     "feature": "tee=7300504|Põlluvahe tee|Muu tee",
+     "length_inside_roi_m": 97.5,
+     "pct_of_roi_length": 0.4,
+     "n_segments": 1,
+     "attrs": [
+      "laius=5;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2019-01-23/geom 2019-01-23"
+     ]
+    },
+    {
+     "feature": "tee=19214|Jänesselja-Urge tee|Kõrvalmaantee",
+     "length_inside_roi_m": 82.8,
+     "pct_of_roi_length": 0.4,
+     "n_segments": 2,
+     "attrs": [
+      "laius=9;kate=Püsikate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2024-05-24/geom 2021-01-05",
+      "2026-08-06/geom 2026-08-06"
+     ]
+    }
+   ],
+   "e_502_roobastee_j": [
+    {
+     "feature": "rail etak_id=4076351|Laiarööpmeline|Põhitee",
+     "length_inside_roi_m": 143.0,
+     "pct_of_roi_length": 0.6,
+     "n_segments": 1,
+     "attrs": [
+      "elekter=Ei"
+     ],
+     "etak_modified(attr/geom)": [
+      "2026-08-10/geom 2026-08-10"
+     ]
+    }
+   ],
+   "e_503_siht_j": [
+    {
+     "feature": "siht (cutline)",
+     "length_inside_roi_m": 827.6,
+     "pct_of_roi_length": 3.7,
+     "n_segments": 7,
+     "attrs": [
+      ""
+     ],
+     "etak_modified(attr/geom)": [
+      "2017-12-20/geom 2008-10-12",
+      "2017-12-20/geom 2016-07-06",
+      "2021-08-23/geom 2021-08-23"
+     ]
+    }
+   ],
+   "e_601_elektriliin_j": [
+    {
+     "feature": "powerline 10kV",
+     "length_inside_roi_m": 195.0,
+     "pct_of_roi_length": 0.9,
+     "n_segments": 2,
+     "attrs": [
+      ""
+     ],
+     "etak_modified(attr/geom)": [
+      "2026-01-02/geom 2026-01-02",
+      "2026-02-11/geom 2026-02-11"
+     ]
+    },
+    {
+     "feature": "powerline 35kV",
+     "length_inside_roi_m": 113.6,
+     "pct_of_roi_length": 0.5,
+     "n_segments": 1,
+     "attrs": [
+      ""
+     ],
+     "etak_modified(attr/geom)": [
+      "2026-02-13/geom 2026-02-13"
+     ]
+    },
+    {
+     "feature": "powerline 330kV",
+     "length_inside_roi_m": 105.0,
+     "pct_of_roi_length": 0.5,
+     "n_segments": 1,
+     "attrs": [
+      ""
+     ],
+     "etak_modified(attr/geom)": [
+      "2026-03-04/geom 2026-03-04"
+     ]
+    },
+    {
+     "feature": "powerline 110kV",
+     "length_inside_roi_m": 83.9,
+     "pct_of_roi_length": 0.4,
+     "n_segments": 1,
+     "attrs": [
+      ""
+     ],
+     "etak_modified(attr/geom)": [
+      "2026-01-02/geom 2026-01-02"
+     ]
+    }
+   ]
+  }
+ },
+ "ROI-02": {
+  "roi_area_m2": 515954,
+  "roi_length_m": 6388.9,
+  "layers": {
+   "e_501_tee_j": [
+    {
+     "feature": "tee=None|None|Muu tee",
+     "length_inside_roi_m": 439.0,
+     "pct_of_roi_length": 6.9,
+     "n_segments": 11,
+     "attrs": [
+      "laius=3;kate=Kruuskate",
+      "laius=3;kate=Pinnas",
+      "laius=4;kate=Kruuskate",
+      "laius=4;kate=Püsikate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2017-12-21/geom 2008-01-31",
+      "2017-12-22/geom 2008-01-31",
+      "2022-06-30/geom 2022-06-30",
+      "2025-03-07/geom 2025-03-07",
+      "2025-11-24/geom 2025-11-24",
+      "2026-05-14/geom 2026-05-14"
+     ]
+    },
+    {
+     "feature": "tee=1880475|Vana-Rehe tee|Muu tee",
+     "length_inside_roi_m": 83.7,
+     "pct_of_roi_length": 1.3,
+     "n_segments": 1,
+     "attrs": [
+      "laius=4;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2023-07-25/geom 2008-01-31"
+     ]
+    },
+    {
+     "feature": "tee=1490092|Kalme-Angoja tee|Muu tee",
+     "length_inside_roi_m": 56.2,
+     "pct_of_roi_length": 0.9,
+     "n_segments": 1,
+     "attrs": [
+      "laius=5;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2017-12-27/geom 2008-01-31"
+     ]
+    },
+    {
+     "feature": "tee=1490100|Parisselja tee|Muu tee",
+     "length_inside_roi_m": 55.7,
+     "pct_of_roi_length": 0.9,
+     "n_segments": 1,
+     "attrs": [
+      "laius=4;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2017-12-27/geom 2025-10-17"
+     ]
+    },
+    {
+     "feature": "tee=None|None|Rada",
+     "length_inside_roi_m": 55.6,
+     "pct_of_roi_length": 0.9,
+     "n_segments": 1,
+     "attrs": [
+      "laius=0;kate=Pinnas"
+     ],
+     "etak_modified(attr/geom)": [
+      "2024-09-27/geom 2008-01-31"
+     ]
+    },
+    {
+     "feature": "tee=1490120|Metsataguse tee|Muu tee",
+     "length_inside_roi_m": 55.5,
+     "pct_of_roi_length": 0.9,
+     "n_segments": 2,
+     "attrs": [
+      "laius=3;kate=Kruuskate",
+      "laius=3;kate=Pinnas"
+     ],
+     "etak_modified(attr/geom)": [
+      "2025-11-24/geom 2025-11-24"
+     ]
+    },
+    {
+     "feature": "tee=19219|Are-Elbu tee|Kõrvalmaantee",
+     "length_inside_roi_m": 53.1,
+     "pct_of_roi_length": 0.8,
+     "n_segments": 1,
+     "attrs": [
+      "laius=7;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2023-12-02/geom 2008-01-31"
+     ]
+    },
+    {
+     "feature": "tee=1880002|Tarva - Tõrdu|Muu tee",
+     "length_inside_roi_m": 48.7,
+     "pct_of_roi_length": 0.8,
+     "n_segments": 2,
+     "attrs": [
+      "laius=6;kate=Püsikate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2023-07-25/geom 2008-01-31"
+     ]
+    },
+    {
+     "feature": "tee=1880478|Erma tee|Muu tee",
+     "length_inside_roi_m": 48.7,
+     "pct_of_roi_length": 0.8,
+     "n_segments": 1,
+     "attrs": [
+      "laius=3;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2017-12-22/geom 2008-01-31"
+     ]
+    },
+    {
+     "feature": "tee=1880477|Matsima tee|Muu tee",
+     "length_inside_roi_m": 48.7,
+     "pct_of_roi_length": 0.8,
+     "n_segments": 1,
+     "attrs": [
+      "laius=4;kate=Kruuskate"
+     ],
+     "etak_modified(attr/geom)": [
+      "2022-06-30/geom 2022-06-30"
+     ]
+    }
+   ],
+   "e_502_roobastee_j": [],
+   "e_503_siht_j": [],
+   "e_601_elektriliin_j": [
+    {
+     "feature": "powerline 10kV",
+     "length_inside_roi_m": 232.7,
+     "pct_of_roi_length": 3.6,
+     "n_segments": 3,
+     "attrs": [
+      ""
+     ],
+     "etak_modified(attr/geom)": [
+      "2026-02-12/geom 2026-02-12",
+      "2026-02-13/geom 2026-02-13"
+     ]
+    },
+    {
+     "feature": "powerline 110kV",
+     "length_inside_roi_m": 108.1,
+     "pct_of_roi_length": 1.7,
+     "n_segments": 1,
+     "attrs": [
+      ""
+     ],
+     "etak_modified(attr/geom)": [
+      "2026-02-26/geom 2026-02-26"
+     ]
+    },
+    {
+     "feature": "powerline 35kV",
+     "length_inside_roi_m": 85.1,
+     "pct_of_roi_length": 1.3,
+     "n_segments": 1,
+     "attrs": [
+      ""
+     ],
+     "etak_modified(attr/geom)": [
+      "2026-02-26/geom 2026-02-13"
+     ]
+    }
+   ]
+  }
+ },
+ "CONTROL-01": {
+  "roi_area_m2": 102386,
+  "roi_length_m": null,
+  "layers": {
+   "e_501_tee_j": [],
+   "e_502_roobastee_j": [],
+   "e_503_siht_j": [],
+   "e_601_elektriliin_j": []
+  }
+ },
+ "CONTROL-02": {
+  "roi_area_m2": 102390,
+  "roi_length_m": null,
+  "layers": {
+   "e_501_tee_j": [],
+   "e_502_roobastee_j": [],
+   "e_503_siht_j": [],
+   "e_601_elektriliin_j": []
+  }
+ }
+}
