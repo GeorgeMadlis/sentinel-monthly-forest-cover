@@ -1,0 +1,530 @@
+{
+ "ROI-01": {
+  "roi_area_m2": 1804561,
+  "groups": {
+   "road4_parcels_reg_pre2025": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   },
+   "road4_parcels_reg2025_2026": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   },
+   "RB_parcels_Rapla-Parnu_raudtee": {
+    "overlap_m2": 231004,
+    "pct_roi_area": 12.8
+   },
+   "RB_planning_corridor_2018": {
+    "overlap_m2": 829256,
+    "pct_roi_area": 46.0
+   }
+  },
+  "bins_500m_pct_area": [
+   {
+    "from_m": 0,
+    "to_m": 500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 500,
+    "to_m": 1000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 1000,
+    "to_m": 1500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 1500,
+    "to_m": 2000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 2000,
+    "to_m": 2500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 2500,
+    "to_m": 3000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 3000,
+    "to_m": 3500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 3500,
+    "to_m": 4000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 4000,
+    "to_m": 4500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 4500,
+    "to_m": 5000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 5000,
+    "to_m": 5500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 5500,
+    "to_m": 6000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 6000,
+    "to_m": 6500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 6500,
+    "to_m": 7000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 23
+   },
+   {
+    "from_m": 7000,
+    "to_m": 7500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 44
+   },
+   {
+    "from_m": 7500,
+    "to_m": 8000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 43
+   },
+   {
+    "from_m": 8000,
+    "to_m": 8500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 23
+   },
+   {
+    "from_m": 8500,
+    "to_m": 9000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 1
+   },
+   {
+    "from_m": 9000,
+    "to_m": 9500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 1
+   },
+   {
+    "from_m": 9500,
+    "to_m": 10000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 24
+   },
+   {
+    "from_m": 10000,
+    "to_m": 10500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 55
+   },
+   {
+    "from_m": 10500,
+    "to_m": 11000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 85
+   },
+   {
+    "from_m": 11000,
+    "to_m": 11500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 11500,
+    "to_m": 12000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 12000,
+    "to_m": 12500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 47,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 12500,
+    "to_m": 13000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 87,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 13000,
+    "to_m": 13500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 61,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 13500,
+    "to_m": 14000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 29,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 14000,
+    "to_m": 14500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 19,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 14500,
+    "to_m": 15000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 58,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 15000,
+    "to_m": 15500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 22,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 15500,
+    "to_m": 16000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 12,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 16000,
+    "to_m": 16500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 46,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 16500,
+    "to_m": 17000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 57,
+    "RB_planning_corridor_2018": 100
+   },
+   {
+    "from_m": 17000,
+    "to_m": 17500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 72
+   },
+   {
+    "from_m": 17500,
+    "to_m": 18000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 18000,
+    "to_m": 18305,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   }
+  ]
+ },
+ "ROI-02": {
+  "roi_area_m2": 515954,
+  "groups": {
+   "road4_parcels_reg_pre2025": {
+    "overlap_m2": 8681,
+    "pct_roi_area": 1.7
+   },
+   "road4_parcels_reg2025_2026": {
+    "overlap_m2": 62405,
+    "pct_roi_area": 12.1
+   },
+   "RB_parcels_Rapla-Parnu_raudtee": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   },
+   "RB_planning_corridor_2018": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   }
+  },
+  "bins_500m_pct_area": [
+   {
+    "from_m": 0,
+    "to_m": 500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 500,
+    "to_m": 1000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 1000,
+    "to_m": 1500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 1500,
+    "to_m": 2000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 2000,
+    "to_m": 2500,
+    "road4_parcels_reg_pre2025": 1,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 2500,
+    "to_m": 3000,
+    "road4_parcels_reg_pre2025": 20,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 3000,
+    "to_m": 3500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 3500,
+    "to_m": 4000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 4000,
+    "to_m": 4500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 4,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 4500,
+    "to_m": 5000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 5000,
+    "to_m": 5500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 5500,
+    "to_m": 6000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 6000,
+    "to_m": 6500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 0,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 6500,
+    "to_m": 7000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 18,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 7000,
+    "to_m": 7500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 55,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 7500,
+    "to_m": 8000,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 80,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 8000,
+    "to_m": 8500,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 85,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   },
+   {
+    "from_m": 8500,
+    "to_m": 8618,
+    "road4_parcels_reg_pre2025": 0,
+    "road4_parcels_reg2025_2026": 25,
+    "RB_parcels_Rapla-Parnu_raudtee": 0,
+    "RB_planning_corridor_2018": 0
+   }
+  ]
+ },
+ "CONTROL-01": {
+  "roi_area_m2": 102386,
+  "groups": {
+   "road4_parcels_reg_pre2025": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   },
+   "road4_parcels_reg2025_2026": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   },
+   "RB_parcels_Rapla-Parnu_raudtee": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   },
+   "RB_planning_corridor_2018": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   }
+  }
+ },
+ "CONTROL-02": {
+  "roi_area_m2": 102390,
+  "groups": {
+   "road4_parcels_reg_pre2025": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   },
+   "road4_parcels_reg2025_2026": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   },
+   "RB_parcels_Rapla-Parnu_raudtee": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   },
+   "RB_planning_corridor_2018": {
+    "overlap_m2": 0,
+    "pct_roi_area": 0.0
+   }
+  }
+ }
+}

@@ -1,0 +1,66 @@
+{
+  "config": {
+    "low_ndvi": 0.35,
+    "contrast_below_profile_median": 0.15,
+    "centre_window_m": 150.0,
+    "half_transect_m": 250.0,
+    "step_m": 10.0,
+    "station_spacing_m": 250.0,
+    "valid_scl": [
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "inputs": {
+    "runs/aoi-s2-jja-2025-2026-calibrated/source_windows/reference/nir.tif": "6f6ed0bed428e5b450bf1635b9462f6f41f2403a2fc0c5d8ded67d82332f7310",
+    "runs/aoi-s2-jja-2025-2026-calibrated/source_windows/reference/red.tif": "ca2b8b5d0829fc2901929cab4c5986f1603be00b87dc9b07fc1a82d847abdfe5",
+    "runs/aoi-s2-jja-2025-2026-calibrated/source_windows/reference/scl.tif": "3ef8d39d467af401224287df0abe766a07ce2cc2d4748e14e15dde9777234cd8",
+    "runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/nir.tif": "a1d0bb5ed7fb6352837fcd900f16d480a83b9cb7760962fa9b18e048cb74893a",
+    "runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/red.tif": "83c2eabb2b60315f08b6720bb3ab842738a87f51a6eee5ecea0949c97da98ed0",
+    "runs/aoi-s2-jja-2025-2026-calibrated/source_windows/target/scl.tif": "8b0c25cd67d341e1be6735326495b31f7ca51114996b637fefe2ac9ae36a490e",
+    "reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0003/inputs/prior_rois.geojson": "b079d3dbff8a473daf6e3d33cdfdaedffc29de470425b8fe9a212f796a862125"
+  },
+  "dates": {
+    "reference": "2025-06-15 (S2C_35VLE_20250615_0_L2A)",
+    "target": "2026-06-20"
+  },
+  "summary": {
+    "ROI-01": {
+      "stations": 73,
+      "paired_valid": 73,
+      "stations_with_band_2025": 1,
+      "stations_with_band_2026": 1,
+      "median_width_2025_m": 0.0,
+      "median_width_2026_m": 0.0,
+      "stations_wider_by_40m_or_more": 0,
+      "median_contrast_width_2025_m": 0.0,
+      "median_contrast_width_2026_m": 30.0,
+      "stations_contrast_wider_by_40m_or_more": 34,
+      "median_min_ndvi_2025": 0.818,
+      "median_min_ndvi_2026": 0.68
+    },
+    "ROI-02": {
+      "stations": 34,
+      "paired_valid": 34,
+      "stations_with_band_2025": 1,
+      "stations_with_band_2026": 24,
+      "median_width_2025_m": 0.0,
+      "median_width_2026_m": 40.0,
+      "stations_wider_by_40m_or_more": 17,
+      "median_contrast_width_2025_m": 0.0,
+      "median_contrast_width_2026_m": 70.0,
+      "stations_contrast_wider_by_40m_or_more": 22,
+      "median_min_ndvi_2025": 0.718,
+      "median_min_ndvi_2026": 0.1355
+    }
+  },
+  "limitations": [
+    "Widths are ground metres along EPSG:3301 transects (10 m steps) sampled from a 20 m EPSG:6933 grid (about 12 m x 33 m ground cells): effective resolution 12-33 m depending on direction",
+    "20 m grid: roads narrower than ~20 m are mixed pixels and may not fall below the NDVI limit",
+    "Centreline is derived from the manual 40 m sampling buffer, not surveyed",
+    "Low NDVI also marks bare soil, harvest, earthworks and cloud-shadow residue; it is not a road label",
+    "Single scenes per year; phenology and moisture differences remain"
+  ]
+}

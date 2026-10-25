@@ -2,3 +2,5 @@
 reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/curated/maps/leaflet.css -text whitespace=cr-at-eol
 reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/curated/metadata/sources.csv -text whitespace=cr-at-eol
 reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/planning_tables/sources.csv -text whitespace=cr-at-eol
+reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0003/**/*.csv -text whitespace=cr-at-eol
+reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0003/artifacts/geo-01/scripts/etak_wfs.py whitespace=-trailing-space

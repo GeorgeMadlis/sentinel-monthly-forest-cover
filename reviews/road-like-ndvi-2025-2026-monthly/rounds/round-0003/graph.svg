@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1246" height="907" viewBox="0 0 1246 907" font-family="DejaVu Sans, Arial, Helvetica, sans-serif" role="img">
+<title>Agent graph for round road-like-ndvi-2025-2026-monthly-round-0003</title>
+<defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1L9 5L1 9z" fill="#5F5E5A"/></marker></defs>
+<rect width="1246" height="907" fill="#FFFFFF"/>
+<text x="28" y="34" font-size="13" font-weight="bold" fill="#2C2C2A">Agent graph · road-like-ndvi-2025-2026-monthly-round-0003</text>
+<text x="28" y="54" font-size="11" fill="#444441">mode: stepwise · graph approval: approved by human operator (user in this conversation) · round status: active</text>
+<text x="28" y="70" font-size="11" fill="#5F5E5A">proposed by: synthesis-01 (Claude Code), recorded after execution; successor of round-0002</text>
+<rect x="27.8" y="384.0" width="532.4" height="110.0" rx="10" fill="none" stroke="#7F77DD" stroke-dasharray="5 4"/>
+<text x="33.8" y="396.0" font-size="10" fill="#534AB7">group 1</text>
+<path d="M294.0 174.0 C294.0 217.0 294.0 217.0 294.0 258.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M205.3 342.0 C205.3 372.0 155.2 372.0 155.2 400.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M382.7 342.0 C382.7 372.0 429.4 372.0 429.4 400.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M155.2 484.0 C155.2 520.5 254.9 520.5 254.9 555.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M429.4 484.0 C429.4 520.5 333.1 520.5 333.1 555.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M294.0 639.0 C294.0 675.5 294.0 675.5 294.0 710.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<path d="M560.0 301.0 L578.0 301.0 L578.0 598.0 L413.4 598.0" fill="none" stroke="#5F5E5A" stroke-width="1.2" marker-end="url(#arr)"/>
+<rect x="68.0" y="92.0" width="452.0" height="82" rx="6" fill="#E6F1FB" stroke="#185FA5" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="294.0" y="123.0" font-size="13" font-weight="bold" fill="#0C447C" text-anchor="middle">ROIs, AOI, windows, audit-01 report, operator request</text>
+<text x="294.0" y="141.0" font-size="11" fill="#185FA5" text-anchor="middle">input artifacts</text>
+<text x="294.0" y="156.0" font-size="11" font-style="italic" fill="#185FA5" text-anchor="middle">declared</text>
+<rect x="28.0" y="260.0" width="532.0" height="82" rx="22" fill="#FAEEDA" stroke="#854F0B" stroke-width="2"/>
+<text x="294.0" y="291.0" font-size="13" font-weight="bold" fill="#633806" text-anchor="middle">Human: authorize synthesis, retasking and online public sources</text>
+<text x="294.0" y="309.0" font-size="11" fill="#854F0B" text-anchor="middle">human approval gate</text>
+<text x="294.0" y="324.0" font-size="11" font-style="italic" fill="#854F0B" text-anchor="middle">approved</text>
+<rect x="37.8" y="402.0" width="234.8" height="82" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="2"/>
+<text x="155.2" y="425.5" font-size="13" font-weight="bold" fill="#085041" text-anchor="middle">geo-01</text>
+<text x="155.2" y="443.5" font-size="11" fill="#0F6E56" text-anchor="middle">claude-code</text>
+<text x="155.2" y="458.5" font-size="11" fill="#0F6E56" text-anchor="middle">national-geospatial-evidence</text>
+<text x="155.2" y="473.5" font-size="11" font-style="italic" fill="#0F6E56" text-anchor="middle">completed · 1 attempt · loop ≤2</text>
+<rect x="308.6" y="402.0" width="241.6" height="82" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="2"/>
+<text x="429.4" y="425.5" font-size="13" font-weight="bold" fill="#085041" text-anchor="middle">works-01</text>
+<text x="429.4" y="443.5" font-size="11" fill="#0F6E56" text-anchor="middle">claude-code</text>
+<text x="429.4" y="458.5" font-size="11" fill="#0F6E56" text-anchor="middle">official-infrastructure-records</text>
+<text x="429.4" y="473.5" font-size="11" font-style="italic" fill="#0F6E56" text-anchor="middle">completed · 2 attempts · loop ≤2</text>
+<rect x="176.6" y="557.0" width="234.8" height="82" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="2"/>
+<text x="294.0" y="580.5" font-size="13" font-weight="bold" fill="#085041" text-anchor="middle">synthesis-01</text>
+<text x="294.0" y="598.5" font-size="11" fill="#0F6E56" text-anchor="middle">claude-code</text>
+<text x="294.0" y="613.5" font-size="11" fill="#0F6E56" text-anchor="middle">evidence-synthesis</text>
+<text x="294.0" y="628.5" font-size="11" font-style="italic" fill="#0F6E56" text-anchor="middle">completed · 1 attempt · loop ≤2</text>
+<rect x="84.0" y="712.0" width="420.0" height="82" rx="22" fill="#FAEEDA" stroke="#854F0B" stroke-width="1.2" stroke-dasharray="5 3"/>
+<text x="294.0" y="743.0" font-size="13" font-weight="bold" fill="#633806" text-anchor="middle">Human: review synthesis report and agent evidence</text>
+<text x="294.0" y="761.0" font-size="11" fill="#854F0B" text-anchor="middle">human approval gate</text>
+<text x="294.0" y="776.0" font-size="11" font-style="italic" fill="#854F0B" text-anchor="middle">pending</text>
+<rect x="228.0" y="180.0" width="132.0" height="56.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="294.0" y="190.0" font-size="10" fill="#444441" text-anchor="middle">prior_rois.geojson</text>
+<text x="294.0" y="203.0" font-size="10" fill="#444441" text-anchor="middle">window_spec.yaml</text>
+<text x="294.0" y="216.0" font-size="10" fill="#444441" text-anchor="middle">audit_report.md</text>
+<text x="294.0" y="229.0" font-size="10" fill="#444441" text-anchor="middle">operator_request.txt</text>
+<rect x="234.2" y="348.0" width="119.6" height="30.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="294.0" y="358.0" font-size="10" fill="#444441" text-anchor="middle">prior_rois.geojson</text>
+<text x="294.0" y="371.0" font-size="10" fill="#444441" text-anchor="middle">window_spec.yaml</text>
+<rect x="73.7" y="490.0" width="163.0" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="155.2" y="500.0" font-size="10" fill="#444441" text-anchor="middle">geo_sources.csv</text>
+<text x="155.2" y="513.0" font-size="10" fill="#444441" text-anchor="middle">geo_claims.csv</text>
+<text x="155.2" y="526.0" font-size="10" fill="#444441" text-anchor="middle">geo_primary_evidence.json</text>
+<rect x="341.7" y="490.0" width="175.4" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="429.4" y="500.0" font-size="10" fill="#444441" text-anchor="middle">works_ledger.csv</text>
+<text x="429.4" y="513.0" font-size="10" fill="#444441" text-anchor="middle">works_claims.csv</text>
+<text x="429.4" y="526.0" font-size="10" fill="#444441" text-anchor="middle">works_primary_evidence.json</text>
+<rect x="206.3" y="645.0" width="175.4" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="294.0" y="655.0" font-size="10" fill="#444441" text-anchor="middle">synthesis_report/index.html</text>
+<text x="294.0" y="668.0" font-size="10" fill="#444441" text-anchor="middle">synthesis_claims.csv</text>
+<text x="294.0" y="681.0" font-size="10" fill="#444441" text-anchor="middle">bundle_manifest.json</text>
+<rect x="582.0" y="426.5" width="132.0" height="43.0" rx="3" fill="#FFFFFF" fill-opacity="0.92"/>
+<text x="586.0" y="436.5" font-size="10" fill="#444441" text-anchor="start">prior_rois.geojson</text>
+<text x="586.0" y="449.5" font-size="10" fill="#444441" text-anchor="start">audit_report.md</text>
+<text x="586.0" y="462.5" font-size="10" fill="#444441" text-anchor="start">operator_request.txt</text>
+<rect x="28" y="835" width="14" height="12" rx="2" fill="#E6F1FB" stroke="#185FA5"/>
+<text x="48" y="845" font-size="11" fill="#444441">input</text>
+<rect x="96.0" y="835" width="14" height="12" rx="2" fill="#E1F5EE" stroke="#0F6E56"/>
+<text x="116.0" y="845" font-size="11" fill="#444441">agent</text>
+<rect x="164.0" y="835" width="14" height="12" rx="2" fill="#F1EFE8" stroke="#5F5E5A"/>
+<text x="184.0" y="845" font-size="11" fill="#444441">script</text>
+<rect x="238.8" y="835" width="14" height="12" rx="2" fill="#FAEEDA" stroke="#854F0B"/>
+<text x="258.8" y="845" font-size="11" fill="#444441">human gate</text>
+<rect x="340.8" y="835" width="14" height="12" rx="2" fill="none" stroke="#7F77DD" stroke-dasharray="3 2"/>
+<text x="360.8" y="845" font-size="11" fill="#444441">independence group</text>
+<text x="503.2" y="845" font-size="11" fill="#444441">dashed border = not yet done · solid = completed/approved · red = failed/blocked/rejected</text>
+<text x="28" y="865" font-size="11" fill="#444441">Arrows are labelled with the artifacts they carry. No path may link members of an independence group. Manual hand-off hosts (chatgpt, claude) are not invoked programmatically.</text>
+<text x="28" y="883" font-size="11" font-weight="bold" fill="#633806">Status is read from the round record; it does not prove what a host actually did. Generated by agent_harness/scripts/render_round_graph.py; do not edit.</text>
+</svg>

@@ -1,0 +1,924 @@
+{
+ "schema": "works-01 primary evidence v1",
+ "round": "round-0002",
+ "instance": "works-01",
+ "retask": "works-01-retask-0001",
+ "roi_input": {
+  "path": "inputs/prior_rois.geojson",
+  "sha256": "b079d3dbff8a473daf6e3d33cdfdaedffc29de470425b8fe9a212f796a862125"
+ },
+ "sources": [
+  {
+   "evidence_id": "E01",
+   "source_type": "official_vector_wfs",
+   "publisher": "Maa- ja Ruumiamet (ETAK)",
+   "title_or_layer": "etak:e_501_tee_j roads (2 bboxes)",
+   "url": "https://gsavalik.envir.ee/geoserver/etak/wfs?typeNames=etak:e_501_tee_j",
+   "document_or_data_date": "feature muutmisaeg up to 2026 (per-feature)",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:38:10Z",
+   "local_path": "downloads/etak/e_501_tee_j_roi01.json; downloads/etak/e_501_tee_j_roi02.json",
+   "license_terms": "Maa- ja Ruumiamet open data (attribution); exact licence text not re-verified this round",
+   "geometry_match_confidence": "high (direct intersection)"
+  },
+  {
+   "evidence_id": "E02",
+   "source_type": "official_vector_wfs",
+   "publisher": "Maa- ja Ruumiamet (ETAK)",
+   "title_or_layer": "etak:e_502_roobastee_j railway",
+   "url": "https://gsavalik.envir.ee/geoserver/etak/wfs?typeNames=etak:e_502_roobastee_j",
+   "document_or_data_date": "feature 4076351 muutmisaeg 2026-08-10",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:38:11Z",
+   "local_path": "downloads/etak/e_502_roobastee_j_roi01.json",
+   "license_terms": "as E01",
+   "geometry_match_confidence": "high"
+  },
+  {
+   "evidence_id": "E03",
+   "source_type": "official_vector_wfs",
+   "publisher": "Maa- ja Ruumiamet (ETAK)",
+   "title_or_layer": "etak:e_503_siht_j / e_601_elektriliin_j / e_603_torujuhe_j",
+   "url": "https://gsavalik.envir.ee/geoserver/etak/wfs",
+   "document_or_data_date": "per-feature",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:38:11Z",
+   "local_path": "downloads/etak/e_503_siht_j_*.json; e_601_elektriliin_j_*.json; e_603_torujuhe_j_*.json",
+   "license_terms": "as E01",
+   "geometry_match_confidence": "high"
+  },
+  {
+   "evidence_id": "E04",
+   "source_type": "official_planning_wfs",
+   "publisher": "Maa- ja Ruumiamet / planeeringud",
+   "title_or_layer": "planeeringud:rb_planeeringutrass 'Rail Baltic trassi koridor' (MP 'Rail Baltic raudtee trassi koridori asukoha määramine')",
+   "url": "https://gsavalik.envir.ee/geoserver/planeeringud/wfs?typeNames=planeeringud:rb_planeeringutrass",
+   "document_or_data_date": "county plan legal date 2018-02-14 (from E05 oiguslik_kpv 2018-02-13T22:00Z)",
+   "event_date": "plan adopted 2018",
+   "retrieval_utc": "2026-10-24T16:39:14Z",
+   "local_path": "downloads/plan/rb_planeeringutrass.json",
+   "license_terms": "as E01",
+   "geometry_match_confidence": "high for ROI-01 NE part; none for ROI-02"
+  },
+  {
+   "evidence_id": "E05",
+   "source_type": "official_restriction_wfs",
+   "publisher": "Maa- ja Ruumiamet kitsendused",
+   "title_or_layer": "kitsendus_suunatud:kpo_avalik_planeering vid 32127 'Riigi eriplaneeringu ala - Rail Baltic raudtee trassi koridor' (owner OÜ Rail Baltic Estonia)",
+   "url": "https://gsavalik.envir.ee/geoserver/kitsendus_suunatud/wfs?typeNames=kitsendus_suunatud:kpo_avalik_planeering",
+   "document_or_data_date": "oiguslik_kpv 2018-02-13T22:00:00Z; last_modified 2022-09-14",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:40:41Z",
+   "local_path": "downloads/kitsendus/kpo_avalik_planeering_roi01.json",
+   "license_terms": "as E01",
+   "geometry_match_confidence": "high"
+  },
+  {
+   "evidence_id": "E06",
+   "source_type": "official_cadastre_wfs",
+   "publisher": "Maa- ja Ruumiamet (kataster:ky_kehtiv)",
+   "title_or_layer": "Cadastral units with address 'Rapla-Pärnu raudtee NNN' and '4 Tallinn(a)-Pärnu-Ikla tee' in ROI area",
+   "url": "https://gsavalik.envir.ee/geoserver/kataster/wfs?typeNames=kataster:ky_kehtiv",
+   "document_or_data_date": "registration dates 2020-2026 (registr field)",
+   "event_date": "land-acquisition parcels registered mostly 2025 (RB) and 2025-2026 (road 4)",
+   "retrieval_utc": "2026-10-24T16:42:10Z",
+   "local_path": "downloads/kataster/linear_parcels.json",
+   "license_terms": "as E01",
+   "geometry_match_confidence": "high (parcel polygons intersected)"
+  },
+  {
+   "evidence_id": "E07",
+   "source_type": "official_cadastre_wfs",
+   "publisher": "Maa- ja Ruumiamet (kataster:ky_kehtiv)",
+   "title_or_layer": "Owners/purpose of parcels under clearing notices (CQL tunnus IN ...)",
+   "url": "https://gsavalik.envir.ee/geoserver/kataster/wfs",
+   "document_or_data_date": "registr/muudet per parcel",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:41:51Z",
+   "local_path": "downloads/kataster/parcels.json",
+   "license_terms": "as E01",
+   "geometry_match_confidence": "high"
+  },
+  {
+   "evidence_id": "E08",
+   "source_type": "official_cadastre_wfs",
+   "publisher": "Maa- ja Ruumiamet (kataster:ky_kehtiv)",
+   "title_or_layer": "Parcels registered since 2019 in ROI-01 SW bbox",
+   "url": "https://gsavalik.envir.ee/geoserver/kataster/wfs",
+   "document_or_data_date": "2019-2026",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:42:42Z",
+   "local_path": "downloads/kataster/roi01_sw_parcels_since2019.json",
+   "license_terms": "as E01",
+   "geometry_match_confidence": "high"
+  },
+  {
+   "evidence_id": "E09",
+   "source_type": "official_register_wfs",
+   "publisher": "Keskkonnaagentuur / Metsaregister",
+   "title_or_layer": "metsaregister:teatis (valid forest notifications; too_kood RD=raadamine (clearing for land-use change); LR=lageraie; HR=harvennusraie; SR=sanitaarraie; TR=valikraie/other - code meanings from Metsaregister practice; not re-verified)",
+   "url": "https://gsavalik.envir.ee/geoserver/metsaregister/wfs?typeNames=metsaregister:teatis",
+   "document_or_data_date": "otsus_kinnitatud_kp per notice (2024-11 to 2026-10)",
+   "event_date": "approval date only - felling date not recorded",
+   "retrieval_utc": "2026-10-24T16:41:21Z",
+   "local_path": "downloads/metsaregister/teatis_roi01.json; downloads/metsaregister/teatis_roi02.json",
+   "license_terms": "Keskkonnaagentuur open data; licence text not re-verified",
+   "geometry_match_confidence": "high (polygon intersection)"
+  },
+  {
+   "evidence_id": "E10",
+   "source_type": "official_register_wfs",
+   "publisher": "Keskkonnaagentuur / Metsaregister",
+   "title_or_layer": "metsaregister:teatis_arhiiv filtered too_kood IN (RD;LR)",
+   "url": "https://gsavalik.envir.ee/geoserver/metsaregister/wfs?typeNames=metsaregister:teatis_arhiiv",
+   "document_or_data_date": "2016-2025",
+   "event_date": "approval dates",
+   "retrieval_utc": "2026-10-24T16:43:08Z",
+   "local_path": "downloads/metsaregister/teatis_arhiiv_RD_LR_roi01.json; downloads/metsaregister/teatis_arhiiv_RD_LR_roi02.json",
+   "license_terms": "as E09",
+   "geometry_match_confidence": "high"
+  },
+  {
+   "evidence_id": "E11",
+   "source_type": "official_admin_wfs",
+   "publisher": "Maa- ja Ruumiamet (EHAK)",
+   "title_or_layer": "ehak:asustusyksuste_piirid",
+   "url": "https://gsavalik.envir.ee/geoserver/ehak/wfs?typeNames=ehak:asustusyksuste_piirid",
+   "document_or_data_date": "vers_algus 2025-01-02",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:45:32Z",
+   "local_path": "downloads/ehak/villages.json",
+   "license_terms": "as E01",
+   "geometry_match_confidence": "high"
+  },
+  {
+   "evidence_id": "E12",
+   "source_type": "news_secondary",
+   "publisher": "ERR",
+   "title_or_layer": "Rail Baltic Estonia sõlmis suurimad taristuehituse lepingud Eesti ajaloos",
+   "url": "https://www.err.ee/1609696695/rail-baltic-estonia-solmis-suurimad-taristuehituse-lepingud-eesti-ajaloos",
+   "document_or_data_date": "2025-05-16",
+   "event_date": "contract signed 2025-05-16",
+   "retrieval_utc": "2026-10-24T16:46:28Z",
+   "local_path": "downloads/web/err_1609696695.html",
+   "license_terms": "ERR copyright - local evidence snapshot only; do not redistribute",
+   "geometry_match_confidence": "none (no geometry)"
+  },
+  {
+   "evidence_id": "E13",
+   "source_type": "news_secondary",
+   "publisher": "ERR",
+   "title_or_layer": "Rail Balticu Eesti põhitrassi võtmelõikude ehitus algab järgmisel aastal",
+   "url": "https://www.err.ee/1609720146/rail-balticu-eesti-pohitrassi-votmeloikude-ehitus-algab-jargmisel-aastal",
+   "document_or_data_date": "2025-06-12",
+   "event_date": "most intensive works expected from 2026",
+   "retrieval_utc": "2026-10-24T16:46:28Z",
+   "local_path": "downloads/web/err_1609720146.html",
+   "license_terms": "as E12",
+   "geometry_match_confidence": "none"
+  },
+  {
+   "evidence_id": "E14",
+   "source_type": "news_secondary",
+   "publisher": "ERR",
+   "title_or_layer": "Rail Balticu põhitrassi ehitus jõuab sügiseks Pärnumaale",
+   "url": "https://www.err.ee/1609618961/rail-balticu-pohitrassi-ehitus-jouab-sugiseks-parnumaale",
+   "document_or_data_date": "2025-02-28",
+   "event_date": "Selja-Tootsi (~16 km; Tariston; 62 MEUR) works expected late summer/autumn 2025",
+   "retrieval_utc": "2026-10-24T16:46:59Z",
+   "local_path": "downloads/web/err_1609618961.html",
+   "license_terms": "as E12",
+   "geometry_match_confidence": "none"
+  },
+  {
+   "evidence_id": "E15",
+   "source_type": "news_secondary",
+   "publisher": "ERR",
+   "title_or_layer": "Uuel aastal algavad Tallinna-Pärnu maanteel üha suuremad ehitustööd",
+   "url": "https://www.err.ee/1609874658/uuel-aastal-algavad-tallinna-parnu-maanteel-uha-suuremad-ehitustood",
+   "document_or_data_date": "2025-12-04",
+   "event_date": "Are 2+2 (7 km; Tref Nord; 36.5 MEUR) and Halinga-Kangru 2+2 (5 km; KMG+Infragreen; 25.5 MEUR; existing alignment) to start H1 2026",
+   "retrieval_utc": "2026-10-24T16:46:58Z",
+   "local_path": "downloads/web/err_1609874658.html",
+   "license_terms": "as E12",
+   "geometry_match_confidence": "none (text description of extent only)"
+  },
+  {
+   "evidence_id": "E16",
+   "source_type": "news_secondary",
+   "publisher": "ERR",
+   "title_or_layer": "Algavad Are möödasõidu 2+2 teelõigu ehitustööd",
+   "url": "https://www.err.ee/1609925537/algavad-are-moodasoidu-2-2-teeloigu-ehitustood",
+   "document_or_data_date": "2026-01-29",
+   "event_date": "construction start 2026-02-02 (clearing first; earthworks from early March 2026)",
+   "retrieval_utc": "2026-10-24T16:46:58Z",
+   "local_path": "downloads/web/err_1609925537.html",
+   "license_terms": "as E12",
+   "geometry_match_confidence": "medium (village-boundary description matches ROI-02 villages; no map)"
+  },
+  {
+   "evidence_id": "E17",
+   "source_type": "news_secondary",
+   "publisher": "ERR",
+   "title_or_layer": "Are möödasõidule tuleb uus ehitushange",
+   "url": "https://www.err.ee/1609737930/are-moodasoidule-tuleb-uus-ehitushange",
+   "document_or_data_date": "2025-07-04",
+   "event_date": "re-tender after VAKO decision",
+   "retrieval_utc": "2026-10-24T16:46:59Z",
+   "local_path": "downloads/web/err_1609737930.html",
+   "license_terms": "as E12",
+   "geometry_match_confidence": "none"
+  },
+  {
+   "evidence_id": "E18",
+   "source_type": "official_news",
+   "publisher": "Transpordiamet",
+   "title_or_layer": "The largest road construction works on the Tallinn-Pärnu national road will bring traffic changes",
+   "url": "https://transpordiamet.ee/en/news/largest-road-construction-works-tallinn-parnu-national-road-will-bring-traffic-changes",
+   "document_or_data_date": "2026-03-05",
+   "event_date": "2026 works start (other sections)",
+   "retrieval_utc": "2026-10-24T16:46:59Z",
+   "local_path": "downloads/web/ta_news_2026-03-05.html",
+   "license_terms": "Transpordiamet website terms - local snapshot only",
+   "geometry_match_confidence": "none"
+  },
+  {
+   "evidence_id": "E19",
+   "source_type": "official_document",
+   "publisher": "Transpordiamet",
+   "title_or_layer": "Lisa 1. Tee ehitusluba (2026-04) - riigitee 9 Herjava ristmik",
+   "url": "https://www.transpordiamet.ee/sites/default/files/documents/2026-04/Lisa%201.%20Tee%20ehitusluba.pdf",
+   "document_or_data_date": "2026-04-06",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:46:00Z",
+   "local_path": "downloads/web/ta_2026-04_Lisa1_Tee_ehitusluba.pdf",
+   "license_terms": "public authority document",
+   "geometry_match_confidence": "none - unrelated (Lääne county)"
+  },
+  {
+   "evidence_id": "E20",
+   "source_type": "derived",
+   "publisher": "works-01",
+   "title_or_layer": "Intersections/profiles/coverage (scripts/*.py)",
+   "url": "local",
+   "document_or_data_date": "2026-10-24",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:38-16:45Z",
+   "local_path": "derived_*.json; derived_*.csv; images/map_roi01.png; images/map_roi02.png",
+   "license_terms": "derived from E01-E11 (attribution to Maa- ja Ruumiamet and Keskkonnaagentuur)",
+   "geometry_match_confidence": "n/a"
+  },
+  {
+   "evidence_id": "N01",
+   "source_type": "negative_search",
+   "publisher": "Riigihangete register",
+   "title_or_layer": "riigihanked.riik.ee search for Are möödasõit / Rail Baltica Tootsi-Pärnu",
+   "url": "https://riigihanked.riik.ee/rhr-web/",
+   "document_or_data_date": "n/a",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:47:42Z",
+   "local_path": "",
+   "license_terms": "n/a",
+   "geometry_match_confidence": "n/a"
+  },
+  {
+   "evidence_id": "N02",
+   "source_type": "negative_search",
+   "publisher": "Rail Baltica (railbaltica.org / info.railbaltica.org)",
+   "title_or_layer": "'Rail Baltica construction reaches Pärnumaa' (?p=54799) and Tootsi-Pärnu value-engineering news",
+   "url": "https://railbaltica.org/?p=54799 ; https://info.railbaltica.org/en/news/development-of-the-value-engineering-design-for-the-tootsiparnu-section-of-the-rail-baltica-project-has-been-completed",
+   "document_or_data_date": "n/a",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:47Z",
+   "local_path": "",
+   "license_terms": "n/a",
+   "geometry_match_confidence": "n/a"
+  },
+  {
+   "evidence_id": "N03",
+   "source_type": "negative_search",
+   "publisher": "Maa- ja Ruumiamet planeeringud",
+   "title_or_layer": "yld_plan_transp and detail_plan_transp in ROI bboxes",
+   "url": "https://gsavalik.envir.ee/geoserver/planeeringud/wfs",
+   "document_or_data_date": "n/a",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:41:22Z",
+   "local_path": "downloads/planeeringud/*.json",
+   "license_terms": "as E01",
+   "geometry_match_confidence": "n/a"
+  },
+  {
+   "evidence_id": "N04",
+   "source_type": "negative_search",
+   "publisher": "web search (WebSearch)",
+   "title_or_layer": "Are bypass design map / building permit km 108.5-115.8; RB Tootsi-Pärnu clearing start date; ArcGIS RB map",
+   "url": "various",
+   "document_or_data_date": "n/a",
+   "event_date": "n/a",
+   "retrieval_utc": "2026-10-24T16:43-16:48Z",
+   "local_path": "",
+   "license_terms": "n/a",
+   "geometry_match_confidence": "n/a"
+  }
+ ],
+ "files": [
+  {
+   "path": "README.md",
+   "kind": "report",
+   "sha256": "f04a928b8733e8da69459da5412b3b121a90199985701f564fa71ce8a9b1dbc7",
+   "bytes": 7092,
+   "written_or_retrieved_utc": "2026-10-24T16:50:48Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "derived_archived_notices_in_rois.csv",
+   "kind": "derived",
+   "sha256": "af63087e7cf27720b8b28bc4410167a2e859bd11263fd591367973249fc79841",
+   "bytes": 6421,
+   "written_or_retrieved_utc": "2026-10-24T16:43:19Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "derived_centreline_profile.json",
+   "kind": "derived",
+   "sha256": "6f0a447b4ad3a552873bebdcde1a659a07e56651c233b28c51cf966d38ce3bb0",
+   "bytes": 19266,
+   "written_or_retrieved_utc": "2026-10-24T16:39:56Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "derived_etak_intersections.json",
+   "kind": "derived",
+   "sha256": "35fb2cade44094ee4d9d82441052d1da31f15f3801deb2e2cb56d67a0f926bbc",
+   "bytes": 10687,
+   "written_or_retrieved_utc": "2026-10-24T16:38:33Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "derived_forest_notices_in_rois.csv",
+   "kind": "derived",
+   "sha256": "3e2bc33acaa56bb8ad415ec7e19390109cfdba7be60e43c482c2a58c538a6596",
+   "bytes": 8324,
+   "written_or_retrieved_utc": "2026-10-24T16:41:37Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "derived_notice_chainage.json",
+   "kind": "derived",
+   "sha256": "d76d430bc43da6dfdd2df7c437c39abeafb3c03704efa25e598a2487bca27b5b",
+   "bytes": 3532,
+   "written_or_retrieved_utc": "2026-10-24T16:42:58Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "derived_parcel_coverage.json",
+   "kind": "derived",
+   "sha256": "94af19d18d996b2e08346887d30a0f6e81e65923e3cf24b7e8e2467b34d8295c",
+   "bytes": 12674,
+   "written_or_retrieved_utc": "2026-10-24T16:42:26Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "works_claims.csv",
+   "kind": "report",
+   "sha256": "cb98ae813778cd1e4f4ebc143d6206dd825af2a6cc94754a86443dac054f1aae",
+   "bytes": 7594,
+   "written_or_retrieved_utc": "2026-10-24T16:50:13Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "works_ledger.csv",
+   "kind": "report",
+   "sha256": "1883f113807c6a4cbe85966e0537f344414965988490d68ad567ab0aa83a65dd",
+   "bytes": 14157,
+   "written_or_retrieved_utc": "2026-10-24T16:49:26Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "images/map_roi01.png",
+   "kind": "derived",
+   "sha256": "5f6517d3bb69f8b8764a6b7e3014bae5659f692e0abb6994b3504a4a12270ecc",
+   "bytes": 167216,
+   "written_or_retrieved_utc": "2026-10-24T16:44:03Z",
+   "evidence_ids": [
+    "E20"
+   ]
+  },
+  {
+   "path": "images/map_roi02.png",
+   "kind": "derived",
+   "sha256": "21cd39c78edfedd246f58f1fd8195bc4b6c5f33a77e548537d0dfea198623653",
+   "bytes": 72726,
+   "written_or_retrieved_utc": "2026-10-24T16:44:03Z",
+   "evidence_ids": [
+    "E20"
+   ]
+  },
+  {
+   "path": "scripts/archive_notices.py",
+   "kind": "script",
+   "sha256": "e5c91ea024396463857e5a656e7fb3f25dcbdf6f8e9fd772edbb6ca6d1372714",
+   "bytes": 1719,
+   "written_or_retrieved_utc": "2026-10-24T16:43:19Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "scripts/build_manifests.py",
+   "kind": "script",
+   "sha256": "940457be1231509584ad4e2bdf9a3b77993f46d953f4d25b9fbc27f46543c5bd",
+   "bytes": 7924,
+   "written_or_retrieved_utc": "2026-10-24T16:51:21Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "scripts/intersect_etak.py",
+   "kind": "script",
+   "sha256": "edbd4e7a3df5b1aa73e244b30782495ee44134aa0407bbb4d83ab70349b220c8",
+   "bytes": 3019,
+   "written_or_retrieved_utc": "2026-10-24T16:38:33Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "scripts/intersect_forest_notices.py",
+   "kind": "script",
+   "sha256": "ae4a84127cdfb7b95117ae679644ab86412cd5b837bf4059c642675e4c90f747",
+   "bytes": 2688,
+   "written_or_retrieved_utc": "2026-10-24T16:41:37Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "scripts/intersect_polygon_layer.py",
+   "kind": "script",
+   "sha256": "e8233ee321e5c9396c4b23959b096c28789992e119102a1ac27f49fef6df29a2",
+   "bytes": 979,
+   "written_or_retrieved_utc": "2026-10-24T16:39:27Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "scripts/notice_chainage.py",
+   "kind": "script",
+   "sha256": "5d0c0319d2d1cda677839097c6492d8edfd61df5a6b8b57a82f749ca0603b967",
+   "bytes": 1861,
+   "written_or_retrieved_utc": "2026-10-24T16:42:57Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "scripts/parcel_coverage.py",
+   "kind": "script",
+   "sha256": "87f0035cf1afd08563d4340b04052535633043a381680ee97add36f85bb4eeff",
+   "bytes": 2677,
+   "written_or_retrieved_utc": "2026-10-24T16:42:25Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "scripts/parcels_in_roi.py",
+   "kind": "script",
+   "sha256": "822899d7f327e73864ed7ad23c198beb8b993ab3691c2344d99faaf501c181d6",
+   "bytes": 869,
+   "written_or_retrieved_utc": "2026-10-24T16:42:42Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "scripts/profile_centreline.py",
+   "kind": "script",
+   "sha256": "f15cd3c062741e87d6a798836bb48eeeb7dabb96035918ac5c3f7d6f597a80d6",
+   "bytes": 2684,
+   "written_or_retrieved_utc": "2026-10-24T16:39:56Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "scripts/render_map.py",
+   "kind": "script",
+   "sha256": "27c81ca10140e9272d40da935f64e78b8513cea98aef9d863d5ac55a09c4daf1",
+   "bytes": 3479,
+   "written_or_retrieved_utc": "2026-10-24T16:44:02Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "scripts/roi_villages.py",
+   "kind": "script",
+   "sha256": "b2287b11436abb272312a2184cea419f0ff7cd4e9075a3ad8bd3d2e385b56bca",
+   "bytes": 1285,
+   "written_or_retrieved_utc": "2026-10-24T16:45:41Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "scripts/vertex_distances.py",
+   "kind": "script",
+   "sha256": "7add7e40b8ecbf0bab5115597d8165aaa152574dc40d95555bedc29ef0525508",
+   "bytes": 1568,
+   "written_or_retrieved_utc": "2026-10-24T16:40:11Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/etak_caps.xml",
+   "kind": "source_download",
+   "sha256": "eab3054d41e0784904abe0dbe99fa33b8ad0f641189d39e1c49132d1e1c4f166",
+   "bytes": 147052,
+   "written_or_retrieved_utc": "2026-10-24T16:37:53Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/gsavalik_caps.xml",
+   "kind": "source_download",
+   "sha256": "fd11fa68b7c6249ca5b393e148396e2c16c092e98a7c2b91a28452e3343f2262",
+   "bytes": 1345193,
+   "written_or_retrieved_utc": "2026-10-24T16:39:00Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/etak/e_501_tee_j_roi01.json",
+   "kind": "source_download",
+   "sha256": "cfc4cf58c339f41bbabdbb72dc0adb5780af81f922d2baa4f3dcccd6d6d424e7",
+   "bytes": 2605989,
+   "written_or_retrieved_utc": "2026-10-24T16:38:10Z",
+   "evidence_ids": [
+    "E01"
+   ]
+  },
+  {
+   "path": "downloads/etak/e_501_tee_j_roi02.json",
+   "kind": "source_download",
+   "sha256": "3ef1b5998a4b9f441650f49dc1f7f6ee4316ff4b1b38a4f892bab32a0ad0f276",
+   "bytes": 272419,
+   "written_or_retrieved_utc": "2026-10-24T16:38:10Z",
+   "evidence_ids": [
+    "E01"
+   ]
+  },
+  {
+   "path": "downloads/etak/e_502_roobastee_j_roi01.json",
+   "kind": "source_download",
+   "sha256": "13b1cf108ca31d4430d8829e692b6591837844dba2526b603797ee6a3051b20c",
+   "bytes": 10508,
+   "written_or_retrieved_utc": "2026-10-24T16:38:11Z",
+   "evidence_ids": [
+    "E02"
+   ]
+  },
+  {
+   "path": "downloads/etak/e_502_roobastee_j_roi02.json",
+   "kind": "source_download",
+   "sha256": "4fdba4d855ab987b3f1fd4288d4b4edb10ed59466114e1af5cb08341a808f3ce",
+   "bytes": 147,
+   "written_or_retrieved_utc": "2026-10-24T16:38:11Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/etak/e_503_siht_j_roi01.json",
+   "kind": "source_download",
+   "sha256": "93ab9fef2e12d9d5d9ad309ab5ce937d72408fe62d20c31f0e6f8bfa5600d1f7",
+   "bytes": 20507,
+   "written_or_retrieved_utc": "2026-10-24T16:38:11Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/etak/e_503_siht_j_roi02.json",
+   "kind": "source_download",
+   "sha256": "6c6a75230af31bcfe1bfe050aeedaf767cb99ba1a67da1b62d6f86819f3b835c",
+   "bytes": 2644,
+   "written_or_retrieved_utc": "2026-10-24T16:38:11Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/etak/e_601_elektriliin_j_roi01.json",
+   "kind": "source_download",
+   "sha256": "6c808e34f2f7cff3b6341fcf5cb76eaaf6a8a2014be49db8972b457ab7dbb4ec",
+   "bytes": 73781,
+   "written_or_retrieved_utc": "2026-10-24T16:38:11Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/etak/e_601_elektriliin_j_roi02.json",
+   "kind": "source_download",
+   "sha256": "f4f261d4654ecd7817c8053b825337fedbb452d7e5f1d7bfa8a61c7d85ce0261",
+   "bytes": 10081,
+   "written_or_retrieved_utc": "2026-10-24T16:38:11Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/etak/e_603_torujuhe_j_roi01.json",
+   "kind": "source_download",
+   "sha256": "3dc6494896bb95f0dc85295bc180463ef4a2af605d3384561b65a9e61037dc94",
+   "bytes": 147,
+   "written_or_retrieved_utc": "2026-10-24T16:38:11Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/etak/e_603_torujuhe_j_roi02.json",
+   "kind": "source_download",
+   "sha256": "6f5a94bc9825210bdcff7dd04102db6aa898755ee770ae1b655f355bfd346843",
+   "bytes": 147,
+   "written_or_retrieved_utc": "2026-10-24T16:38:11Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/plan/rb_planeeringutrass.json",
+   "kind": "source_download",
+   "sha256": "e1fcebff6c8397513d258b39aea0ad42f9e178edeb1e4a134f99f129545d186b",
+   "bytes": 4990,
+   "written_or_retrieved_utc": "2026-10-24T16:39:14Z",
+   "evidence_ids": [
+    "E04"
+   ]
+  },
+  {
+   "path": "downloads/web/err_1609618961.html",
+   "kind": "source_download",
+   "sha256": "7de2cab5be4f488e46e850b5a2091cd381e37d73a60b76c2c2b95bcab2c6294f",
+   "bytes": 127837,
+   "written_or_retrieved_utc": "2026-10-24T16:46:59Z",
+   "evidence_ids": [
+    "E14"
+   ]
+  },
+  {
+   "path": "downloads/web/err_1609696695.html",
+   "kind": "source_download",
+   "sha256": "25e385914a887b468dc0038c2b9a30da14d1d997997420c04def546c268ff695",
+   "bytes": 126371,
+   "written_or_retrieved_utc": "2026-10-24T16:46:28Z",
+   "evidence_ids": [
+    "E12"
+   ]
+  },
+  {
+   "path": "downloads/web/err_1609720146.html",
+   "kind": "source_download",
+   "sha256": "fa34f58a2f21e49321d5935a1fa9e28da252676709b1f2baa89196c6ff5a56ce",
+   "bytes": 170397,
+   "written_or_retrieved_utc": "2026-10-24T16:46:28Z",
+   "evidence_ids": [
+    "E13"
+   ]
+  },
+  {
+   "path": "downloads/web/err_1609737930.html",
+   "kind": "source_download",
+   "sha256": "a44a9641376d9bc9f1b018717d63868df6c5325d354928649dc1df5543cdfc81",
+   "bytes": 122252,
+   "written_or_retrieved_utc": "2026-10-24T16:46:59Z",
+   "evidence_ids": [
+    "E17"
+   ]
+  },
+  {
+   "path": "downloads/web/err_1609874658.html",
+   "kind": "source_download",
+   "sha256": "b79429e4f66ddba167cd78bc0f5a8a89a1b69d18fdb1579280cd52c2a40f9262",
+   "bytes": 135128,
+   "written_or_retrieved_utc": "2026-10-24T16:46:58Z",
+   "evidence_ids": [
+    "E15"
+   ]
+  },
+  {
+   "path": "downloads/web/err_1609925537.html",
+   "kind": "source_download",
+   "sha256": "9ba13dd8aacdf0daa3b9ffeeb8527a07f25881f5fd404b504efbdf517c35e311",
+   "bytes": 120348,
+   "written_or_retrieved_utc": "2026-10-24T16:46:58Z",
+   "evidence_ids": [
+    "E16"
+   ]
+  },
+  {
+   "path": "downloads/web/ta_2026-04_Lisa1_Tee_ehitusluba.pdf",
+   "kind": "source_download",
+   "sha256": "ead77a93f421b4f77806391a7c400ccbaf4e2b07c2c4ab4e35db70f495918848",
+   "bytes": 404464,
+   "written_or_retrieved_utc": "2026-10-24T16:46:00Z",
+   "evidence_ids": [
+    "E19"
+   ]
+  },
+  {
+   "path": "downloads/web/ta_news_2026-03-05.html",
+   "kind": "source_download",
+   "sha256": "0bb64be072fa4c893d6669f141e1780f7946159a2f0da2c75e4be118e63cf5b6",
+   "bytes": 135790,
+   "written_or_retrieved_utc": "2026-10-24T16:46:59Z",
+   "evidence_ids": [
+    "E18"
+   ]
+  },
+  {
+   "path": "downloads/ehak/villages.json",
+   "kind": "source_download",
+   "sha256": "da173dc16ba9d806522967785b7ba7957a5ceff9535e4900aaf271518a279a64",
+   "bytes": 389430,
+   "written_or_retrieved_utc": "2026-10-24T16:45:32Z",
+   "evidence_ids": [
+    "E11"
+   ]
+  },
+  {
+   "path": "downloads/planeeringud/detail_plan_ala_roi01.json",
+   "kind": "source_download",
+   "sha256": "f04e5feeed1e7e102a254eec3da3a31b5a988605ff02ee1c3acf3ac8a45ed6d2",
+   "bytes": 24267,
+   "written_or_retrieved_utc": "2026-10-24T16:41:22Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/planeeringud/detail_plan_ala_roi02.json",
+   "kind": "source_download",
+   "sha256": "717e57fe57ff616995d2420d50a147915c2aa64a0cd0ce14b808ffa3b1446897",
+   "bytes": 4016,
+   "written_or_retrieved_utc": "2026-10-24T16:41:22Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/planeeringud/detail_plan_transp_roi01.json",
+   "kind": "source_download",
+   "sha256": "ba87e6077503b0164dbdb7c632e8376c432cd567fb7b2627c79b647678ba7146",
+   "bytes": 9380,
+   "written_or_retrieved_utc": "2026-10-24T16:41:21Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/planeeringud/detail_plan_transp_roi02.json",
+   "kind": "source_download",
+   "sha256": "6662727ae28f6310cc5eeb589afb6e1ee541f1563e52cddeafa78aab601a8c47",
+   "bytes": 147,
+   "written_or_retrieved_utc": "2026-10-24T16:41:22Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/planeeringud/yld_plan_transp_roi01.json",
+   "kind": "source_download",
+   "sha256": "9582ccbca132d6b9cd7480e6e5ef52437a30312e55e317b509ca0531be422abb",
+   "bytes": 147,
+   "written_or_retrieved_utc": "2026-10-24T16:41:21Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/planeeringud/yld_plan_transp_roi02.json",
+   "kind": "source_download",
+   "sha256": "0c9f27da229262a26b1250a24d9a639c5058f10fb1f01ce08864640ca4811a5f",
+   "bytes": 147,
+   "written_or_retrieved_utc": "2026-10-24T16:41:21Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/kataster/linear_parcels.json",
+   "kind": "source_download",
+   "sha256": "e366572db56a7e58aefc3c4ef4f8d304fbf0104c1fc3ee525d3bfc620f7a0e43",
+   "bytes": 231487,
+   "written_or_retrieved_utc": "2026-10-24T16:42:10Z",
+   "evidence_ids": [
+    "E06",
+    "E07"
+   ]
+  },
+  {
+   "path": "downloads/kataster/parcels.json",
+   "kind": "source_download",
+   "sha256": "6fe45c1e7cb3d08ac12242711e102752b67600fb50cb0d4fc676f99bcf703daa",
+   "bytes": 12662,
+   "written_or_retrieved_utc": "2026-10-24T16:41:51Z",
+   "evidence_ids": [
+    "E07"
+   ]
+  },
+  {
+   "path": "downloads/kataster/roi01_sw_parcels_since2019.json",
+   "kind": "source_download",
+   "sha256": "5f6616da9ad74d670fee32acc9f138c226e9f219950cc8647a5ba54cc59d5d47",
+   "bytes": 298149,
+   "written_or_retrieved_utc": "2026-10-24T16:42:42Z",
+   "evidence_ids": [
+    "E08"
+   ]
+  },
+  {
+   "path": "downloads/kitsendus/kma_avalik_transport_roi01.json",
+   "kind": "source_download",
+   "sha256": "2530ff69549468acf0c99f674614c846cb9cfa53c5b2c32dc107d24faa1fe8df",
+   "bytes": 1435628,
+   "written_or_retrieved_utc": "2026-10-24T16:40:41Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/kitsendus/kma_avalik_transport_roi02.json",
+   "kind": "source_download",
+   "sha256": "197baa773f966cfa9e133619e54dcb983f245b721612b5668cb089c65be42676",
+   "bytes": 382242,
+   "written_or_retrieved_utc": "2026-10-24T16:40:42Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/kitsendus/kpo_avalik_planeering_roi01.json",
+   "kind": "source_download",
+   "sha256": "01058919c8ef2299523d5f0e1a93de8621b4f61836a5528269c24cef0a9f80aa",
+   "bytes": 62342,
+   "written_or_retrieved_utc": "2026-10-24T16:40:41Z",
+   "evidence_ids": [
+    "E05"
+   ]
+  },
+  {
+   "path": "downloads/kitsendus/kpo_avalik_planeering_roi02.json",
+   "kind": "source_download",
+   "sha256": "3299bbae5e148bb8a194742b3c551a7d5c046442088710de0c1c4ceff8b19986",
+   "bytes": 147,
+   "written_or_retrieved_utc": "2026-10-24T16:40:41Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/kitsendus/kpo_avalik_transport_roi01.json",
+   "kind": "source_download",
+   "sha256": "d4d57e1948f6d5dfc0ca43044f12e71f34f8e7e668d649b888402c09f28ab4aa",
+   "bytes": 232091,
+   "written_or_retrieved_utc": "2026-10-24T16:40:41Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/kitsendus/kpo_avalik_transport_roi02.json",
+   "kind": "source_download",
+   "sha256": "1a18dc30fa80abc2b949feb542cd0234f35201ca30b02ecbc2ced12665b30ae4",
+   "bytes": 80400,
+   "written_or_retrieved_utc": "2026-10-24T16:40:41Z",
+   "evidence_ids": []
+  },
+  {
+   "path": "downloads/metsaregister/teatis_arhiiv_RD_LR_roi01.json",
+   "kind": "source_download",
+   "sha256": "8de7f43b0997e63a843a930ee06178fa0e033c7578223bccce2e3f719abdcc80",
+   "bytes": 3601035,
+   "written_or_retrieved_utc": "2026-10-24T16:43:07Z",
+   "evidence_ids": [
+    "E10"
+   ]
+  },
+  {
+   "path": "downloads/metsaregister/teatis_arhiiv_RD_LR_roi02.json",
+   "kind": "source_download",
+   "sha256": "a04d633a3b895a102461a48a8c530bf5e350a1dca5dca45ba6694c7d97385f4b",
+   "bytes": 447197,
+   "written_or_retrieved_utc": "2026-10-24T16:43:08Z",
+   "evidence_ids": [
+    "E10"
+   ]
+  },
+  {
+   "path": "downloads/metsaregister/teatis_roi01.json",
+   "kind": "source_download",
+   "sha256": "943c082e88e60fb4fc3b0accae91d102430bf6b1f959245f221cab9afdd4d63c",
+   "bytes": 1636677,
+   "written_or_retrieved_utc": "2026-10-24T16:41:21Z",
+   "evidence_ids": [
+    "E09"
+   ]
+  },
+  {
+   "path": "downloads/metsaregister/teatis_roi02.json",
+   "kind": "source_download",
+   "sha256": "469b073bfaceecb2c829eb3ff8d2228dd4f3cea49a1404b2a33f7cb54dc4b9c7",
+   "bytes": 262935,
+   "written_or_retrieved_utc": "2026-10-24T16:41:21Z",
+   "evidence_ids": [
+    "E09"
+   ]
+  }
+ ],
+ "lineage_notes": [
+  "E01-E08, E11: Maa- ja Ruumiamet registers via gsavalik.envir.ee (shared provider; ETAK, cadastre, planning are distinct registers but one provider).",
+  "E09-E10: Keskkonnaagentuur Metsaregister via the same WFS host (shared provider, distinct register).",
+  "E12-E17: ERR news, single secondary lineage; not independent confirmations of each other.",
+  "E20: derived by works-01 scripts from E01-E11."
+ ],
+ "missing_inputs": [
+  {
+   "item": "Rail Baltica Tootsi-Pärnu design alignment / building permit / works log",
+   "status": "not_found",
+   "refs": [
+    "N02",
+    "N04"
+   ]
+  },
+  {
+   "item": "Are bypass (road 4 km 108.5-115.8) design geometry / building permit",
+   "status": "not_found",
+   "refs": [
+    "N03",
+    "N04"
+   ]
+  },
+  {
+   "item": "Procurement register IDs (riigihanked.riik.ee)",
+   "status": "blocked",
+   "refs": [
+    "N01"
+   ]
+  },
+  {
+   "item": "Actual felling/earthwork dates",
+   "status": "not_available_in_official_sources_found"
+  },
+  {
+   "item": "Control polygon coverage",
+   "status": "not_assessed (outside download bboxes)"
+  }
+ ]
+}

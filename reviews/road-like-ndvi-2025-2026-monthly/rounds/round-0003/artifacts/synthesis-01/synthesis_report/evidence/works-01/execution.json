@@ -1,0 +1,138 @@
+{
+ "instance": "works-01",
+ "role": "official-infrastructure-records",
+ "round": "round-0002",
+ "host": "claude-code (subagent spawned by synthesis-01)",
+ "model": "claude-opus-5-5 (as reported by runtime)",
+ "started_utc": "2026-10-24T16:37:40Z",
+ "ended_utc": "2026-10-24T16:51:21Z",
+ "repositories": {
+  "sentinel-monthly-forest-cover": "5b2e30e11d2ea9a990878f4bee643c11864daae3 (HEAD at run; working tree had untracked round-0002 files)",
+  "forest-cover-lab": "c322e89fb96def2434c62776ac595f6cd995ef92",
+  "graph_revision": "f70789df04b79ca8ec65e0094c571e0b3f6844afa2b88af2f8c9bcf1776a20f7"
+ },
+ "loaded_harness": [
+  {
+   "path": "/Users/server/projects/sentinel-monthly-forest-cover/AGENTS.md",
+   "sha256": "f8d8c9a7ff59417777732e98a9c4cfb8339a22284c6f0bc0e9705ebacdbb29e5",
+   "when": "before start (delivered via project instructions CLAUDE.md -> AGENTS.md in the session context)"
+  },
+  {
+   "path": "/Users/server/projects/sentinel-monthly-forest-cover/CLAUDE.md",
+   "sha256": "e3cc286b337786d1514550baa25ec66531ee85483175766697cbd587af29b36a",
+   "when": "before start (session context)"
+  },
+  {
+   "path": "/Users/server/projects/CLAUDE.md",
+   "sha256": "c75ba6753dbff3cf45dbf2b9171ade22f254b46ad54a226ae51e8781df7f4243",
+   "when": "before start (session context)"
+  },
+  {
+   "path": "/Users/server/projects/forest-cover-lab/agent_harness/roles/official-infrastructure-records.md",
+   "sha256": "a826ed59a4a7cdb9bae2bead34681a58715d1b26da380eaee11807cf3a19b3ce",
+   "when": "read at start 2026-10-24T16:37:40Z"
+  },
+  {
+   "path": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/assignments/works-01.md",
+   "sha256": "dd682c9abb4fd96b5baa4d64821ba0cf978f1f543005d27699f757cfa9c0b637",
+   "when": "read at start"
+  },
+  {
+   "path": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/assignments/works-01-retask-0001.md",
+   "sha256": "90c703f55a6215d90184b02c13c0caeb3678e327825e82dc4fa535cfca68fa38",
+   "when": "read at start"
+  },
+  {
+   "path": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/inputs/prior_rois.geojson",
+   "sha256": "b079d3dbff8a473daf6e3d33cdfdaedffc29de470425b8fe9a212f796a862125",
+   "when": "read at start (data input)"
+  },
+  {
+   "path": "/Users/server/projects/forest-cover-lab/AGENTS.md",
+   "sha256": "6cf2a9e0c6fec2e2b7a2a59a28d2e479f2ba05c99c3817b0d7328661f244098a",
+   "when": "read AFTER start, at 2026-10-24T16:39:18Z, on coordinator harness update (after ETAK/RB WFS downloads had begun)"
+  },
+  {
+   "path": "/Users/server/projects/forest-cover-lab/docs/agents.md",
+   "sha256": "bc98c873e5f52aaaf6236d21c976c87f81115d1cead52f3d1f237bf40531481f",
+   "when": "read AFTER start, at 2026-10-24T16:39:18Z (first ~250 lines displayed; file hashed in full)"
+  },
+  {
+   "path": "/Users/server/projects/sentinel-monthly-forest-cover/reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0003/assignments/works-01-retask-0002.md",
+   "sha256": "678feb94f77a38407d03149a95bc6488f3712e3986c2117fdcdbd12a8f68f12b",
+   "when": "read at start of attempt 2, 2026-10-24T16:52:42Z"
+  }
+ ],
+ "not_read": [
+  "docs/agent_harness.md (sentinel) referenced by CLAUDE.md was not opened",
+  "reviews/20261006T174722Z-sentinel-road-investigation/* and artifacts/audit-01/* (deliberately not read)"
+ ],
+ "private_external_instructions": "coordinator prompt from synthesis-01: not_captured verbatim (summarised: scope, write-only directory, authorized public sources, independence rules, outputs, budget)",
+ "tools": [
+  "Bash (curl WFS GetCapabilities/GetFeature to gsavalik.envir.ee; curl of web pages; shasum; pdftotext)",
+  "python3 -I and sentinel .venv python -I (shapely, pyproj, matplotlib)",
+  "WebSearch (7 queries)",
+  "WebFetch (5 calls; 2 failed: 404/DNS)",
+  "Read (2 PNG previews)",
+  "ToolSearch (1)"
+ ],
+ "commands_summary": [
+  "WFS GetFeature bbox 534600,6476200,547700,6489700 and 529400,6485600,531800,6494300 (EPSG:3301) for etak e_501/e_502/e_503/e_601/e_603",
+  "WFS planeeringud:rb_planeeringutrass; kitsendus_suunatud kpo/kma transport+planeering; planeeringud yld/detail plan layers; metsaregister teatis + teatis_arhiiv (RD,LR); kataster ky_kehtiv (CQL by tunnus, by address LIKE raudtee/Ikla tee, by registr>=2019); ehak asustusyksuste_piirid",
+  "scripts/intersect_etak.py, intersect_polygon_layer.py, profile_centreline.py, vertex_distances.py, intersect_forest_notices.py, parcel_coverage.py, parcels_in_roi.py, notice_chainage.py, archive_notices.py, roi_villages.py, render_map.py, build_manifests.py"
+ ],
+ "tool_call_count_estimate": 72,
+ "budget": "120 tool calls / 60 min; used ~72 calls / ~16 min",
+ "outputs": {
+  "works_ledger.csv": "1883f113807c6a4cbe85966e0537f344414965988490d68ad567ab0aa83a65dd",
+  "works_claims.csv": "cb98ae813778cd1e4f4ebc143d6206dd825af2a6cc94754a86443dac054f1aae",
+  "README.md": "f04a928b8733e8da69459da5412b3b121a90199985701f564fa71ce8a9b1dbc7",
+  "works_primary_evidence.json": "4614e00f416323c2a8e0bfdf1f2969444657a140a36400fedb45ec204dea7581"
+ },
+ "checks": [
+  "CSV column-count consistency checked (ledger 14 cols, claims 10 cols)",
+  "Map PNGs visually inspected",
+  "No files written outside artifacts/works-01/"
+ ],
+ "limitations": [
+  "Web searches are non-replayable; results summarised by the search tool may contain errors (one summary mis-stated a contract year; corrected from saved ERR page metadata).",
+  "ERR articles are a single secondary lineage; lead-partner conflict E12 vs E13 unresolved.",
+  "No official design geometry for RB Tootsi-Pärnu or Are bypass; identity of ROI-01 SW part and ROI-02 N part indeterminate.",
+  "Forest-notice approval dates are not felling dates.",
+  "Controls not assessed.",
+  "riigihanked.riik.ee not machine-accessible; no procurement IDs."
+ ],
+ "attempts": [
+  {
+   "attempt": 2,
+   "retask": "works-01-retask-0002",
+   "issued_by": "synthesis-01 (coordinator message; text not captured verbatim)",
+   "started_utc": "2026-10-24T16:52:42Z",
+   "ended_utc": "2026-10-24T17:00:30Z",
+   "note": "Appended E21-E27, N05 to works_ledger.csv; C16-C21 to works_claims.csv; README section Retask 0002. Earlier files unchanged except README/ledger/claims appends and this file.",
+   "sources_new": [
+    "gis.transpordiamet.ee Teeregister MapServer layers 1, 9, 12 (road 4)",
+    "transpordiamet.ee project page and 2 news pages",
+    "ERR 1609984282"
+   ],
+   "scripts_new": [
+    "scripts/road4_register_vs_roi02.py",
+    "scripts/w6_north_buffer.py"
+   ],
+   "tool_call_count_estimate": 28,
+   "budget": "40 tool calls / 20 min",
+   "outputs_after": {
+    "works_ledger.csv": "42aabc7e2682e1f227dc8125ac16672f13d89e657c800b94eb5f559379b3423a",
+    "works_claims.csv": "f305f9aee03e3edec91e57d82ae959105c792e5757e95ea7eb0f17d55f36cde8",
+    "README.md": "6c23333f364e3963ebe3a82e68f72d142807a2774a93bdf7599c12a26aae071b",
+    "derived_road4_register_vs_roi02.json": "5f0f01303a9839528ca38a8767b7adfec859b6d3717d7beade2f9787f12d903f",
+    "derived_w6_north_buffer.json": "7341d6f1d104ac6e009c40545fd788e5600c43bf89303c3da0b94fe9a1ea5eaa"
+   },
+   "limitations": [
+    "works_primary_evidence.json not regenerated; new files are hashed in works_ledger.csv E21-E27",
+    "web search not replayable",
+    "km interpolation linear between integer km points"
+   ]
+  }
+ ]
+}

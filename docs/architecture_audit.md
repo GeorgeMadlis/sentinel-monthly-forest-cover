@@ -280,3 +280,16 @@ reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0002/bootstrap/.
 **Drift review:** Mission and Lab authority unchanged; P1/P2 source/evidence separation and non-claims preserved, P3/P4 no research inventory expansion, P5 private planning adapter remains separate from scientific execution/release, P6 both round graphs current and schema checks pass. This publication carries the recorded audit limitations and pending human output/scientific review; no automatic promotion. Hosted CI and merge outcome are reported through the pull request, not anticipated here.
 
 **Staged-byte review:** The first cached whitespace check exposed intentional CRLF in the vendored Leaflet CSS and two CSV snapshots, previously untracked during the working-tree check. Added three narrow .gitattributes rules to preserve those hashed bytes and recognize CR-at-EOL; no evidence was normalized. Cached whitespace validation then passed.
+
+
+## 2026-10-24 — Round-0003: synthesis-01 sub-agent and retasked geo-01/works-01
+
+**Trigger:** Operator asked to add a sub-agent that scans, analyses and summarises the existing sub-agents' results, retasks them if needed with online public sources, and writes an offline HTML report (ASD-STE100 style) on ROI-01/ROI-02: 2025 existence, artificial widening, and use of Maa- ja Ruumiamet / Transpordiamet information.
+
+**Structure:** New successor round reviews/road-like-ndvi-2025-2026-monthly/rounds/round-0003/ with a round-only role (roles/evidence-synthesis.md), assignment synthesis-01.md, retask addenda for geo-01 (0001) and works-01 (0001, 0002), byte-identical copies of round-0002 inputs and base assignments, artifacts for all three instances and a canonical graph render. Round-0002 is unchanged: its approved graph places geo-01/works-01 behind a pending freeze gate that requires discovery-01, so new attempts could not be recorded there. geo-01/works-01 outputs were first written under round-0002/artifacts/ and moved unchanged (artifacts/RELOCATION.md). No standing Lab role or registry was edited.
+
+**Observed execution:** synthesis-01 ran sequentially in Claude Code and spawned geo-01 and works-01 as native background subagents (Claude Code, model reported as claude-opus-5-5); works-01 was resumed once (retask 0002). Lab AGENTS.md and docs/agents.md were loaded after start (recorded as limitations). The round-graph approval is a retrospective record of the operator instruction; no graph image was shown before execution. Human review is pending.
+
+**Drift review:** Mission boundary and non-claims retained in the report (P1/P2). No forest definition, threshold or dataset role introduced; the NDVI contrast width setting is labelled report configuration (P3/P4). Evidence stays downstream with hashes; raw downloads and full-size images git-ignored; copyrighted news HTML kept local only (P5). Validators pass; no promotion (P6). New finding: ROI length_m and the 40 m buffer were computed in EPSG:6933 (ground lengths 18.3 km and 8.6 km); distances and widths should use EPSG:3301.
+
+**Checks:** scripts/validate_agent_rounds.py PASS for rounds 0001–0003 (structure only); Lab render_round_graph.py --check PASS (3 graphs); 48 unit tests OK; report bundle 38 files, all local links resolve, headless Chromium renders at 1100 px and 390 px. Reviewer: synthesis-01 structural review; human review pending.

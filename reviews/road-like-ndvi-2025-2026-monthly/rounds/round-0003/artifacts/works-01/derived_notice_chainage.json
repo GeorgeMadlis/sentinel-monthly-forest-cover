@@ -1,0 +1,217 @@
+{
+ "ROI-01": [
+  {
+   "from_m": 0,
+   "slab_area_m2": 81083,
+   "notice_overlap_m2": {}
+  },
+  {
+   "from_m": 1000,
+   "slab_area_m2": 82788,
+   "notice_overlap_m2": {}
+  },
+  {
+   "from_m": 2000,
+   "slab_area_m2": 82809,
+   "notice_overlap_m2": {}
+  },
+  {
+   "from_m": 3000,
+   "slab_area_m2": 82830,
+   "notice_overlap_m2": {
+    "LR_2026H1": 2193,
+    "TR_2026H1": 122
+   }
+  },
+  {
+   "from_m": 4000,
+   "slab_area_m2": 86066,
+   "notice_overlap_m2": {
+    "LR_2026H2": 12293,
+    "SR_2025H1": 7035
+   }
+  },
+  {
+   "from_m": 5000,
+   "slab_area_m2": 100948,
+   "notice_overlap_m2": {
+    "HR_2025H2": 21705,
+    "LR_2025H1": 3986,
+    "LR_2026H2": 13,
+    "RD_2025H2": 948
+   }
+  },
+  {
+   "from_m": 6000,
+   "slab_area_m2": 100975,
+   "notice_overlap_m2": {
+    "HR_2024H2": 2900,
+    "HR_2025H1": 529,
+    "HR_2025H2": 9303,
+    "LR_2025H1": 17229,
+    "RD_2025H2": 4487
+   }
+  },
+  {
+   "from_m": 7000,
+   "slab_area_m2": 101003,
+   "notice_overlap_m2": {
+    "LR_2026H2": 494,
+    "RD_2026H2": 1358
+   }
+  },
+  {
+   "from_m": 8000,
+   "slab_area_m2": 101060,
+   "notice_overlap_m2": {
+    "LR_2025H2": 6740
+   }
+  },
+  {
+   "from_m": 9000,
+   "slab_area_m2": 110264,
+   "notice_overlap_m2": {
+    "HR_2025H2": 14696,
+    "HR_2026H1": 5783,
+    "RD_2026H2": 121
+   }
+  },
+  {
+   "from_m": 10000,
+   "slab_area_m2": 110542,
+   "notice_overlap_m2": {
+    "HR_2025H1": 1778
+   }
+  },
+  {
+   "from_m": 11000,
+   "slab_area_m2": 110569,
+   "notice_overlap_m2": {
+    "HR_2025H1": 43135,
+    "LR_2025H2": 9088,
+    "RD_2025H2": 9629
+   }
+  },
+  {
+   "from_m": 12000,
+   "slab_area_m2": 110597,
+   "notice_overlap_m2": {
+    "LR_2025H2": 9,
+    "RD_2025H2": 47019
+   }
+  },
+  {
+   "from_m": 13000,
+   "slab_area_m2": 107565,
+   "notice_overlap_m2": {
+    "RD_2025H2": 61387
+   }
+  },
+  {
+   "from_m": 14000,
+   "slab_area_m2": 101421,
+   "notice_overlap_m2": {
+    "RD_2025H2": 69212
+   }
+  },
+  {
+   "from_m": 15000,
+   "slab_area_m2": 101450,
+   "notice_overlap_m2": {
+    "HR_2024H2": 8952,
+    "HR_2025H2": 35584,
+    "RD_2025H2": 23453
+   }
+  },
+  {
+   "from_m": 16000,
+   "slab_area_m2": 101478,
+   "notice_overlap_m2": {
+    "LR_2025H1": 1793,
+    "RD_2025H2": 12487,
+    "RD_2026H1": 36765
+   }
+  },
+  {
+   "from_m": 17000,
+   "slab_area_m2": 101506,
+   "notice_overlap_m2": {
+    "HR_2025H1": 2350,
+    "LR_2025H1": 10795
+   }
+  },
+  {
+   "from_m": 18000,
+   "slab_area_m2": 29204,
+   "notice_overlap_m2": {}
+  }
+ ],
+ "ROI-02": [
+  {
+   "from_m": 0,
+   "slab_area_m2": 48076,
+   "notice_overlap_m2": {}
+  },
+  {
+   "from_m": 1000,
+   "slab_area_m2": 48668,
+   "notice_overlap_m2": {}
+  },
+  {
+   "from_m": 2000,
+   "slab_area_m2": 81738,
+   "notice_overlap_m2": {
+    "RD_2026H1": 3786
+   }
+  },
+  {
+   "from_m": 3000,
+   "slab_area_m2": 83636,
+   "notice_overlap_m2": {
+    "LR_2026H1": 3127
+   }
+  },
+  {
+   "from_m": 4000,
+   "slab_area_m2": 63034,
+   "notice_overlap_m2": {
+    "LR_2026H1": 3406,
+    "RD_2026H2": 319
+   }
+  },
+  {
+   "from_m": 5000,
+   "slab_area_m2": 55336,
+   "notice_overlap_m2": {}
+  },
+  {
+   "from_m": 6000,
+   "slab_area_m2": 54969,
+   "notice_overlap_m2": {
+    "RD_2026H1": 199,
+    "SR_2024H2": 572
+   }
+  },
+  {
+   "from_m": 7000,
+   "slab_area_m2": 49929,
+   "notice_overlap_m2": {
+    "LR_2026H1": 1012,
+    "RD_2025H2": 18168,
+    "RD_2026H1": 10336,
+    "SR_2024H2": 2589,
+    "TR_2026H1": 419
+   }
+  },
+  {
+   "from_m": 8000,
+   "slab_area_m2": 30375,
+   "notice_overlap_m2": {
+    "LR_2026H1": 276,
+    "RD_2025H2": 10410,
+    "RD_2026H1": 10305,
+    "TR_2026H1": 693
+   }
+  }
+ ]
+}
